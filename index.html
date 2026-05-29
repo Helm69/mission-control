@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Mission Control</title>
+<style>
+:root{--bg:#0f1117;--card:#1a202c;--border:#2d3748;--text:#e2e8f0;--dim:#718096;--accent:#6c5ce7;--blue:#4299e1;--green:#48bb78;--orange:#ed8936;--red:#fc8181;--purple:#9f7aea}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.top-bar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.top-bar h1{font-size:1rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.status-badge{font-size:0.65rem;padding:3px 10px;border-radius:10px;background:rgba(72,187,120,0.15);color:var(--green);border:1px solid rgba(72,187,120,0.3)}
+.nav{display:flex;background:var(--card);border-bottom:1px solid var(--border);overflow-x:auto;padding:0 4px}
+.nav-btn{padding:10px 13px;font-size:0.68rem;color:var(--dim);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;white-space:nowrap;flex-shrink:0}
+.nav-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+.page{display:none;padding:14px;max-width:800px;margin:0 auto}
+.page.active{display:block}
+.section{font-size:0.7rem;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;margin-top:14px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:10px}
+.item{display:flex;align-items:flex-start;gap:9px;padding:9px 0;border-bottom:1px solid var(--border)}
+.item:last-child{border-bottom:none}
+.item input[type="checkbox"]{width:20px;height:20px;accent-color:var(--green);flex-shrink:0;margin-top:1px;cursor:pointer}
+.item label{font-size:0.8rem;line-height:1.35;cursor:pointer;flex:1}
+.item.done label{text-decoration:line-decoration:line-through;color:var(--dim)}
+.who{font-size:0.65rem;color:var(--blue);display:block;margin-top:2px}
+.when{font-size:0.62rem;color:var(--dim);display:block;margin-top:1px}
+.add-row{display:flex;gap:6px;margin-top:10px}
+.add-row input{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:5px;padding:7px 10px;color:var(--text);font-size:0.8rem;outline:none}
+.add-row input:focus{border-color:var(--accent)}
+.add-row button{background:var(--accent);color:#fff;border:none;border-radius:5px;padding:7px 12px;cursor:pointer;font-size:0.75rem;font-weight:600}
+.cron-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--border)}
+.cron-row:last-child{border-bottom:none}
+.cron-name{font-size:0.82rem;font-weight:600}
+.cron-time{font-size:0.68rem;color:var(--dim);margin-top:2px}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:6px}
+.dot.green{background:var(--green)}.dot.red{background:var(--red)}.dot.orange{background:var(--orange)}.dot.grey{background:var(--dim)}
+.stat-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:0.82rem}
+.stat-row:last-child{border-bottom:none}
+.stat-label{color:var(--dim)}
+.empty{color:var(--dim);font-size:0.78rem;text-align:center;padding:16px 0;font-style:italic}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <h1>🎮 Mission Control</h1>
+  <span class="status-badge">● Live</span>
+</div>
+<div class="nav">
+  <button class="nav-btn active" onclick="go('overview',this)">📊 Overview</button>
+  <button class="nav-btn" onclick="go('mytasks',this)">✅ My Tasks</button>
+  <button class="nav-btn" onclick="go('owl',this)">🦉 OWL's Tasks</button>
+  <button class="nav-btn" onclick="go('cron',this)">⏰ Cron</button>
+</div>
+
+<!-- OVERVIEW -->
+<div class="page active" id="pg-overview">
+  <div class="section">Status</div>
+  <div class="card">
+    <div class="stat-row"><span class="stat-label">My Open Tasks</span><span id="s-open">0</span></div>
+    <div class="stat-row"><span class="stat-label">My Done</span><span id="s-done">0</span></div>
+    <div class="stat-row"><span class="stat-label">OWL Active</span><span id="s-owl">0</span></div>
+    <div class="stat-row"><span class="stat-label">Cron Jobs</span><span id="s-cron">7</span></div>
+  </div>
+  <div class="section">Recent</div>
+  <div class="card" id="recent-list"></div>
+</div>
+
+<!-- MY TASKS -->
+<div class="page" id="pg-mytasks">
+  <div class="section">Mark's Action Items</div>
+  <div class="card"><div id="my-list"></div></div>
+</div>
+
+<!-- OWL TASKS -->
+<div class="page" id="pg-owl">
+  <div class="section">OWL's To-Do List</div>
+  <div class="card"><div id="owl-list"></div>
+  <div class="add-row"><input type="text" id="owl-new" placeholder="Add task for OWL..."><button onclick="addOwl()">+</button></div></div>
+</div>
+
+<!-- CRON -->
+<div class="page" id="pg-cron">
+  <div class="section">Cron Jobs</div>
+  <div class="card"><div id="cron-list"></div></div>
+</div>
+
+<script>
+// Data
+var myTasks = load('myTasks') || [
+  {id:1,text:"Finish parts justification spreadsheet for Paul Philpott",who:"Mark",meeting:"After Sales Sync",date:"28 May",done:false},
+  {id:2,text:"Put required windscreens on purchasing request list",who:"Mark",meeting:"After Sales Sync",date:"28 May",done:false},
+  {id:3,text:"PDR follow-up: finalize SMART objectives",who:"Mark & JB",meeting:"PDR Review",date:"29 May",done:false},
+  {id:4,text:"Obtain quote for asbestos clearance in old storage area",who:"Mark",meeting:"Operational Review",date:"29 May",done:false},
+  {id:5,text:"Approve new employee handbook draft",who:"Mark",meeting:"Legal Briefing",date:"29 May",done:false},
+];
+
+var owlTasks = load('owlTasks') || [
+  {id:1,text:"Build parts sales dashboard (FX rate fix needed)",done:false},
+  {id:2,text:"Set up comment moderation on WordPress",done:true},
+  {id:3,text:"Configure Akismet on wpForo",done:true},
+  {id:4,text:"Hardened wpForo: disabled guest posting + email verification",done:true},
+  {id:5,text:"Auto-push Obsidian vault hourly (cron updated)",done:true},
+  {id:6,text:"Create Android Mission Control APK for Mark",done:false},
+  {id:7,text:"Add remaining Shattered Veil books to WooCommerce",done:false},
+  {id:8,text:"wpForo forum hardening walkthrough with Mark",done:true},
+];
+
+var cron = [
+  {name:"RPG Weekly Brief",schedule:"Mon 9am",status:"ok"},
+  {name:"Tuco LinkedIn Post",schedule:"Wed 8am",status:"ok"},
+  {name:"RPG Market Intelligence",schedule:"Tue 9am",status:"ok"},
+  {name:"Content Spark Friday",schedule:"Fri 10am",status:"ok"},
+  {name:"RPG Content Generator",schedule:"Sun 11am",status:"ok"},
+  {name:"Obsidian Vault Auto-Push",schedule:"Hourly",status:"ok"},
+  {name:"Daily System Update",schedule:"Daily 2am",status:"error"},
+];
+
+function load(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
+function save(k,v){localStorage.setItem(k,JSON.stringify(v))}
+function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
+
+function go(id,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('pg-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function renderMy(){
+  var el=document.getElementById('my-list');el.innerHTML='';
+  var open=0,done=0;
+  myTasks.forEach(t=>{
+    if(t.done){done++;}else{open++;}
+    var d=document.createElement('div');
+    d.className='item'+(t.done?' done':'');
+    d.innerHTML='<input type="checkbox"'+(t.done?' checked':'')+' onchange="toggleMy('+t.id+')"><label>'+esc(t.text)+'<span class="who">'+esc(t.who)+'</span><span class="when">'+esc(t.meeting)+' — '+esc(t.date)+'</span></label>';
+    el.appendChild(d);
+  });
+  if(myTasks.length===0)el.innerHTML='<div class="empty">No tasks</div>';
+  document.getElementById('s-open').textContent=open;
+  document.getElementById('s-done').textContent=done;
+}
+
+function toggleMy(id){
+  var t=myTasks.find(x=>x.id===id);
+  if(t){t.done=!t.done;save('myTasks',myTasks);renderMy();renderRecent();}
+}
+
+function renderOwl(){
+  var el=document.getElementById('owl-list');el.innerHTML='';
+  var active=0;
+  owlTasks.forEach(t=>{
+    if(!t.done)active++;
+    var d=document.createElement('div');
+    d.className='item'+(t.done?' done':'');
+    d.innerHTML='<input type="checkbox"'+(t.done?' checked':'')+' onchange="toggleOwl('+t.id+')"><label>'+esc(t.text)+'</label>';
+    el.appendChild(d);
+  });
+  document.getElementById('s-owl').textContent=active;
+}
+
+function toggleOwl(id){
+  var t=owlTasks.find(x=>x.id===id);
+  if(t){t.done=!t.done;save('owlTasks',owlTasks);renderOwl();renderRecent();}
+}
+
+function addOwl(){
+  var inp=document.getElementById('owl-new');
+  if(!inp.value.trim())return;
+  owlTasks.push({id:Date.now(),text:inp.value,done:false});
+  save('owlTasks',owlTasks);
+  inp.value='';
+  renderOwl();
+  renderRecent();
+}
+
+function renderCron(){
+  var el=document.getElementById('cron-list');el.innerHTML='';
+  var dc=document.getElementById('s-cron');dc.textContent=cron.length;
+  cron.forEach(j=>{
+    var d=document.createElement('div');d.className='cron-row';
+    var dc2=j.status==='ok'?'green':j.status==='error'?'red':'orange';
+    d.innerHTML='<div><div class="cron-name"><span class="dot '+dc2+'"></span>'+esc(j.name)+'</div><div class="cron-time">'+esc(j.schedule)+'</div></div>';
+    el.appendChild(d);
+  });
+}
+
+function renderRecent(){
+  var el=document.getElementById('recent-list');el.innerHTML='';
+  var recent=[];
+  myTasks.filter(x=>!x.done).forEach(x=>recent.push({text:x.text,who:'Mark'}));
+  owlTasks.filter(x=>!x.done).forEach(x=>recent.push({text:x.text,who:'OWL'}));
+  recent.slice(0,5).forEach(r=>{
+    var d=document.createElement('div');d.className='item';
+    d.innerHTML='<label>• '+esc(r.text)+'<span class="who">'+esc(r.who)+'</span></label>';
+    el.appendChild(d);
+  });
+  if(recent.length===0)el.innerHTML='<div class="empty">All caught up! 🎉</div>';
+}
+
+// Init
+renderMy();renderOwl();renderCron();renderRecent();
+</script>
+</body>
+</html>
