@@ -10,17 +10,17 @@ body{font-family:sans-serif;background:#0f1117;color:#e2e8f0;min-height:100vh}
 .top{background:#1a202c;border-bottom:1px solid #2d3748;padding:14px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:99}
 .top h1{font-size:1.1rem}
 .badge{font-size:.7rem;padding:3px 10px;border-radius:10px;background:rgba(72,187,120,.15);color:#48bb78;border:1px solid rgba(72,187,120,.3)}
-.nav{display:flex;background:#1a202c;border-bottom:1px solid #2d3748}
-.nbtn{flex:1;padding:14px 6px;border:none;background:none;color:#718096;font-size:.72rem;cursor:pointer;border-bottom:3px solid transparent;text-align:center}
+.nav{display:flex;background:#1a202c;border-bottom:1px solid #2d3748;position:relative;z-index:98}
+.nbtn{flex:1;padding:14px 6px;border:none;background:none;color:#718096;font-size:.72rem;cursor:pointer;border-bottom:3px solid transparent;text-align:center;position:relative;z-index:99}
 .nbtn.ac{color:#fff;background:#6c5ce7;border-bottom-color:#6c5ce7}
-.pg{display:none;padding:16px;max-width:700px;margin:0 auto}
+.pg{display:none;padding:16px;max-width:700px;margin:0 auto;position:relative;z-index:1}
 .pg.ac{display:block}
 .sec{font-size:.7rem;color:#718096;text-transform:uppercase;letter-spacing:.05em;margin:16px 0 8px;padding-bottom:6px;border-bottom:1px solid #2d3748}
-.card{background:#1a202c;border:1px solid #2d3748;border-radius:8px;padding:14px;margin-bottom:10px}
-.it{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #2d3748;min-height:52px;cursor:pointer}
+.card{background:#1a202c;border:1px solid #2d3748;border-radius:8px;padding:14px;margin-bottom:10px;position:relative}
+.it{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #2d3748;min-height:52px;position:relative}
 .it:last-child{border-bottom:none}
-.it input{width:26px;height:26px;accent-color:#48bb78;flex-shrink:0;cursor:pointer}
-.it label{flex:1;font-size:.88rem;cursor:pointer}
+.it input{width:26px;height:26px;accent-color:#48bb78;flex-shrink:0;cursor:pointer;position:relative;z-index:2}
+.it label{flex:1;font-size:.88rem;cursor:pointer;position:relative;z-index:2}
 .it.dn label{text-decoration:line-through;color:#718096}
 .sr{display:flex;justify-content:space-between;padding:9px 0;font-size:.88rem;border-bottom:1px solid #2d3748}
 .sr:last-child{border-bottom:none}
@@ -30,14 +30,14 @@ body{font-family:sans-serif;background:#0f1117;color:#e2e8f0;min-height:100vh}
 .ar{display:flex;gap:8px;margin-top:12px}
 .ar input{flex:1;background:#0f1117;border:1px solid #2d3748;border-radius:6px;padding:10px;color:#e2e8f0;font-size:.9rem}
 .ar input:focus{border-color:#6c5ce7;outline:none}
-.ar button{background:#6c5ce7;color:#fff;border:none;border-radius:6px;padding:10px 18px;cursor:pointer;font-weight:600}
+.ar button{background:#6c5ce7;color:#fff;border:none;border-radius:6px;padding:10px 18px;cursor:pointer;font-weight:600;font-size:.9rem}
 .em{color:#718096;text-align:center;padding:24px;font-style:italic}
 </style>
 </head>
 <body>
 <div class="top"><h1>&#x1F3AE; Mission Control</h1><span class="badge">&#x25CF; Live</span></div>
 
-<div class="nav">
+<div class="nav" id="mainNav">
   <button class="nbtn ac" id="nb1">&#x1F4CA; Overview</button>
   <button class="nbtn" id="nb2">&#x2705; My Tasks</button>
   <button class="nbtn" id="nb3">&#x1F989; OWL</button>
@@ -46,32 +46,34 @@ body{font-family:sans-serif;background:#0f1117;color:#e2e8f0;min-height:100vh}
 
 <div class="pg ac" id="pg1">
   <div class="sec">Status</div>
-  <div class="card" id="sc"></div>
+  <div class="card" id="statusCard"></div>
   <div class="sec">Recent Tasks</div>
-  <div class="card" id="rc"></div>
+  <div class="card" id="recentCard"></div>
 </div>
 
 <div class="pg" id="pg2">
   <div class="sec">Mark's Action Items</div>
-  <div class="card" id="lc"></div>
+  <div class="card" id="myCard"></div>
 </div>
 
 <div class="pg" id="pg3">
   <div class="sec">OWL's To-Do List</div>
-  <div class="card">
-    <div id="oc"></div>
-    <div class="ar"><input id="oi" placeholder="Add OWL task..."><button id="oa">Add</button></div>
-  </div>
+  <div class="card" id="owlCard"></div>
+  <div class="ar"><input type="text" id="owlInput" placeholder="Add OWL task..."><button id="owlAdd">Add</button></div>
 </div>
 
 <div class="pg" id="pg4">
   <div class="sec">Cron Jobs</div>
-  <div class="card" id="cc"></div>
+  <div class="card" id="cronCard"></div>
 </div>
 
-<script>
+<div id="debug" style="position:fixed;bottom:0;left:0;right:0;background:red;color:#fff;padding:8px;font-size:.75rem;z-index:9999;display:none"></div>
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',function(){
+try{
 var MT=JSON.parse(localStorage.getItem('mc1')||'null')||[
-  {id:1,text:'Finish parts justification spreadsheet for Paul Philpott',who:'Mark',meeting:'After Sales',date:'28 May'},
+  {id:1,text:'Finish parts justification spreadsheet',who:'Mark',meeting:'After Sales',date:'28 May'},
   {id:2,text:'Windscreens on purchasing request list',who:'Mark',meeting:'After Sales',date:'28 May'},
   {id:3,text:'PDR: finalize SMART objectives',who:'Mark & JB',meeting:'PDR Review',date:'29 May'},
   {id:4,text:'Asbestos clearance quote',who:'Mark',meeting:'Op Review',date:'29 May'},
@@ -86,74 +88,136 @@ var OT=JSON.parse(localStorage.getItem('mc2')||'null')||[
   {id:106,text:'Mission Control phone access'},
   {id:107,text:'Shattered Veil books to shop'}
 ];
-var CR=[{name:'RPG Weekly Brief',sched:'Mon 9am',ok:true},{name:'Tuco LinkedIn',sched:'Wed 8am',ok:true},{name:'RPG Market Intel',sched:'Tue 9am',ok:true},{name:'Content Spark',sched:'Fri 10am',ok:true},{name:'RPG Content Gen',sched:'Sun 11am',ok:true},{name:'Obsidian Push',sched:'Hourly',ok:true},{name:'System Update',sched:'Daily 2am',ok:false}];
+var CR=[
+  {name:'RPG Weekly Brief',sched:'Mon 9am',ok:true},
+  {name:'Tuco LinkedIn',sched:'Wed 8am',ok:true},
+  {name:'RPG Market Intel',sched:'Tue 9am',ok:true},
+  {name:'Content Spark',sched:'Fri 10am',ok:true},
+  {name:'RPG Content Gen',sched:'Sun 11am',ok:true},
+  {name:'Obsidian Push',sched:'Hourly',ok:true},
+  {name:'System Update',sched:'Daily 2am',ok:false}
+];
 
 function save(){localStorage.setItem('mc1',JSON.stringify(MT));localStorage.setItem('mc2',JSON.stringify(OT))}
 function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
-function gid(i){return document.getElementById(i)}
 
-/* Nav - direct button handlers */
-gid('nb1').onclick=function(){sw('1')};
-gid('nb2').onclick=function(){sw('2')};
-gid('nb3').onclick=function(){sw('3')};
-gid('nb4').onclick=function(){sw('4')};
-
-function sw(n){
-  for(var i=1;i<=4;i++){
-    gid('pg'+i).classList.toggle('ac',i===+n);
-    gid('nb'+i).classList.toggle('ac',i===+n);
-  }
+function show(n){
+  document.getElementById('pg1').classList.remove('ac');
+  document.getElementById('pg2').classList.remove('ac');
+  document.getElementById('pg3').classList.remove('ac');
+  document.getElementById('pg4').classList.remove('ac');
+  document.getElementById('nb1').classList.remove('ac');
+  document.getElementById('nb2').classList.remove('ac');
+  document.getElementById('nb3').classList.remove('ac');
+  document.getElementById('nb4').classList.remove('ac');
+  document.getElementById('pg'+n).classList.add('ac');
+  document.getElementById('nb'+n).classList.add('ac');
 }
 
-/* Checkbox delegation */
-document.body.addEventListener('change',function(e){
-  var t=e.target;
-  if(!t||t.type!=='checkbox')return;
-  var lid=t.getAttribute('data-l'),tid=+t.getAttribute('data-t');
-  if(lid==='m'){for(var i=0;i<MT.length;i++){if(MT[i].id===tid){MT[i].done=t.checked;break;}}save();draw();}
-  if(lid==='o'){for(var i=0;i<OT.length;i++){if(OT[i].id===tid){OT[i].done=t.checked;break;}}save();draw();}
-});
+function toggleMy(id){
+  for(var i=0;i<MT.length;i++){if(MT[i].id===id){MT[i].done=!MT[i].done;break;}}
+  save();draw();
+}
 
-/* OWL add */
-gid('oa').onclick=function(){var v=gid('oi').value.trim();if(!v)return;OT.push({id:Date.now(),text:v});save();gid('oi').value='';draw()};
-gid('oi').onkeydown=function(e){if(e.key==='Enter')gid('oa').onclick()};
+function toggleOwl(id){
+  for(var i=0;i<OT.length;i++){if(OT[i].id===id){OT[i].done=!OT[i].done;break;}}
+  save();draw();
+}
 
 function draw(){
   var op=0,dn=0,oa=0;
   for(var i=0;i<MT.length;i++){if(MT[i].done)dn++;else op++;}
   for(var i=0;i<OT.length;i++){if(!OT[i].done)oa++;}
-  gid('sc').innerHTML='<div class="sr"><span class="sl">My Open</span><b>'+op+'</b></div><div class="sr"><span class="sl">My Done</span><b>'+dn+'</b></div><div class="sr"><span class="sl">OWL Active</span><b>'+oa+'</b></div><div class="sr"><span class="sl">Cron Jobs</span><b>'+CR.length+'</b></div>';
+  var h='<div class="sr"><span class="sl">My Open</span><b>'+op+'</b></div>';
+  h+='<div class="sr"><span class="sl">My Done</span><b>'+dn+'</b></div>';
+  h+='<div class="sr"><span class="sl">OWL Active</span><b>'+oa+'</b></div>';
+  h+='<div class="sr"><span class="sl">Cron Jobs</span><b>'+CR.length+'</b></div>';
+  document.getElementById('statusCard').innerHTML=h;
 
-  var h='';
+  h='';
   for(var i=0;i<MT.length;i++){
     var t=MT[i];
-    h+='<div class="it'+(t.done?' dn':'')+'"><input type="checkbox" data-l="m" data-t="'+t.id+'"'+(t.done?' checked':'')+'><label><b>'+esc(t.text)+'</b><span class="who">'+esc(t.who)+'</span><span class="when">'+esc(t.meeting)+' - '+t.date+'</span></label></div>';
+    h+='<div class="it'+(t.done?' dn':'')+'">';
+    h+='<input type="checkbox" id="m'+t.id+'" data-l="m" data-t="'+t.id+'"'+(t.done?' checked':'')+'>';
+    h+='<label for="m'+t.id+'"><b>'+esc(t.text)+'</b>';
+    h+='<span class="who">'+esc(t.who)+'</span>';
+    h+='<span class="when">'+esc(t.meeting)+' - '+t.date+'</span></label></div>';
   }
-  gid('lc').innerHTML=h||'<div class="em">All done!</div>';
+  if(!MT.length)h='<div class="em">All done!</div>';
+  document.getElementById('myCard').innerHTML=h;
 
   h='';
   for(var i=0;i<OT.length;i++){
     var t=OT[i];
-    h+='<div class="it'+(t.done?' dn':'')+'"><input type="checkbox" data-l="o" data-t="'+t.id+'"'+(t.done?' checked':'')+'><label><b>'+esc(t.text)+'</b></label></div>';
+    h+='<div class="it'+(t.done?' dn':'')+'">';
+    h+='<input type="checkbox" id="o'+t.id+'" data-l="o" data-t="'+t.id+'"'+(t.done?' checked':'')+'>';
+    h+='<label for="o'+t.id+'"><b>'+esc(t.text)+'</b></label></div>';
   }
-  gid('oc').innerHTML=h||'<div class="em">All done!</div>';
+  if(!OT.length)h='<div class="em">All done!</div>';
+  document.getElementById('owlCard').innerHTML=h;
 
   h='';
   for(var i=0;i<CR.length;i++){
-    var c=CR[i],col=c.ok?'#48bb78':'#fc8181';
-    h+='<div class="sr"><div><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'+col+';margin-right:6px"></span><b>'+esc(c.name)+'</b><br><span style="color:#718096;font-size:.72rem">'+esc(c.sched)+'</span></div><span style="color:'+col+';font-size:.75rem">'+(c.ok?'OK':'Error')+'</span></div>';
+    var c=CR[i];
+    var col=c.ok?'#48bb78':'#fc8181';
+    var dot='<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'+col+';margin-right:8px"></span>';
+    h+='<div class="sr"><div>'+dot+'<b>'+esc(c.name)+'</b><br><span style="color:#718096;font-size:.72rem;margin-left:22px">'+esc(c.sched)+'</span></div>';
+    h+='<span style="color:'+col+';font-size:.8rem">'+(c.ok?'OK':'Error')+'</span></div>';
   }
-  gid('cc').innerHTML=h;
+  document.getElementById('cronCard').innerHTML=h;
 
   var r=[];
   for(var i=0;i<MT.length;i++)if(!MT[i].done)r.push({t:MT[i].text,w:'Mark'});
   for(var i=0;i<OT.length;i++)if(!OT[i].done)r.push({t:OT[i].text,w:'OWL'});
   h='';
-  for(var i=0;i<Math.min(r.length,5);i++)h+='<div class="it"><label>&#x2022; '+esc(r[i].t)+' <span class="who">'+esc(r[i].w)+'</span></label></div>';
-  gid('rc').innerHTML=h||'<div class="em">All caught up! &#x1F389;</div>';
+  for(var i=0;i<Math.min(r.length,5);i++){
+    h+='<div class="it"><label>&#x2022; '+esc(r[i].t)+' <span class="who">'+esc(r[i].w)+'</span></label></div>';
+  }
+  if(!r.length)h='<div class="em">All caught up! &#x1F389;</div>';
+  document.getElementById('recentCard').innerHTML=h;
 }
 
+/* Event delegation for ALL checkboxes */
+document.getElementById('myCard').addEventListener('change',function(e){
+  if(e.target.type!=='checkbox')return;
+  var id=parseInt(e.target.getAttribute('data-t'));
+  for(var i=0;i<MT.length;i++){if(MT[i].id===id){MT[i].done=e.target.checked;break;}}
+  save();draw();
+});
+document.getElementById('owlCard').addEventListener('change',function(e){
+  if(e.target.type!=='checkbox')return;
+  var id=parseInt(e.target.getAttribute('data-t'));
+  for(var i=0;i<OT.length;i++){if(OT[i].id===id){OT[i].done=e.target.checked;break;}}
+  save();draw();
+});
+
+/* Nav buttons */
+document.getElementById('nb1').addEventListener('click',function(){show(1)});
+document.getElementById('nb2').addEventListener('click',function(){show(2)});
+document.getElementById('nb3').addEventListener('click',function(){show(3)});
+document.getElementById('nb4').addEventListener('click',function(){show(4)});
+
+/* OWL add */
+document.getElementById('owlAdd').addEventListener('click',function(){
+  var v=document.getElementById('owlInput').value.trim();
+  if(!v)return;
+  OT.push({id:Date.now(),text:v});
+  save();
+  document.getElementById('owlInput').value='';
+  draw();
+});
+document.getElementById('owlInput').addEventListener('keydown',function(e){
+  if(e.key==='Enter')document.getElementById('owlAdd').click();
+});
+
 draw();
+
+}catch(err){
+  var d=document.getElementById('debug');
+  d.style.display='block';
+  d.textContent='ERROR: '+err.message;
+}
+});
 </script>
 </body>
 </html>
