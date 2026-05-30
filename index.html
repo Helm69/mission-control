@@ -2,222 +2,557 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-<title>Mission Control</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuco Mission Control</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:sans-serif;background:#0f1117;color:#e2e8f0;min-height:100vh}
-.top{background:#1a202c;border-bottom:1px solid #2d3748;padding:14px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:99}
-.top h1{font-size:1.1rem}
-.badge{font-size:.7rem;padding:3px 10px;border-radius:10px;background:rgba(72,187,120,.15);color:#48bb78;border:1px solid rgba(72,187,120,.3)}
-.nav{display:flex;background:#1a202c;border-bottom:1px solid #2d3748;position:relative;z-index:98}
-.nbtn{flex:1;padding:14px 6px;border:none;background:none;color:#718096;font-size:.72rem;cursor:pointer;border-bottom:3px solid transparent;text-align:center;position:relative;z-index:99}
-.nbtn.ac{color:#fff;background:#6c5ce7;border-bottom-color:#6c5ce7}
-.pg{display:none;padding:16px;max-width:700px;margin:0 auto;position:relative;z-index:1}
-.pg.ac{display:block}
-.sec{font-size:.7rem;color:#718096;text-transform:uppercase;letter-spacing:.05em;margin:16px 0 8px;padding-bottom:6px;border-bottom:1px solid #2d3748}
-.card{background:#1a202c;border:1px solid #2d3748;border-radius:8px;padding:14px;margin-bottom:10px;position:relative}
-.it{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #2d3748;min-height:52px;position:relative}
-.it:last-child{border-bottom:none}
-.it input{width:26px;height:26px;accent-color:#48bb78;flex-shrink:0;cursor:pointer;position:relative;z-index:2}
-.it label{flex:1;font-size:.88rem;cursor:pointer;position:relative;z-index:2}
-.it.dn label{text-decoration:line-through;color:#718096}
-.sr{display:flex;justify-content:space-between;padding:9px 0;font-size:.88rem;border-bottom:1px solid #2d3748}
-.sr:last-child{border-bottom:none}
-.sl{color:#718096}
-.who{font-size:.68rem;color:#4299e1;display:block}
-.when{font-size:.65rem;color:#718096;display:block;margin-top:2px}
-.ar{display:flex;gap:8px;margin-top:12px}
-.ar input{flex:1;background:#0f1117;border:1px solid #2d3748;border-radius:6px;padding:10px;color:#e2e8f0;font-size:.9rem}
-.ar input:focus{border-color:#6c5ce7;outline:none}
-.ar button{background:#6c5ce7;color:#fff;border:none;border-radius:6px;padding:10px 18px;cursor:pointer;font-weight:600;font-size:.9rem}
-.em{color:#718096;text-align:center;padding:24px;font-style:italic}
+  :root {
+    --bg: #0f0f14;
+    --card: #1a1a24;
+    --border: #2a2a3a;
+    --text: #e0e0e8;
+    --text-dim: #8888a0;
+    --accent: #6c5ce7;
+    --green: #00b894;
+    --orange: #fdcb6e;
+    --red: #e17055;
+    --blue: #74b9ff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .header {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 24px;
+    padding-bottom: 16px; border-bottom: 1px solid var(--border);
+  }
+  .header h1 { font-size: 24px; font-weight: 700; background: linear-gradient(135deg, var(--accent), var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .header .subtitle { color: var(--text-dim); font-size: 14px; }
+  .header .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); display: inline-block; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 16px; }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px; transition: border-color 0.2s;
+  }
+  .card:hover { border-color: var(--accent); }
+  .card h2 { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--text); display: flex; align-items: center; gap: 8px; }
+  .card h2 .badge { font-size: 11px; background: var(--accent); color: white; padding: 2px 8px; border-radius: 10px; font-weight: 500; }
+  .card h2 .badge.green { background: var(--green); }
+  .card h2 .badge.orange { background: var(--orange); color: #000; }
+
+  .cron-item { padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .cron-item:last-child { border-bottom: none; }
+  .cron-name { font-weight: 600; font-size: 14px; }
+  .cron-schedule { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+  .cron-meta { display: flex; gap: 16px; font-size: 11px; color: var(--text-dim); margin-top: 4px; }
+  .cron-status { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; }
+  .cron-status .dot { width: 6px; height: 6px; border-radius: 50%; }
+
+  .task-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .task-item:last-child { border-bottom: none; }
+  .task-check { width: 18px; height: 18px; border: 2px solid var(--border); border-radius: 4px; cursor: pointer; flex-shrink: 0; margin-top: 2px; background: transparent; }
+  .task-check.done { background: var(--green); border-color: var(--green); position: relative; }
+  .task-check.done::after { content: '✓'; color: white; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+  .task-content { flex: 1; font-size: 13px; }
+  .task-content.done { text-decoration: line-through; color: var(--text-dim); }
+  .task-date { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+  .task-delete { background: none; border: none; color: var(--red); cursor: pointer; font-size: 14px; opacity: 0; transition: opacity 0.2s; }
+  .task-item:hover .task-delete { opacity: 1; }
+
+  .add-row { display: flex; gap: 8px; margin-top: 12px; }
+  .add-row input { flex: 1; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; color: var(--text); font-size: 13px; outline: none; }
+  .add-row input:focus { border-color: var(--accent); }
+  .add-row button { background: var(--accent); color: white; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; font-weight: 600; font-size: 13px; }
+
+  .vault-path { font-size: 12px; color: var(--text-dim); font-family: monospace; margin-bottom: 8px; padding: 6px 10px; background: var(--bg); border-radius: 6px; }
+  .file-item { font-size: 13px; padding: 6px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
+  .file-item:last-child { border-bottom: none; }
+  .file-name { color: var(--blue); }
+  .file-meta { font-size: 11px; color: var(--text-dim); }
+
+  .session-item { font-size: 13px; padding: 6px 0; border-bottom: 1px solid var(--border); }
+  .session-item:last-child { border-bottom: none; }
+  .session-title { font-weight: 500; }
+  .session-meta { font-size: 11px; color: var(--text-dim); }
+
+  .note-item { padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-start; }
+  .note-item:last-child { border-bottom: none; }
+  .note-text { font-size: 13px; flex: 1; }
+  .note-date { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  
+  @media (max-width: 860px) {
+    .grid { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+  }
+
+  .empty-state { text-align: center; padding: 24px; color: var(--text-dim); font-size: 13px; }
+  
+  .nav-links { display: flex; gap: 12px; margin-left: auto; }
+  .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 13px; }
+  .nav-links a:hover { color: var(--text); }
+
+  .skill-group { margin-bottom: 16px; }
+  .skill-group-header { font-size: 12px; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+  .skill-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .skill-item:last-child { border-bottom: none; }
+  .skill-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .skill-info { flex: 1; }
+  .skill-name { font-weight: 600; font-size: 13px; }
+  .skill-desc { font-size: 11px; color: var(--text-dim); margin-top: 2px; line-height: 1.4; }
+  .skill-version { font-size: 10px; color: var(--text-dim); font-family: monospace; }
+  .skill-filter { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+  .skill-filter-btn { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 4px 10px; font-size: 11px; color: var(--text-dim); cursor: pointer; }
+  .skill-filter-btn:hover, .skill-filter-btn.active { border-color: var(--accent); color: var(--text); }
+
+  /* Kanban Board */
+  .kanban { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; }
+  .kanban-col { min-width: 200px; flex: 1; background: var(--bg); border-radius: 8px; padding: 10px; border: 1px solid var(--border); }
+  .kanban-col-header { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dim); margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  .kanban-col-header .count { background: var(--border); color: var(--text); font-size: 10px; padding: 1px 6px; border-radius: 8px; font-weight: 600; }
+  .kanban-col.todo .kanban-col-header { color: var(--blue); }
+  .kanban-col.in-progress .kanban-col-header { color: var(--orange); }
+  .kanban-col.completed .kanban-col-header { color: var(--green); }
+  .kanban-col.stopped .kanban-col-header { color: var(--red); }
+  .kanban-col.on-hold .kanban-col-header { color: var(--text-dim); }
+  .kanban-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 10px; margin-bottom: 8px; cursor: grab; transition: border-color 0.2s, box-shadow 0.2s; }
+  .kanban-card:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+  .kanban-card.dragging { opacity: 0.5; cursor: grabbing; }
+  .kanban-card-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+  .kanban-card-date { font-size: 10px; color: var(--text-dim); }
+  .kanban-card-actions { display: flex; gap: 4px; margin-top: 6px; }
+  .kanban-card-actions button { background: none; border: 1px solid var(--border); border-radius: 4px; padding: 2px 6px; font-size: 10px; color: var(--text-dim); cursor: pointer; }
+  .kanban-card-actions button:hover { border-color: var(--accent); color: var(--text); }
+  .kanban-drop-zone { min-height: 40px; border: 2px dashed transparent; border-radius: 6px; transition: border-color 0.2s, background 0.2s; }
+  .kanban-drop-zone.drag-over { border-color: var(--accent); background: rgba(108,92,231,0.1); }
+  .kanban-add { display: flex; gap: 6px; margin-top: 8px; }
+  .kanban-add input { flex: 1; background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 6px 8px; color: var(--text); font-size: 12px; outline: none; }
+  .kanban-add input:focus { border-color: var(--accent); }
+  .kanban-add button { background: var(--accent); color: white; border: none; border-radius: 4px; padding: 6px 10px; cursor: pointer; font-size: 11px; font-weight: 600; }
+  .kanban-empty { text-align: center; padding: 16px 8px; color: var(--text-dim); font-size: 11px; font-style: italic; }</style>
 </style>
 </head>
 <body>
-<div class="top"><h1>&#x1F3AE; Mission Control</h1><span class="badge">&#x25CF; Live</span></div>
 
-<div class="nav" id="mainNav">
-  <button class="nbtn ac" id="nb1">&#x1F4CA; Overview</button>
-  <button class="nbtn" id="nb2">&#x2705; My Tasks</button>
-  <button class="nbtn" id="nb3">&#x1F989; OWL</button>
-  <button class="nbtn" id="nb4">&#x23F0; Cron</button>
+<div class="header">
+  <h1>🎮 Tuco Mission Control</h1>
+  <span class="subtitle"><span class="status-dot"></span> Online</span>
+  <div class="nav-links">
+    <a href="#" onclick="document.getElementById('cron-section').scrollIntoView({behavior:'smooth'})">Cron</a>
+    <a href="#" onclick="document.getElementById('kanban-section').scrollIntoView({behavior:'smooth'})">Kanban</a>
+    <a href="#" onclick="document.getElementById('vault-section').scrollIntoView({behavior:'smooth'})">Vault</a>
+    <a href="#" onclick="document.getElementById('sessions-section').scrollIntoView({behavior:'smooth'})">Sessions</a>
+    <a href="#" onclick="document.getElementById('notes-section').scrollIntoView({behavior:'smooth'})">Notes</a>
+    <a href="#" onclick="document.getElementById('skills-section').scrollIntoView({behavior:'smooth'})">Skills</a>
+  </div>
 </div>
 
-<div class="pg ac" id="pg1">
-  <div class="sec">Status</div>
-  <div class="card" id="statusCard"></div>
-  <div class="sec">Recent Tasks</div>
-  <div class="card" id="recentCard"></div>
+<div class="grid">
+  <div class="card" id="cron-section">
+    <h2>⏰ Cron Jobs</h2>
+    <div id="cron-list"><div class="empty-state">Loading...</div></div>
+  </div>
+
+  <div class="card" id="tasks-section" style="grid-column: 1 / -1;">
+    <h2>📋 Kanban Board <span class="badge" id="kanban-count">0 tasks</span></h2>
+    <div class="kanban" id="kanban-board">
+      <div class="kanban-col todo" id="kanban-todo">
+        <div class="kanban-col-header"><span>📌 To Do</span><span class="count" id="count-todo">0</span></div>
+        <div class="kanban-drop-zone" data-status="todo"></div>
+        <div class="kanban-add"><input type="text" placeholder="New task..." id="add-todo" onkeydown="if(event.key==='Enter') addTask('todo')"><button onclick="addTask('todo')">+</button></div>
+      </div>
+      <div class="kanban-col in-progress" id="kanban-in-progress">
+        <div class="kanban-col-header"><span>🔄 In Progress</span><span class="count" id="count-in-progress">0</span></div>
+        <div class="kanban-drop-zone" data-status="in-progress"></div>
+        <div class="kanban-add"><input type="text" placeholder="New task..." id="add-in-progress" onkeydown="if(event.key==='Enter') addTask('in-progress')"><button onclick="addTask('in-progress')">+</button></div>
+      </div>
+      <div class="kanban-col completed" id="kanban-completed">
+        <div class="kanban-col-header"><span>✅ Completed</span><span class="count" id="count-completed">0</span></div>
+        <div class="kanban-drop-zone" data-status="completed"></div>
+        <div class="kanban-add"><input type="text" placeholder="New task..." id="add-completed" onkeydown="if(event.key==='Enter') addTask('completed')"><button onclick="addTask('completed')">+</button></div>
+      </div>
+      <div class="kanban-col stopped" id="kanban-stopped">
+        <div class="kanban-col-header"><span>🛑 Stopped</span><span class="count" id="count-stopped">0</span></div>
+        <div class="kanban-drop-zone" data-status="stopped"></div>
+        <div class="kanban-add"><input type="text" placeholder="New task..." id="add-stopped" onkeydown="if(event.key==='Enter') addTask('stopped')"><button onclick="addTask('stopped')">+</button></div>
+      </div>
+      <div class="kanban-col on-hold" id="kanban-on-hold">
+        <div class="kanban-col-header"><span>⏸ On Hold</span><span class="count" id="count-on-hold">0</span></div>
+        <div class="kanban-drop-zone" data-status="on-hold"></div>
+        <div class="kanban-add"><input type="text" placeholder="New task..." id="add-on-hold" onkeydown="if(event.key==='Enter') addTask('on-hold')"><button onclick="addTask('on-hold')">+</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="vault-section">
+    <h2>📓 Vault <span class="badge green" id="file-count">0 files</span></h2>
+    <div class="vault-path">~/Documents/Obsidian Vault/</div>
+    <div id="file-list"></div>
+  </div>
+
+  <div class="card" id="sessions-section">
+    <h2>🕐 Recent Sessions</h2>
+    <div id="session-list"><div class="empty-state">Loading...</div></div>
+  </div>
+
+  <div class="card" id="notes-section">
+    <h2>📝 Mission Log</h2>
+    <div id="note-list"></div>
+    <div class="add-row">
+      <input type="text" id="note-input" placeholder="Quick note..." onkeydown="if(event.key==='Enter') addNote()">
+      <button onclick="addNote()">Log</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📊 System</h2>
+    <div id="system-info"><div class="empty-state">Loading...</div></div>
+  </div>
+
+  <div class="card" id="skills-section">
+    <h2>🧩 Installed Skills <span class="badge green" id="skill-count">0</span></h2>
+    <div id="skills-list"><div class="empty-state">Loading...</div></div>
+  </div>
+
+  <div class="card" id="downloads-section">
+    <h2>📥 Downloads</h2>
+    <div class="file-item">
+      <span class="file-name"><a href="https://www.tuco.enterprises"/action-items/" target="_blank" style="color:var(--blue)">📋 Action Items To-Do List</a></span>
+      <span class="file-meta">Web</span>
+    </div>
+    <div class="file-item">
+      <span class="file-name"><a href="https://www.tuco.enterprises"/action-items/" target="_blank" style="color:var(--blue)">📊 Parts Sales Dashboard (Jan-May 2026)</a></span>
+      <span class="file-meta">ZIP • 7 KB</span>
+    </div>
+    <div class="file-item" style="padding-top:4px;border-top:1px solid var(--border);margin-top:4px">
+      <span class="file-name" style="color:var(--text-dim);font-size:0.9em">Shattered Veil Series</span>
+    </div>
+    <div class="file-item">
+      <span class="file-name"><a href="https://www.tuco.enterprises"/product/shadows-of-the-forgotten-shrine/" target="_blank" style="color:var(--blue)">📜 Shadows of the Forgotten Shrine (Lv 1-3)</a></span>
+      <span class="file-meta">DOCX • 1.9 MB</span>
+    </div>
+    <div class="file-item">
+      <span class="file-name"><a href="https://www.tuco.enterprises"/product/the-chalice-of-false-salvation/" target="_blank" style="color:var(--blue)">🏆 Chalice of False Salvation (Lv 3-5)</a></span>
+      <span class="file-meta">DOCX • 3.3 MB</span>
+    </div>
+    <div class="file-item">
+      <span class="file-name"><a href="https://www.tuco.enterprises"/product/the-crimson-pact/" target="_blank" style="color:var(--blue)">🔴 The Crimson Pact (Lv 4-6)</a></span>
+      <span class="file-meta">DOCX • 2.6 MB</span>
+    </div>
+    <div class="file-item">
+      <span class="file-name"><a href="https://www.tuco.enterprises"/product/echoes-of-the-shattered-crown/" target="_blank" style="color:var(--blue)">👑 Echoes of the Shattered Crown (Lv 5-7)</a></span>
+      <span class="file-meta">DOCX • 2.8 MB</span>
+    </div>
+    <div class="file-item">
+      <span class="file-name"><a href="https://www.tuco.enterprises"/product/throne-of-fractured-eternity/" target="_blank" style="color:var(--blue)">👑 Throne of Fractured Eternity (Lv 8-10)</a></span>
+      <span class="file-meta">DOCX • 2.9 MB</span>
+    </div>
+    <div class="file-item" style="padding-top:4px;border-top:1px solid var(--border);margin-top:4px">
+      <span class="file-name" style="color:var(--text-dim);font-size:0.9em">DriveThruRPG Packages</span>
+    </div>
+    <div class="file-item">
+      <span class="file-name"><a href="https://www.tuco.enterprises"/product/shadows-of-the-forgotten-shrine/" target="_blank" style="color:var(--blue)">📦 Shadows — DTRPG Package</a></span>
+      <span class="file-meta">ZIP • 3.7 MB</span>
+    </div>
+    <div class="file-item">
+      <span class="file-name"><a href="https://www.tuco.enterprises"/product/the-crimson-pact/" target="_blank" style="color:var(--blue)">📦 Crimson Pact — DTRPG Package</a></span>
+      <span class="file-meta">ZIP • 4.9 MB</span>
+    </div>
+    <div class="file-item">
+      <span class="file-name"><a href="https://www.tuco.enterprises"/product/echoes-of-the-shattered-crown/" target="_blank" style="color:var(--blue)">📦 Echoes — DTRPG Package</a></span>
+      <span class="file-meta">ZIP • 5.4 MB</span>
+    </div>
+    <div class="file-item">
+      <span class="file-name"><a href="https://www.tuco.enterprises"/product/the-chalice-of-false-salvation/" target="_blank" style="color:var(--blue)">📦 Chalice — DTRPG Package</a></span>
+      <span class="file-meta">ZIP • 6.3 MB</span>
+    </div>
+    <div class="file-item">
+      <span class="file-name"><a href="https://www.tuco.enterprises"/product/throne-of-fractured-eternity/" target="_blank" style="color:var(--blue)">📦 Throne — DTRPG Package</a></span>
+      <span class="file-meta">ZIP • 5.8 MB</span>
+    </div>
+    <div class="file-item" style="padding-top:4px;border-top:1px solid var(--border);margin-top:4px">
+      <span class="file-name" style="color:var(--text-dim);font-size:0.9em">Bundle</span>
+    </div>
+    <div class="file-item">
+      <span class="file-name"><a href="https://www.tuco.enterprises"/product/shattered-veil-complete-bundle/" target="_blank" style="color:var(--blue)">🎁 Shattered Veil — Complete 5-Book Bundle</a></span>
+      <span class="file-meta">ZIP • 13.5 MB</span>
+    </div>
+    <div class="file-item" style="padding-top:4px;border-top:1px solid var(--border);margin-top:4px">
+      <span class="file-name" style="color:var(--text-dim);font-size:0.9em">Free Resources</span>
+    </div>
+    <div class="file-item">
+      <span class="file-name"><a href="https://www.tuco.enterprises"/product/npc-prompt-pack/" target="_blank" style="color:var(--green)">🧙 NPC Prompt Pack — 15 AI-Ready NPC Prompts</a></span>
+      <span class="file-meta">DOCX • Free</span>
+    </div>
+    <div class="file-item">
+      <span class="file-name"><a href="https://www.tuco.enterprises"/product/encounter-seed-pack/" target="_blank" style="color:var(--green)">⚔️ Encounter Seed Pack — 15 Scenario Hooks</a></span>
+      <span class="file-meta">DOCX • Free</span>
+    </div>
+    <div class="file-item">
+      <span class="file-name"><a href="https://www.tuco.enterprises"/product/session-zero-worksheet/" target="_blank" style="color:var(--green)">📋 Session Zero Worksheet — Complete Kit</a></span>
+      <span class="file-meta">DOCX • Free</span>
+    </div>
+  </div>
 </div>
 
-<div class="pg" id="pg2">
-  <div class="sec">Mark's Action Items</div>
-  <div class="card" id="myCard"></div>
-</div>
-
-<div class="pg" id="pg3">
-  <div class="sec">OWL's To-Do List</div>
-  <div class="card" id="owlCard"></div>
-  <div class="ar"><input type="text" id="owlInput" placeholder="Add OWL task..."><button id="owlAdd">Add</button></div>
-</div>
-
-<div class="pg" id="pg4">
-  <div class="sec">Cron Jobs</div>
-  <div class="card" id="cronCard"></div>
-</div>
-
-<div id="debug" style="position:fixed;bottom:0;left:0;right:0;background:red;color:#fff;padding:8px;font-size:.75rem;z-index:9999;display:none"></div>
-
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',function(){
-try{
-var MT=JSON.parse(localStorage.getItem('mc1')||'null')||[
-  {id:1,text:'Finish parts justification spreadsheet',who:'Mark',meeting:'After Sales',date:'28 May'},
-  {id:2,text:'Windscreens on purchasing request list',who:'Mark',meeting:'After Sales',date:'28 May'},
-  {id:3,text:'PDR: finalize SMART objectives',who:'Mark & JB',meeting:'PDR Review',date:'29 May'},
-  {id:4,text:'Asbestos clearance quote',who:'Mark',meeting:'Op Review',date:'29 May'},
-  {id:5,text:'Approve employee handbook',who:'Mark',meeting:'Legal',date:'29 May'}
-];
-var OT=JSON.parse(localStorage.getItem('mc2')||'null')||[
-  {id:101,text:'Parts sales dashboard FX fix'},
-  {id:102,text:'WP comment moderation',done:true},
-  {id:103,text:'Akismet on wpForo',done:true},
-  {id:104,text:'wpForo hardening',done:true},
-  {id:105,text:'Obsidian auto-push',done:true},
-  {id:106,text:'Mission Control phone access'},
-  {id:107,text:'Shattered Veil books to shop'}
-];
-var CR=[
-  {name:'RPG Weekly Brief',sched:'Mon 9am',ok:true},
-  {name:'Tuco LinkedIn',sched:'Wed 8am',ok:true},
-  {name:'RPG Market Intel',sched:'Tue 9am',ok:true},
-  {name:'Content Spark',sched:'Fri 10am',ok:true},
-  {name:'RPG Content Gen',sched:'Sun 11am',ok:true},
-  {name:'Obsidian Push',sched:'Hourly',ok:true},
-  {name:'System Update',sched:'Daily 2am',ok:false}
-];
-
-function save(){localStorage.setItem('mc1',JSON.stringify(MT));localStorage.setItem('mc2',JSON.stringify(OT))}
-function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
-
-function show(n){
-  document.getElementById('pg1').classList.remove('ac');
-  document.getElementById('pg2').classList.remove('ac');
-  document.getElementById('pg3').classList.remove('ac');
-  document.getElementById('pg4').classList.remove('ac');
-  document.getElementById('nb1').classList.remove('ac');
-  document.getElementById('nb2').classList.remove('ac');
-  document.getElementById('nb3').classList.remove('ac');
-  document.getElementById('nb4').classList.remove('ac');
-  document.getElementById('pg'+n).classList.add('ac');
-  document.getElementById('nb'+n).classList.add('ac');
+<script>
+async function api(path, method='GET', body=null) {
+  const opts = { method, headers: {} };
+  if (body) { opts.headers['Content-Type'] = 'application/json'; opts.body = JSON.stringify(body); }
+  const r = await fetch(path, opts);
+  return r.json();
 }
 
-function toggleMy(id){
-  for(var i=0;i<MT.length;i++){if(MT[i].id===id){MT[i].done=!MT[i].done;break;}}
-  save();draw();
+// Cron Jobs
+async function loadCron() {
+  const data = await api('/api/cron-jobs');
+  const el = document.getElementById('cron-list');
+  if (!data.length) { el.innerHTML = '<div class="empty-state">No cron jobs configured</div>'; return; }
+  el.innerHTML = data.map(j => {
+    const statusClass = j.last_status === 'success' || j.last_status === 'ok' ? 'var(--green)' : j.last_status === 'error' || j.last_status === 'failed' ? 'var(--red)' : 'var(--orange)';
+    return `<div class="cron-item">
+      <div class="cron-name">${j.name}</div>
+      <div class="cron-schedule">${(j.schedule && j.schedule.display) ? j.schedule.display : (j.schedule || '?')}</div>
+      <div class="cron-meta">
+        <span>Next: ${j.next_run ? new Date(j.next_run).toLocaleString() : '?'}</span>
+        <span class="cron-status"><span class="dot" style="background:${statusClass}"></span> ${j.last_status || 'pending'}</span>
+        ${j.enabled ? '<span>● Active</span>' : '<span style="color:var(--orange)">○ Paused</span>'}
+      </div>
+    </div>`;
+  }).join('');
 }
 
-function toggleOwl(id){
-  for(var i=0;i<OT.length;i++){if(OT[i].id===id){OT[i].done=!OT[i].done;break;}}
-  save();draw();
+// Kanban Tasks
+const KANBAN_STATUSES = ['todo', 'in-progress', 'completed', 'stopped', 'on-hold'];
+const STATUS_LABELS = { 'todo': 'To Do', 'in-progress': 'In Progress', 'completed': 'Completed', 'stopped': 'Stopped', 'on-hold': 'On Hold' };
+
+async function loadTasks() {
+  const data = await api('/api/tasks');
+  const tasks = data.tasks || [];
+  document.getElementById('kanban-count').textContent = tasks.length + ' tasks';
+
+  // Clear all columns
+  KANBAN_STATUSES.forEach(status => {
+    const zone = document.querySelector(`.kanban-drop-zone[data-status="${status}"]`);
+    if (zone) zone.innerHTML = '';
+    document.getElementById(`count-${status}`).textContent = '0';
+  });
+
+  // Group and render
+  const counts = {};
+  KANBAN_STATUSES.forEach(s => counts[s] = 0);
+
+  tasks.forEach(t => {
+    const status = t.status || 'todo';
+    counts[status]++;
+    const zone = document.querySelector(`.kanban-drop-zone[data-status="${status}"]`);
+    if (!zone) return;
+
+    const card = document.createElement('div');
+    card.className = 'kanban-card';
+    card.draggable = true;
+    card.dataset.id = t.id;
+    card.innerHTML = `
+      <div class="kanban-card-title">${esc(t.content)}</div>
+      <div class="kanban-card-date">${t.created || ''}</div>
+      <div class="kanban-card-actions">
+        ${status === 'todo' ? `<button onclick="moveTask('${t.id}','in-progress')">▶ Start</button>` : ''}
+        ${status === 'in-progress' ? `<button onclick="moveTask('${t.id}','completed')">✓ Done</button>` : ''}
+        ${status !== 'stopped' && status !== 'completed' ? `<button onclick="moveTask('${t.id}','stopped')">🛑</button>` : ''}
+        ${status !== 'on-hold' && status !== 'completed' ? `<button onclick="moveTask('${t.id}','on-hold')">⏸</button>` : ''}
+        ${status !== 'todo' ? `<button onclick="moveTask('${t.id}','todo')">↩</button>` : ''}
+        <button onclick="deleteTask('${t.id}')" style="color:var(--red)">✕</button>
+      </div>`;
+
+    // Drag events
+    card.addEventListener('dragstart', (e) => {
+      card.classList.add('dragging');
+      e.dataTransfer.setData('text/plain', t.id);
+    });
+    card.addEventListener('dragend', () => card.classList.remove('dragging'));
+
+    zone.appendChild(card);
+  });
+
+  // Update counts
+  KANBAN_STATUSES.forEach(status => {
+    document.getElementById(`count-${status}`).textContent = counts[status] || 0;
+    const zone = document.querySelector(`.kanban-drop-zone[data-status="${status}"]`);
+    if (zone && !zone.querySelector('.kanban-card')) {
+      zone.innerHTML = '<div class="kanban-empty">Drop tasks here</div>';
+    }
+  });
 }
 
-function draw(){
-  var op=0,dn=0,oa=0;
-  for(var i=0;i<MT.length;i++){if(MT[i].done)dn++;else op++;}
-  for(var i=0;i<OT.length;i++){if(!OT[i].done)oa++;}
-  var h='<div class="sr"><span class="sl">My Open</span><b>'+op+'</b></div>';
-  h+='<div class="sr"><span class="sl">My Done</span><b>'+dn+'</b></div>';
-  h+='<div class="sr"><span class="sl">OWL Active</span><b>'+oa+'</b></div>';
-  h+='<div class="sr"><span class="sl">Cron Jobs</span><b>'+CR.length+'</b></div>';
-  document.getElementById('statusCard').innerHTML=h;
+async function addTask(status) {
+  const input = document.getElementById(`add-${status}`);
+  if (!input || !input.value.trim()) return;
+  await api('/api/tasks', 'POST', { action: 'add', content: input.value, status: status });
+  input.value = '';
+  loadTasks();
+}
 
-  h='';
-  for(var i=0;i<MT.length;i++){
-    var t=MT[i];
-    h+='<div class="it'+(t.done?' dn':'')+'">';
-    h+='<input type="checkbox" id="m'+t.id+'" data-l="m" data-t="'+t.id+'"'+(t.done?' checked':'')+'>';
-    h+='<label for="m'+t.id+'"><b>'+esc(t.text)+'</b>';
-    h+='<span class="who">'+esc(t.who)+'</span>';
-    h+='<span class="when">'+esc(t.meeting)+' - '+t.date+'</span></label></div>';
+async function moveTask(id, newStatus) {
+  await api('/api/tasks', 'POST', { action: 'update', id, status: newStatus });
+  loadTasks();
+}
+
+async function deleteTask(id) {
+  await api('/api/tasks', 'POST', { action: 'delete', id });
+  loadTasks();
+}
+
+// Drag and drop zones
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.kanban-drop-zone').forEach(zone => {
+    zone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      zone.classList.add('drag-over');
+    });
+    zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+    zone.addEventListener('drop', async (e) => {
+      e.preventDefault();
+      zone.classList.remove('drag-over');
+      const taskId = e.dataTransfer.getData('text/plain');
+      const newStatus = zone.dataset.status;
+      if (taskId && newStatus) {
+        await moveTask(taskId, newStatus);
+      }
+    });
+  });
+});
+
+// Vault
+async function loadVault() {
+  const data = await api('/api/vault');
+  const el = document.getElementById('file-list');
+  const files = data.recent_files || [];
+  document.getElementById('file-count').textContent = files.length + ' recent files';
+  if (!files.length) { el.innerHTML = '<div class="empty-state">Vault empty or not found</div>'; return; }
+  el.innerHTML = files.map(f => `<div class="file-item">
+    <span class="file-name">${esc(f.path)}</span>
+    <span class="file-meta">${f.modified} · ${f.size}</span>
+  </div>`).join('');
+}
+
+// Sessions
+async function loadSessions() {
+  const data = await api('/api/sessions');
+  const el = document.getElementById('session-list');
+  if (!data.length) { el.innerHTML = '<div class="empty-state">No session data</div>'; return; }
+  el.innerHTML = data.map(s => `<div class="session-item">
+    <div class="session-title">${esc(s.title)}</div>
+    <div class="session-meta">${s.last_active} · ${s.messages} messages</div>
+  </div>`).join('');
+}
+
+// Notes
+async function loadNotes() {
+  const data = await api('/api/notes');
+  const el = document.getElementById('note-list');
+  const notes = data.notes || [];
+  if (!notes.length) { el.innerHTML = '<div class="empty-state">No notes yet</div>'; return; }
+  el.innerHTML = notes.map(n => `<div class="note-item">
+    <div><div class="note-text">${esc(n.content)}</div><div class="note-date">${n.created || ''}</div></div>
+    <button class="task-delete" onclick="deleteNote('${n.id}')" style="opacity:1">✕</button>
+  </div>`).join('');
+}
+
+async function addNote() {
+  const input = document.getElementById('note-input');
+  if (!input.value.trim()) return;
+  await api('/api/notes', 'POST', { action: 'add', content: input.value });
+  input.value = '';
+  loadNotes();
+}
+
+async function deleteNote(id) {
+  await api('/api/notes', 'POST', { action: 'delete', id });
+  loadNotes();
+}
+
+// Skills
+let allSkills = [];
+async function loadSkills() {
+  const data = await api('/api/skills');
+  allSkills = data;
+  const el = document.getElementById('skills-list');
+  document.getElementById('skill-count').textContent = data.length;
+  if (!data.length) { el.innerHTML = '<div class="empty-state">No skills installed</div>'; return; }
+
+  // Group by category
+  const groups = {};
+  data.forEach(s => {
+    const cat = s.category_display || s.category || 'Other';
+    if (!groups[cat]) groups[cat] = [];
+    groups[cat].push(s);
+  });
+
+  // Build filter buttons
+  const categories = Object.keys(groups);
+  let html = '<div class="skill-filter">';
+  html += '<span class="skill-filter-btn active" data-category="all">All (' + data.length + ')</span>';
+  categories.forEach(cat => {
+    html += '<span class="skill-filter-btn" data-category="' + cat + '">' + groups[cat][0].icon + ' ' + cat + ' (' + groups[cat].length + ')</span>';
+  });
+  html += '</div>';
+
+  // Build skill groups
+  for (const [cat, skills] of Object.entries(groups)) {
+    html += '<div class="skill-group" data-category="' + cat + '">';
+    html += '<div class="skill-group-header">' + skills[0].icon + ' ' + cat + '</div>';
+    skills.forEach(s => {
+      html += '<div class="skill-item">' +
+        '<span class="skill-icon">' + s.icon + '</span>' +
+        '<div class="skill-info">' +
+          '<div class="skill-name">' + esc(s.name) + '</div>' +
+          '<div class="skill-desc">' + esc(s.description) + '</div>' +
+          (s.version ? '<div class="skill-version">v' + esc(s.version) + '</div>' : '') +
+        '</div></div>';
+    });
+    html += '</div>';
   }
-  if(!MT.length)h='<div class="em">All done!</div>';
-  document.getElementById('myCard').innerHTML=h;
 
-  h='';
-  for(var i=0;i<OT.length;i++){
-    var t=OT[i];
-    h+='<div class="it'+(t.done?' dn':'')+'">';
-    h+='<input type="checkbox" id="o'+t.id+'" data-l="o" data-t="'+t.id+'"'+(t.done?' checked':'')+'>';
-    h+='<label for="o'+t.id+'"><b>'+esc(t.text)+'</b></label></div>';
-  }
-  if(!OT.length)h='<div class="em">All done!</div>';
-  document.getElementById('owlCard').innerHTML=h;
+  el.innerHTML = html;
 
-  h='';
-  for(var i=0;i<CR.length;i++){
-    var c=CR[i];
-    var col=c.ok?'#48bb78':'#fc8181';
-    var dot='<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'+col+';margin-right:8px"></span>';
-    h+='<div class="sr"><div>'+dot+'<b>'+esc(c.name)+'</b><br><span style="color:#718096;font-size:.72rem;margin-left:22px">'+esc(c.sched)+'</span></div>';
-    h+='<span style="color:'+col+';font-size:.8rem">'+(c.ok?'OK':'Error')+'</span></div>';
-  }
-  document.getElementById('cronCard').innerHTML=h;
-
-  var r=[];
-  for(var i=0;i<MT.length;i++)if(!MT[i].done)r.push({t:MT[i].text,w:'Mark'});
-  for(var i=0;i<OT.length;i++)if(!OT[i].done)r.push({t:OT[i].text,w:'OWL'});
-  h='';
-  for(var i=0;i<Math.min(r.length,5);i++){
-    h+='<div class="it"><label>&#x2022; '+esc(r[i].t)+' <span class="who">'+esc(r[i].w)+'</span></label></div>';
-  }
-  if(!r.length)h='<div class="em">All caught up! &#x1F389;</div>';
-  document.getElementById('recentCard').innerHTML=h;
+  // Add event listeners for filter buttons
+  el.querySelectorAll('.skill-filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      filterSkills(this.dataset.category, this);
+    });
+  });
 }
 
-/* Event delegation for ALL checkboxes */
-document.getElementById('myCard').addEventListener('change',function(e){
-  if(e.target.type!=='checkbox')return;
-  var id=parseInt(e.target.getAttribute('data-t'));
-  for(var i=0;i<MT.length;i++){if(MT[i].id===id){MT[i].done=e.target.checked;break;}}
-  save();draw();
-});
-document.getElementById('owlCard').addEventListener('change',function(e){
-  if(e.target.type!=='checkbox')return;
-  var id=parseInt(e.target.getAttribute('data-t'));
-  for(var i=0;i<OT.length;i++){if(OT[i].id===id){OT[i].done=e.target.checked;break;}}
-  save();draw();
-});
-
-/* Nav buttons */
-document.getElementById('nb1').addEventListener('click',function(){show(1)});
-document.getElementById('nb2').addEventListener('click',function(){show(2)});
-document.getElementById('nb3').addEventListener('click',function(){show(3)});
-document.getElementById('nb4').addEventListener('click',function(){show(4)});
-
-/* OWL add */
-document.getElementById('owlAdd').addEventListener('click',function(){
-  var v=document.getElementById('owlInput').value.trim();
-  if(!v)return;
-  OT.push({id:Date.now(),text:v});
-  save();
-  document.getElementById('owlInput').value='';
-  draw();
-});
-document.getElementById('owlInput').addEventListener('keydown',function(e){
-  if(e.key==='Enter')document.getElementById('owlAdd').click();
-});
-
-draw();
-
-}catch(err){
-  var d=document.getElementById('debug');
-  d.style.display='block';
-  d.textContent='ERROR: '+err.message;
+function filterSkills(cat, btn) {
+  document.querySelectorAll('.skill-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.skill-group').forEach(g => {
+    g.style.display = (cat === 'all' || g.dataset.category === cat) ? '' : 'none';
+  });
 }
-});
+
+// System
+async function loadSystem() {
+  const data = await api('/api/status');
+  document.getElementById('system-info').innerHTML = `
+    <div style="font-size:13px;line-height:1.8">
+      <div>🖥 Hermes: ${esc(data.hermes_home)}</div>
+      <div>📁 Vault: ${data.vault_exists ? '✅' : '❌'} ${esc(data.vault_path)}</div>
+      <div>📦 Git: ${data.vault_git ? '✅ Initialized' : '❌ Not initialized'}</div>
+      <div>🗄 Sessions DB: ${data.state_db ? '✅' : '❌'}</div>
+      <div>⏰ Cron DB: ${data.cron_db ? '✅' : '❌'}</div>
+      <div style="margin-top:8px;color:var(--text-dim);font-size:12px">${data.time}</div>
+    </div>`;
+}
+
+function esc(s) { const d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+
+loadCron(); loadTasks(); loadVault(); loadSessions(); loadNotes(); loadSkills(); loadSystem();
+setInterval(() => { loadCron(); loadTasks(); loadVault(); loadSessions(); }, 30000);
 </script>
 </body>
 </html>
