@@ -301,16 +301,28 @@
 </div>
 
 <script>
-async function api(path, method='GET', body=null) {
-  const opts = { method, headers: {} };
-  if (body) { opts.headers['Content-Type'] = 'application/json'; opts.body = JSON.stringify(body); }
-  const r = await fetch(path, opts);
-  return r.json();
+// Load dashboard data from static JSON file
+let DASHBOARD_DATA = null;
+
+async function loadData() {
+  try {
+    // Add cache-busting timestamp
+    const r = await fetch('data.json?_=' + Date.now());
+    DASHBOARD_DATA = await r.json();
+    return true;
+  } catch (e) {
+    console.error('Failed to load data.json:', e);
+    return false;
+  }
+}
+
+function getData() {
+  return DASHBOARD_DATA || {};
 }
 
 // Cron Jobs
-async function loadCron() {
-  const data = await api('/api/cron-jobs');
+function loadCron() {
+  const data = getData().cron_jobs || [];
   const el = document.getElementById('cron-list');
   if (!data.length) { el.innerHTML = '<div class="empty-state">No cron jobs configured</div>'; return; }
   el.innerHTML = data.map(j => {
@@ -331,19 +343,16 @@ async function loadCron() {
 const KANBAN_STATUSES = ['todo', 'in-progress', 'completed', 'stopped', 'on-hold'];
 const STATUS_LABELS = { 'todo': 'To Do', 'in-progress': 'In Progress', 'completed': 'Completed', 'stopped': 'Stopped', 'on-hold': 'On Hold' };
 
-async function loadTasks() {
-  const data = await api('/api/tasks');
-  const tasks = data.tasks || [];
+function loadTasks() {
+  const tasks = (getData().tasks || {}).tasks || [];
   document.getElementById('kanban-count').textContent = tasks.length + ' tasks';
 
-  // Clear all columns
   KANBAN_STATUSES.forEach(status => {
     const zone = document.querySelector(`.kanban-drop-zone[data-status="${status}"]`);
     if (zone) zone.innerHTML = '';
     document.getElementById(`count-${status}`).textContent = '0';
   });
 
-  // Group and render
   const counts = {};
   KANBAN_STATUSES.forEach(s => counts[s] = 0);
 
@@ -369,7 +378,6 @@ async function loadTasks() {
         <button onclick="deleteTask('${t.id}')" style="color:var(--red)">✕</button>
       </div>`;
 
-    // Drag events
     card.addEventListener('dragstart', (e) => {
       card.classList.add('dragging');
       e.dataTransfer.setData('text/plain', t.id);
@@ -379,7 +387,6 @@ async function loadTasks() {
     zone.appendChild(card);
   });
 
-  // Update counts
   KANBAN_STATUSES.forEach(status => {
     document.getElementById(`count-${status}`).textContent = counts[status] || 0;
     const zone = document.querySelector(`.kanban-drop-zone[data-status="${status}"]`);
@@ -389,21 +396,32 @@ async function loadTasks() {
   });
 }
 
-async function addTask(status) {
+function addTask(status) {
   const input = document.getElementById(`add-${status}`);
   if (!input || !input.value.trim()) return;
-  await api('/api/tasks', 'POST', { action: 'add', content: input.value, status: status });
+  // Static mode: add to local display only (no backend)
+  const tasks = (DASHBOARD_DATA.tasks = DASHBOARD_DATA.tasks || { tasks: [] });
+  tasks.tasks.push({
+    id: String(Date.now()),
+    content: input.value,
+    status: status,
+    created: new Date().toLocaleString()
+  });
   input.value = '';
   loadTasks();
 }
 
-async function moveTask(id, newStatus) {
-  await api('/api/tasks', 'POST', { action: 'update', id, status: newStatus });
+function moveTask(id, newStatus) {
+  const tasks = (getData().tasks || {}).tasks || [];
+  const t = tasks.find(t => t.id === id);
+  if (t) t.status = newStatus;
   loadTasks();
 }
 
-async function deleteTask(id) {
-  await api('/api/tasks', 'POST', { action: 'delete', id });
+function deleteTask(id) {
+  const tasks = (getData().tasks || {}).tasks || [];
+  const idx = tasks.findIndex(t => t.id === id);
+  if (idx >= 0) tasks.splice(idx, 1);
   loadTasks();
 }
 
@@ -415,21 +433,21 @@ document.addEventListener('DOMContentLoaded', () => {
       zone.classList.add('drag-over');
     });
     zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
-    zone.addEventListener('drop', async (e) => {
+    zone.addEventListener('drop', (e) => {
       e.preventDefault();
       zone.classList.remove('drag-over');
       const taskId = e.dataTransfer.getData('text/plain');
       const newStatus = zone.dataset.status;
       if (taskId && newStatus) {
-        await moveTask(taskId, newStatus);
+        moveTask(taskId, newStatus);
       }
     });
   });
 });
 
 // Vault
-async function loadVault() {
-  const data = await api('/api/vault');
+function loadVault() {
+  const data = getData().vault || {};
   const el = document.getElementById('file-list');
   const files = data.recent_files || [];
   document.getElementById('file-count').textContent = files.length + ' recent files';
@@ -441,8 +459,8 @@ async function loadVault() {
 }
 
 // Sessions
-async function loadSessions() {
-  const data = await api('/api/sessions');
+function loadSessions() {
+  const data = getData().sessions || [];
   const el = document.getElementById('session-list');
   if (!data.length) { el.innerHTML = '<div class="empty-state">No session data</div>'; return; }
   el.innerHTML = data.map(s => `<div class="session-item">
@@ -452,8 +470,8 @@ async function loadSessions() {
 }
 
 // Notes
-async function loadNotes() {
-  const data = await api('/api/notes');
+function loadNotes() {
+  const data = getData().notes || {};
   const el = document.getElementById('note-list');
   const notes = data.notes || [];
   if (!notes.length) { el.innerHTML = '<div class="empty-state">No notes yet</div>'; return; }
@@ -463,29 +481,35 @@ async function loadNotes() {
   </div>`).join('');
 }
 
-async function addNote() {
+function addNote() {
   const input = document.getElementById('note-input');
   if (!input.value.trim()) return;
-  await api('/api/notes', 'POST', { action: 'add', content: input.value });
+  const notes = (DASHBOARD_DATA.notes = DASHBOARD_DATA.notes || { notes: [] });
+  notes.notes.push({
+    id: String(Date.now()),
+    content: input.value,
+    created: new Date().toLocaleString()
+  });
   input.value = '';
   loadNotes();
 }
 
-async function deleteNote(id) {
-  await api('/api/notes', 'POST', { action: 'delete', id });
+function deleteNote(id) {
+  const notes = (getData().notes || {}).notes || [];
+  const idx = notes.findIndex(n => n.id === id);
+  if (idx >= 0) notes.splice(idx, 1);
   loadNotes();
 }
 
 // Skills
 let allSkills = [];
-async function loadSkills() {
-  const data = await api('/api/skills');
+function loadSkills() {
+  const data = getData().skills || [];
   allSkills = data;
   const el = document.getElementById('skills-list');
   document.getElementById('skill-count').textContent = data.length;
   if (!data.length) { el.innerHTML = '<div class="empty-state">No skills installed</div>'; return; }
 
-  // Group by category
   const groups = {};
   data.forEach(s => {
     const cat = s.category_display || s.category || 'Other';
@@ -493,7 +517,6 @@ async function loadSkills() {
     groups[cat].push(s);
   });
 
-  // Build filter buttons
   const categories = Object.keys(groups);
   let html = '<div class="skill-filter">';
   html += '<span class="skill-filter-btn active" data-category="all">All (' + data.length + ')</span>';
@@ -502,7 +525,6 @@ async function loadSkills() {
   });
   html += '</div>';
 
-  // Build skill groups
   for (const [cat, skills] of Object.entries(groups)) {
     html += '<div class="skill-group" data-category="' + cat + '">';
     html += '<div class="skill-group-header">' + skills[0].icon + ' ' + cat + '</div>';
@@ -520,7 +542,6 @@ async function loadSkills() {
 
   el.innerHTML = html;
 
-  // Add event listeners for filter buttons
   el.querySelectorAll('.skill-filter-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       filterSkills(this.dataset.category, this);
@@ -537,8 +558,9 @@ function filterSkills(cat, btn) {
 }
 
 // System
-async function loadSystem() {
-  const data = await api('/api/status');
+function loadSystem() {
+  const data = getData().status || {};
+  const generated = getData().generated_at;
   document.getElementById('system-info').innerHTML = `
     <div style="font-size:13px;line-height:1.8">
       <div>🖥 Hermes: ${esc(data.hermes_home)}</div>
@@ -546,14 +568,29 @@ async function loadSystem() {
       <div>📦 Git: ${data.vault_git ? '✅ Initialized' : '❌ Not initialized'}</div>
       <div>🗄 Sessions DB: ${data.state_db ? '✅' : '❌'}</div>
       <div>⏰ Cron DB: ${data.cron_db ? '✅' : '❌'}</div>
-      <div style="margin-top:8px;color:var(--text-dim);font-size:12px">${data.time}</div>
+      <div style="margin-top:8px;color:var(--text-dim);font-size:12px">Last sync: ${generated ? new Date(generated).toLocaleString() : 'unknown'}</div>
     </div>`;
 }
 
 function esc(s) { const d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
 
-loadCron(); loadTasks(); loadVault(); loadSessions(); loadNotes(); loadSkills(); loadSystem();
-setInterval(() => { loadCron(); loadTasks(); loadVault(); loadSessions(); }, 30000);
+// Initialize: load data then render all panels
+loadData().then(ok => {
+  if (ok) {
+    loadCron(); loadTasks(); loadVault(); loadSessions(); loadNotes(); loadSkills(); loadSystem();
+  } else {
+    document.querySelectorAll('.empty-state').forEach(el => {
+      el.textContent = '⚠️ Could not load dashboard data';
+    });
+  }
+});
+
+// Refresh data every 5 minutes
+setInterval(async () => {
+  if (await loadData()) {
+    loadCron(); loadTasks(); loadVault(); loadSessions(); loadNotes(); loadSkills(); loadSystem();
+  }
+}, 300000);
 </script>
 </body>
 </html>
