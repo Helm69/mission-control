@@ -256,34 +256,58 @@
   "tasks": {
     "tasks": [
       {
-        "id": "1779963613.882427",
-        "content": "Get Akismet API key from akismet.com",
-        "status": "completed",
-        "created": "2026-05-28 10:20"
+        "id": "mtg20260602-1",
+        "content": "Jordan — Remove 'Associated Value' column (Column K) from purchasing spreadsheet",
+        "status": "todo",
+        "created": "2026-06-02"
       },
       {
-        "id": "1779963613.88861",
-        "content": "Harden wpForo forum settings",
-        "status": "completed",
-        "created": "2026-05-28 10:20"
+        "id": "mtg20260602-2",
+        "content": "Mark — Develop one-page business case template for purchase justifications",
+        "status": "todo",
+        "created": "2026-06-02"
       },
       {
-        "id": "1779963613.894586",
-        "content": "Set up comment moderation",
-        "status": "on-hold",
-        "created": "2026-05-28 10:20"
+        "id": "mtg20260602-3",
+        "content": "Paul — Sort purchasing spreadsheet by highest sales value",
+        "status": "todo",
+        "created": "2026-06-02"
       },
       {
-        "id": "1779963613.901123",
-        "content": "Website cleanup and product pruning",
-        "status": "completed",
-        "created": "2026-05-28 10:20"
+        "id": "mtg20260602-4",
+        "content": "Paul — Seek guidance from Colin on stock holding parameters",
+        "status": "todo",
+        "created": "2026-06-02"
       },
       {
-        "id": "1779963613.906757",
-        "content": "ComfyUI cloud setup",
-        "status": "stopped",
-        "created": "2026-05-28 10:20"
+        "id": "mtg20260602-5",
+        "content": "Mark — Investigate debonding additive for windscreen/mirror issue",
+        "status": "todo",
+        "created": "2026-06-02"
+      },
+      {
+        "id": "mtg20260602-6",
+        "content": "Paul & Jordan — Formalize new purchasing justification process & template",
+        "status": "todo",
+        "created": "2026-06-02b"
+      },
+      {
+        "id": "mtg20260602-7",
+        "content": "Paul & Jordan — Implement three-month stock holding threshold",
+        "status": "todo",
+        "created": "2026-06-02b"
+      },
+      {
+        "id": "mtg20260602-8",
+        "content": "Mark — Resolve scrap stock sign-off blockage",
+        "status": "todo",
+        "created": "2026-06-02b"
+      },
+      {
+        "id": "mtg20260602-9",
+        "content": "Jordan — Develop open order book visualization model",
+        "status": "todo",
+        "created": "2026-06-02b"
       }
     ]
   },
