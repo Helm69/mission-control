@@ -287,24 +287,30 @@
       },
       {
         "id": "mtg20260602-6",
-        "content": "Paul & Jordan — Formalize new purchasing justification process & template",
+        "content": "Mark & Jordan — Develop formal justification template (cash & working capital)",
         "status": "todo",
         "created": "2026-06-02b"
       },
       {
         "id": "mtg20260602-7",
-        "content": "Paul & Jordan — Implement three-month stock holding threshold",
+        "content": "Paul & Jordan — Formalize & communicate new purchasing framework",
         "status": "todo",
         "created": "2026-06-02b"
       },
       {
         "id": "mtg20260602-8",
-        "content": "Mark — Resolve scrap stock sign-off blockage",
+        "content": "Paul & Jordan — Implement 4-month cutoff with dealer outreach",
         "status": "todo",
         "created": "2026-06-02b"
       },
       {
         "id": "mtg20260602-9",
+        "content": "Mark — Resolve scrap stock sign-off blockage",
+        "status": "todo",
+        "created": "2026-06-02b"
+      },
+      {
+        "id": "mtg20260602-10",
         "content": "Jordan — Develop open order book visualization model",
         "status": "todo",
         "created": "2026-06-02b"
