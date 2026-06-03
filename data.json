@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T15:13:44.764297+00:00",
+  "generated_at": "2026-06-03T16:16:00.837248+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -81,8 +81,8 @@
         "display": "0 */4 * * *"
       },
       "enabled": true,
-      "next_run": "2026-06-03T16:00:00+00:00",
-      "last_run": "2026-06-03T12:01:03.249674+00:00",
+      "next_run": "2026-06-03T20:00:00+00:00",
+      "last_run": "2026-06-03T16:02:34.539106+00:00",
       "last_status": "ok"
     },
     {
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-06-03T16:12:21.833605+00:00",
-      "last_run": "2026-06-03T14:12:21.692490+00:00",
+      "next_run": "2026-06-03T17:14:34.570553+00:00",
+      "last_run": "2026-06-03T15:14:09.673056+00:00",
       "last_status": "ok"
     },
     {
@@ -354,6 +354,6 @@
     "cron_db": true,
     "hermes_home": "/home/opc/.hermes",
     "vault_path": "/home/opc/Documents/Obsidian Vault",
-    "time": "2026-06-03 15:13:44 UTC"
+    "time": "2026-06-03 16:16:00 UTC"
   }
 }
