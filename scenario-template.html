@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Shattered Veil — Scenario Page Background</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --parchment:       #f0e6d2;
+    --parchment-dark:  #e2d5b8;
+    --parchment-edge:  #c4a96a;
+    --border-dark:     #1a1108;
+    --border-mid:      #2c1f12;
+    --gold:            #b8962e;
+    --gold-light:      #d4b84a;
+    --gold-dim:        #8a6f1e;
+    --dd-blue:         #2c4a6e;
+    --dd-blue-light:   #3d6a94;
+    --dd-blue-dark:    #1a3050;
+    --blood-red:       #8b1a1a;
+    --blood-red-light: #c0392b;
+    --blood-red-dim:   #5c0e0e;
+    --ink:             #1c1410;
+    --ink-light:       #3d2e24;
+    --shadow:          rgba(26, 17, 8, 0.3);
+  }
+
+  body {
+    background: #1a1108;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    background: var(--parchment);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(0,0,0,0.8), inset 0 0 80px rgba(139, 26, 26, 0.04);
+  }
+
+  /* === Parchment texture overlay === */
+  .page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(196, 169, 106, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(139, 26, 26, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(184, 150, 46, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* === Aged paper grain === */
+  .page::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+  /* === Outer border — ornate frame === */
+  .page-border {
+    position: absolute;
+    inset: 12px;
+    border: 2px solid var(--border-dark);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .page-border::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px solid var(--gold-dim);
+  }
+
+  .page-border::after {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px solid rgba(184, 150, 46, 0.2);
+  }
+
+  /* === Corner ornaments === */
+  .corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .corner svg { width: 100%; height: 100%; }
+  .corner-tl { top: 14px; left: 14px; }
+  .corner-tr { top: 14px; right: 14px; transform: scaleX(-1); }
+  .corner-bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+  .corner-br { bottom: 14px; right: 14px; transform: scale(-1, -1); }
+
+  /* === Page content === */
+  .content {
+    position: relative;
+    z-index: 1;
+    padding: 36px 40px;
+    height: 100%;
+  }
+
+  /* === Running head (header bar) === */
+  .running-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border-dark);
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+  }
+
+  .running-head .series {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--dd-blue);
+  }
+
+  .running-head .page-num {
+    font-family: 'Crimson Text', serif;
+    font-size: 11px;
+    font-style: italic;
+    color: var(--ink-light);
+  }
+
+  /* === Section title block === */
+  .section-title {
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .section-title h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--dd-blue-dark);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(184, 150, 46, 0.15);
+    line-height: 1.2;
+  }
+
+  .section-title .subtitle {
+    font-family: 'EB Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--ink-light);
+    margin-top: 4px;
+    letter-spacing: 1px;
+  }
+
+  .section-title .title-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .section-title .title-rule .line {
+    flex: 1;
+    max-width: 120px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  .section-title .title-rule .diamond {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* === Area description box === */
+  .area-box {
+    border: 1.5px solid var(--border-dark);
+    margin-bottom: 18px;
+    position: relative;
+    background: radial-gradient(ellipse at top left, rgba(255, 252, 240, 0.4) 0%, transparent 60%);
+  }
+
+  .area-box::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px solid rgba(184, 150, 46, 0.25);
+    pointer-events: none;
+  }
+
+  .area-box-header {
+    background: linear-gradient(to right, var(--dd-blue-dark), var(--dd-blue));
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .area-box-header .icon {
+    width: 14px;
+    height: 14px;
+    opacity: 0.8;
+  }
+
+  .area-box-body {
+    padding: 12px 14px;
+    font-family: 'EB Garamond', serif;
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: var(--ink);
+  }
+
+  .area-box-body p + p {
+    margin-top: 8px;
+  }
+
+  .area-box-body .read-aloud {
+    font-style: italic;
+    color: var(--dd-blue-dark);
+    border-left: 2px solid var(--blood-red);
+    padding-left: 10px;
+    margin: 8px 0;
+  }
+
+  /* === Stat block style === */
+  .stat-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .stat-box {
+    border: 1.5px solid var(--border-dark);
+    background: rgba(255, 252, 240, 0.3);
+  }
+
+  .stat-box-header {
+    background: linear-gradient(to right, var(--blood-red-dim), var(--blood-red));
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+  }
+
+  .stat-box-body {
+    padding: 8px 10px;
+    font-family: 'EB Garamond', serif;
+    font-size: 11.5px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1px 0;
+  }
+
+  .stat-row .label {
+    font-weight: 600;
+    color: var(--border-dark);
+  }
+
+  .stat-row .value {
+    font-style: italic;
+    color: var(--ink-light);
+    text-align: right;
+  }
+
+  /* === Encounter / feature list === */
+  .feature-list {
+    margin-bottom: 18px;
+  }
+
+  .feature-item {
+    font-family: 'EB Garamond', serif;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--ink);
+    padding: 3px 0 3px 16px;
+    position: relative;
+  }
+
+  .feature-item::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+
+  .feature-item strong {
+    color: var(--dd-blue-dark);
+    font-weight: 600;
+  }
+
+  /* === DM hint box === */
+  .dm-hint {
+    border: 1px solid var(--gold-dim);
+    background: linear-gradient(135deg, rgba(184, 150, 46, 0.06) 0%, rgba(184, 150, 46, 0.02) 100%);
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    position: relative;
+  }
+
+  .dm-hint::before {
+    content: 'DM NOTE';
+    position: absolute;
+    top: -7px;
+    left: 12px;
+    background: var(--gold);
+    color: var(--border-dark);
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 1px 8px;
+  }
+
+  .dm-hint p {
+    font-family: 'Crimson Text', serif;
+    font-size: 11.5px;
+    line-height: 1.55;
+    color: var(--ink-light);
+    font-style: italic;
+  }
+
+  /* === Flavor quote === */
+  .flavor-quote {
+    text-align: center;
+    font-family: 'EB Garamond', serif;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--blood-red);
+    padding: 10px 20px;
+    margin: 10px 0;
+    position: relative;
+  }
+
+  .flavor-quote::before,
+  .flavor-quote::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--blood-red-dim), transparent);
+    margin: 6px auto;
+  }
+
+  /* === Map placeholder === */
+  .map-placeholder {
+    border: 1.5px solid var(--border-dark);
+    background: var(--parchment-dark);
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 18px;
+    position: relative;
+  }
+
+  .map-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px dashed rgba(184, 150, 46, 0.3);
+    pointer-events: none;
+  }
+
+  .map-placeholder .map-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .map-placeholder .map-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--ink-light);
+  }
+
+  /* === Running foot === */
+  .running-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid var(--border-dark);
+    padding-top: 6px;
+    margin-top: auto;
+    position: absolute;
+    bottom: 28px;
+    left: 40px;
+    right: 40px;
+  }
+
+  .running-foot .module {
+    font-family: 'Crimson Text', serif;
+    font-size: 10px;
+    font-style: italic;
+    color: var(--ink-light);
+  }
+
+  .running-foot .brand {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+  }
+
+  /* === Veil icon watermark === */
+  .watermark {
+    position: absolute;
+    bottom: 60px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    opacity: 0.06;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* === Scenario-specific: Danger rating === */
+  .danger-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .danger-rating .label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--blood-red);
+    text-transform: uppercase;
+    margin-right: 4px;
+  }
+
+  .danger-pip {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid var(--blood-red);
+  }
+
+  .danger-pip.filled {
+    background: var(--blood-red);
+  }
+
+  .danger-pip.empty {
+    background: transparent;
+  }
+
+  /* === Transition line === */
+  .transition {
+    text-align: center;
+    font-family: 'EB Garamond', serif;
+    font-size: 11px;
+    font-style: italic;
+    color: var(--gold-dim);
+    letter-spacing: 2px;
+    padding: 6px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Border frame -->
+  <div class="page-border"></div>
+
+  <!-- Corner ornaments -->
+  <div class="corner corner-tl">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/>
+      <path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/>
+      <circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/>
+      <path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/>
+      <path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/>
+    </svg>
+  </div>
+  <div class="corner corner-tr">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/>
+      <path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/>
+      <circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/>
+      <path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/>
+      <path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/>
+    </svg>
+  </div>
+  <div class="corner corner-bl">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/>
+      <path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/>
+      <circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/>
+      <path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/>
+      <path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/>
+    </svg>
+  </div>
+  <div class="corner corner-br">
+    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/>
+      <path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/>
+      <circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/>
+      <path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/>
+      <path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/>
+    </svg>
+  </div>
+
+  <!-- Veil watermark -->
+  <svg class="watermark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="40" stroke="#8b1a1a" stroke-width="1"/>
+    <circle cx="50" cy="50" r="30" stroke="#8b1a1a" stroke-width="0.5" stroke-dasharray="3 3"/>
+    <path d="M50 15 L53 25 L50 22 L47 25 Z" fill="#8b1a1a"/>
+    <path d="M50 85 L53 75 L50 78 L47 75 Z" fill="#8b1a1a"/>
+    <path d="M15 50 L25 47 L22 50 L25 53 Z" fill="#8b1a1a"/>
+    <path d="M85 50 L75 47 L78 50 L75 53 Z" fill="#8b1a1a"/>
+    <circle cx="50" cy="50" r="8" stroke="#8b1a1a" stroke-width="1"/>
+    <circle cx="50" cy="50" r="3" fill="#8b1a1a"/>
+  </svg>
+
+  <div class="content">
+
+    <!-- Running head -->
+    <div class="running-head">
+      <span class="series">The Shattered Veil</span>
+      <span class="page-num">Scenario Background</span>
+    </div>
+
+    <!-- Section title -->
+    <div class="section-title">
+      <h1>Part Two: The Broken Bridge</h1>
+      <div class="subtitle">The crossing at Mireth's Ford lies in ruins — and something stirs beneath</div>
+      <div class="title-rule">
+        <span class="line"></span>
+        <span class="diamond"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+
+    <!-- Danger rating -->
+    <div class="danger-rating">
+      <span class="label">Danger</span>
+      <div class="danger-pip filled"></div>
+      <div class="danger-pip filled"></div>
+      <div class="danger-pip filled"></div>
+      <div class="danger-pip empty"></div>
+      <div class="danger-pip empty"></div>
+    </div>
+
+    <!-- Area description -->
+    <div class="area-box">
+      <div class="area-box-header">
+        <span>Area Description</span>
+      </div>
+      <div class="area-box-body">
+        <p class="read-aloud">"The bridge has not been whole in living memory. Its broken arches jut from the black water like the ribs of some drowned leviathan. The river here moves slow and heavy, thick with silt from the marshes upstream, and the air smells of wet stone and old iron. On the far bank, the road vanishes into a stand of skeletal birches whose bare branches claw at a sky the colour of a bruise."</p>
+        <p>Mireth's Crossing was once the only fordable point on the River Oss for thirty miles in either direction. The old stone bridge — three arches wide, built in the second age — collapsed during the Veilquake fifteen years ago. The Veiled King's engineers never repaired it; the Frayed Marches were deemed unworthy of resource. What remains are two crumbled stone piers amid the current and a single cracked span on the near side wide enough for two abreast.</p>
+        <p>The debris field in the river conceals more than rubble. The Nullstone fragments that triggered the Veilquake still pulse weakly beneath the silt, and the water around the piers shimmers with a faint oily iridescence that is not natural. Local superstition warns against lingering at the crossing after dark. This superstition is correct.</p>
+      </div>
+    </div>
+
+    <!-- Two-column stat section -->
+    <div class="stat-section">
+      <div class="stat-box">
+        <div class="stat-box-header">Location Details</div>
+        <div class="stat-box-body">
+          <div class="stat-row"><span class="label">Terrain</span><span class="value">River crossing, ruins</span></div>
+          <div class="stat-row"><span class="label">Light</span><span class="value">Dim (day) / Dark (night)</span></div>
+          <div class="stat-row"><span class="label">Sound</span><span class="value">Rushing water, creaking stone</span></div>
+          <div class="stat-extras" style="margin-top:6px;font-size:10.5px;color:var(--gold-dim);letter-spacing:0.5px;">
+            DC 12 Perception to notice the iridescent shimmer in the water
+          </div>
+        </div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-header">Veil Anomaly</div>
+        <div class="stat-box-body">
+          <div class="stat-row"><span class="label">Nullstone Resonance</span><span class="value">Moderate</span></div>
+          <div class="stat-row"><span class="label">Veil Thickness</span><span class="value">Thin (flickering)</span></div>
+          <div class="stat-row"><span class="label">Effect Radius</span><span class="value">30 ft. from central pier</span></div>
+          <div class="stat-extras" style="margin-top:6px;font-size:10.5px;color:var(--gold-dim);letter-spacing:0.5px;">
+            Creatures with Veil sensitivity feel disoriented (Disadv. on Wis saves)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="area-box">
+      <div class="area-box-header">Points of Interest</div>
+      <div class="area-box-body">
+        <div class="feature-list">
+          <div class="feature-item"><strong>The Central Pier:</strong> The largest surviving structure. Cracked down the middle but stable enough to cross with care (DC 10 Acrobatics, or normal movement at half speed). Beneath the pier, a submerged opening leads to the drowned chamber below — home to something that was not there before the bridge fell.</div>
+          <div class="feature-item"><strong>The Debris Field:</strong> Rubble and broken masonry fill the river between the piers. Difficult terrain for any creature that enters the water. A DC 14 Investigation check reveals worked stone — carved blocks, not natural rock — suggesting the bridge's collapse exposed something older.</div>
+          <div class="feature-item"><strong>The Warning Stones:</strong> Two standing stones on the near bank, carved in a script older than the Veiled King's reign. They are Nullstone wards — still partially active. Any Veil-constructed creature that approaches within 10 feet must make a DC 13 Wisdom save or be turned for 1 round.</div>
+          <div class="feature-item"><strong>The Traveller's Bundle:</strong> A rotten leather pack wedged beneath a fallen arch. Inside: a waterlogged journal (the last ten entries are illegible), a pouch containing 14 sp and 3 gp, and an iron key stamped with a symbol the PCs will recognise from Emberford's shrine. Whoever left this bundle did not leave alive.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DM Note -->
+    <div class="dm-hint">
+      <p>The Broken Bridge works best as a transitional encounter — tense but not necessarily combat-focused. The real threat beneath the pier should be foreshadowed (scrapes on the stone, objects pulled under, the water's wrongness) before it emerges. If the party has been marked by the Nullstone before, the creature below recognises them and calls their name in a voice like wet stone grinding together.</p>
+    </div>
+
+    <!-- Flavor quote -->
+    <div class="flavor-quote">
+      "Old Mireth built that bridge with her own hands. They say she poured her blood into the mortar so it would hold forever. It held for three hundred years. Then the Veil took what was owed."
+    </div>
+
+    <!-- Transition note -->
+    <div class="transition">~ Proceed to Part Three: The Ruins of Ossmark ~</div>
+
+    <!-- Running foot -->
+    <div class="running-foot">
+      <span class="module">Emberford Rising — Scenario Page Background</span>
+      <span class="brand">Tuco Enterprises</span>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
