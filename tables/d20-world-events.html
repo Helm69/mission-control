@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Shattered Veil — d20 World Events & Rumours</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --parchment: #f0e6d2; --parchment-dark: #e2d5b8; --border-dark: #1a1108; --border-mid: #2c1f12;
+    --gold: #b8962e; --gold-light: #d4b84a; --gold-dim: #8a6f1e;
+    --dd-blue: #2c4a6e; --dd-blue-light: #3d6a94; --dd-blue-dark: #1a3050;
+    --blood-red: #8b1a1a; --blood-red-light: #c0392b; --blood-red-dim: #5c0e0e;
+    --ink: #1c1410; --ink-light: #3d2e24; --emerald: #2d6a4f; --emerald-dark: #1b3a2d;
+  }
+  body { background: #1a1108; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 40px; }
+  .page { width: 210mm; min-height: 297mm; background: var(--parchment); position: relative; overflow: hidden; box-shadow: 0 0 60px rgba(0,0,0,0.8), inset 0 0 80px rgba(139,26,26,0.04); }
+  .page::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 20%, rgba(196,169,106,0.12) 0%, transparent 50%), radial-gradient(ellipse at 80% 70%, rgba(139,26,26,0.06) 0%, transparent 50%); pointer-events: none; z-index: 0; }
+  .page-border { position: absolute; inset: 12px; border: 2px solid var(--border-dark); z-index: 1; pointer-events: none; }
+  .page-border::before { content: ''; position: absolute; inset: 3px; border: 1px solid var(--gold-dim); }
+  .page-border::after { content: ''; position: absolute; inset: 6px; border: 1px solid rgba(184,150,46,0.2); }
+  .corner { position: absolute; width: 40px; height: 40px; z-index: 2; pointer-events: none; }
+  .corner svg { width: 100%; height: 100%; }
+  .corner-tl { top: 14px; left: 14px; }
+  .corner-tr { top: 14px; right: 14px; transform: scaleX(-1); }
+  .corner-bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+  .corner-br { bottom: 14px; right: 14px; transform: scale(-1,-1); }
+  .content { position: relative; z-index: 1; padding: 36px 40px; height: 100%; }
+  .running-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-dark); padding-bottom: 6px; margin-bottom: 20px; }
+  .running-head .series { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--dd-blue); }
+  .running-head .page-num { font-family: 'Crimson Text', serif; font-size: 11px; font-style: italic; color: var(--ink-light); }
+  .section-title { text-align: center; margin-bottom: 24px; }
+  .section-title h1 { font-family: 'Cinzel', serif; font-size: 28px; font-weight: 900; color: var(--dd-blue-dark); letter-spacing: 2px; text-transform: uppercase; line-height: 1.2; }
+  .section-title .subtitle { font-family: 'EB Garamond', serif; font-size: 13px; font-style: italic; color: var(--ink-light); margin-top: 4px; letter-spacing: 1px; }
+  .section-title .title-rule { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }
+  .section-title .title-rule .line { flex: 1; max-width: 120px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
+  .section-title .title-rule .diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+  .intro-box { border: 1.5px solid var(--border-dark); margin-bottom: 18px; position: relative; background: radial-gradient(ellipse at top left, rgba(255,252,240,0.4) 0%, transparent 60%); }
+  .intro-box::before { content: ''; position: absolute; inset: 3px; border: 1px solid rgba(184,150,46,0.25); pointer-events: none; }
+  .intro-box-header { background: linear-gradient(to right, var(--dd-blue-dark), var(--dd-blue)); color: #fff; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; }
+  .intro-box-body { padding: 12px 14px; font-family: 'EB Garamond', serif; font-size: 12.5px; line-height: 1.65; color: var(--ink); }
+  .table-header { background: linear-gradient(to right, var(--dd-blue-dark), var(--dd-blue)); color: #fff; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; border: 1.5px solid var(--border-dark); border-bottom: none; }
+  .d20-table { width: 100%; border-collapse: collapse; border: 1.5px solid var(--border-dark); font-family: 'EB Garamond', serif; }
+  .d20-table thead th { background: rgba(44,74,110,0.12); font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--dd-blue-dark); padding: 5px 8px; border-bottom: 1.5px solid var(--border-dark); text-align: left; }
+  .d20-table tbody td { padding: 5px 8px; font-size: 11.5px; line-height: 1.45; color: var(--ink); border-bottom: 1px solid rgba(26,17,8,0.1); vertical-align: top; }
+  .d20-table tbody tr:nth-child(even) { background: rgba(44,74,110,0.04); }
+  .d20-table .dice { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; color: var(--blood-red); text-align: center; width: 30px; }
+  .d20-table .event-name { font-weight: 700; color: var(--dd-blue-dark); font-size: 12px; }
+  .tag { display: inline-block; font-family: 'Crimson Text', serif; font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; padding: 1px 5px; border: 1px solid; margin: 1px 2px 1px 0; }
+  .tag-political { color: var(--dd-blue); border-color: var(--dd-blue); }
+  .tag-natural { color: var(--emerald); border-color: var(--emerald); }
+  .tag-veil { color: #7b2d8e; border-color: #7b2d8e; }
+  .tag-war { color: var(--blood-red); border-color: var(--blood-red); }
+  .tag-economy { color: var(--gold-dim); border-color: var(--gold-dim); }
+  .dm-note { border: 1px solid var(--gold-dim); background: linear-gradient(135deg, rgba(184,150,46,0.06) 0%, rgba(184,150,46,0.02) 100%); padding: 10px 12px; margin-bottom: 18px; position: relative; font-family: 'Crimson Text', serif; font-size: 11.5px; line-height: 1.55; color: var(--ink-light); font-style: italic; }
+  .dm-note::before { content: 'DM TIP'; position: absolute; top: -7px; left: 12px; background: var(--gold); color: var(--border-dark); font-family: 'Cinzel', serif; font-size: 8px; font-weight: 700; letter-spacing: 1.5px; padding: 1px 8px; font-style: normal; }
+  .running-foot { display: flex; justify-content: space-between; align-items: center; border-top: 2px solid var(--border-dark); padding-top: 6px; position: absolute; bottom: 28px; left: 40px; right: 40px; }
+  .running-foot .module { font-family: 'Crimson Text', serif; font-size: 10px; font-style: italic; color: var(--ink-light); }
+  .running-foot .brand { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--gold-dim); text-transform: uppercase; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
+  .two-col .table-header { font-size: 10px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="page-border"></div>
+  <div class="corner corner-tl"><svg viewBox="0 0 40 40" fill="none"><path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/><path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/><circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/><path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+  <div class="corner corner-tr"><svg viewBox="0 0 40 40" fill="none"><path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/><path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/><circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/><path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+  <div class="corner corner-bl"><svg viewBox="0 0 40 40" fill="none"><path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/><path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/><circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/><path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+  <div class="corner corner-br"><svg viewBox="0 0 40 40" fill="none"><path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/><path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/><circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/><path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+
+  <div class="content">
+    <div class="running-head">
+      <span class="series">The Shattered Veil</span>
+      <span class="page-num">Random Tables — World Events</span>
+    </div>
+    <div class="section-title">
+      <h1>d20 World Events & Rumours</h1>
+      <div class="subtitle">Roll at the start of each in-game week or when the party enters a new settlement</div>
+      <div class="title-rule"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+    </div>
+
+    <div class="intro-box">
+      <div class="intro-box-header">How This Works</div>
+      <div class="intro-box-body">
+        Roll on the <strong>World Events</strong> table for things happening <em>now</em> — events the party can witness, interact with, or be affected by. Roll on the <strong>Rumours & Whispers</strong> table for things people are <em>talking about</em> — some true, some false, all potentially useful. Roll 1d4 rumours per settlement visited.
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="table-header">☀ World Events (d20)</div>
+        <table class="d20-table">
+          <thead><tr><th>d20</th><th>Event</th><th>Tag</th></tr></thead>
+          <tbody>
+            <tr><td class="dice">1</td><td><span class="event-name">The Silver Drought</span><br>No rain for 40 days. Wells are low. Tensions between farming villages are rising. Someone's been poisoning water stores.</td><td><span class="tag tag-natural">Natural</span> <span class="tag tag-political">Political</span></td></tr>
+            <tr><td class="dice">2</td><td><span class="event-name">Veilquake Aftershock</span><br>A minor tremor — but it opens a new fissure. Something crawls out. The local lord has put a bounty on "fissure creatures."</td><td><span class="tag tag-veil">Veil</span></td></tr>
+            <tr><td class="dice">3</td><td><span class="event-name">The Conscription</span><br>The Veiled King's army is pressing men into service. Villages are hiding their young. Deserters are everywhere.</td><td><span class="tag tag-war">War</span> <span class="tag tag-political">Political</span></td></tr>
+            <tr><td class="dice">4</td><td><span class="event-name">Plague of Shadows</span><br>A village reports that people's shadows are moving independently. Three people have gone missing. The local priest is baffled.</td><td><span class="tag tag-veil">Veil</span> <span class="tag tag-natural">Natural</span></td></tr>
+            <tr><td class="dice">5</td><td><span class="event-name">The Merchant Prince Arrives</span><br>A wealthy trader has set up in the market town. Prices are dropping — he's buying everything. No one knows where his wealth comes from.</td><td><span class="tag tag-economy">Economy</span></td></tr>
+            <tr><td class="dice">6</td><td><span class="event-name">Festival of the Veil</span><br>An annual celebration where the boundary between worlds is honoured. This year, the rituals feel... different. More real.</td><td><span class="tag tag-veil">Veil</span></td></tr>
+            <tr><td class="dice">7</td><td><span class="event-name">The Bridge Collapse</span><br>A major trade bridge has fallen. Supply lines are disrupted. Bandits are exploiting the detour routes.</td><td><span class="tag tag-natural">Natural</span> <span class="tag tag-economy">Economy</span></td></tr>
+            <tr><td class="dice">8</td><td><span class="event-name">Heretic's Trial</span><br>A woman claims the Veil is not a barrier but a <em>wound</em>. She's been arrested for heresy. A crowd is gathering.</td><td><span class="tag tag-political">Political</span></td></tr>
+            <tr><td class="dice">9</td><td><span class="event-name">The Beast of the Moors</span><br>Livestock are being killed — drained of blood, not eaten. A hunting party went out. Only one returned, and he won't speak.</td><td><span class="tag tag-natural">Natural</span></td></tr>
+            <tr><td class="dice">10</td><td><span class="event-name">Nullstone Rush</span><br>A vein of Nullstone has been discovered. Miners, wizards, and criminals are all converging. The local economy is booming — and so is the violence.</td><td><span class="tag tag-economy">Economy</span> <span class="tag tag-veil">Veil</span></td></tr>
+            <tr><td class="dice">11</td><td><span class="event-name">The Silent Army</span><br>A column of soldiers marches through at night. They don't stop, don't speak, don't respond. By morning, they're gone. Tracks lead to the Veil fissure.</td><td><span class="tag tag-war">War</span> <span class="tag tag-veil">Veil</span></td></tr>
+            <tr><td class="dice">12</td><td><span class="event-name">Harvest Failure</span><br>The crops are wrong. Grain grows black. Fruit tastes of ash. The druids say the land is grieving.</td><td><span class="tag tag-natural">Natural</span></td></tr>
+            <tr><td class="dice">13</td><td><span class="event-name">The Assassination</span><br>A regional governor has been killed. The killer left a Veil-touched weapon at the scene. Fingers point in every direction.</td><td><span class="tag tag-political">Political</span> <span class="tag tag-war">War</span></td></tr>
+            <tr><td class="dice">14</td><td><span class="event-name">Refugee Crisis</span><br>Hundreds of displaced people arrive from the northern war zone. The town can't feed them. Tensions are rising between locals and refugees.</td><td><span class="tag tag-war">War</span> <span class="tag tag-political">Political</span></td></tr>
+            <tr><td class="dice">15</td><td><span class="event-name">The Awakening</span><br>An ancient statue in the town square has moved. Its eyes now face the Veil fissure. It wasn't facing that direction yesterday.</td><td><span class="tag tag-veil">Veil</span></td></tr>
+            <tr><td class="dice">16</td><td><span class="event-name">Trade Embargo</span><br>The Veiled King has banned trade with the southern provinces. Smuggling is now the only option. Prices have tripled.</td><td><span class="tag tag-political">Political</span> <span class="tag tag-economy">Economy</span></td></tr>
+            <tr><td class="dice">17</td><td><span class="event-name">The Light in the Sky</span><br>A second sun appeared at dawn. It lasted for one hour, then vanished. Scholars are panicking. The common folk are praying.</td><td><span class="tag tag-veil">Veil</span> <span class="tag tag-natural">Natural</span></td></tr>
+            <tr><td class="dice">18</td><td><span class="event-name">Uprising</span><br>Peasants have seized a garrison. They're demanding an end to conscription and the Veil tithe. The King's response will be swift.</td><td><span class="tag tag-war">War</span> <span class="tag tag-political">Political</span></td></tr>
+            <tr><td class="dice">19</td><td><span class="event-name">The Vanishing</span><br>An entire hamlet — 30 people — has disappeared overnight. The buildings remain. The food is still warm. No tracks lead away.</td><td><span class="tag tag-veil">Veil</span></td></tr>
+            <tr><td class="dice">20</td><td><span class="event-name">The Veil Thins</span><br>Every fissure in the region pulses simultaneously. For one hour, the boundary between worlds is transparent. Everyone sees what's on the other side.</td><td><span class="tag tag-veil">Veil</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="table-header">👂 Rumours & Whispers (d20)</div>
+        <table class="d20-table">
+          <thead><tr><th>d20</th><th>Rumour</th><th>Veracity</th></tr></thead>
+          <tbody>
+            <tr><td class="dice">1</td><td><span class="event-name">"The Veiled King is dead."</span><br>Someone saw the royal seal being moved at night. The court denies everything.</td><td><span class="tag tag-political">True</span></td></tr>
+            <tr><td class="dice">2</td><td><span class="event-name">"There's a door in the old mine that leads to another world."</span><br>A miner swears he walked through and came out fifty miles away.</td><td><span class="tag tag-veil">True</span></td></tr>
+            <tr><td class="dice">3</td><td><span class="event-name">"The Veil was created deliberately — to keep something in."</span><br>An old scholar's theory. She was laughed out of the academy.</td><td><span class="tag tag-veil">True</span></td></tr>
+            <tr><td class="dice">4</td><td><span class="event-name">"A dragon has been seen over the northern peaks."</span><br>Could be a dragon. Could be a Veil-stalker. Could be a very large bird.</td><td><span class="tag tag-natural">Uncertain</span></td></tr>
+            <tr><td class="dice">5</td><td><span class="event-name">"The Nullstone can cure any disease."</span><br>It can't. But people are paying fortunes for it anyway.</td><td>False</td></tr>
+            <tr><td class="dice">6</td><td><span class="event-name">"The party is being watched."</span><br>By whom? The rumour doesn't say. But someone's been asking questions.</td><td><span class="tag tag-political">True</span></td></tr>
+            <tr><td class="dice">7</td><td><span class="event-name">"A treasure ship sank in the marsh with a fortune in gold."</span><br>It did. The marsh is haunted. Most who go looking don't come back.</td><td><span class="tag tag-natural">True</span></td></tr>
+            <tr><td class="dice">8</td><td><span class="event-name">"The Veil is a living thing."</span><br>It breathes. It hungers. And it's getting thinner.</td><td><span class="tag tag-veil">Uncertain</span></td></tr>
+            <tr><td class="dice">9</td><td><span class="event-name">"A child was born with silver eyes. The midwife was struck blind."</span><br>The child exists. The blindness is disputed.</td><td><span class="tag tag-veil">Uncertain</span></td></tr>
+            <tr><td class="dice">10</td><td><span class="event-name">"The Veiled King's army is deserting en masse."</span><br>Some are. Not most. But the rumour is spreading faster than the truth.</td><td><span class="tag tag-war">Partly True</span></td></tr>
+            <tr><td class="dice">11</td><td><span class="event-name">"There's a weapon that can kill anything from the Veil."</span><br>There is. It's been lost for centuries. Someone is looking for it.</td><td><span class="tag tag-veil">True</span></td></tr>
+            <tr><td class="dice">12</td><td><span class="event-name">"The stars are wrong."</span><br>Astronomers confirm: three stars have moved. No one knows what it means.</td><td><span class="tag tag-natural">True</span></td></tr>
+            <tr><td class="dice">13</td><td><span class="event-name">"A noble is secretly funding the resistance."</span><br>Which noble? Depends on who you ask. Everyone accuses someone different.</td><td><span class="tag tag-political">Uncertain</span></td></tr>
+            <tr><td class="dice">14</td><td><span class="event-name">"The dead are restless."</span><br>Gravediggers report empty coffins. Families say they've heard knocking from below.</td><td><span class="tag tag-veil">True</span></td></tr>
+            <tr><td class="dice">15</td><td><span class="event-name">"A map to the Veil's heart has been found."</span><br>It's a fragment. It's incomplete. It's already caused two murders.</td><td><span class="tag tag-veil">True</span></td></tr>
+            <tr><td class="dice">16</td><td><span class="event-name">"The Veil chose the party."</span><br>A fortune teller said this. She's been right before.</td><td><span class="tag tag-veil">Uncertain</span></td></tr>
+            <tr><td class="dice">17</td><td><span class="event-name">"Wine from the southern vineyards causes prophetic dreams."</span><br>It does. The merchants have been adding something.</td><td><span class="tag tag-economy">True</span></td></tr>
+            <tr><td class="dice">18</td><td><span class="event-name">"A second Veil is forming."</span><br>Scholars have detected anomalies. If true, the implications are catastrophic.</td><td><span class="tag tag-veil">Uncertain</span></td></tr>
+            <tr><td class="dice">19</td><td><span class="event-name">"The party's patron has a hidden agenda."</span><br>Of course they do. The question is: what?</td><td><span class="tag tag-political">True</span></td></tr>
+            <tr><td class="dice">20</td><td><span class="event-name">"The world is a dream, and something is waking up."</span><br>A mad prophet screams this in the market square. No one listens. Yet.</td><td><span class="tag tag-veil">???</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="dm-note">
+      Rumours are the lifeblood of a living world. Not every rumour should be true — some are lies, some are misunderstandings, some are half-truths. Let the players investigate, debate, and choose what to believe. The best rumours are the ones that make players say "wait, what if that's <em>real</em>?" And remember: a rumour the players ignore is a plot thread you can pull later.
+    </div>
+
+    <div class="running-foot">
+      <span class="module">The Shattered Veil — Random Tables</span>
+      <span class="brand">Tuco Enterprises</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

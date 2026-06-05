@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Shattered Veil — d20 Random Encounters</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --parchment: #f0e6d2; --parchment-dark: #e2d5b8; --border-dark: #1a1108; --border-mid: #2c1f12;
+    --gold: #b8962e; --gold-light: #d4b84a; --gold-dim: #8a6f1e;
+    --dd-blue: #2c4a6e; --dd-blue-light: #3d6a94; --dd-blue-dark: #1a3050;
+    --blood-red: #8b1a1a; --blood-red-light: #c0392b; --blood-red-dim: #5c0e0e;
+    --ink: #1c1410; --ink-light: #3d2e24; --emerald: #2d6a4f; --emerald-dark: #1b3a2d;
+  }
+  body { background: #1a1108; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 40px; }
+  .page { width: 210mm; min-height: 297mm; background: var(--parchment); position: relative; overflow: hidden; box-shadow: 0 0 60px rgba(0,0,0,0.8), inset 0 0 80px rgba(139,26,26,0.04); }
+  .page::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 20%, rgba(196,169,106,0.12) 0%, transparent 50%), radial-gradient(ellipse at 80% 70%, rgba(139,26,26,0.06) 0%, transparent 50%); pointer-events: none; z-index: 0; }
+  .page-border { position: absolute; inset: 12px; border: 2px solid var(--border-dark); z-index: 1; pointer-events: none; }
+  .page-border::before { content: ''; position: absolute; inset: 3px; border: 1px solid var(--gold-dim); }
+  .page-border::after { content: ''; position: absolute; inset: 6px; border: 1px solid rgba(184,150,46,0.2); }
+  .corner { position: absolute; width: 40px; height: 40px; z-index: 2; pointer-events: none; }
+  .corner svg { width: 100%; height: 100%; }
+  .corner-tl { top: 14px; left: 14px; }
+  .corner-tr { top: 14px; right: 14px; transform: scaleX(-1); }
+  .corner-bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+  .corner-br { bottom: 14px; right: 14px; transform: scale(-1,-1); }
+  .content { position: relative; z-index: 1; padding: 36px 40px; height: 100%; }
+  .running-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-dark); padding-bottom: 6px; margin-bottom: 20px; }
+  .running-head .series { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--dd-blue); }
+  .running-head .page-num { font-family: 'Crimson Text', serif; font-size: 11px; font-style: italic; color: var(--ink-light); }
+  .section-title { text-align: center; margin-bottom: 24px; }
+  .section-title h1 { font-family: 'Cinzel', serif; font-size: 28px; font-weight: 900; color: var(--dd-blue-dark); letter-spacing: 2px; text-transform: uppercase; line-height: 1.2; }
+  .section-title .subtitle { font-family: 'EB Garamond', serif; font-size: 13px; font-style: italic; color: var(--ink-light); margin-top: 4px; letter-spacing: 1px; }
+  .section-title .title-rule { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }
+  .section-title .title-rule .line { flex: 1; max-width: 120px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
+  .section-title .title-rule .diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+  .intro-box { border: 1.5px solid var(--border-dark); margin-bottom: 18px; position: relative; background: radial-gradient(ellipse at top left, rgba(255,252,240,0.4) 0%, transparent 60%); }
+  .intro-box::before { content: ''; position: absolute; inset: 3px; border: 1px solid rgba(184,150,46,0.25); pointer-events: none; }
+  .intro-box-header { background: linear-gradient(to right, var(--blood-red-dim), var(--blood-red)); color: #fff; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; }
+  .intro-box-body { padding: 12px 14px; font-family: 'EB Garamond', serif; font-size: 12.5px; line-height: 1.65; color: var(--ink); }
+  .table-header { background: linear-gradient(to right, var(--dd-blue-dark), var(--dd-blue)); color: #fff; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; border: 1.5px solid var(--border-dark); border-bottom: none; }
+  .d20-table { width: 100%; border-collapse: collapse; border: 1.5px solid var(--border-dark); font-family: 'EB Garamond', serif; }
+  .d20-table thead th { background: rgba(44,74,110,0.12); font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--dd-blue-dark); padding: 5px 8px; border-bottom: 1.5px solid var(--border-dark); text-align: left; }
+  .d20-table tbody td { padding: 5px 8px; font-size: 11.5px; line-height: 1.45; color: var(--ink); border-bottom: 1px solid rgba(26,17,8,0.1); vertical-align: top; }
+  .d20-table tbody tr:nth-child(even) { background: rgba(44,74,110,0.04); }
+  .d20-table .dice { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; color: var(--blood-red); text-align: center; width: 30px; }
+  .d20-table .enc-name { font-weight: 700; color: var(--dd-blue-dark); font-size: 12px; }
+  .tag { display: inline-block; font-family: 'Crimson Text', serif; font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; padding: 1px 5px; border: 1px solid; margin: 1px 2px 1px 0; }
+  .tag-combat { color: var(--blood-red); border-color: var(--blood-red); }
+  .tag-social { color: var(--dd-blue); border-color: var(--dd-blue); }
+  .tag-explore { color: var(--emerald); border-color: var(--emerald); }
+  .tag-weird { color: #7b2d8e; border-color: #7b2d8e; }
+  .dm-note { border: 1px solid var(--gold-dim); background: linear-gradient(135deg, rgba(184,150,46,0.06) 0%, rgba(184,150,46,0.02) 100%); padding: 10px 12px; margin-bottom: 18px; position: relative; font-family: 'Crimson Text', serif; font-size: 11.5px; line-height: 1.55; color: var(--ink-light); font-style: italic; }
+  .dm-note::before { content: 'DM TIP'; position: absolute; top: -7px; left: 12px; background: var(--gold); color: var(--border-dark); font-family: 'Cinzel', serif; font-size: 8px; font-weight: 700; letter-spacing: 1.5px; padding: 1px 8px; font-style: normal; }
+  .running-foot { display: flex; justify-content: space-between; align-items: center; border-top: 2px solid var(--border-dark); padding-top: 6px; position: absolute; bottom: 28px; left: 40px; right: 40px; }
+  .running-foot .module { font-family: 'Crimson Text', serif; font-size: 10px; font-style: italic; color: var(--ink-light); }
+  .running-foot .brand { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--gold-dim); text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="page-border"></div>
+  <div class="corner corner-tl"><svg viewBox="0 0 40 40" fill="none"><path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/><path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/><circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/><path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+  <div class="corner corner-tr"><svg viewBox="0 0 40 40" fill="none"><path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/><path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/><circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/><path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+  <div class="corner corner-bl"><svg viewBox="0 0 40 40" fill="none"><path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/><path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/><circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/><path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+  <div class="corner corner-br"><svg viewBox="0 0 40 40" fill="none"><path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/><path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/><circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/><path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+
+  <div class="content">
+    <div class="running-head">
+      <span class="series">The Shattered Veil</span>
+      <span class="page-num">Random Tables — Encounters</span>
+    </div>
+    <div class="section-title">
+      <h1>d20 Random Encounters</h1>
+      <div class="subtitle">Roll when the party travels, camps, or explores the unknown</div>
+      <div class="title-rule"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+    </div>
+
+    <div class="intro-box">
+      <div class="intro-box-header">When to Roll</div>
+      <div class="intro-box-body">
+        Roll <strong>once per travel day</strong> and <strong>once per night watch</strong>. On a roll of 18–20, the encounter is <em>significant</em> — it should advance a plot thread or reveal something new about the world. On 1–5, it's atmospheric — colour, tension, or a minor obstacle.
+      </div>
+    </div>
+
+    <div class="table-header">⚔ d20 Random Encounters</div>
+    <table class="d20-table">
+      <thead><tr><th>d20</th><th>Encounter</th><th>Type</th><th>Threat</th></tr></thead>
+      <tbody>
+        <tr><td class="dice">1</td><td><span class="enc-name">The Weeping Waystone</span><br>A roadside stone weeps blood. A DC 14 Religion check reveals it's a burial marker — someone was interred here recently.</td><td><span class="tag tag-explore">Explore</span></td><td>None</td></tr>
+        <tr><td class="dice">2</td><td><span class="enc-name">Frayed Patrol</span><br>3 soldiers in mismatched armour, deserters from the Veiled King's army. They're hungry and desperate but not hostile — unless provoked.</td><td><span class="tag tag-social">Social</span></td><td>Low</td></tr>
+        <tr><td class="dice">3</td><td><span class="enc-name">The Singing Hollow</span><br>A clearing where the wind makes a low, mournful tone through a ring of dead trees. Anyone who sleeps here dreams of the same ruined city.</td><td><span class="tag tag-weird">Weird</span></td><td>None</td></tr>
+        <tr><td class="dice">4</td><td><span class="enc-name">Veil-Stalker</span><br>A predator from beyond the Veil — looks like a wolf made of smoke and broken glass. Hunts alone. Flees at half HP.</td><td><span class="tag tag-combat">Combat</span></td><td>Medium</td></tr>
+        <tr><td class="dice">5</td><td><span class="enc-name">The Merchant's Cart</span><br>A lone trader with a broken wheel. Sells dubious potions (50% chance any potion is actually just coloured water). Has gossip from the next town.</td><td><span class="tag tag-social">Social</span></td><td>None</td></tr>
+        <tr><td class="dice">6</td><td><span class="enc-name">Nullstone Quarry</span><br>An abandoned mine. The walls glitter with raw Nullstone. Harvesting it is possible but dangerous — each hour spent mining requires a DC 13 Con save or gain 1 level of Veil-taint.</td><td><span class="tag tag-explore">Explore</span></td><td>Low</td></tr>
+        <tr><td class="dice">7</td><td><span class="enc-name">The Hanged Man</span><br>A body swings from a tree. Fresh. A DC 12 Investigation reveals the victim was a tax collector — and the noose is made of Veil-stuff, not rope.</td><td><span class="tag tag-explore">Explore</span></td><td>Low</td></tr>
+        <tr><td class="dice">8</td><td><span class="enc-name">Fog of Lost Things</span><br>A thick fog rolls in. For 1d4 hours, the party can only see 30 feet. Lost items from previous travellers appear in the mist — a boot, a sword, a child's doll.</td><td><span class="tag tag-weird">Weird</span></td><td>None</td></tr>
+        <tr><td class="dice">9</td><td><span class="enc-name">Bandit Ambush</span><br>4 bandits in hiding. They demand half the party's coin. A DC 15 Intimidation or Persuasion check avoids combat.</td><td><span class="tag tag-combat">Combat</span> <span class="tag tag-social">Social</span></td><td>Low</td></tr>
+        <tr><td class="dice">10</td><td><span class="enc-name">The Oracle's Tent</span><br>A small, impossible tent sits by the road. Inside: an old woman who answers one question truthfully — then vanishes. The tent is gone when the party looks back.</td><td><span class="tag tag-weird">Weird</span></td><td>None</td></tr>
+        <tr><td class="dice">11</td><td><span class="enc-name">Collapsed Bridge</span><br>The path forward is blocked. A DC 14 Athletics check to climb, or 2d6 hours to find a way around. While delayed, roll again on this table.</td><td><span class="tag tag-explore">Explore</span></td><td>None</td></tr>
+        <tr><td class="dice">12</td><td><span class="enc-name">Veil-Touched Beast</span><br>A deer with too many eyes. It watches the party pass. If attacked, it doesn't fight — it <em>screams</em>, and every creature within a mile hears it.</td><td><span class="tag tag-weird">Weird</span></td><td>Low</td></tr>
+        <tr><td class="dice">13</td><td><span class="enc-name">The Refugee Train</span><br>A dozen families fleeing the northern war. They have nothing to trade but stories — and one of them is carrying a sealed letter meant for someone in the party.</td><td><span class="tag tag-social">Social</span></td><td>None</td></tr>
+        <tr><td class="dice">14</td><td><span class="enc-name">Spectral Re-enactment</span><br>The party witnesses a ghostly battle from the Veilquake — soldiers fighting shadows, a bridge collapsing. It repeats every 10 minutes. A DC 16 Arcana check lets a character interact with it.</td><td><span class="tag tag-weird">Weird</span></td><td>None</td></tr>
+        <tr><td class="dice">15</td><td><span class="enc-name">The Toll-Keeper</span><br>A massive figure in rusted armour blocks the road. It demands a "toll of memory" — one character must surrender a cherished memory (disadvantage on one skill check type for 24 hours) to pass. Or fight.</td><td><span class="tag tag-combat">Combat</span> <span class="tag tag-social">Social</span></td><td>High</td></tr>
+        <tr><td class="dice">16</td><td><span class="enc-name">Wounded Knight</span><br>A knight of the Veiled King, badly injured, begs the party to deliver a message to the capital. She dies within the hour regardless — but the message is genuine and important.</td><td><span class="tag tag-social">Social</span></td><td>None</td></tr>
+        <tr><td class="dice">17</td><td><span class="enc-name">The Fungal Bloom</span><br>A field of enormous mushrooms, some 10 feet tall. Beautiful. Deeply wrong. Spores cause hallucinations (DC 14 Con save or be poisoned for 1 hour). Something large moves among them.</td><td><span class="tag tag-explore">Explore</span> <span class="tag tag-combat">Combat</span></td><td>Medium</td></tr>
+        <tr><td class="dice">18</td><td><span class="enc-name">The Veil Rift</span><br>A tear in reality, 5 feet wide, crackling with energy. Something is trying to come through. The party has 3 rounds to close it (Arcana DC 15) or fight what emerges.</td><td><span class="tag tag-combat">Combat</span> <span class="tag tag-weird">Weird</span></td><td>High</td></tr>
+        <tr><td class="dice">19</td><td><span class="enc-name">The Traitor's Camp</span><br>A camp of enemy soldiers — the same ones the party has been tracking. They're asleep. A perfect ambush opportunity. Or a chance to listen.</td><td><span class="tag tag-combat">Combat</span> <span class="tag tag-explore">Explore</span></td><td>High</td></tr>
+        <tr><td class="dice">20</td><td><span class="enc-name">The Shattered One</span><br>A figure made of broken mirror-glass and old armour. It speaks in the voice of someone the party knows. It knows things it shouldn't. It offers a bargain — a piece of information for a piece of the party's past.</td><td><span class="tag tag-weird">Weird</span> <span class="tag tag-social">Social</span></td><td>???</td></tr>
+      </tbody>
+    </table>
+
+    <div class="dm-note">
+      Not every encounter needs to be a fight. The best random tables create <em>moments</em> — a weeping stone, a singing hollow, a merchant with coloured water. Use the low-threat entries to build atmosphere and the high-threat ones to escalate tension. And always, always let the players' choices matter more than the dice.
+    </div>
+
+    <div class="running-foot">
+      <span class="module">The Shattered Veil — Random Tables</span>
+      <span class="brand">Tuco Enterprises</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

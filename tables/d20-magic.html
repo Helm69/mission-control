@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Shattered Veil — d20 Magic & Miscast Effects</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --parchment: #f0e6d2; --parchment-dark: #e2d5b8; --border-dark: #1a1108; --border-mid: #2c1f12;
+    --gold: #b8962e; --gold-light: #d4b84a; --gold-dim: #8a6f1e;
+    --dd-blue: #2c4a6e; --dd-blue-light: #3d6a94; --dd-blue-dark: #1a3050;
+    --blood-red: #8b1a1a; --blood-red-light: #c0392b; --blood-red-dim: #5c0e0e;
+    --ink: #1c1410; --ink-light: #3d2e24; --emerald: #2d6a4f; --emerald-dark: #1b3a2d;
+  }
+  body { background: #1a1108; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 40px; }
+  .page { width: 210mm; min-height: 297mm; background: var(--parchment); position: relative; overflow: hidden; box-shadow: 0 0 60px rgba(0,0,0,0.8), inset 0 0 80px rgba(139,26,26,0.04); }
+  .page::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 20%, rgba(196,169,106,0.12) 0%, transparent 50%), radial-gradient(ellipse at 80% 70%, rgba(139,26,26,0.06) 0%, transparent 50%); pointer-events: none; z-index: 0; }
+  .page-border { position: absolute; inset: 12px; border: 2px solid var(--border-dark); z-index: 1; pointer-events: none; }
+  .page-border::before { content: ''; position: absolute; inset: 3px; border: 1px solid var(--gold-dim); }
+  .page-border::after { content: ''; position: absolute; inset: 6px; border: 1px solid rgba(184,150,46,0.2); }
+  .corner { position: absolute; width: 40px; height: 40px; z-index: 2; pointer-events: none; }
+  .corner svg { width: 100%; height: 100%; }
+  .corner-tl { top: 14px; left: 14px; }
+  .corner-tr { top: 14px; right: 14px; transform: scaleX(-1); }
+  .corner-bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+  .corner-br { bottom: 14px; right: 14px; transform: scale(-1,-1); }
+  .content { position: relative; z-index: 1; padding: 36px 40px; height: 100%; }
+  .running-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-dark); padding-bottom: 6px; margin-bottom: 20px; }
+  .running-head .series { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--dd-blue); }
+  .running-head .page-num { font-family: 'Crimson Text', serif; font-size: 11px; font-style: italic; color: var(--ink-light); }
+  .section-title { text-align: center; margin-bottom: 24px; }
+  .section-title h1 { font-family: 'Cinzel', serif; font-size: 28px; font-weight: 900; color: var(--dd-blue-dark); letter-spacing: 2px; text-transform: uppercase; line-height: 1.2; }
+  .section-title .subtitle { font-family: 'EB Garamond', serif; font-size: 13px; font-style: italic; color: var(--ink-light); margin-top: 4px; letter-spacing: 1px; }
+  .section-title .title-rule { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }
+  .section-title .title-rule .line { flex: 1; max-width: 120px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
+  .section-title .title-rule .diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+  .intro-box { border: 1.5px solid var(--border-dark); margin-bottom: 18px; position: relative; background: radial-gradient(ellipse at top left, rgba(255,252,240,0.4) 0%, transparent 60%); }
+  .intro-box::before { content: ''; position: absolute; inset: 3px; border: 1px solid rgba(184,150,46,0.25); pointer-events: none; }
+  .intro-box-header { background: linear-gradient(to right, #4a2070, #7b2d8e); color: #fff; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; }
+  .intro-box-body { padding: 12px 14px; font-family: 'EB Garamond', serif; font-size: 12.5px; line-height: 1.65; color: var(--ink); }
+  .table-header { background: linear-gradient(to right, #4a2070, #7b2d8e); color: #fff; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; border: 1.5px solid var(--border-dark); border-bottom: none; }
+  .d20-table { width: 100%; border-collapse: collapse; border: 1.5px solid var(--border-dark); font-family: 'EB Garamond', serif; }
+  .d20-table thead th { background: rgba(123,45,142,0.1); font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #4a2070; padding: 5px 8px; border-bottom: 1.5px solid var(--border-dark); text-align: left; }
+  .d20-table tbody td { padding: 5px 8px; font-size: 11.5px; line-height: 1.45; color: var(--ink); border-bottom: 1px solid rgba(26,17,8,0.1); vertical-align: top; }
+  .d20-table tbody tr:nth-child(even) { background: rgba(123,45,142,0.04); }
+  .d20-table .dice { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; color: #7b2d8e; text-align: center; width: 30px; }
+  .d20-table .effect-name { font-weight: 700; color: #4a2070; font-size: 12px; }
+  .tag { display: inline-block; font-family: 'Crimson Text', serif; font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; padding: 1px 5px; border: 1px solid; margin: 1px 2px 1px 0; }
+  .tag-harmful { color: var(--blood-red); border-color: var(--blood-red); }
+  .tag-beneficial { color: var(--emerald); border-color: var(--emerald); }
+  .tag-weird { color: #7b2d8e; border-color: #7b2d8e; }
+  .tag-duration { color: var(--dd-blue); border-color: var(--dd-blue); }
+  .dm-note { border: 1px solid var(--gold-dim); background: linear-gradient(135deg, rgba(184,150,46,0.06) 0%, rgba(184,150,46,0.02) 100%); padding: 10px 12px; margin-bottom: 18px; position: relative; font-family: 'Crimson Text', serif; font-size: 11.5px; line-height: 1.55; color: var(--ink-light); font-style: italic; }
+  .dm-note::before { content: 'DM TIP'; position: absolute; top: -7px; left: 12px; background: var(--gold); color: var(--border-dark); font-family: 'Cinzel', serif; font-size: 8px; font-weight: 700; letter-spacing: 1.5px; padding: 1px 8px; font-style: normal; }
+  .running-foot { display: flex; justify-content: space-between; align-items: center; border-top: 2px solid var(--border-dark); padding-top: 6px; position: absolute; bottom: 28px; left: 40px; right: 40px; }
+  .running-foot .module { font-family: 'Crimson Text', serif; font-size: 10px; font-style: italic; color: var(--ink-light); }
+  .running-foot .brand { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--gold-dim); text-transform: uppercase; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
+  .two-col .table-header { font-size: 10px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="page-border"></div>
+  <div class="corner corner-tl"><svg viewBox="0 0 40 40" fill="none"><path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/><path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/><circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/><path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+  <div class="corner corner-tr"><svg viewBox="0 0 40 40" fill="none"><path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/><path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/><circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/><path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+  <div class="corner corner-bl"><svg viewBox="0 0 40 40" fill="none"><path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/><path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/><circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/><path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+  <div class="corner corner-br"><svg viewBox="0 0 40 40" fill="none"><path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/><path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/><circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/><path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+
+  <div class="content">
+    <div class="running-head">
+      <span class="series">The Shattered Veil</span>
+      <span class="page-num">Random Tables — Magic</span>
+    </div>
+    <div class="section-title">
+      <h1>d20 Magic & Miscast Effects</h1>
+      <div class="subtitle">Roll when a spell goes wrong, wild magic surges, or the Veil interferes with arcane power</div>
+      <div class="title-rule"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+    </div>
+
+    <div class="intro-box">
+      <div class="intro-box-header">When to Roll</div>
+      <div class="intro-box-body">
+        Roll on the <strong>Miscast Table</strong> when a spellcaster rolls a natural 1 on a spell attack, fails a spellcasting check by 5 or more, or when the Veil is <em>thin</em> (DM's discretion). Roll on the <strong>Wild Magic Table</strong> for sorcerers, wild magic zones, or when someone taps into raw Veil energy.
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="table-header">⚡ Miscast Effects (d20)</div>
+        <table class="d20-table">
+          <thead><tr><th>d20</th><th>Effect</th><th>Tag</th></tr></thead>
+          <tbody>
+            <tr><td class="dice">1</td><td><span class="effect-name">Arcane Backlash</span><br>Caster takes 1d6 force damage per spell level.</td><td><span class="tag tag-harmful">Harmful</span></td></tr>
+            <tr><td class="dice">2</td><td><span class="effect-name">Veil Echo</span><br>The spell works, but a ghostly afterimage repeats it 1 round later at half effect.</td><td><span class="tag tag-weird">Weird</span></td></tr>
+            <tr><td class="dice">3</td><td><span class="effect-name">Sensory Swap</span><br>Caster's senses shuffle — they see sounds, hear colours — for 1d4 rounds.</td><td><span class="tag tag-weird">Weird</span> <span class="tag tag-duration">1d4 rnd</span></td></tr>
+            <tr><td class="dice">4</td><td><span class="effect-name">Unintended Target</span><br>The spell hits the nearest creature — ally or enemy — instead of the intended target.</td><td><span class="tag tag-harmful">Harmful</span></td></tr>
+            <tr><td class="dice">5</td><td><span class="effect-name">Mana Burn</span><br>The spell slot is expended but the spell fails. The caster's hands smoke for 1 minute.</td><td><span class="tag tag-harmful">Harmful</span></td></tr>
+            <tr><td class="dice">6</td><td><span class="effect-name">Gravity Flux</span><br>Gravity reverses in a 10 ft. radius for 1 round. Everyone makes a DC 12 Dex save or fall upward.</td><td><span class="tag tag-weird">Weird</span></td></tr>
+            <tr><td class="dice">7</td><td><span class="effect-name">Temporal Stutter</span><br>The caster vanishes for 6 seconds and reappears in the same spot. To everyone else, they were gone for 1 minute.</td><td><span class="tag tag-weird">Weird</span></td></tr>
+            <tr><td class="dice">8</td><td><span class="effect-name">Emotional Leak</span><br>The caster's strongest current emotion is projected onto everyone within 15 ft. for 1 round.</td><td><span class="tag tag-weird">Weird</span></td></tr>
+            <tr><td class="dice">9</td><td><span class="effect-name">Material Transmutation</span><br>One non-magical item the caster is holding turns to stone, wood, or glass (50% chance each).</td><td><span class="tag tag-harmful">Harmful</span></td></tr>
+            <tr><td class="dice">10</td><td><span class="effect-name">Silence Dome</span><br>A 15 ft. radius of absolute silence surrounds the caster for 1d4 rounds. No sound in or out.</td><td><span class="tag tag-weird">Weird</span> <span class="tag tag-duration">1d4 rnd</span></td></tr>
+            <tr><td class="dice">11</td><td><span class="effect-name">Veil Whisper</span><br>The caster hears a voice from the Veil offering a secret. DC 14 Wis save or be charmed for 1 round.</td><td><span class="tag tag-weird">Weird</span></td></tr>
+            <tr><td class="dice">12</td><td><span class="effect-name">Colour Drain</span><br>All colour within 30 ft. vanishes for 1 minute. The world becomes greyscale.</td><td><span class="tag tag-weird">Weird</span> <span class="tag tag-duration">1 min</span></td></tr>
+            <tr><td class="dice">13</td><td><span class="effect-name">Spell Reflection</span><br>The spell bounces back at the caster at half effect.</td><td><span class="tag tag-harmful">Harmful</span></td></tr>
+            <tr><td class="dice">14</td><td><span class="effect-name">Familiar Swap</span><br>If the caster has a familiar, they swap bodies with it for 1d4 minutes.</td><td><span class="tag tag-weird">Weird</span> <span class="tag tag-duration">1d4 min</span></td></tr>
+            <tr><td class="dice">15</td><td><span class="effect-name">Arcane Misfire</span><br>The spell fires in a random direction. Roll a d8 for direction.</td><td><span class="tag tag-harmful">Harmful</span></td></tr>
+            <tr><td class="dice">16</td><td><span class="effect-name">Memory Fray</span><br>The caster forgets the last 10 minutes. Other party members remember fine.</td><td><span class="tag tag-weird">Weird</span></td></tr>
+            <tr><td class="dice">17</td><td><span class="effect-name">Elemental Surge</span><br>An uncontrolled burst of the spell's element explodes outward. 2d6 damage, 10 ft. radius, DC 13 Dex save for half.</td><td><span class="tag tag-harmful">Harmful</span></td></tr>
+            <tr><td class="dice">18</td><td><span class="effect-name">Veil Taint</span><br>The caster gains 1 level of Veil-taint. Their eyes turn silver for 24 hours.</td><td><span class="tag tag-harmful">Harmful</span> <span class="tag tag-duration">24h</span></td></tr>
+            <tr><td class="dice">19</td><td><span class="effect-name">Reality Tear</span><br>A 5 ft. crack opens in space for 1 round. Anything entering it is shunted 1d10 × 10 feet in a random direction.</td><td><span class="tag tag-harmful">Harmful</span> <span class="tag tag-weird">Weird</span></td></tr>
+            <tr><td class="dice">20</td><td><span class="effect-name">Catastrophic Failure</span><br>The spell implodes. Everyone within 20 ft. makes a DC 15 Con save or take 4d6 force damage and be stunned for 1 round.</td><td><span class="tag tag-harmful">Harmful</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="table-header">✦ Wild Magic Surge (d20)</div>
+        <table class="d20-table">
+          <thead><tr><th>d20</th><th>Effect</th><th>Tag</th></tr></thead>
+          <tbody>
+            <tr><td class="dice">1</td><td><span class="effect-name">Benevolent Veil</span><br>The caster regains the spell slot they just used.</td><td><span class="tag tag-beneficial">Good</span></td></tr>
+            <tr><td class="dice">2</td><td><span class="effect-name">Veil Sight</span><br>The caster can see invisible creatures and objects for 10 minutes.</td><td><span class="tag tag-beneficial">Good</span></td></tr>
+            <tr><td class="dice">3</td><td><span class="effect-name">Arcane Shield</span><br>A shimmering barrier grants the caster +2 AC for 1 minute.</td><td><span class="tag tag-beneficial">Good</span></td></tr>
+            <tr><td class="dice">4</td><td><span class="effect-name">Veil Step</span><br>The caster teleports up to 30 feet to an unoccupied space they can see.</td><td><span class="tag tag-beneficial">Good</span></td></tr>
+            <tr><td class="dice">5</td><td><span class="effect-name">Healing Resonance</span><br>The nearest ally regains 2d8 hit points.</td><td><span class="tag tag-beneficial">Good</span></td></tr>
+            <tr><td class="dice">6</td><td><span class="effect-name">Elemental Blessing</span><br>The caster's next spell deals an additional 2d6 damage of a random element.</td><td><span class="tag tag-beneficial">Good</span></td></tr>
+            <tr><td class="dice">7</td><td><span class="effect-name">Time Warp</span><br>The caster gains an additional action this turn.</td><td><span class="tag tag-beneficial">Good</span></td></tr>
+            <tr><td class="dice">8</td><td><span class="effect-name">Veil Ward</span><br>The caster is immune to the next source of damage they receive within 1 minute.</td><td><span class="tag tag-beneficial">Good</span></td></tr>
+            <tr><td class="dice">9</td><td><span class="effect-name">Shared Power</span><br>All allies within 30 ft. gain +1 to their next attack roll or saving throw.</td><td><span class="tag tag-beneficial">Good</span></td></tr>
+            <tr><td class="dice">10</td><td><span class="effect-name">Fortune's Favour</span><br>The caster may reroll one d20 roll within the next hour.</td><td><span class="tag tag-beneficial">Good</span></td></tr>
+            <tr><td class="dice">11</td><td><span class="effect-name">Veil Construct</span><br>A small creature of solidified Veil-stuff appears and obeys one command (lasts 1 minute).</td><td><span class="tag tag-weird">Weird</span></td></tr>
+            <tr><td class="dice">12</td><td><span class="effect-name">Gravity Well</span><br>All enemies within 20 ft. must make a DC 14 Str save or be pulled 10 ft. toward the caster.</td><td><span class="tag tag-weird">Weird</span></td></tr>
+            <tr><td class="dice">13</td><td><span class="effect-name">Phantom Sound</span><br>An enormous sound (thunder, screaming, bells) emanates from the caster. All creatures within 30 ft. must make a DC 12 Con save or be deafened for 1 round.</td><td><span class="tag tag-weird">Weird</span></td></tr>
+            <tr><td class="dice">14</td><td><span class="effect-name">Polymorph Flicker</span><br>The caster's form shifts randomly for 1 round — they have resistance to all damage but can't cast spells.</td><td><span class="tag tag-weird">Weird</span></td></tr>
+            <tr><td class="dice">15</td><td><span class="effect-name">Veil Storm</span><br>Lightning arcs from the caster. 3d6 lightning damage to one random creature within 30 ft. (DC 13 Dex save for half).</td><td><span class="tag tag-harmful">Harmful</span></td></tr>
+            <tr><td class="dice">16</td><td><span class="effect-name">Age Flux</span><br>The caster ages or de-ages by 1d10 years (50/50). Purely cosmetic but deeply unsettling.</td><td><span class="tag tag-weird">Weird</span></td></tr>
+            <tr><td class="dice">17</td><td><span class="effect-name">Duplication</span><n>An illusory duplicate of the caster appears and mimics their actions for 1 minute (AC 10, 1 HP).</td><td><span class="tag tag-weird">Weird</span></td></tr>
+            <tr><td class="dice">18</td><td><span class="effect-name">Veil Hunger</span><br>The nearest magical item loses all charges/effects for 1 hour.</td><td><span class="tag tag-harmful">Harmful</span></td></tr>
+            <tr><td class="dice">19</td><td><span class="effect-name">Planar Bleed</span><br>A creature from another plane appears for 1 round, confused and hostile to everyone.</td><td><span class="tag tag-harmful">Harmful</span> <span class="tag tag-weird">Weird</span></td></tr>
+            <tr><td class="dice">20</td><td><span class="effect-name">The Veil Parts</span><br>For 1 round, the caster can see and interact with the Veil as a physical plane. They learn one plot-critical secret.</td><td><span class="tag tag-beneficial">Good</span> <span class="tag tag-weird">Weird</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="dm-note">
+      Miscast effects should feel dangerous but not campaign-ending. The worst results (18–20) are dramatic and memorable, not party-killers. Wild magic surges should lean fun and chaotic — they're the moments players talk about later. If a result doesn't fit the scene, roll again or pick something that does.
+    </div>
+
+    <div class="running-foot">
+      <span class="module">The Shattered Veil — Random Tables</span>
+      <span class="brand">Tuco Enterprises</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

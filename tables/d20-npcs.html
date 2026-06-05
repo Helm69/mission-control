@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Shattered Veil — d20 NPC Quirks & Secrets</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --parchment: #f0e6d2; --parchment-dark: #e2d5b8; --border-dark: #1a1108; --border-mid: #2c1f12;
+    --gold: #b8962e; --gold-light: #d4b84a; --gold-dim: #8a6f1e;
+    --dd-blue: #2c4a6e; --dd-blue-light: #3d6a94; --dd-blue-dark: #1a3050;
+    --blood-red: #8b1a1a; --blood-red-light: #c0392b; --blood-red-dim: #5c0e0e;
+    --ink: #1c1410; --ink-light: #3d2e24; --emerald: #2d6a4f; --emerald-dark: #1b3a2d;
+  }
+  body { background: #1a1108; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 40px; }
+  .page { width: 210mm; min-height: 297mm; background: var(--parchment); position: relative; overflow: hidden; box-shadow: 0 0 60px rgba(0,0,0,0.8), inset 0 0 80px rgba(139,26,26,0.04); }
+  .page::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 20%, rgba(196,169,106,0.12) 0%, transparent 50%), radial-gradient(ellipse at 80% 70%, rgba(139,26,26,0.06) 0%, transparent 50%); pointer-events: none; z-index: 0; }
+  .page-border { position: absolute; inset: 12px; border: 2px solid var(--border-dark); z-index: 1; pointer-events: none; }
+  .page-border::before { content: ''; position: absolute; inset: 3px; border: 1px solid var(--gold-dim); }
+  .page-border::after { content: ''; position: absolute; inset: 6px; border: 1px solid rgba(184,150,46,0.2); }
+  .corner { position: absolute; width: 40px; height: 40px; z-index: 2; pointer-events: none; }
+  .corner svg { width: 100%; height: 100%; }
+  .corner-tl { top: 14px; left: 14px; }
+  .corner-tr { top: 14px; right: 14px; transform: scaleX(-1); }
+  .corner-bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+  .corner-br { bottom: 14px; right: 14px; transform: scale(-1,-1); }
+  .content { position: relative; z-index: 1; padding: 36px 40px; height: 100%; }
+  .running-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-dark); padding-bottom: 6px; margin-bottom: 20px; }
+  .running-head .series { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--dd-blue); }
+  .running-head .page-num { font-family: 'Crimson Text', serif; font-size: 11px; font-style: italic; color: var(--ink-light); }
+  .section-title { text-align: center; margin-bottom: 24px; }
+  .section-title h1 { font-family: 'Cinzel', serif; font-size: 28px; font-weight: 900; color: var(--dd-blue-dark); letter-spacing: 2px; text-transform: uppercase; line-height: 1.2; }
+  .section-title .subtitle { font-family: 'EB Garamond', serif; font-size: 13px; font-style: italic; color: var(--ink-light); margin-top: 4px; letter-spacing: 1px; }
+  .section-title .title-rule { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }
+  .section-title .title-rule .line { flex: 1; max-width: 120px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
+  .section-title .title-rule .diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+  .intro-box { border: 1.5px solid var(--border-dark); margin-bottom: 18px; position: relative; background: radial-gradient(ellipse at top left, rgba(255,252,240,0.4) 0%, transparent 60%); }
+  .intro-box::before { content: ''; position: absolute; inset: 3px; border: 1px solid rgba(184,150,46,0.25); pointer-events: none; }
+  .intro-box-header { background: linear-gradient(to right, var(--emerald-dark), var(--emerald)); color: #fff; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; }
+  .intro-box-body { padding: 12px 14px; font-family: 'EB Garamond', serif; font-size: 12.5px; line-height: 1.65; color: var(--ink); }
+  .table-header { background: linear-gradient(to right, var(--dd-blue-dark), var(--dd-blue)); color: #fff; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; border: 1.5px solid var(--border-dark); border-bottom: none; }
+  .d20-table { width: 100%; border-collapse: collapse; border: 1.5px solid var(--border-dark); font-family: 'EB Garamond', serif; }
+  .d20-table thead th { background: rgba(44,74,110,0.12); font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--dd-blue-dark); padding: 5px 8px; border-bottom: 1px solid var(--border-dark); text-align: left; }
+  .d20-table tbody td { padding: 5px 8px; font-size: 11.5px; line-height: 1.45; color: var(--ink); border-bottom: 1px solid rgba(26,17,8,0.1); vertical-align: top; }
+  .d20-table tbody tr:nth-child(even) { background: rgba(44,74,110,0.04); }
+  .d20-table .dice { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; color: var(--blood-red); text-align: center; width: 30px; }
+  .d20-table .npc-name { font-weight: 700; color: var(--dd-blue-dark); font-size: 12px; }
+  .tag { display: inline-block; font-family: 'Crimson Text', serif; font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; padding: 1px 5px; border: 1px solid; margin: 1px 2px 1px 0; }
+  .tag-quirk { color: var(--emerald); border-color: var(--emerald); }
+  .tag-secret { color: var(--blood-red); border-color: var(--blood-red); }
+  .tag-motive { color: var(--dd-blue); border-color: var(--dd-blue); }
+  .dm-note { border: 1px solid var(--gold-dim); background: linear-gradient(135deg, rgba(184,150,46,0.06) 0%, rgba(184,150,46,0.02) 100%); padding: 10px 12px; margin-bottom: 18px; position: relative; font-family: 'Crimson Text', serif; font-size: 11.5px; line-height: 1.55; color: var(--ink-light); font-style: italic; }
+  .dm-note::before { content: 'DM TIP'; position: absolute; top: -7px; left: 12px; background: var(--gold); color: var(--border-dark); font-family: 'Cinzel', serif; font-size: 8px; font-weight: 700; letter-spacing: 1.5px; padding: 1px 8px; font-style: normal; }
+  .running-foot { display: flex; justify-content: space-between; align-items: center; border-top: 2px solid var(--border-dark); padding-top: 6px; position: absolute; bottom: 28px; left: 40px; right: 40px; }
+  .running-foot .module { font-family: 'Crimson Text', serif; font-size: 10px; font-style: italic; color: var(--ink-light); }
+  .running-foot .brand { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--gold-dim); text-transform: uppercase; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
+  .two-col .table-header { font-size: 10px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="page-border"></div>
+  <div class="corner corner-tl"><svg viewBox="0 0 40 40" fill="none"><path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/><path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/><circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/><path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+  <div class="corner corner-tr"><svg viewBox="0 0 40 40" fill="none"><path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/><path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/><circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/><path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+  <div class="corner corner-bl"><svg viewBox="0 0 40 40" fill="none"><path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/><path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/><circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/><path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+  <div class="corner corner-br"><svg viewBox="0 0 40 40" fill="none"><path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/><path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/><circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/><path d="M8 2 Q10 8 2 10" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/><path d="M2 16 Q8 18 16 2" stroke="#b8962e" stroke-width="0.8" fill="none" opacity="0.6"/></svg></div>
+
+  <div class="content">
+    <div class="running-head">
+      <span class="series">The Shattered Veil</span>
+      <span class="page-num">Random Tables — NPCs</span>
+    </div>
+    <div class="section-title">
+      <h1>d20 NPC Quirks & Secrets</h1>
+      <div class="subtitle">Roll when you need a memorable character in seconds</div>
+      <div class="title-rule"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+    </div>
+
+    <div class="intro-box">
+      <div class="intro-box-header">How to Use</div>
+      <div class="intro-box-body">
+        Roll <strong>once for a Quirk</strong> (left table) and <strong>once for a Secret</strong> (right table) to instantly create a fully-formed NPC. Combine any quirk with any secret — the results should surprise you. For extra depth, roll a second quirk on a 15+.
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="table-header">☺ NPC Quirks (d20)</div>
+        <table class="d20-table">
+          <thead><tr><th>d20</th><th>Quirk</th></tr></thead>
+          <tbody>
+            <tr><td class="dice">1</td><td><span class="npc-name">Compulsive Counter</span><br>Counts everything — steps, coins, words. Taps their fingers constantly.</td></tr>
+            <tr><td class="dice">2</td><td><span class="npc-name">Whispers to Themselves</span><br>Full conversations with an invisible companion. The companion has opinions.</td></tr>
+            <tr><td class="dice">3</td><td><span class="npc-name">Obsessive Polisher</span><br>Cleans and polishes one item obsessively — a coin, a ring, a dagger. It's never clean enough.</td></tr>
+            <tr><td class="dice">4</td><td><span class="npc-name">Terrible Liar</span><br>Blushes, stammers, and over-explains. Everyone knows they're lying. They don't know everyone knows.</td></tr>
+            <tr><td class="dice">5</td><td><span class="npc-name">Collector of Teeth</span><br>Keeps a pouch of teeth — animal, human, monster. Offers them as gifts.</td></tr>
+            <tr><td class="dice">6</td><td><span class="npc-name">Speaks in Third Person</span><br>Refers to themselves by name. Insists it's "more professional."</td></tr>
+            <tr><td class="dice">7</td><td><span class="npc-name">Afraid of Birds</span><br>Panics at the sight or sound of birds. Won't go near a coop or aviary.</td></tr>
+            <tr><td class="dice">8</td><td><span class="npc-name">Hums Battle Hymns</span><br>Constantly humming old war songs. Doesn't realise they're doing it. The songs are banned.</td></tr>
+            <tr><td class="dice">9</td><td><span class="npc-name">Overly Formal</span><br>Uses titles and courtly language even in a tavern. Calls everyone "my lord" or "my lady."</td></tr>
+            <tr><td class="dice">10</td><td><span class="npc-name">Tells the Same Story</span><br>Has one story they tell at every opportunity. It gets longer each time.</td></tr>
+            <tr><td class="dice">11</td><td><span class="npc-name">Refuses to Sit</span><br>Always stands, even when offered a chair. Claims sitting "slows the blood."</td></tr>
+            <tr><td class="dice">12</td><td><span class="npc-name">Paints Their Nails</span><br>With whatever is available — berry juice, soot, blood. Different colour each day.</td></tr>
+            <tr><td class="dice">13</td><td><span class="npc-name">Allergic to Magic</span><br>Sneezes, itches, or breaks out in hives near spellcasters. Genuinely physiological.</td></tr>
+            <tr><td class="dice">14</td><td><span class="npc-name">Carries a Lucky Stone</span><br>A specific, unremarkable stone. Will panic if separated from it. Has a name for it.</td></tr>
+            <tr><td class="dice">15</td><td><span class="npc-name">Eats with Their Hands</span><br>Even soup. Especially soup. Refuses cutlery on principle.</td></tr>
+            <tr><td class="dice">16</td><td><span class="npc-name">Sleepwalker</span><br>Has been found in strange places. Once woke up on the roof. Doesn't remember.</td></tr>
+            <tr><td class="dice">17</td><td><span class="npc-name">Veil-Touched Eyes</span><br>Their eyes occasionally flash silver. They claim it's a trick of the light. It isn't.</td></tr>
+            <tr><td class="dice">18</td><td><span class="npc-name">Writes Everything Down</span><br>Carries a journal and writes in it constantly. Will read passages aloud unprompted.</td></tr>
+            <tr><td class="dice">19</td><td><span class="npc-name">Superstitious to a Fault</span><br>Won't walk under ladders, salt thresholds, or speak certain words. Has a ritual for everything.</td></tr>
+            <tr><td class="dice">20</td><td><span class="npc-name">Perfect Memory</span><br>Remembers every conversation, every face, every slight. Brings up things you said three years ago.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="table-header">✦ NPC Secrets (d20)</div>
+        <table class="d20-table">
+          <thead><tr><th>d20</th><th>Secret</th></tr></thead>
+          <tbody>
+            <tr><td class="dice">1</td><td><span class="npc-name">Fugitive Identity</span><br>They're not who they say they are. They're running from a crime — real or perceived — committed years ago.</td></tr>
+            <tr><td class="dice">2</td><td><span class="npc-name">Veil Addict</span><br>They've been using Veil-touched substances. It's changing them. They need the next fix.</td></tr>
+            <tr><td class="dice">3</td><td><span class="npc-name">Secret Heir</span><br>They're the illegitimate child of someone important. They don't know it yet. Someone else does.</td></tr>
+            <tr><td class="dice">4</td><td><span class="npc-name">Double Agent</span><br>They're feeding information to an enemy faction. They believe they're doing the right thing.</td></tr>
+            <tr><td class="dice">5</td><td><span class="npc-name">Cursed Bloodline</span><br>Something in their family's past invoked a curse. It's waking up. They're the last of the line.</td></tr>
+            <tr><td class="dice">6</td><td><span class="npc-name">Stolen Power</span><br>Their magical ability isn't natural — they took it from someone. That someone is looking for it back.</td></tr>
+            <tr><td class="dice">7</td><td><span class="npc-name">Witness to Atrocity</span><br>They saw something they shouldn't have — a massacre, a ritual, a betrayal. They've never told anyone.</td></tr>
+            <tr><td class="dice">8</td><td><span class="npc-name">Owes a Debt to the Veil</span><br>They made a bargain with something from beyond. The payment is coming due.</td></tr>
+            <tr><td class="dice">9</td><td><span class="npc-name">Plague Carrier</span><br>They're infected with something — magical or mundane — and don't know it. They're contagious.</td></tr>
+            <tr><td class="dice">10</td><td><span class="npc-name">Former Enemy</span><br>They used to serve the antagonist. They defected. Their old comrades don't know they're alive.</td></tr>
+            <tr><td class="dice">11</td><td><span class="npc-name">Hidden Treasure Map</span><br>They have — or are — a map to something valuable. They may not realise what they're carrying.</td></tr>
+            <tr><td class="dice">12</td><td><span class="npc-name">Prophesied</span><br>An old prophecy mentions them by description. They're either the saviour or the destroyer.</td></tr>
+            <tr><td class="dice">13</td><td><span class="npc-name">Possessed Object</span><br>Something they carry — a ring, a book, a weapon — contains a trapped spirit. It's waking up.</td></tr>
+            <tr><td class="dice">14</td><td><span class="npc-name">Blackmailed</span><br>Someone has leverage over them. They're being forced to act against their own interests.</td></tr>
+            <tr><td class="dice">15</td><td><span class="npc-name">Dead Ringer</span><br>They look exactly like someone famous — or infamous. Mistaken identity is a constant problem.</td></tr>
+            <tr><td class="dice">16</td><td><span class="npc-name">Sleeper Agent</span><br>They've been magically conditioned to act on a trigger phrase. They don't know it exists.</td></tr>
+            <tr><td class="dice">17</td><td><span class="npc-name">Guardian of a Seal</span><br>They're the latest in a line of guardians protecting a Veil seal. They inherited the duty. The seal is weakening.</td></tr>
+            <tr><td class="dice">18</td><td><span class="npc-name">Murderer</span><br>They killed someone. It might have been justified. It might not have been. They live with it every day.</td></tr>
+            <tr><td class="dice">19</td><td><span class="npc-name">Changeling</span><br>They were swapped at birth — fae, Veil-creature, or something else. Their "parents" may or may not know.</td></tr>
+            <tr><td class="dice">20</td><td><span class="npc-name">The Key</span><br>They are literally a key — their blood, their life force, or their death is required to open something that should stay closed.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="dm-note">
+      The best NPCs are contradictions. A compulsive counter who's also a terrible liar. A fugitive who paints their nails. A secret heir who's afraid of birds. Roll, combine, and let the unexpected pairings create characters your players will remember. And always — <em>always</em> — let the players discover the secret through play, not exposition.
+    </div>
+
+    <div class="running-foot">
+      <span class="module">The Shattered Veil — Random Tables</span>
+      <span class="brand">Tuco Enterprises</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
