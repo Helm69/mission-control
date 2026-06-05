@@ -3,1166 +3,245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-title>D20 Random Tables — GM Tools</title>
+<title>D20 Random Tables — Free Download | Tuco Enterprises</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  :root {
-    --parchment:       #f0e6d2;
-    --parchment-dark:  #e2d5b8;
-    --parchment-edge:  #c4a96a;
-    --border-dark:     #1a1108;
-    --border-mid:      #2c1f12;
-    --gold:            #b8962e;
-    --gold-light:      #d4b84a;
-    --gold-dim:        #8a6f1e;
-    --dd-blue:         #2c4a6e;
-    --dd-blue-light:   #3d6a94;
-    --dd-blue-dark:    #1a3050;
-    --blood-red:       #8b1a1a;
-    --blood-red-light: #c0392b;
-    --blood-red-dim:   #5c0e0e;
-    --ink:             #1c1410;
-    --ink-light:       #3d2e24;
-    --shadow:          rgba(26, 17, 8, 0.3);
-  }
-
   body {
-    background: #1a1108;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    background: #0a0a0f;
+    color: #e0e0e8;
+    font-family: 'EB Garamond', Georgia, serif;
     min-height: 100vh;
-    padding: 40px 20px;
-  }
-
-  .page {
-    width: 210mm;
-    background: var(--parchment);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 60px rgba(0,0,0,0.8), inset 0 0 80px rgba(139, 26, 26, 0.04);
-  }
-
-  .page::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 20%, rgba(196, 169, 106, 0.12) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 70%, rgba(139, 26, 26, 0.06) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 50%, rgba(184, 150, 46, 0.04) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .page-border {
-    position: absolute;
-    inset: 12px;
-    border: 2px solid var(--border-dark);
-    z-index: 1;
-    pointer-events: none;
-  }
-  .page-border::before {
-    content: '';
-    position: absolute;
-    inset: 3px;
-    border: 1px solid var(--gold-dim);
-  }
-
-  .corner { position: absolute; width: 40px; height: 40px; z-index: 2; pointer-events: none; }
-  .corner svg { width: 100%; height: 100%; }
-  .corner-tl { top: 14px; left: 14px; }
-  .corner-tr { top: 14px; right: 14px; transform: scaleX(-1); }
-  .corner-bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
-  .corner-br { bottom: 14px; right: 14px; transform: scale(-1, -1); }
-
-  .content {
-    position: relative;
-    z-index: 1;
-    padding: 36px 40px;
-  }
-
-  .running-head {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid var(--border-dark);
-    padding-bottom: 6px;
-    margin-bottom: 20px;
-  }
-  .running-head .series {
-    font-family: 'Cinzel', serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--dd-blue);
-  }
-  .running-head .page-num {
-    font-family: 'Crimson Text', serif;
-    font-size: 11px;
-    font-style: italic;
-    color: var(--ink-light);
+    justify-content: center;
+    padding: 20px;
   }
 
-  .section-title { text-align: center; margin-bottom: 24px; }
-  .section-title h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 28px;
-    font-weight: 900;
-    color: var(--dd-blue-dark);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    line-height: 1.2;
+  .container {
+    max-width: 600px;
+    width: 100%;
   }
-  .section-title .subtitle {
-    font-family: 'EB Garamond', serif;
-    font-size: 13px;
-    font-style: italic;
-    color: var(--ink-light);
-    margin-top: 4px;
-    letter-spacing: 1px;
-  }
-  .title-rule { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }
-  .title-rule .line { flex: 1; max-width: 120px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
-  .title-rule .diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
 
-  .area-box { border: 1.5px solid var(--border-dark); margin-bottom: 18px; position: relative; }
-  .area-box::before { content: ''; position: absolute; inset: 3px; border: 1px solid rgba(184, 150, 46, 0.25); pointer-events: none; }
-  .area-box-header {
-    background: linear-gradient(to right, var(--dd-blue-dark), var(--dd-blue));
-    color: #fff;
-    font-family: 'Cinzel', serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 5px 12px;
-  }
-  .area-box-body { padding: 12px 14px; font-family: 'EB Garamond', serif; font-size: 12.5px; line-height: 1.65; color: var(--ink); }
-  .area-box-body p + p { margin-top: 8px; }
-
-  .stat-section { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
-  .stat-box { border: 1.5px solid var(--border-dark); }
-  .stat-box-header {
-    background: linear-gradient(to right, var(--blood-red-dim), var(--blood-red));
-    color: #fff;
-    font-family: 'Cinzel', serif;
-    font-size: 9.5px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 4px 10px;
-  }
-  .stat-box-body { padding: 8px 10px; font-family: 'EB Garamond', serif; font-size: 11.5px; line-height: 1.55; color: var(--ink); }
-  .stat-row { display: flex; justify-content: space-between; padding: 1px 0; }
-  .stat-row .label { font-weight: 600; color: var(--border-dark); }
-  .stat-row .value { font-style: italic; color: var(--ink-light); text-align: right; }
-
-  .feature-item {
-    font-family: 'EB Garamond', serif;
-    font-size: 12px;
-    line-height: 1.6;
-    color: var(--ink);
-    padding: 3px 0 3px 16px;
-    position: relative;
-  }
-  .feature-item::before {
-    content: '';
-    position: absolute;
-    left: 2px;
-    top: 10px;
-    width: 5px;
-    height: 5px;
-    background: var(--gold);
-    transform: rotate(45deg);
-  }
-  .feature-item strong { color: var(--dd-blue-dark); font-weight: 600; }
-
-  .dm-hint {
-    border: 1px solid var(--gold-dim);
-    background: linear-gradient(135deg, rgba(184, 150, 46, 0.06) 0%, rgba(184, 150, 46, 0.02) 100%);
-    padding: 10px 12px;
-    margin-bottom: 18px;
-    position: relative;
-  }
-  .dm-hint::before {
-    content: 'DM NOTE';
-    position: absolute;
-    top: -7px;
-    left: 12px;
-    background: var(--gold);
-    color: var(--border-dark);
-    font-family: 'Cinzel', serif;
-    font-size: 8px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    padding: 1px 8px;
-  }
-  .dm-hint p { font-family: 'Crimson Text', serif; font-size: 11.5px; line-height: 1.55; color: var(--ink-light); font-style: italic; }
-
-  .flavor-quote {
+  .card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 48px 40px;
     text-align: center;
-    font-family: 'EB Garamond', serif;
-    font-size: 12px;
-    font-style: italic;
-    color: var(--blood-red);
-    padding: 10px 20px;
-    margin: 10px 0;
-    position: relative;
-  }
-  .flavor-quote::before, .flavor-quote::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--blood-red-dim), transparent);
-    margin: 6px auto;
+    backdrop-filter: blur(40px);
   }
 
-  .running-foot {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 2px solid var(--border-dark);
-    padding-top: 6px;
-    margin-top: 20px;
+  .icon {
+    font-size: 48px;
+    margin-bottom: 16px;
   }
-  .running-foot .module { font-family: 'Crimson Text', serif; font-size: 10px; font-style: italic; color: var(--ink-light); }
-  .running-foot .brand { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--gold-dim); text-transform: uppercase; }
 
-  /* === Table-specific styles === */
-  .table-section { margin-bottom: 18px; }
-  .table-section-title {
+  h1 {
     font-family: 'Cinzel', serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--dd-blue-dark);
-    letter-spacing: 1px;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 8px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid var(--gold-dim);
-  }
-  .table-subtitle {
-    font-family: 'EB Garamond', serif;
-    font-size: 11.5px;
-    font-style: italic;
-    color: var(--ink-light);
-    margin-bottom: 6px;
+    background: linear-gradient(135deg, #b8a060, #d4b84a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  .d20-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 12px;
-  }
-  .d20-table th {
-    background: linear-gradient(to right, var(--dd-blue-dark), var(--dd-blue));
-    color: #fff;
-    font-family: 'Cinzel', serif;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 4px 8px;
-    text-align: left;
-  }
-  .d20-table td {
-    font-family: 'EB Garamond', serif;
-    font-size: 11.5px;
+  .subtitle {
+    font-size: 14px;
+    color: rgba(240,240,245,0.5);
+    margin-bottom: 32px;
     line-height: 1.5;
-    color: var(--ink);
-    padding: 4px 8px;
-    border-bottom: 1px solid rgba(184, 150, 46, 0.2);
-    vertical-align: top;
   }
-  .d20-table td:first-child {
-    font-family: 'Cinzel', serif;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--blood-red);
-    text-align: center;
-    width: 40px;
+
+  .features {
+    text-align: left;
+    margin-bottom: 32px;
+    padding: 0 20px;
   }
-  .d20-table tr:nth-child(even) td { background: rgba(184, 150, 46, 0.04); }
-  .d20-table tr:hover td { background: rgba(184, 150, 46, 0.08); }
 
-  .d20-table .rarity-common { color: var(--ink-light); font-size: 10px; }
-  .d20-table .rarity-uncommon { color: #27ae60; font-size: 10px; }
-  .d20-table .rarity-rare { color: #2980b9; font-size: 10px; }
-  .d20-table .rarity-legendary { color: #8e44ad; font-size: 10px; }
-  .d20-table .rarity-veryrare { color: #d68910; font-size: 10px; }
-
-  .two-col-tables { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .two-col-tables .d20-table td { font-size: 11px; padding: 3px 6px; }
-  .two-col-tables .d20-table th { font-size: 8px; padding: 3px 6px; }
-
-  .nav-tabs {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
+  .feature {
+    font-size: 13px;
+    color: rgba(240,240,245,0.7);
+    padding: 6px 0;
+    padding-left: 24px;
+    position: relative;
   }
-  .nav-tab {
+
+  .feature::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: #b8a060;
+    font-size: 10px;
+  }
+
+  label {
+    display: block;
     font-family: 'Cinzel', serif;
     font-size: 9px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    padding: 6px 12px;
-    border: 1.5px solid var(--border-dark);
-    background: var(--parchment-dark);
-    color: var(--ink-light);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .nav-tab:hover, .nav-tab.active {
-    background: var(--dd-blue);
-    color: #fff;
-    border-color: var(--dd-blue);
+    color: rgba(240,240,245,0.4);
+    margin-bottom: 8px;
+    text-align: left;
+    padding-left: 4px;
   }
 
-  .tab-content { display: none; }
-  .tab-content.active { display: block; }
-
-  .intro-text {
+  input[type="email"] {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 14px 18px;
+    color: #f0f0f5;
+    font-size: 14px;
     font-family: 'EB Garamond', serif;
-    font-size: 12.5px;
-    line-height: 1.65;
-    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
     margin-bottom: 16px;
   }
 
-  @media (max-width: 800px) {
-    .two-col-tables { grid-template-columns: 1fr; }
-    .stat-section { grid-template-columns: 1fr; }
-    .content { padding: 20px; }
+  input[type="email"]:focus {
+    border-color: #b8a060;
+  }
+
+  input[type="email"]::placeholder {
+    color: rgba(240,240,245,0.25);
+  }
+
+  button {
+    width: 100%;
+    background: linear-gradient(135deg, #b8a060, #8a6f1e);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+
+  button:hover { opacity: 0.9; }
+  button:active { transform: scale(0.98); }
+
+  .note {
+    font-size: 11px;
+    color: rgba(240,240,245,0.3);
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  .brand {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: rgba(184,160,96,0.4);
+    text-transform: uppercase;
+    margin-top: 32px;
+  }
+
+  /* Success state */
+  .success { display: none; }
+  .success .icon { font-size: 56px; }
+  .success h1 { font-size: 20px; }
+  .success .download-btn {
+    display: inline-block;
+    margin-top: 24px;
+    background: linear-gradient(135deg, #4a9eff, #2c6ecc);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 32px;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .success .download-btn:hover { opacity: 0.9; }
+  .success p { color: rgba(240,240,245,0.6); font-size: 13px; margin-top: 16px; }
+
+  /* Error state */
+  .error-msg {
+    display: none;
+    font-size: 12px;
+    color: #e17055;
+    margin-bottom: 12px;
+    text-align: left;
+    padding-left: 4px;
   }
 </style>
 </head>
 <body>
 
-<div class="page">
-  <div class="page-border"></div>
+<div class="container">
+  <div class="card" id="form-card">
+    <div class="icon">🎲</div>
+    <h1>D20 Random Tables</h1>
+    <div class="subtitle">Loot, Encounters, NPCs, Magic Items &amp; Locations — For D&amp;D 5e and Other Fantasy RPGs</div>
 
-  <!-- Corner ornaments -->
-  <div class="corner corner-tl">
-    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/>
-      <path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/>
-      <circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/>
-    </svg>
-  </div>
-  <div class="corner corner-tr">
-    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/>
-      <path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/>
-      <circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/>
-    </svg>
-  </div>
-  <div class="corner corner-bl">
-    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/>
-      <path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/>
-      <circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/>
-    </svg>
-  </div>
-  <div class="corner corner-br">
-    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2 2 L2 28 Q2 32 6 32 L28 32" stroke="#b8962e" stroke-width="1.5" fill="none"/>
-      <path d="M2 2 L14 2 Q18 2 18 6 L18 14" stroke="#b8962e" stroke-width="1.5" fill="none"/>
-      <circle cx="6" cy="6" r="2" fill="#b8962e" opacity="0.5"/>
-    </svg>
+    <div class="features">
+      <div class="feature">20+ random tables — loot, magic items, encounters, NPCs, locations</div>
+      <div class="feature">All d20-based — roll or browse, your choice</div>
+      <div class="feature">Professionally formatted PDF — A4, ready for printing or tablet use</div>
+      <div class="feature">Covers levels 1–12 with tiered encounter tables</div>
+      <div class="feature">System-agnostic — works with D&D 5e, Pathfinder, OSR, and more</div>
+    </div>
+
+    <label for="email">Enter your email to download</label>
+    <div class="error-msg" id="error-msg">Please enter a valid email address.</div>
+    <input type="email" id="email" placeholder="your@email.com" autocomplete="email">
+    <button onclick="submitEmail()">Download Free PDF</button>
+
+    <div class="note">We'll occasionally send you updates on new products and free resources. Unsubscribe anytime. We never share your email.</div>
+    <div class="brand">Tuco Enterprises</div>
   </div>
 
-  <div class="content">
-
-    <!-- Running head -->
-    <div class="running-head">
-      <span class="series">GM Tools — D20 Random Tables</span>
-      <span class="page-num">Tuco Enterprises</span>
-    </div>
-
-    <!-- Section title -->
-    <div class="section-title">
-      <h1>D20 Random Tables</h1>
-      <div class="subtitle">Loot, Encounters, NPCs, Magic Items &amp; Locations — For D&amp;D 5e and Other Fantasy RPGs</div>
-      <div class="title-rule">
-        <span class="line"></span>
-        <span class="diamond"></span>
-        <span class="line"></span>
-      </div>
-    </div>
-
-    <!-- Intro -->
-    <div class="intro-text">
-      A complete set of random tables for game masters. Roll when you need treasure, encounters, NPCs, or locations — during prep or in the middle of a session. All tables use a d20 (or d10/d6 where noted) and are designed for D&amp;D 5e but work in any fantasy RPG.
-    </div>
-
-    <!-- Navigation tabs -->
-    <div class="nav-tabs">
-      <button class="nav-tab active" onclick="showTab('loot', this)">💰 Loot</button>
-      <button class="nav-tab" onclick="showTab('magic', this)">✨ Magic</button>
-      <button class="nav-tab" onclick="showTab('npcs', this)">🧙 NPCs</button>
-      <button class="nav-tab" onclick="showTab('locations', this)">🗺 Locations</button>
-      <button class="nav-tab" onclick="showTab('encounters', this)">⚔ Encounters</button>
-    </div>
-
-    <!-- ==================== LOOT TAB ==================== -->
-    <div class="tab-content active" id="tab-loot">
-
-      <div class="area-box">
-        <div class="area-box-header">Table L1: Mundane Loot (Common Items)</div>
-        <div class="area-box-body">
-          <p class="table-subtitle">Use when searching bodies, peasant homes, or low-level areas. Roll d20.</p>
-          <table class="d20-table">
-            <tr><th>d20</th><th>Item</th></tr>
-            <tr><td>1</td><td>A handful of copper coins (2d6 cp) in a cloth pouch</td></tr>
-            <tr><td>2</td><td>A tarnished silver ring worth 5 gp</td></tr>
-            <tr><td>3</td><td>A belt knife with a bone handle (mundane, but well-made)</td></tr>
-            <tr><td>4</td><td>A pouch of dried herbs — sage, rosemary, thyme (worth 2 gp to an herbalist)</td></tr>
-            <tr><td>5</td><td>A folded letter sealed with plain wax (love letter, debt note, or warning)</td></tr>
-            <tr><td>6</td><td>A set of bone dice, slightly weighted</td></tr>
-            <tr><td>7</td><td>A small mirror, cracked but functional</td></tr>
-            <tr><td>8</td><td>A flask of cheap wine (half full)</td></tr>
-            <tr><td>9</td><td>A bundle of candles (6) and a tinderbox</td></tr>
-            <tr><td>10</td><td>A lucky charm carved from animal bone</td></tr>
-            <tr><td>11</td><td>A map fragment showing a local area with one location marked</td></tr>
-            <tr><td>12</td><td>A pouch of salt (worth more than it looks in the right town)</td></tr>
-            <tr><td>13</td><td>A pair of wool socks, surprisingly clean</td></tr>
-            <tr><td>14</td><td>A small journal — 3 mundane entries and one cryptic one</td></tr>
-            <tr><td>15</td><td>A key on a leather cord — doesn't match any lock found yet</td></tr>
-            <tr><td>16</td><td>A vial of ink and a quill</td></tr>
-            <tr><td>17</td><td>A piece of chalk and a small slate</td></tr>
-            <tr><td>18</td><td>A copper locket with a painted miniature portrait inside</td></tr>
-            <tr><td>19</td><td>A pouch of mixed coins (1d6 sp, 2d6 cp)</td></tr>
-            <tr><td>20</td><td>A folded parchment with a recipe (food, poison, or potion — DM's choice)</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="area-box">
-        <div class="area-box-header">Table L3: Treasure Hoard — Step 1: Base Treasure</div>
-        <div class="area-box-body">
-          <p class="table-subtitle">For significant caches — dragon hoards, bandit vaults, noble strongboxes. Roll d10.</p>
-          <table class="d20-table">
-            <tr><th>d10</th><th>Coins</th></tr>
-            <tr><td>1–3</td><td>4d6 × 100 cp, 3d6 × 100 sp</td></tr>
-            <tr><td>4–6</td><td>2d6 × 100 sp, 4d6 × 10 gp</td></tr>
-            <tr><td>7–8</td><td>3d6 × 100 gp, 1d6 × 10 pp</td></tr>
-            <tr><td>9</td><td>4d6 × 100 gp, 2d6 × 10 pp</td></tr>
-            <tr><td>10</td><td>6d6 × 100 gp, 4d6 × 10 pp</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="two-col-tables">
-        <div class="stat-box">
-          <div class="stat-box-header">Step 2: Gems &amp; Art (d6)</div>
-          <div class="stat-box-body">
-            <table class="d20-table">
-              <tr><th>d6</th><th>Gems/Art</th></tr>
-              <tr><td>1</td><td>2d6 gems × 10 gp</td></tr>
-              <tr><td>2</td><td>1d6 gems × 50 gp</td></tr>
-              <tr><td>3</td><td>1d4 art × 25 gp</td></tr>
-              <tr><td>4</td><td>1d4 art × 250 gp</td></tr>
-              <tr><td>5</td><td>1d6 gems × 100 gp</td></tr>
-              <tr><td>6</td><td>1d4 art × 750 gp</td></tr>
-            </table>
-          </div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-box-header">Step 3: Magic Items (d6)</div>
-          <div class="stat-box-body">
-            <table class="d20-table">
-              <tr><th>d6</th><th>Items</th></tr>
-              <tr><td>1–2</td><td>1d4 × Minor</td></tr>
-              <tr><td>3–4</td><td>1d3 × Minor, 1 × Major</td></tr>
-              <tr><td>5</td><td>2d4 × Minor, 1d2 × Major</td></tr>
-              <tr><td>6</td><td>2d4 × Minor, 1d4 × Major, 1 × Legendary</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ==================== MAGIC TAB ==================== -->
-    <div class="tab-content" id="tab-magic">
-
-      <div class="area-box">
-        <div class="area-box-header">Table L2: Minor Magic Items (Levels 1–4)</div>
-        <div class="area-box-body">
-          <table class="d20-table">
-            <tr><th>d20</th><th>Item</th><th>Rarity</th></tr>
-            <tr><td>1</td><td><strong>Spell Scroll</strong> (1st level — d6: Cure Wounds, Detect Magic, Shield, Faerie Fire, Thunderwave, Unseen Servant)</td><td class="rarity-common">Common</td></tr>
-            <tr><td>2</td><td><strong>Potion of Healing</strong> (2d4+2)</td><td class="rarity-common">Common</td></tr>
-            <tr><td>3</td><td><strong>Driftglobe</strong> — light source on command</td><td class="rarity-uncommon">Uncommon</td></tr>
-            <tr><td>4</td><td><strong>Cloak of Protection</strong> (+1 AC and saves)</td><td class="rarity-uncommon">Uncommon</td></tr>
-            <tr><td>5</td><td><strong>Boots of Elvenkind</strong> — advantage on Stealth to move silently</td><td class="rarity-uncommon">Uncommon</td></tr>
-            <tr><td>6</td><td><strong>Goggles of Night</strong> — darkvision 60 ft</td><td class="rarity-uncommon">Uncommon</td></tr>
-            <tr><td>7</td><td><strong>Immovable Rod</strong> — holds 8,000 lbs when locked</td><td class="rarity-uncommon">Uncommon</td></tr>
-            <tr><td>8</td><td><strong>Sending Stones</strong> (a pair — one is here, the other is... somewhere)</td><td class="rarity-uncommon">Uncommon</td></tr>
-            <tr><td>9</td><td><strong>Wand of Magic Detection</strong> (3 charges)</td><td class="rarity-common">Common</td></tr>
-            <tr><td>10</td><td><strong>Bag of Holding</strong> (500 lbs, 64 cu ft)</td><td class="rarity-uncommon">Uncommon</td></tr>
-            <tr><td>11</td><td><strong>Gauntlets of Ogre Power</strong> (STR 19)</td><td class="rarity-uncommon">Uncommon</td></tr>
-            <tr><td>12</td><td><strong>Hat of Disguise</strong> (Disguise Self at will)</td><td class="rarity-uncommon">Uncommon</td></tr>
-            <tr><td>13</td><td><strong>Pearl of Power</strong> (regain 1 spell slot, 1/day)</td><td class="rarity-uncommon">Uncommon</td></tr>
-            <tr><td>14</td><td><strong>Periapt of Wound Closure</strong> (stabilize, double HD healing)</td><td class="rarity-uncommon">Uncommon</td></tr>
-            <tr><td>15</td><td><strong>Rope of Climbing</strong> (60 ft, animates on command)</td><td class="rarity-uncommon">Uncommon</td></tr>
-            <tr><td>16</td><td><strong>Shield +1</strong></td><td class="rarity-uncommon">Uncommon</td></tr>
-            <tr><td>17</td><td><strong>Weapon +1</strong> (d6: longsword, shortbow, rapier, warhammer, 5-6=DM)</td><td class="rarity-uncommon">Uncommon</td></tr>
-            <tr><td>18</td><td><strong>Wand of the War Mage +1</strong></td><td class="rarity-uncommon">Uncommon</td></tr>
-            <tr><td>19</td><td><strong>Cloak of Elvenkind</strong> (advantage on Stealth)</td><td class="rarity-uncommon">Uncommon</td></tr>
-            <tr><td>20</td><td>Roll on Wonderous Items table</td><td>Varies</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="area-box">
-        <div class="area-box-header">Table L2-W: Wonderous Items</div>
-        <div class="area-box-body">
-          <table class="d20-table">
-            <tr><th>d10</th><th>Item</th></tr>
-            <tr><td>1</td><td><strong>Alchemy Jug</strong> — produces acid, honey, mayonnaise, etc.</td></tr>
-            <tr><td>2</td><td><strong>Bag of Tricks</strong> — pull a fuzzy that becomes a real animal (1/day)</td></tr>
-            <tr><td>3</td><td><strong>Cap of Water Breathing</strong></td></tr>
-            <tr><td>4</td><td><strong>Cloak of the Manta Ray</strong> — swim speed 60 ft underwater</td></tr>
-            <tr><td>5</td><td><strong>Decanter of Endless Water</strong></td></tr>
-            <tr><td>6</td><td><strong>Eversmoking Bottle</strong> — thick cloud of smoke</td></tr>
-            <tr><td>7</td><td><strong>Folding Boat</strong> — becomes 10-ft or 30-ft boat</td></tr>
-            <tr><td>8</td><td><strong>Heward's Handy Haversack</strong> — extradimensional storage</td></tr>
-            <tr><td>9</td><td><strong>Lantern of Revealing</strong> — invisible things glow</td></tr>
-            <tr><td>10</td><td><strong>Necklace of Adaptation</strong> — breathe anywhere</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="area-box">
-        <div class="area-box-header">Table L4: Major Magic Items (Levels 5–10)</div>
-        <div class="area-box-body">
-          <table class="d20-table">
-            <tr><th>d20</th><th>Item</th><th>Rarity</th></tr>
-            <tr><td>1</td><td><strong>Flame Tongue</strong> — sword bursts with fire (+2d6 fire)</td><td class="rarity-rare">Rare</td></tr>
-            <tr><td>2</td><td><strong>+2 Shield</strong></td><td class="rarity-rare">Rare</td></tr>
-            <tr><td>3</td><td><strong>+2 Weapon</strong> (DM's choice)</td><td class="rarity-rare">Rare</td></tr>
-            <tr><td>4</td><td><strong>Amulet of Proof vs Detection</strong></td><td class="rarity-rare">Rare</td></tr>
-            <tr><td>5</td><td><strong>Belt of Dwarvenkind</strong> (CON +2, poison saves, darkvision)</td><td class="rarity-rare">Rare</td></tr>
-            <tr><td>6</td><td><strong>Cloak of Displacement</strong> — disadvantage on attacks vs you</td><td class="rarity-rare">Rare</td></tr>
-            <tr><td>7</td><td><strong>Gem of Seeing</strong> — see illusions (30 min/day)</td><td class="rarity-rare">Rare</td></tr>
-            <tr><td>8</td><td><strong>Mace of Disruption</strong> — extra vs fiends/undead</td><td class="rarity-rare">Rare</td></tr>
-            <tr><td>9</td><td><strong>Necklace of Fireballs</strong> — 5 beads, each casts Fireball</td><td class="rarity-rare">Rare</td></tr>
-            <tr><td>10</td><td><strong>Ring of Spell Storing</strong> — store up to 5 levels</td><td class="rarity-rare">Rare</td></tr>
-            <tr><td>11</td><td><strong>Rod of the Pact Keeper +2</strong></td><td class="rarity-rare">Rare</td></tr>
-            <tr><td>12</td><td><strong>Staff of Healing</strong> — Cure Wounds, Lesser Restoration</td><td class="rarity-rare">Rare</td></tr>
-            <tr><td>13</td><td><strong>Plate Armor of Etherealness</strong> (1/day)</td><td class="rarity-veryrare">Very Rare</td></tr>
-            <tr><td>14</td><td><strong>Vorpal Sword</strong> — decapitate on nat 20</td><td class="rarity-legendary">Legendary</td></tr>
-            <tr><td>15</td><td><strong>+3 Weapon</strong> (DM's choice)</td><td class="rarity-veryrare">Very Rare</td></tr>
-            <tr><td>16</td><td><strong>Staff of Power</strong> (+2 AC/saves, 21 charges)</td><td class="rarity-veryrare">Very Rare</td></tr>
-            <tr><td>17</td><td><strong>Ring of Three Wishes</strong></td><td class="rarity-legendary">Legendary</td></tr>
-            <tr><td>18</td><td><strong>Staff of the Magi</strong> (50 charges, absorbs spells)</td><td class="rarity-legendary">Legendary</td></tr>
-            <tr><td>19</td><td><strong>Belt of Storm Giant Strength</strong> (STR 29)</td><td class="rarity-legendary">Legendary</td></tr>
-            <tr><td>20</td><td>Roll on Legendary table</td><td class="rarity-legendary">Legendary</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="area-box">
-        <div class="area-box-header">Table L5: Legendary Items</div>
-        <div class="area-box-body">
-          <table class="d20-table">
-            <tr><th>d10</th><th>Item</th></tr>
-            <tr><td>1</td><td><strong>Holy Avenger</strong> (+3, extra vs fiends/undead, aura)</td></tr>
-            <tr><td>2</td><td><strong>Staff of the Magi</strong> (50 charges, absorbs spells)</td></tr>
-            <tr><td>3</td><td><strong>Tome of Clear Thought</strong> (INT +2, max 22)</td></tr>
-            <tr><td>4</td><td><strong>Tome of Leadership</strong> (CHA +2, max 22)</td></tr>
-            <tr><td>5</td><td><strong>Tome of Understanding</strong> (WIS +2, max 22)</td></tr>
-            <tr><td>6</td><td><strong>Belt of Storm Giant Strength</strong> (STR 29)</td></tr>
-            <tr><td>7</td><td><strong>Ring of Djinni Summoning</strong> (summon djinni, 1/day)</td></tr>
-            <tr><td>8</td><td><strong>Rod of Resurrection</strong> (Raise Dead, 5 charges)</td></tr>
-            <tr><td>9</td><td><strong>Vorpal Greatsword</strong> (decap nat 20, +3)</td></tr>
-            <tr><td>10</td><td><strong>Tome of the Stilled Tongue</strong> (bonus action spells as reactions)</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="area-box">
-        <div class="area-box-header">Table L6: Cursed Items</div>
-        <div class="area-box-body">
-          <p class="table-subtitle">For when treasure comes with a price. Roll d10.</p>
-          <table class="d20-table">
-            <tr><th>d10</th><th>Item</th><th>Curse</th></tr>
-            <tr><td>1</td><td><strong>Sword of Vengeance</strong></td><td>Can't let go; compels aggression</td></tr>
-            <tr><td>2</td><td><strong>Armor of Vulnerability</strong></td><td>Resistance to one type, vulnerable to another</td></tr>
-            <tr><td>3</td><td><strong>Helm of Opposite Alignment</strong></td><td>Alignment slowly shifts</td></tr>
-            <tr><td>4</td><td><strong>Gauntlets of Fumbling</strong></td><td>Drop items at dramatic moments</td></tr>
-            <tr><td>5</td><td><strong>Potion of Poison</strong></td><td>Looks like healing, deals poison damage</td></tr>
-            <tr><td>6</td><td><strong>Bag of Devouring</strong></td><td>Consumes items; attacks if you reach in</td></tr>
-            <tr><td>7</td><td><strong>Cloak of Fumbling</strong></td><td>Random disadvantage on Dexterity checks</td></tr>
-            <tr><td>8</td><td><strong>Weapon of Warning</strong></td><td>Screams when drawn — no stealth</td></tr>
-            <tr><td>9</td><td><strong>Ring of Bureaucracy</strong></td><td>Can't lie, must follow all laws literally</td></tr>
-            <tr><td>10</td><td><strong>Amulet of the Black Skull</strong></td><td>Random plane teleport (involuntary, 1/day)</td></tr>
-          </table>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ==================== NPC TAB ==================== -->
-    <div class="tab-content" id="tab-npcs">
-
-      <div class="dm-hint">
-        <p><strong>Quick NPC Generator:</strong> Roll d20 each on Name, Appearance, Personality, and Quirk for a complete NPC in 30 seconds. Add Motivation and Secret for important NPCs.</p>
-      </div>
-
-      <div class="two-col-tables">
-        <div class="stat-box">
-          <div class="stat-box-header">Table N1: Human Male Names</div>
-          <div class="stat-box-body">
-            <table class="d20-table">
-              <tr><th>d10</th><th>Name</th></tr>
-              <tr><td>1</td><td>Aldric</td></tr>
-              <tr><td>2</td><td>Brennan</td></tr>
-              <tr><td>3</td><td>Caelum</td></tr>
-              <tr><td>4</td><td>Darian</td></tr>
-              <tr><td>5</td><td>Edric</td></tr>
-              <tr><td>6</td><td>Fennick</td></tr>
-              <tr><td>7</td><td>Gareth</td></tr>
-              <tr><td>8</td><td>Hadrian</td></tr>
-              <tr><td>9</td><td>Ivor</td></tr>
-              <tr><td>10</td><td>Jareth</td></tr>
-            </table>
-          </div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-box-header">Table N1: Human Female Names</div>
-          <div class="stat-box-body">
-            <table class="d20-table">
-              <tr><th>d10</th><th>Name</th></tr>
-              <tr><td>1</td><td>Astrid</td></tr>
-              <tr><td>2</td><td>Brenna</td></tr>
-              <tr><td>3</td><td>Celeste</td></tr>
-              <tr><td>4</td><td>Delia</td></tr>
-              <tr><td>5</td><td>Elara</td></tr>
-              <tr><td>6</td><td>Fiona</td></tr>
-              <tr><td>7</td><td>Gwyneth</td></tr>
-              <tr><td>8</td><td>Helena</td></tr>
-              <tr><td>9</td><td>Isolde</td></tr>
-              <tr><td>10</td><td>Jessamine</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="area-box">
-        <div class="area-box-header">Table N3: Appearance (d20)</div>
-        <div class="area-box-body">
-          <div class="two-col-tables">
-            <table class="d20-table">
-              <tr><th>d20</th><th>Appearance</th></tr>
-              <tr><td>1</td><td>Scarred face — jagged scar temple to jaw</td></tr>
-              <tr><td>2</td><td>Missing an eye, wears a patch</td></tr>
-              <tr><td>3</td><td>Unusually tall and gaunt, almost skeletal</td></tr>
-              <tr><td>4</td><td>Stocky and broad, arms like tree trunks</td></tr>
-              <tr><td>5</td><td>Weathered and sun-darkened, looks older</td></tr>
-              <tr><td>6</td><td>Soft and well-fed, never missed a meal</td></tr>
-              <tr><td>7</td><td>Covered in tattoos — symbols, maps, or names</td></tr>
-              <tr><td>8</td><td>One arm is a prosthetic (wood/metal/magical)</td></tr>
-              <tr><td>9</td><td>Strikingly beautiful — people stop and stare</td></tr>
-              <tr><td>10</td><td>Completely unremarkable — forgettable face</td></tr>
-            </table>
-            <table class="d20-table">
-              <tr><th>d20</th><th>Appearance</th></tr>
-              <tr><td>11</td><td>Walks with a limp, uses a cane</td></tr>
-              <tr><td>12</td><td>Wild, unkempt hair and beard</td></tr>
-              <tr><td>13</td><td>Clean-shaven and immaculate</td></tr>
-              <tr><td>14</td><td>Visible birthmark shaped like something meaningful</td></tr>
-              <tr><td>15</td><td>Missing fingers on one hand</td></tr>
-              <tr><td>16</td><td>Eyes are unusual colour — gold, silver, or black</td></tr>
-              <tr><td>17</td><td>Hunched posture, always looks cold</td></tr>
-              <tr><td>18</td><td>Moves with unnatural grace — almost floating</td></tr>
-              <tr><td>19</td><td>Heavily perfumed or carries a strong smell</td></tr>
-              <tr><td>20</td><td>Distinctive clothing — colour, style, or accessory</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="area-box">
-        <div class="area-box-header">Table N4: Personality (d20)</div>
-        <div class="area-box-body">
-          <div class="two-col-tables">
-            <table class="d20-table">
-              <tr><th>d20</th><th>Personality</th></tr>
-              <tr><td>1</td><td>Gruff but kind — acts tough, secretly helps</td></tr>
-              <tr><td>2</td><td>Nervous and jumpy — always looking over shoulder</td></tr>
-              <tr><td>3</td><td>Overly friendly — talks and asks too much</td></tr>
-              <tr><td>4</td><td>Cold and calculating — every word measured</td></tr>
-              <tr><td>5</td><td>Boastful — exaggerates everything</td></tr>
-              <tr><td>6</td><td>Melancholic — haunted by the past</td></tr>
-              <tr><td>7</td><td>Cheerful optimist — sees good in everything</td></tr>
-              <tr><td>8</td><td>Paranoid — trusts no one, sees conspiracies</td></tr>
-              <tr><td>9</td><td>Greedy — everything has a price</td></tr>
-              <tr><td>10</td><td>Honourable — keeps their word, even when it costs</td></tr>
-            </table>
-            <table class="d20-table">
-              <tr><th>d20</th><th>Personality</th></tr>
-              <tr><td>11</td><td>Sarcastic — nothing is serious</td></tr>
-              <tr><td>12</td><td>Wise and patient — speaks slowly, thinks first</td></tr>
-              <tr><td>13</td><td>Impulsive — acts first, thinks never</td></tr>
-              <tr><td>14</td><td>Cowardly — avoids danger, useful otherwise</td></tr>
-              <tr><td>15</td><td>Fiercely loyal — once earned, they'll die for you</td></tr>
-              <tr><td>16</td><td>Mysterious — deflects personal questions</td></tr>
-              <tr><td>17</td><td>Pious — deeply religious, quotes scripture</td></tr>
-              <tr><td>18</td><td>Hedonistic — lives for pleasure</td></tr>
-              <tr><td>19</td><td>Vengeful — nursing a grudge</td></tr>
-              <tr><td>20</td><td>Curious — asks endless questions</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="two-col-tables">
-        <div class="stat-box">
-          <div class="stat-box-header">Table N5: Motivation (d20)</div>
-          <div class="stat-box-body">
-            <table class="d20-table">
-              <tr><th>d10</th><th>Motivation</th></tr>
-              <tr><td>1</td><td>Revenge — someone wronged them</td></tr>
-              <tr><td>2</td><td>Wealth — gold is all that matters</td></tr>
-              <tr><td>3</td><td>Power — wants to be in charge</td></tr>
-              <tr><td>4</td><td>Love — doing it for someone they care about</td></tr>
-              <tr><td>5</td><td>Duty — bound by oath or obligation</td></tr>
-              <tr><td>6</td><td>Freedom — escaped, never be caged again</td></tr>
-              <tr><td>7</td><td>Knowledge — seeking specific answers</td></tr>
-              <tr><td>8</td><td>Redemption — making up for past mistakes</td></tr>
-              <tr><td>9</td><td>Survival — just trying to stay alive</td></tr>
-              <tr><td>10</td><td>Faith — serving a god or cause</td></tr>
-            </table>
-            <table class="d20-table" style="margin-top:6px">
-              <tr><th>d10</th><th>Motivation</th></tr>
-              <tr><td>11</td><td>Family — protecting their kin</td></tr>
-              <tr><td>12</td><td>Ambition — climbing the social ladder</td></tr>
-              <tr><td>13</td><td>Fear — running from something</td></tr>
-              <tr><td>14</td><td>Greed — hoarding anything valuable</td></tr>
-              <tr><td>15</td><td>Justice — righting wrongs</td></tr>
-              <tr><td>16</td><td>Curiosity — can't help but investigate</td></tr>
-              <tr><td>17</td><td>Legacy — wants to be remembered</td></tr>
-              <tr><td>18</td><td>Pleasure — life is short, enjoy it</td></tr>
-              <tr><td>19</td><td>Protection — guarding person/place/secret</td></tr>
-              <tr><td>20</td><td>Escape — wants to leave and never return</td></tr>
-            </table>
-          </div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-box-header">Table N7: Quirk (d20)</div>
-          <div class="stat-box-body">
-            <table class="d20-table">
-              <tr><th>d10</th><th>Quirk</th></tr>
-              <tr><td>1</td><td>Talks to an invisible companion</td></tr>
-              <tr><td>2</td><td>Compulsively counts things</td></tr>
-              <tr><td>3</td><td>Refuses to eat meat (or only eats meat)</td></tr>
-              <tr><td>4</td><td>Hums or sings constantly</td></tr>
-              <tr><td>5</td><td>Collects something bizarre — teeth, buttons, bones</td></tr>
-              <tr><td>6</td><td>Speaks in third person</td></tr>
-              <tr><td>7</td><td>Always lies about small things</td></tr>
-              <tr><td>8</td><td>Has a pet they talk to like a person</td></tr>
-              <tr><td>9</td><td>Obsessed with a particular colour</td></tr>
-              <tr><td>10</td><td>Tells the same story differently each time</td></tr>
-            </table>
-            <table class="d20-table" style="margin-top:6px">
-              <tr><th>d10</th><th>Quirk</th></tr>
-              <tr><td>11</td><td>Afraid of something unusual</td></tr>
-              <tr><td>12</td><td>Sleeps day, awake all night</td></tr>
-              <tr><td>13</td><td>Never makes eye contact</td></tr>
-              <tr><td>14</td><td>Laughs at inappropriate moments</td></tr>
-              <tr><td>15</td><td>Always eating or drinking something</td></tr>
-              <tr><td>16</td><td>Compulsively honest</td></tr>
-              <tr><td>17</td><td>Nervous tic — taps, blinks, cracks knuckles</td></tr>
-              <tr><td>18</td><td>Refers to self as "we"</td></tr>
-              <tr><td>19</td><td>Draws or sketches everything they see</td></tr>
-              <tr><td>20</td><td>Has a catchphrase they repeat constantly</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="area-box">
-        <div class="area-box-header">Table N6: Secret (d20)</div>
-        <div class="area-box-body">
-          <div class="two-col-tables">
-            <table class="d20-table">
-              <tr><th>d20</th><th>Secret</th></tr>
-              <tr><td>1</td><td>Spy for a rival faction</td></tr>
-              <tr><td>2</td><td>Secretly nobility in disguise</td></tr>
-              <tr><td>3</td><td>Committed a crime, living under false name</td></tr>
-              <tr><td>4</td><td>Dying of a disease — months to live</td></tr>
-              <tr><td>5</td><td>In love with someone they can never have</td></tr>
-              <tr><td>6</td><td>Knows the location of hidden treasure</td></tr>
-              <tr><td>7</td><td>Being blackmailed by someone powerful</td></tr>
-              <tr><td>8</td><td>Has a magical ability they're hiding</td></tr>
-              <tr><td>9</td><td>Wanted criminal — bounty on their head</td></tr>
-              <tr><td>10</td><td>Not who they claim to be — impersonating someone</td></tr>
-            </table>
-            <table class="d20-table">
-              <tr><th>d20</th><th>Secret</th></tr>
-              <tr><td>11</td><td>Made a deal with a devil or dark entity</td></tr>
-              <tr><td>12</td><td>Double agent — working for both sides</td></tr>
-              <tr><td>13</td><td>Witnessed something they shouldn't have</td></tr>
-              <tr><td>14</td><td>Secretly wealthy but pretends to be poor</td></tr>
-              <tr><td>15</td><td>A ghost or undead hiding their nature</td></tr>
-              <tr><td>16</td><td>Knows a terrible secret about someone the party trusts</td></tr>
-              <tr><td>17</td><td>Searching for a lost family member</td></tr>
-              <tr><td>18</td><td>Cursed and trying to break it</td></tr>
-              <tr><td>19</td><td>Planning to betray someone — maybe the party</td></tr>
-              <tr><td>20</td><td>Polymorphed dragon/fey/fiend living among mortals</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ==================== LOCATIONS TAB ==================== -->
-    <div class="tab-content" id="tab-locations">
-
-      <div class="area-box">
-        <div class="area-box-header">Table S1: Dungeon Rooms (d20)</div>
-        <div class="area-box-body">
-          <div class="two-col-tables">
-            <table class="d20-table">
-              <tr><th>d20</th><th>Room</th></tr>
-              <tr><td>1</td><td><strong>Empty chamber</strong> — 30×30 ft, scratch marks on floor</td></tr>
-              <tr><td>2</td><td><strong>Collapsed passage</strong> — DC 14 Athletics to squeeze through</td></tr>
-              <tr><td>3</td><td><strong>Flooded room</strong> — ankle-deep murky water, something moves below</td></tr>
-              <tr><td>4</td><td><strong>Throne room</strong> — cracked stone throne, faded murals</td></tr>
-              <tr><td>5</td><td><strong>Prison cells</strong> — 4 cells, one has bones, one has a living prisoner</td></tr>
-              <tr><td>6</td><td><strong>Library</strong> — rotting books, one intact spellbook or clue</td></tr>
-              <tr><td>7</td><td><strong>Armoury</strong> — rusted weapons, one still in good condition</td></tr>
-              <tr><td>8</td><td><strong>Shrine</strong> — small altar, fresh offerings — someone comes here</td></tr>
-              <tr><td>9</td><td><strong>Kitchen</strong> — long disused, rat the size of a dog lives here</td></tr>
-              <tr><td>10</td><td><strong>Barracks</strong> — 6 bunks, a journal tells a story</td></tr>
-            </table>
-            <table class="d20-table">
-              <tr><th>d20</th><th>Room</th></tr>
-              <tr><td>11</td><td><strong>Well room</strong> — deep well, unnaturally cold water, something glows below</td></tr>
-              <tr><td>12</td><td><strong>Torture chamber</strong> — rusted implements, hidden compartment (DC 13 Investigation)</td></tr>
-              <tr><td>13</td><td><strong>Crypt</strong> — sarcophagi, one empty, one has scratch marks inside</td></tr>
-              <tr><td>14</td><td><strong>Laboratory</strong> — broken glass, unfinished potion (DC 14 Arcana)</td></tr>
-              <tr><td>15</td><td><strong>Guard post</strong> — arrow slits, skeleton with crossbow still seated</td></tr>
-              <tr><td>16</td><td><strong>Stairwell</strong> — spirals down into darkness, worn smooth</td></tr>
-              <tr><td>17</td><td><strong>Chasm</strong> — 30-ft gap, frayed rope bridge or crumbling stone bridge</td></tr>
-              <tr><td>18</td><td><strong>Mirror room</strong> — walls lined with mirrors, some reflections don't match</td></tr>
-              <tr><td>19</td><td><strong>Fungal garden</strong> — bioluminescent mushrooms, one is carnivorous</td></tr>
-              <tr><td>20</td><td><strong>Boss chamber</strong> — circular room, raised dais, ancient runes on floor</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="two-col-tables">
-        <div class="stat-box">
-          <div class="stat-box-header">Dungeon Lighting (d10)</div>
-          <div class="stat-box-body">
-            <table class="d20-table">
-              <tr><th>d10</th><th>Light</th></tr>
-              <tr><td>1</td><td>Complete darkness</td></tr>
-              <tr><td>2</td><td>Dim light from ceiling cracks</td></tr>
-              <tr><td>3</td><td>Flickering torches (still burning)</td></tr>
-              <tr><td>4</td><td>Bioluminescent moss or fungi</td></tr>
-              <tr><td>5</td><td>Single shaft of natural light</td></tr>
-              <tr><td>6</td><td>Magical glowing crystal</td></tr>
-              <tr><td>7</td><td>Glowing runes on walls</td></tr>
-              <tr><td>8</td><td>Cold fire pit (recently used)</td></tr>
-              <tr><td>9</td><td>Phosphorescent water</td></tr>
-              <tr><td>10</td><td>Captured will-o'-wisp in a bottle</td></tr>
-            </table>
-          </div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-box-header">Dungeon Sounds (d10)</div>
-          <div class="stat-box-body">
-            <table class="d20-table">
-              <tr><th>d10</th><th>Sound</th></tr>
-              <tr><td>1</td><td>Unnatural silence</td></tr>
-              <tr><td>2</td><td>Dripping water, echoing</td></tr>
-              <tr><td>3</td><td>Distant footsteps — closer or farther?</td></tr>
-              <tr><td>4</td><td>Whispering in unknown language</td></tr>
-              <tr><td>5</td><td>Scratching — something in the walls</td></tr>
-              <tr><td>6</td><td>Low hum or vibration</td></tr>
-              <tr><td>7</td><td>Chains rattling</td></tr>
-              <tr><td>8</td><td>Heavy breathing — not human</td></tr>
-              <tr><td>9</td><td>Faint beautiful music from nowhere</td></tr>
-              <tr><td>10</td><td>A heartbeat — the dungeon is alive</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="area-box">
-        <div class="area-box-header">Table S3: Wilderness Features (d20)</div>
-        <div class="area-box-body">
-          <div class="two-col-tables">
-            <table class="d20-table">
-              <tr><th>d20</th><th>Feature</th></tr>
-              <tr><td>1</td><td><strong>Standing stone</strong> covered in runes — it's a warning (DC 15 Arcana)</td></tr>
-              <tr><td>2</td><td><strong>Dead tree</strong> struck by lightning, wood still warm</td></tr>
-              <tr><td>3</td><td><strong>Mushroom clearing</strong> — fey creatures appear at dusk</td></tr>
-              <tr><td>4</td><td><strong>Stream</strong> that flows uphill, water tastes like honey</td></tr>
-              <tr><td>5</td><td><strong>Cave mouth</strong> behind a waterfall, carved steps lead down</td></tr>
-              <tr><td>6</td><td><strong>Fallen tree</strong> forming a natural bridge over a ravine</td></tr>
-              <tr><td>7</td><td><strong>Stone circle</strong> — druidic site, animals won't enter</td></tr>
-              <tr><td>8</td><td><strong>Bog</strong> — soft ground, DC 12 Perception for safe paths</td></tr>
-              <tr><td>9</td><td><strong>Rocky outcrop</strong> — panoramic view, smoke in the distance</td></tr>
-              <tr><td>10</td><td><strong>Hollow tree</strong> — large enough to shelter in, supplies inside</td></tr>
-            </table>
-            <table class="d20-table">
-              <tr><th>d20</th><th>Feature</th></tr>
-              <tr><td>11</td><td><strong>Wildflower field</strong> — hums in wind, grants prophetic dreams</td></tr>
-              <tr><td>12</td><td><strong>Ruined watchtower</strong> — half-collapsed, map scratched into wall</td></tr>
-              <tr><td>13</td><td><strong>Natural spring</strong> — crystal water, heals 1d4 HP</td></tr>
-              <tr><td>14</td><td><strong>Petrified forest</strong> — dragon's hoard buried beneath</td></tr>
-              <tr><td>15</td><td><strong>Swamp</strong> — will-o'-wisps leading somewhere specific</td></tr>
-              <tr><td>16</td><td><strong>Cliff carvings</strong> — ancient civilisation (DC 14 History)</td></tr>
-              <tr><td>17</td><td><strong>Burnt area</strong> — forest fire, something caused it deliberately</td></tr>
-              <tr><td>18</td><td><strong>Natural amphitheatre</strong> — perfect acoustics</td></tr>
-              <tr><td>19</td><td><strong>Tree with a face</strong> — carved or natural, might speak</td></tr>
-              <tr><td>20</td><td><strong>Crossroads</strong> — one direction isn't on any map</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="area-box">
-        <div class="area-box-header">Table S4: Town Encounters (d20)</div>
-        <div class="area-box-body">
-          <div class="two-col-tables">
-            <table class="d20-table">
-              <tr><th>d20</th><th>Encounter</th></tr>
-              <tr><td>1</td><td>Street performer doing real magic</td></tr>
-              <tr><td>2</td><td>Pickpocket targets a party member (DC 14 Perception)</td></tr>
-              <tr><td>3</td><td>Town crier announcing something important</td></tr>
-              <tr><td>4</td><td>Bar fight — one fighter is someone the party knows</td></tr>
-              <tr><td>5</td><td>Merchant selling suspicious goods</td></tr>
-              <tr><td>6</td><td>Lost child crying, parent nearby</td></tr>
-              <tr><td>7</td><td>Beggar offers information for food or coin</td></tr>
-              <tr><td>8</td><td>Guard patrol stops the party for questioning</td></tr>
-              <tr><td>9</td><td>Funeral procession — the deceased was important</td></tr>
-              <tr><td>10</td><td>Wedding in the town square, everyone celebrating</td></tr>
-            </table>
-            <table class="d20-table">
-              <tr><th>d20</th><th>Encounter</th></tr>
-              <tr><td>11</td><td>Fire breaks out — people trapped inside</td></tr>
-              <tr><td>12</td><td>Preacher sermon about impending doom</td></tr>
-              <tr><td>13</td><td>Noble's carriage forces party off the road</td></tr>
-              <tr><td>14</td><td>Rat infestation — something drove them out</td></tr>
-              <tr><td>15</td><td>Hooded stranger watching from across the square</td></tr>
-              <tr><td>16</td><td>Market stall sells something relevant to the quest</td></tr>
-              <tr><td>17</td><td>Drunk approaches with a wild story (might be true)</td></tr>
-              <tr><td>18</td><td>Duel about to happen, crowd taking sides</td></tr>
-              <tr><td>19</td><td>Stray dog follows the party — well-trained</td></tr>
-              <tr><td>20</td><td>Notice board — new job, warning, or lore</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ==================== ENCOUNTERS TAB ==================== -->
-    <div class="tab-content" id="tab-encounters">
-
-      <div class="area-box">
-        <div class="area-box-header">Table E1: Road Encounters — Levels 1–4 (d20)</div>
-        <div class="area-box-body">
-          <div class="two-col-tables">
-            <table class="d20-table">
-              <tr><th>d20</th><th>Encounter</th></tr>
-              <tr><td>1</td><td>A <strong>Nightmare Wolf</strong> (modified Wolf: +2 HP, +1d4 psychic on bite) stalks from the treeline</td></tr>
-              <tr><td>2</td><td>A <strong>Dream Echo</strong> — ghostly image of a destroyed village (DC 12 Investigation)</td></tr>
-              <tr><td>3</td><td>A <strong>Wandering Dreamseeker</strong> (Cultist) tries to recruit the party</td></tr>
-              <tr><td>4</td><td>A <strong>Shifting Path</strong> — the road changes overnight (DC 12 Survival)</td></tr>
-              <tr><td>5</td><td>An <strong>Unbound</strong> (modified Zombie: purple glow, +1d4 psychic) shambles from the mist</td></tr>
-              <tr><td>6</td><td>A <strong>Dream Shimmer</strong> — one player sees a vision of a throne room</td></tr>
-              <tr><td>7</td><td>A <strong>Refugee Family</strong> (2 adults, 3 children) fleeing a destroyed village</td></tr>
-              <tr><td>8</td><td>A <strong>Waking Guard Patrol</strong> (4 Guards) — suspicious but willing to trade info</td></tr>
-              <tr><td>9</td><td>A <strong>Nightmare Blossom</strong> (modified Vine Blight: psychic damage, purple flowers)</td></tr>
-              <tr><td>10</td><td>A <strong>Dead Dreamseeker</strong> — cult symbol carved into chest, killed by claws</td></tr>
-            </table>
-            <table class="d20-table">
-              <tr><th>d20</th><th>Encounter</th></tr>
-              <tr><td>11</td><td>A <strong>merchant's cart</strong> overturned in the road — bandits or accident?</td></tr>
-              <tr><td>12</td><td>A <strong>wounded soldier</strong> crawling toward the road, warns of danger ahead</td></tr>
-              <tr><td>13</td><td>A <strong>shrine by the roadside</strong> — offerings are fresh, someone was just here</td></tr>
-              <tr><td>14</td><td>A <strong>bridge</strong> — old, wooden, creaky. Might not hold the whole party</td></tr>
-              <tr><td>15</td><td>A <strong>strange fog</strong> rolls in — visibility drops to 30 ft, sounds are muffled</td></tr>
-              <tr><td>16</td><td>A <strong>traveling bard</strong> heading the same direction, knows local rumours</td></tr>
-              <tr><td>17</td><td>A <strong>dead horse</strong> — recently killed, something large did this</td></tr>
-              <tr><td>18</td><td>A <strong>signpost</strong> — one direction has been scratched out and replaced</td></tr>
-              <tr><td>19</td><td>A <strong>group of pilgrims</strong> heading to a shrine, will share food and stories</td></tr>
-              <tr><td>20</td><td>A <strong>lone rider</strong> galloping past without stopping — they're being chased</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="area-box">
-        <div class="area-box-header">Table E2: Dungeon Encounters — Levels 1–4 (d20)</div>
-        <div class="area-box-body">
-          <div class="two-col-tables">
-            <table class="d20-table">
-              <tr><th>d20</th><th>Encounter</th></tr>
-              <tr><td>1</td><td><strong>Collapsible floor</strong> — DC 13 Perception, DC 12 Dex save or fall 10 ft (1d6)</td></tr>
-              <tr><td>2</td><td><strong>Dream Echo Room</strong> — vision of the room before the curse (DC 14 Arcana: hidden door)</td></tr>
-              <tr><td>3</td><td><strong>2 Nightmare Spawns</strong> (modified Shadows: psychic damage, purple-tinged)</td></tr>
-              <tr><td>4</td><td><strong>Trapped chest</strong> — DC 14 Investigation, poison needle (DC 13 Con or poisoned 1 hr)</td></tr>
-              <tr><td>5</td><td><strong>Crying sound</strong> echoing — it's a Mimic disguised as a door</td></tr>
-              <tr><td>6</td><td><strong>Dreamseeker Shrine</strong> — small altar with candles (DC 12 Religion to identify)</td></tr>
-              <tr><td>7</td><td><strong>Flooded passage</strong> — waist-deep luminescent water (DC 12 Athletics)</td></tr>
-              <tr><td>8</td><td><strong>Skeletal remain</strong> clutching a journal with dungeon history clues</td></tr>
-              <tr><td>9</td><td><strong>Magical Darkness</strong> — 20 ft radius, concentrated dream-energy (sunlight or DC 15 Arcana)</td></tr>
-              <tr><td>10</td><td><strong>Friendly Ghost</strong> (Specter stats, non-hostile) warns about what lies ahead</td></tr>
-            </table>
-            <table class="d20-table">
-              <tr><th>d20</th><th>Encounter</th></tr>
-              <tr><td>11</td><td><strong>Pressure plate</strong> — DC 13 Perception, triggers darts (ATK +8, 2d4+2 piercing)</td></tr>
-              <tr><td>12</td><td><strong>Unbound patrol</strong> — 3 modified Zombies, will investigate noise</td></tr>
-              <tr><td>13</td><td><strong>Alcove with a statue</strong> — the statue's eyes follow you (DC 12 Wisdom or frightened)</td></tr>
-              <tr><td>14</td><td><strong>Locked door</strong> — DC 15 Thieves' Tools, or DC 17 Strength to force</td></tr>
-              <tr><td>15</td><td><strong>Room full of bones</strong> — something large lives here, but it's out hunting</td></tr>
-              <tr><td>16</td><td><strong>Shaft in the floor</strong> — 20 ft deep, ladder on the far side, something climbs up</td></tr>
-              <tr><td>17</td><td><strong>Illusory wall</strong> — DC 14 Investigation to detect, leads to a hidden chamber</td></tr>
-              <tr><td>18</td><td><strong>Swarm of rats</strong> — they scatter when disturbed, but one carries a key</td></tr>
-              <tr><td>19</td><td><strong>Glyph of warding</strong> — DC 15 Arcana to identify, triggers if touched</td></tr>
-              <tr><td>20</td><td><strong>A door that whispers</strong> — it wants to be opened (DC 13 Wisdom save or compelled)</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="area-box">
-        <div class="area-box-header">Table E3: Wilderness Encounters — Levels 1–4 (d20)</div>
-        <div class="area-box-body">
-          <div class="two-col-tables">
-            <table class="d20-table">
-              <tr><th>d20</th><th>Encounter</th></tr>
-              <tr><td>1</td><td><strong>Twisted tree</strong> — grows sideways, whispers in Sylvan (DC 13 Nature: warning)</td></tr>
-              <tr><td>2</td><td><strong>Nightmare Stag</strong> (Giant Elk, +1d4 psychic on charge) watches from distance</td></tr>
-              <tr><td>3</td><td><strong>Dream Pool</strong> — still water showing dream world reflections (DC 13 Wis save)</td></tr>
-              <tr><td>4</td><td><strong>Wounded soldier</strong> (Guard, 3 HP) crawling toward road, warns of Unbound patrol</td></tr>
-              <tr><td>5</td><td><strong>Fairy ring</strong> of purple mushrooms — edible but cause vivid dreams</td></tr>
-              <tr><td>6</td><td><strong>Collapsed bridge</strong> over a gorge (DC 14 Athletics or 1d4 hours detour)</td></tr>
-              <tr><td>7</td><td><strong>Dreamseeker Camp</strong> (6 Cultists, 1 Cult Leader) — not hostile unless provoked</td></tr>
-              <tr><td>8</td><td><strong>Nightmare Storm</strong> — purple lightning, DC 12 Wis save or frightened 1 min</td></tr>
-              <tr><td>9</td><td><strong>Dead Unbound</strong> dissolving into purple mist (DC 12 Investigation: killed by something powerful)</td></tr>
-              <tr><td>10</td><td><strong>Waking Guard Outpost</strong> — safe rest and information</td></tr>
-            </table>
-            <table class="d20-table">
-              <tr><th>d20</th><th>Encounter</th></tr>
-              <tr><td>11</td><td><strong>Hermit's hut</strong> — eccentric but helpful, knows local dangers</td></tr>
-              <tr><td>12</td><td><strong>Animal carcass</strong> — fresh kill, something large is hunting nearby</td></tr>
-              <tr><td>13</td><td><strong>Circle of dead trees</strong> — nothing grows here, animals avoid the area</td></tr>
-              <tr><td>14</td><td><strong>Traveling merchant</strong> — sells basic supplies at 2× price, knows rumours</td></tr>
-              <tr><td>15</td><td><strong>Bandit ambush</strong> — 4 bandits demand 50 gp or blood</td></tr>
-              <tr><td>16</td><td><strong>Old battlefield</strong> — scattered weapons and armour, ghosts might linger</td></tr>
-              <tr><td>17</td><td><strong>Natural cave</strong> — defensible shelter for the night, but something lives deeper in</td></tr>
-              <tr><td>18</td><td><strong>River crossing</strong> — fast current, DC 13 Athletics to ford safely</td></tr>
-              <tr><td>19</td><td><strong>Strange lights</strong> in the distance — will-o'-wisps or a campfire?</td></tr>
-              <tr><td>20</td><td><strong>A lone figure</strong> standing on a hill, watching the party, then vanishes</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="area-box">
-        <div class="area-box-header">Table E4: Night Encounters — Any Level (d20)</div>
-        <div class="area-box-body">
-          <div class="two-col-tables">
-            <table class="d20-table">
-              <tr><th>d20</th><th>Encounter</th></tr>
-              <tr><td>1</td><td><strong>Nightmare Howls</strong> in the distance — DC 12 Wis save to sleep without nightmares</td></tr>
-              <tr><td>2</td><td>An <strong>Unbound</strong> (modified Zombie) shambles into camp — it was a child once</td></tr>
-              <tr><td>3</td><td>A <strong>Dream Vision</strong> — one player dreams of a clue about the next location</td></tr>
-              <tr><td>4</td><td><strong>Purple Mist</strong> rolls in — visibility 10 ft, something moves in the mist</td></tr>
-              <tr><td>5</td><td>A <strong>Waking Guard Patrol</strong> (2 Guards) — nervous and trigger-happy</td></tr>
-              <tr><td>6</td><td>A <strong>Dreamseeker</strong> approaches the campfire, offering to "share the dream"</td></tr>
-              <tr><td>7</td><td><strong>Psychic Static</strong> — wave of sadness, DC 12 Wis save or 1 level exhaustion</td></tr>
-              <tr><td>8</td><td>A <strong>Shooting Star</strong> that's not a star — a fragment of consciousness falling</td></tr>
-              <tr><td>9</td><td><strong>Silence</strong> — all sound stops for 1 minute, then returns at once</td></tr>
-              <tr><td>10</td><td>A <strong>Nightmare Knight</strong> (modified Wraith: psychic damage) appears, assesses, and leaves</td></tr>
-            </table>
-            <table class="d20-table">
-              <tr><th>d20</th><th>Encounter</th></tr>
-              <tr><td>11</td><td><strong>Campfire dies</strong> — all flames extinguish simultaneously, magical darkness</td></tr>
-              <tr><td>12</td><td><strong>One player wakes</strong> to find everyone else standing in a circle, asleep on their feet</td></tr>
-              <tr><td>13</td><td><strong>Footprints</strong> appear around camp — bare feet, circling, getting closer</td></tr>
-              <tr><td>14</td><td><strong>A voice</strong> calls one player's name from the darkness — DC 14 Wis save or compelled</td></tr>
-              <tr><td>15</td><td><strong>Temperature drops</strong> — frost forms on gear, breath visible, something cold is near</td></tr>
-              <tr><td>16</td><td><strong>One player's shadow</strong> moves independently for 1 round, then stops</td></tr>
-              <tr><td>17</td><td><strong>A distant bell</strong> tolls 13 times — no bell tower exists within miles</td></tr>
-              <tr><td>18</td><td><strong>All metal</strong> in camp becomes magnetized for 1 minute — swords pull together</td></tr>
-              <tr><td>19</td><td><strong>A figure</strong> stands at the edge of campfire light, doesn't move, doesn't speak</td></tr>
-              <tr><td>20</td><td><strong>Everyone dreams the same dream</strong> — a white room, a dying god, a choice</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="area-box">
-        <div class="area-box-header">Table E5: Weird / Surreal Encounters — Any Level (d20)</div>
-        <div class="area-box-body">
-          <div class="two-col-tables">
-            <table class="d20-table">
-              <tr><th>d20</th><th>Encounter</th></tr>
-              <tr><td>1</td><td>Gravity reverses for 1d4 rounds — everything not tied down falls upward</td></tr>
-              <tr><td>2</td><td>A player's <strong>shadow detaches</strong> and tries to lead them somewhere</td></tr>
-              <tr><td>3</td><td><strong>Time loops</strong> — the party relives the last 30 seconds (DC 15 Int to break)</td></tr>
-              <tr><td>4</td><td>A <strong>door appears</strong> in a wall that wasn't there before — leads somewhere impossible</td></tr>
-              <tr><td>5</td><td>All sounds become colours, all colours become sounds (1 minute)</td></tr>
-              <tr><td>6</td><td>Two players <strong>briefly swap bodies</strong> (1 round)</td></tr>
-              <tr><td>7</td><td>The party sees <strong>themselves from outside</strong> — standing in a white room with a dying god</td></tr>
-              <tr><td>8</td><td>A <strong>Dream Fragment</strong> (Spectator stats, non-hostile) offers info for a memory</td></tr>
-              <tr><td>9</td><td>The ground becomes <strong>soft like a mattress</strong> — DC 12 Athletics to walk</td></tr>
-              <tr><td>10</td><td>A <strong>Nightmare Jester</strong> (Meenlock stats) tells a terrifying joke and vanishes</td></tr>
-            </table>
-            <table class="d20-table">
-              <tr><th>d20</th><th>Encounter</th></tr>
-              <tr><td>11</td><td><strong>Rain falls upward</strong> — water rises from puddles into the sky</td></tr>
-              <tr><td>12</td><td>A <strong>tree grows instantly</strong> from a seed to full size in 6 seconds</td></tr>
-              <tr><td>13</td><td><strong>All writing</strong> in the area rearranges itself into a message</td></tr>
-              <tr><td>14</td><td>A <strong>mirror</strong> shows the party as they will look in 50 years</td></tr>
-              <tr><td>15</td><td><strong>One player</strong> becomes invisible and intangible for 1 minute — they can walk through walls</td></tr>
-              <tr><td>16</td><td>A <strong>talking animal</strong> approaches with urgent news — it's not a druid, it's the animal itself</td></tr>
-              <tr><td>17</td><td><strong>All weapons</strong> in the party turn into flowers for 1 hour</td></tr>
-              <tr><td>18</td><td>A <strong>second moon</strong> appears in the sky for exactly 13 minutes</td></tr>
-              <tr><td>19</td><td><strong>One player</strong> hears everyone's thoughts for 1 minute — all of them, unfiltered</td></tr>
-              <tr><td>20</td><td>The party finds <strong>their own graves</strong> — fresh earth, their names, today's date</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Running foot -->
-    <div class="running-foot">
-      <span class="module">D20 Random Tables — GM Tools for D&amp;D 5e and Other Fantasy RPGs</span>
-      <span class="brand">Tuco Enterprises</span>
-    </div>
-
+  <div class="card success" id="success-card">
+    <div class="icon">✅</div>
+    <h1>You're all set!</h1>
+    <p>Your download is ready.</p>
+    <a href="/downloads/D20_Random_Tables.pdf" class="download-btn" download>📥 Download PDF</a>
+    <p style="margin-top: 24px; font-size: 12px; color: rgba(240,240,245,0.4);">While you're here, check out our adventure modules and free resources at <strong style="color:#b8a060">tuco.enterprises</strong></p>
+    <div class="brand" style="margin-top: 24px;">Tuco Enterprises</div>
   </div>
 </div>
 
 <script>
-function showTab(tabName, btn) {
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + tabName).classList.add('active');
-  btn.classList.add('active');
+function submitEmail() {
+  var email = document.getElementById('email').value.trim();
+  var errorMsg = document.getElementById('error-msg');
+
+  // Validate
+  if (!email || !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+    errorMsg.style.display = 'block';
+    return;
+  }
+  errorMsg.style.display = 'none';
+
+  // Store email in localStorage as simple lead capture
+  try {
+    var leads = JSON.parse(localStorage.getItem('tuco_leads') || '[]');
+    leads.push({ email: email, product: 'd20-random-tables', date: new Date().toISOString() });
+    localStorage.setItem('tuco_leads', JSON.stringify(leads));
+  } catch(e) {}
+
+  // Show success
+  document.getElementById('form-card').style.display = 'none';
+  document.getElementById('success-card').style.display = 'block';
 }
 </script>
 
