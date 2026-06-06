@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-06T11:16:40.149512+00:00",
+  "generated_at": "2026-06-06T12:17:28.206590+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -81,8 +81,8 @@
         "display": "0 */4 * * *"
       },
       "enabled": true,
-      "next_run": "2026-06-06T12:00:00+00:00",
-      "last_run": "2026-06-06T08:00:51.577268+00:00",
+      "next_run": "2026-06-06T16:00:00+00:00",
+      "last_run": "2026-06-06T12:01:14.626424+00:00",
       "last_status": "ok"
     },
     {
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-06-06T12:16:30.796818+00:00",
-      "last_run": "2026-06-06T10:16:09.753576+00:00",
+      "next_run": "2026-06-06T13:17:14.668632+00:00",
+      "last_run": "2026-06-06T11:16:51.453203+00:00",
       "last_status": "ok"
     },
     {
@@ -297,6 +297,15 @@
   },
   "skills": [
     {
+      "name": "book-production",
+      "description": "Produce and publish RPG adventure books for Tuco Enterprises \u2014 cover design, image generation, PDF formatting with parch...",
+      "category": "book-production",
+      "category_display": "Book Production",
+      "icon": "\ud83d\udce6",
+      "version": "",
+      "path": "book-production"
+    },
+    {
       "name": "dogfood",
       "description": "Exploratory QA of web apps: find bugs, evidence, reports.",
       "category": "dogfood",
@@ -358,7 +367,7 @@
     "cron_db": true,
     "hermes_home": "/home/opc/.hermes",
     "vault_path": "/home/opc/Documents/Obsidian Vault",
-    "time": "2026-06-06 11:16:40 UTC"
+    "time": "2026-06-06 12:17:28 UTC"
   },
   "traffic": {
     "total": 2,
