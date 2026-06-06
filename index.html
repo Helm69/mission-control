@@ -148,6 +148,7 @@
     <a href="#" onclick="document.getElementById('sessions-section').scrollIntoView({behavior:'smooth'})">Sessions</a>
     <a href="#" onclick="document.getElementById('notes-section').scrollIntoView({behavior:'smooth'})">Notes</a>
     <a href="#" onclick="document.getElementById('skills-section').scrollIntoView({behavior:'smooth'})">Skills</a>
+    <a href="#" onclick="document.getElementById('traffic-section').scrollIntoView({behavior:'smooth'})">Traffic</a>
     <a href="#" onclick="document.getElementById('downloads-section').scrollIntoView({behavior:'smooth'})">Downloads</a>
     <a href="random-tables.html" target="_blank">🎲 Tables</a>
   </div>
@@ -223,11 +224,11 @@
   <div class="card" id="downloads-section">
     <h2>📥 Downloads</h2>
     <div class="file-item">
-      <span class="file-name"><a href="https://www.tuco.enterprises"/action-items/" target="_blank" style="color:var(--blue)">📋 Action Items To-Do List</a></span>
+      <span class="file-name"><a href="https://www.tuco.enterprises/action-items/" target="_blank" style="color:var(--blue)">📋 Action Items To-Do List</a></span>
       <span class="file-meta">Web</span>
     </div>
     <div class="file-item">
-      <span class="file-name"><a href="https://www.tuco.enterprises"/action-items/" target="_blank" style="color:var(--blue)">📊 Parts Sales Dashboard (Jan-May 2026)</a></span>
+      <span class="file-name"><a href="https://www.tuco.enterprises/action-items/" target="_blank" style="color:var(--blue)">📊 Parts Sales Dashboard (Jan-May 2026)</a></span>
       <span class="file-meta">ZIP • 7 KB</span>
     </div>
     <div class="file-item" style="padding-top:4px;border-top:1px solid var(--border);margin-top:4px">
@@ -257,23 +258,23 @@
       <span class="file-name" style="color:var(--text-dim);font-size:0.9em">DriveThruRPG Packages</span>
     </div>
     <div class="file-item">
-      <span class="file-name"><a href="https://www.tuco.enterprises"/product/shadows-of-the-forgotten-shrine/" target="_blank" style="color:var(--blue)">📦 Shadows — DTRPG Package</a></span>
+      <span class="file-name"><a href="https://www.tuco.enterprises/product/shadows-of-the-forgotten-shrine/" target="_blank" style="color:var(--blue)">📦 Shadows — DTRPG Package</a></span>
       <span class="file-meta">ZIP • 3.7 MB</span>
     </div>
     <div class="file-item">
-      <span class="file-name"><a href="https://www.tuco.enterprises"/product/the-crimson-pact/" target="_blank" style="color:var(--blue)">📦 Crimson Pact — DTRPG Package</a></span>
+      <span class="file-name"><a href="https://www.tuco.enterprises/product/the-crimson-pact/" target="_blank" style="color:var(--blue)">📦 Crimson Pact — DTRPG Package</a></span>
       <span class="file-meta">ZIP • 4.9 MB</span>
     </div>
     <div class="file-item">
-      <span class="file-name"><a href="https://www.tuco.enterprises"/product/echoes-of-the-shattered-crown/" target="_blank" style="color:var(--blue)">📦 Echoes — DTRPG Package</a></span>
+      <span class="file-name"><a href="https://www.tuco.enterprises/product/echoes-of-the-shattered-crown/" target="_blank" style="color:var(--blue)">📦 Echoes — DTRPG Package</a></span>
       <span class="file-meta">ZIP • 5.4 MB</span>
     </div>
     <div class="file-item">
-      <span class="file-name"><a href="https://www.tuco.enterprises"/product/the-chalice-of-false-salvation/" target="_blank" style="color:var(--blue)">📦 Chalice — DTRPG Package</a></span>
+      <span class="file-name"><a href="https://www.tuco.enterprises/product/the-chalice-of-false-salvation/" target="_blank" style="color:var(--blue)">📦 Chalice — DTRPG Package</a></span>
       <span class="file-meta">ZIP • 6.3 MB</span>
     </div>
     <div class="file-item">
-      <span class="file-name"><a href="https://www.tuco.enterprises"/product/throne-of-fractured-eternity/" target="_blank" style="color:var(--blue)">📦 Throne — DTRPG Package</a></span>
+      <span class="file-name"><a href="https://www.tuco.enterprises/product/throne-of-fractured-eternity/" target="_blank" style="color:var(--blue)">📦 Throne — DTRPG Package</a></span>
       <span class="file-meta">ZIP • 5.8 MB</span>
     </div>
     <div class="file-item" style="padding-top:4px;border-top:1px solid var(--border);margin-top:4px">
@@ -304,6 +305,47 @@
     </div>
   </div>
 </div>
+
+<!-- Website Traffic Card -->
+<div class="card" id="traffic-section" style="grid-column: 1 / -1;">
+  <h2>🌐 Website Traffic <span class="badge" id="traffic-today-badge">0 today</span></h2>
+  <div class="traffic-stats" id="traffic-overview">
+    <div class="empty-state">Loading...</div>
+  </div>
+  <div class="traffic-chart" id="traffic-chart"></div>
+  <div class="traffic-details" id="traffic-details" style="display:none; margin-top:16px;">
+    <div class="traffic-col">
+      <h3>Top Pages</h3>
+      <div id="traffic-pages"></div>
+    </div>
+    <div class="traffic-col">
+      <h3>Top Referrers</h3>
+      <div id="traffic-refs"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .traffic-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+  .traffic-stat-box { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px; text-align: center; }
+  .traffic-stat-box .stat-value { font-size: 28px; font-weight: 700; color: var(--blue); }
+  .traffic-stat-box .stat-label { font-size: 11px; color: var(--text-dim); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .traffic-chart { display: flex; align-items: flex-end; gap: 8px; height: 120px; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 8px; }
+  .traffic-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: flex-end; }
+  .traffic-bar { width: 100%; background: linear-gradient(180deg, var(--accent), var(--blue)); border-radius: 4px 4px 0 0; min-height: 4px; transition: height 0.3s; }
+  .traffic-bar-label { font-size: 10px; color: var(--text-dim); text-align: center; white-space: nowrap; }
+  .traffic-bar-value { font-size: 11px; font-weight: 600; color: var(--text); text-align: center; }
+  .traffic-details { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .traffic-details h3 { font-size: 12px; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .traffic-row { display: flex; justify-content: space-between; font-size: 12px; padding: 4px 0; border-bottom: 1px solid var(--border); }
+  .traffic-row:last-child { border-bottom: none; }
+  .traffic-row .count { color: var(--blue); font-weight: 600; }
+  .traffic-row .page { color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 200px; }
+  @media (max-width: 860px) {
+    .traffic-stats { grid-template-columns: 1fr; }
+    .traffic-details { grid-template-columns: 1fr; }
+  }
+</style>
 
 <script>
 // Load dashboard data from static JSON file
@@ -579,10 +621,76 @@ function loadSystem() {
 
 function esc(s) { const d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
 
+// Website Traffic
+function loadTraffic() {
+  const t = getData().traffic || {};
+  const today = t.today || 0;
+  const yesterday = t.yesterday || 0;
+  const total = t.total || 0;
+  const daily = t.daily || [];
+  const topPages = t.top_pages || [];
+  const topRefs = t.top_referrers || [];
+
+  document.getElementById('traffic-today-badge').textContent = today + ' today';
+
+  // Overview boxes
+  document.getElementById('traffic-overview').innerHTML = `
+    <div class="traffic-stat-box">
+      <div class="stat-value">${today}</div>
+      <div class="stat-label">Today</div>
+    </div>
+    <div class="traffic-stat-box">
+      <div class="stat-value">${yesterday}</div>
+      <div class="stat-label">Yesterday</div>
+    </div>
+    <div class="traffic-stat-box">
+      <div class="stat-value">${total}</div>
+      <div class="stat-label">30-Day Total</div>
+    </div>`;
+
+  // Bar chart
+  const maxVisits = Math.max(...daily.map(d => d.visits), 1);
+  const chartEl = document.getElementById('traffic-chart');
+  chartEl.innerHTML = daily.map(d => {
+    const height = Math.max((d.visits / maxVisits) * 100, 4);
+    const dayLabel = d.date.slice(5); // MM-DD
+    return `<div class="traffic-bar-wrap">
+      <div class="traffic-bar-value">${d.visits}</div>
+      <div class="traffic-bar" style="height:${height}%"></div>
+      <div class="traffic-bar-label">${dayLabel}</div>
+    </div>`;
+  }).join('');
+
+  // Top pages
+  const pagesEl = document.getElementById('traffic-pages');
+  if (topPages.length) {
+    pagesEl.innerHTML = topPages.map(p =>
+      `<div class="traffic-row"><span class="page" title="${esc(p.page)}">${esc(p.page)}</span><span class="count">${p.visits}</span></div>`
+    ).join('');
+  } else {
+    pagesEl.innerHTML = '<div class="empty-state">No data yet</div>';
+  }
+
+  // Top referrers
+  const refsEl = document.getElementById('traffic-refs');
+  if (topRefs.length) {
+    refsEl.innerHTML = topRefs.map(r =>
+      `<div class="traffic-row"><span class="page" title="${esc(r.domain)}">${esc(r.domain)}</span><span class="count">${r.visits}</span></div>`
+    ).join('');
+  } else {
+    refsEl.innerHTML = '<div class="empty-state">No data yet</div>';
+  }
+
+  // Show details if we have data
+  if (total > 0) {
+    document.getElementById('traffic-details').style.display = 'grid';
+  }
+}
+
 // Initialize: load data then render all panels
 loadData().then(ok => {
   if (ok) {
-    loadCron(); loadTasks(); loadVault(); loadSessions(); loadNotes(); loadSkills(); loadSystem();
+    loadCron(); loadTasks(); loadVault(); loadSessions(); loadNotes(); loadSkills(); loadSystem(); loadTraffic();
   } else {
     document.querySelectorAll('.empty-state').forEach(el => {
       el.textContent = '⚠️ Could not load dashboard data';
@@ -593,7 +701,7 @@ loadData().then(ok => {
 // Refresh data every 5 minutes
 setInterval(async () => {
   if (await loadData()) {
-    loadCron(); loadTasks(); loadVault(); loadSessions(); loadNotes(); loadSkills(); loadSystem();
+    loadCron(); loadTasks(); loadVault(); loadSessions(); loadNotes(); loadSkills(); loadSystem(); loadTraffic();
   }
 }, 300000);
 </script>
