@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-11T17:36:49.277244+00:00",
+  "generated_at": "2026-06-11T18:37:10.287665+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-06-11T18:36:36.116810+00:00",
-      "last_run": "2026-06-11T16:36:35.956525+00:00",
+      "next_run": "2026-06-11T19:36:57.162617+00:00",
+      "last_run": "2026-06-11T17:36:57.014847+00:00",
       "last_status": "ok"
     },
     {
@@ -324,6 +324,15 @@
       "path": "github-workflow"
     },
     {
+      "name": "novel-chapter-expansion",
+      "description": "Standards and techniques for writing high-quality novel chapters of 3,500+ words. Use when writing, expanding, or review...",
+      "category": "novel-chapter-expansion",
+      "category_display": "Novel Chapter Expansion",
+      "icon": "\ud83d\udce6",
+      "version": "",
+      "path": "novel-chapter-expansion"
+    },
+    {
       "name": "rpg-publication-pipeline",
       "description": "End-to-end RPG content lifecycle for Tuco Enterprises \u2014 write dark fantasy TTRPG content, review and proofread manuscrip...",
       "category": "rpg-publication-pipeline",
@@ -376,7 +385,7 @@
     "cron_db": true,
     "hermes_home": "/home/opc/.hermes",
     "vault_path": "/home/opc/Documents/Obsidian Vault",
-    "time": "2026-06-11 17:36:49 UTC"
+    "time": "2026-06-11 18:37:10 UTC"
   },
   "traffic": {
     "total": 2,
