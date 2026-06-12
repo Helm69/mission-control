@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T17:01:27.133976+00:00",
+  "generated_at": "2026-06-12T00:00:00.000000+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -408,6 +408,41 @@
         "content": "KPI dashboard \u2014 Finalise IFS dashboard data sources",
         "status": "todo",
         "created": "2026-06-10",
+        "board": "morgan"
+      },
+      {
+        "id": "m12",
+        "content": "Mark Evans \u2014 Prepare current stock availability report showing items viewed as unavailable by dealers",
+        "status": "todo",
+        "created": "2026-06-12",
+        "board": "morgan"
+      },
+      {
+        "id": "m13",
+        "content": "Mark Evans \u2014 Analyze lost sales data due to stockouts (dealer sourcing from competitors)",
+        "status": "todo",
+        "created": "2026-06-12",
+        "board": "morgan"
+      },
+      {
+        "id": "m14",
+        "content": "Paul Philpots \u2014 Review purchasing approval bottlenecks causing stock restrictions",
+        "status": "todo",
+        "created": "2026-06-12",
+        "board": "morgan"
+      },
+      {
+        "id": "m15",
+        "content": "Colin \u2014 Provide guidance on acceptable stock holding parameters/target months of stock",
+        "status": "todo",
+        "created": "2026-06-12",
+        "board": "morgan"
+      },
+      {
+        "id": "m16",
+        "content": "All \u2014 Develop joint strategy to improve stock availability while managing financial constraints",
+        "status": "todo",
+        "created": "2026-06-12",
         "board": "morgan"
       }
     ]
