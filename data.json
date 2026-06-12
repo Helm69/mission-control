@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T14:58:25.614104+00:00",
+  "generated_at": "2026-06-12T15:59:25.031228+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -117,8 +117,8 @@
         "display": "every 240m"
       },
       "enabled": true,
-      "next_run": "2026-06-12T15:41:32.839855+00:00",
-      "last_run": "2026-06-12T11:41:32.839855+00:00",
+      "next_run": "2026-06-12T19:43:36.510676+00:00",
+      "last_run": "2026-06-12T15:43:36.510676+00:00",
       "last_status": "ok"
     },
     {
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-06-12T15:58:19.390955+00:00",
-      "last_run": "2026-06-12T13:57:56.573897+00:00",
+      "next_run": "2026-06-12T16:59:19.552519+00:00",
+      "last_run": "2026-06-12T14:58:31.624111+00:00",
       "last_status": "ok"
     },
     {
@@ -192,6 +192,18 @@
       "next_run": "2026-06-12T23:00:00+00:00",
       "last_run": "2026-06-11T23:00:16.965357+00:00",
       "last_status": "error"
+    },
+    {
+      "name": "Morning Dashboard Refresh",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 5 * * *",
+        "display": "0 5 * * *"
+      },
+      "enabled": true,
+      "next_run": "2026-06-13T05:00:00+00:00",
+      "last_run": null,
+      "last_status": null
     }
   ],
   "vault": {
@@ -273,39 +285,161 @@
   "tasks": {
     "tasks": [
       {
-        "id": "1779963613.882427",
-        "content": "Get Akismet API key from akismet.com",
+        "id": "t1",
+        "content": "Operation Mirrorfall \u2014 Chapter 6 rewrite (pending review of Ch 5)",
+        "status": "todo",
+        "created": "2026-06-12",
+        "board": "tuco"
+      },
+      {
+        "id": "t2",
+        "content": "Operation Mirrorfall \u2014 Chapters 7-20 rewrites",
+        "status": "todo",
+        "created": "2026-06-12",
+        "board": "tuco"
+      },
+      {
+        "id": "t3",
+        "content": "Operation Mirrorfall \u2014 Full novel PDF rebuild with covers",
+        "status": "todo",
+        "created": "2026-06-11",
+        "board": "tuco"
+      },
+      {
+        "id": "t4",
+        "content": "The Dreaming Gate Book 2 \u2014 Generate images (Artistly.ai)",
+        "status": "todo",
+        "created": "2026-06-09",
+        "board": "tuco"
+      },
+      {
+        "id": "t5",
+        "content": "The Dreaming Gate Book 2 \u2014 Rebuild PDF + DTRPG package",
+        "status": "todo",
+        "created": "2026-06-09",
+        "board": "tuco"
+      },
+      {
+        "id": "t6",
+        "content": "The Dreaming Gate Book 2 \u2014 Upload to WooCommerce + DTRPG",
+        "status": "todo",
+        "created": "2026-06-09",
+        "board": "tuco"
+      },
+      {
+        "id": "t7",
+        "content": "Operation Mirrorfall \u2014 Chapter 1-5 rewrites (all approved)",
         "status": "completed",
-        "created": "2026-05-28 10:20"
+        "created": "2026-06-11",
+        "board": "tuco"
       },
       {
-        "id": "1779963613.88861",
-        "content": "Harden wpForo forum settings",
+        "id": "t8",
+        "content": "Blog post \u2014 The Flashback Technique published to website",
         "status": "completed",
-        "created": "2026-05-28 10:20"
+        "created": "2026-06-12",
+        "board": "tuco"
       },
       {
-        "id": "1779963613.894586",
-        "content": "Set up comment moderation",
-        "status": "on-hold",
-        "created": "2026-05-28 10:20"
-      },
-      {
-        "id": "1779963613.901123",
-        "content": "Website cleanup and product pruning",
+        "id": "t9",
+        "content": "Morning Dashboard Refresh cron job created (daily 5am)",
         "status": "completed",
-        "created": "2026-05-28 10:20"
+        "created": "2026-06-12",
+        "board": "tuco"
       },
       {
-        "id": "1779963613.906757",
-        "content": "ComfyUI cloud setup",
-        "status": "stopped",
-        "created": "2026-05-28 10:20"
+        "id": "m1",
+        "content": "Stock policy \u2014 Challenge rejection of 100-unit ball joint order with Paul Philpots",
+        "status": "in-progress",
+        "created": "2026-06-10",
+        "board": "morgan"
+      },
+      {
+        "id": "m2",
+        "content": "Stock issue \u2014 Escalate air filter shortage to Paul Hand (after-sales safety stock policy)",
+        "status": "in-progress",
+        "created": "2026-06-10",
+        "board": "morgan"
+      },
+      {
+        "id": "m3",
+        "content": "Superform contingency plan \u2014 Monitor supplier situation and report developments",
+        "status": "todo",
+        "created": "2026-06-10",
+        "board": "morgan"
+      },
+      {
+        "id": "m4",
+        "content": "Stock approval process \u2014 Teams meeting with Jack Woodgate (Mon/Tue)",
+        "status": "todo",
+        "created": "2026-06-10",
+        "board": "morgan"
+      },
+      {
+        "id": "m5",
+        "content": "Scrap stock sign-off \u2014 Unblock obsolete inventory sign-off process",
+        "status": "todo",
+        "created": "2026-06-02",
+        "board": "morgan"
+      },
+      {
+        "id": "m6",
+        "content": "Nitron damper exchange \u2014 Create process flowchart, demand business case from Quality dept",
+        "status": "todo",
+        "created": "2026-06-10",
+        "board": "morgan"
+      },
+      {
+        "id": "m7",
+        "content": "Weekly Employment Hero update \u2014 Draft After Sales team update template",
+        "status": "todo",
+        "created": "2026-06-10",
+        "board": "morgan"
+      },
+      {
+        "id": "m9",
+        "content": "DSC system \u2014 Prepare dealer bulletin for new system + online PDI sheet before July launch",
+        "status": "todo",
+        "created": "2026-06-11",
+        "board": "morgan"
+      },
+      {
+        "id": "m11",
+        "content": "KPI dashboard \u2014 Finalise IFS dashboard data sources",
+        "status": "todo",
+        "created": "2026-06-10",
+        "board": "morgan"
       }
     ]
   },
   "notes": {
-    "notes": []
+    "notes": [
+      {
+        "id": "1",
+        "content": "Mirrorfall Ch 1-5 expanded and approved. Ch 6 next. Target: 75K words across 22 chapters at 3,500+ each.",
+        "created": "2026-06-12"
+      },
+      {
+        "id": "2",
+        "content": "Book 2 The Fractured Court \u2014 full text/PDF/DTRPG ready, WAITING on image generation before final rebuild + upload.",
+        "created": "2026-06-12"
+      },
+      {
+        "id": "3",
+        "content": "Blog post 'The Flashback Technique' published to tuco.enterprises (Post ID 624).",
+        "created": "2026-06-12"
+      },
+      {
+        "id": "4",
+        "content": "Content Spark Friday + 3 other cron jobs updated with terminal access for auto-publishing.",
+        "created": "2026-06-12"
+      },
+      {
+        "id": "5",
+        "content": "Mission Control accessible at http://132.145.38.102:9090 (Oracle Cloud security list allows TCP 9090).",
+        "created": "2026-06-12"
+      }
+    ]
   },
   "skills": [
     {
@@ -388,7 +522,7 @@
     "cron_db": true,
     "hermes_home": "/home/opc/.hermes",
     "vault_path": "/home/opc/Documents/Obsidian Vault",
-    "time": "2026-06-12 14:58:25 UTC"
+    "time": "2026-06-12 15:59:25 UTC"
   },
   "traffic": {
     "total": 2,
