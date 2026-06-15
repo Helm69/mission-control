@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T15:23:49.227969+00:00",
+  "generated_at": "2026-06-15T16:24:17.259448+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -81,8 +81,8 @@
         "display": "0 */4 * * *"
       },
       "enabled": true,
-      "next_run": "2026-06-15T16:00:00+00:00",
-      "last_run": "2026-06-15T12:07:09.230388+00:00",
+      "next_run": "2026-06-15T20:00:00+00:00",
+      "last_run": "2026-06-15T16:00:31.163232+00:00",
       "last_status": "ok"
     },
     {
@@ -117,8 +117,8 @@
         "display": "every 240m"
       },
       "enabled": true,
-      "next_run": "2026-06-15T16:06:25.435825+00:00",
-      "last_run": "2026-06-15T12:06:25.435825+00:00",
+      "next_run": "2026-06-15T20:07:35.749647+00:00",
+      "last_run": "2026-06-15T16:07:35.749647+00:00",
       "last_status": "ok"
     },
     {
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-06-15T16:22:10.791488+00:00",
-      "last_run": "2026-06-15T14:21:20.663714+00:00",
+      "next_run": "2026-06-15T17:24:10.991892+00:00",
+      "last_run": "2026-06-15T15:24:00.649587+00:00",
       "last_status": "ok"
     },
     {
@@ -244,14 +244,24 @@
     ],
     "recent_files": [
       {
-        "path": "04 Reference/Morgan Motor Company - Official Accessories List.md",
-        "modified": "2026-06-15 15:20",
-        "size": "1.6 KB"
+        "path": "04 Reference/Action Items - All Meetings.md",
+        "modified": "2026-06-15 15:28",
+        "size": "5.5 KB"
+      },
+      {
+        "path": "01 Meetings/Work/2026-06-15 - After Sales Strategy and Inventory Management.md",
+        "modified": "2026-06-15 15:28",
+        "size": "5.8 KB"
       },
       {
         "path": "01 Meetings/Work/2026-06-15 - Strategic Planning for Sales and Operations.md",
-        "modified": "2026-06-15 15:19",
-        "size": "4.7 KB"
+        "modified": "2026-06-15 15:25",
+        "size": "5.1 KB"
+      },
+      {
+        "path": "04 Reference/Morgan Motor Company - Official Accessories List.md",
+        "modified": "2026-06-15 15:20",
+        "size": "1.6 KB"
       },
       {
         "path": "03 Projects/Tuco Enterprises/Reports/sales-weekly-2026-06-15.md",
@@ -282,16 +292,6 @@
         "path": "06 OWL/Learnings/VPS Migration Plan.md",
         "modified": "2026-06-14 16:17",
         "size": "8.7 KB"
-      },
-      {
-        "path": "06 OWL/README.md",
-        "modified": "2026-06-14 15:58",
-        "size": "1.1 KB"
-      },
-      {
-        "path": "06 OWL/Learnings/Technical Notes.md",
-        "modified": "2026-06-14 15:54",
-        "size": "4.6 KB"
       }
     ]
   },
@@ -536,7 +536,7 @@
     "cron_db": true,
     "hermes_home": "/home/opc/.hermes",
     "vault_path": "/home/opc/Documents/Obsidian Vault",
-    "time": "2026-06-15 15:23:49 UTC"
+    "time": "2026-06-15 16:24:17 UTC"
   },
   "traffic": {
     "total": 2,
