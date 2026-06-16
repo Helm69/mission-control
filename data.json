@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T18:58:39.358085+00:00",
+  "generated_at": "2026-06-16T19:59:34.018307+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-06-16T19:58:15.125782+00:00",
-      "last_run": "2026-06-16T17:57:15.501406+00:00",
+      "next_run": "2026-06-16T20:59:16.181961+00:00",
+      "last_run": "2026-06-16T18:58:57.138312+00:00",
       "last_status": "ok"
     },
     {
@@ -457,33 +457,6 @@
   },
   "skills": [
     {
-      "name": "book-production",
-      "description": "Produce and publish RPG adventure books for Tuco Enterprises \u2014 cover design, image generation, PDF formatting with parch...",
-      "category": "book-production",
-      "category_display": "Book Production",
-      "icon": "\ud83d\udce6",
-      "version": "",
-      "path": "book-production"
-    },
-    {
-      "name": "dogfood",
-      "description": "Exploratory QA of web apps: find bugs, evidence, reports.",
-      "category": "dogfood",
-      "category_display": "Dogfood",
-      "icon": "\ud83c\udf56",
-      "version": "1.0.0",
-      "path": "dogfood"
-    },
-    {
-      "name": "github-workflow",
-      "description": "Complete GitHub workflow \u2014 authentication, repository management, issues, pull requests, code review, and CI/CD. Use whe...",
-      "category": "github-workflow",
-      "category_display": "Github Workflow",
-      "icon": "\ud83d\udce6",
-      "version": "1.0.0",
-      "path": "github-workflow"
-    },
-    {
       "name": "rpg-publication-pipeline",
       "description": "End-to-end RPG content lifecycle for Tuco Enterprises \u2014 write dark fantasy TTRPG content, review and proofread manuscrip...",
       "category": "rpg-publication-pipeline",
@@ -491,24 +464,6 @@
       "icon": "\ud83d\udce6",
       "version": "2.4.0",
       "path": "rpg-publication-pipeline"
-    },
-    {
-      "name": "social-media-communities",
-      "description": "Research and target social media communities (Facebook Groups, Reddit, Discord) for product promotion, audience building...",
-      "category": "social-media-communities",
-      "category_display": "Social Media Communities",
-      "icon": "\ud83d\udce6",
-      "version": "1.1.0",
-      "path": "social-media-communities"
-    },
-    {
-      "name": "static-web-deploy",
-      "description": "Deploy static HTML/CSS/JS pages to mobile-accessible hosting \u2014 GitHub Pages, Netlify, or similar. Handles CSP constraint...",
-      "category": "static-web-deploy",
-      "category_display": "Static Web Deploy",
-      "icon": "\ud83d\udce6",
-      "version": "1.0.0",
-      "path": "static-web-deploy"
     },
     {
       "name": "windows-access-setup-ssh",
@@ -536,7 +491,7 @@
     "cron_db": true,
     "hermes_home": "/home/opc/.hermes",
     "vault_path": "/home/opc/Documents/Obsidian Vault",
-    "time": "2026-06-16 18:58:39 UTC"
+    "time": "2026-06-16 19:59:34 UTC"
   },
   "traffic": {
     "total": 2,
