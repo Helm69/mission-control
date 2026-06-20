@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T05:01:03.832750+00:00",
+  "generated_at": "2026-06-20T05:02:41.877971+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -479,7 +479,7 @@
     "cron_db": true,
     "hermes_home": "/home/opc/.hermes",
     "vault_path": "/home/opc/Documents/Obsidian Vault",
-    "time": "2026-06-20 05:01:03 UTC"
+    "time": "2026-06-20 05:02:41 UTC"
   },
   "traffic": {
     "total": 2,
