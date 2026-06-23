@@ -288,56 +288,56 @@
     "tasks": [
       {
         "id": "t1",
-        "content": "Operation Mirrorfall \u2014 Chapter 6 rewrite (pending review of Ch 5)",
+        "content": "Operation Mirrorfall — Chapter 6 rewrite (pending review of Ch 5)",
         "status": "todo",
         "created": "2026-06-12",
         "board": "tuco"
       },
       {
         "id": "t2",
-        "content": "Operation Mirrorfall \u2014 Chapters 7-20 rewrites",
+        "content": "Operation Mirrorfall — Chapters 7-20 rewrites",
         "status": "todo",
         "created": "2026-06-12",
         "board": "tuco"
       },
       {
         "id": "t3",
-        "content": "Operation Mirrorfall \u2014 Full novel PDF rebuild with covers",
+        "content": "Operation Mirrorfall — Full novel PDF rebuild with covers",
         "status": "todo",
         "created": "2026-06-11",
         "board": "tuco"
       },
       {
         "id": "t4",
-        "content": "The Dreaming Gate Book 2 \u2014 Generate images (Artistly.ai)",
+        "content": "The Dreaming Gate Book 2 — Generate images (Artistly.ai)",
         "status": "todo",
         "created": "2026-06-09",
         "board": "tuco"
       },
       {
         "id": "t5",
-        "content": "The Dreaming Gate Book 2 \u2014 Rebuild PDF + DTRPG package",
+        "content": "The Dreaming Gate Book 2 — Rebuild PDF + DTRPG package",
         "status": "todo",
         "created": "2026-06-09",
         "board": "tuco"
       },
       {
         "id": "t6",
-        "content": "The Dreaming Gate Book 2 \u2014 Upload to WooCommerce + DTRPG",
+        "content": "The Dreaming Gate Book 2 — Upload to WooCommerce + DTRPG",
         "status": "todo",
         "created": "2026-06-09",
         "board": "tuco"
       },
       {
         "id": "t7",
-        "content": "Operation Mirrorfall \u2014 Chapter 1-5 rewrites (all approved)",
+        "content": "Operation Mirrorfall — Chapter 1-5 rewrites (all approved)",
         "status": "completed",
         "created": "2026-06-11",
         "board": "tuco"
       },
       {
         "id": "t8",
-        "content": "Blog post \u2014 The Flashback Technique published to website",
+        "content": "Blog post — The Flashback Technique published to website",
         "status": "completed",
         "created": "2026-06-12",
         "board": "tuco"
@@ -351,65 +351,100 @@
       },
       {
         "id": "m1",
-        "content": "Stock policy \u2014 Challenge rejection of 100-unit ball joint order with Paul Philpots",
+        "content": "Stock policy — Challenge rejection of 100-unit ball joint order with Paul Philpots",
         "status": "in-progress",
         "created": "2026-06-10",
         "board": "morgan"
       },
       {
         "id": "m2",
-        "content": "Stock issue \u2014 Escalate air filter shortage to Paul Hand (after-sales safety stock policy)",
+        "content": "Stock issue — Escalate air filter shortage to Paul Hand (after-sales safety stock policy)",
         "status": "in-progress",
         "created": "2026-06-10",
         "board": "morgan"
       },
       {
         "id": "m3",
-        "content": "Superform contingency plan \u2014 Monitor supplier situation and report developments",
+        "content": "Superform contingency plan — Monitor supplier situation and report developments",
         "status": "todo",
         "created": "2026-06-10",
         "board": "morgan"
       },
       {
         "id": "m4",
-        "content": "Stock approval process \u2014 Teams meeting with Jack Woodgate (Mon/Tue)",
+        "content": "Stock approval process — Teams meeting with Jack Woodgate (Mon/Tue)",
         "status": "todo",
         "created": "2026-06-10",
         "board": "morgan"
       },
       {
         "id": "m5",
-        "content": "Scrap stock sign-off \u2014 Unblock obsolete inventory sign-off process",
+        "content": "Scrap stock sign-off — Unblock obsolete inventory sign-off process",
         "status": "todo",
         "created": "2026-06-02",
         "board": "morgan"
       },
       {
         "id": "m6",
-        "content": "Nitron damper exchange \u2014 Create process flowchart, demand business case from Quality dept",
+        "content": "Nitron damper exchange — Create process flowchart, demand business case from Quality dept",
         "status": "todo",
         "created": "2026-06-10",
         "board": "morgan"
       },
       {
         "id": "m7",
-        "content": "Weekly Employment Hero update \u2014 Draft After Sales team update template",
+        "content": "Weekly Employment Hero update — Draft After Sales team update template",
         "status": "todo",
         "created": "2026-06-10",
         "board": "morgan"
       },
       {
         "id": "m9",
-        "content": "DSC system \u2014 Prepare dealer bulletin for new system + online PDI sheet before July launch",
+        "content": "DSC system — Prepare dealer bulletin for new system + online PDI sheet before July launch",
         "status": "todo",
         "created": "2026-06-11",
         "board": "morgan"
       },
       {
         "id": "m11",
-        "content": "KPI dashboard \u2014 Finalise IFS dashboard data sources",
+        "content": "KPI dashboard — Finalise IFS dashboard data sources",
         "status": "todo",
         "created": "2026-06-10",
+        "board": "morgan"
+      },
+      {
+        "id": "m12",
+        "content": "Jordan Bingham — Send updated Super Sport accessory pack business case to Paul; follow up with Michael at Galley on split air freight order",
+        "status": "todo",
+        "created": "2026-06-23",
+        "board": "morgan"
+      },
+      {
+        "id": "m13",
+        "content": "John Bower — Follow up with Paul directly next Tuesday on accessory pack approval; chase Karl Dinsdale for definitive US Super Sport part number differences",
+        "status": "todo",
+        "created": "2026-06-23",
+        "board": "morgan"
+      },
+      {
+        "id": "m14",
+        "content": "Mark Evans — Refine dealer list (remove non-dealers, confirm active status); clarify US market part specifications",
+        "status": "todo",
+        "created": "2026-06-23",
+        "board": "morgan"
+      },
+      {
+        "id": "m15",
+        "content": "Mark Evans — Escalate to Colin if Paul doesn't respond within 24 hours on accessory pack business case",
+        "status": "todo",
+        "created": "2026-06-23",
+        "board": "morgan"
+      },
+      {
+        "id": "m16",
+        "content": "DMS integration — Support initiative for data-driven dealer stock management",
+        "status": "todo",
+        "created": "2026-06-23",
         "board": "morgan"
       }
     ]
@@ -423,7 +458,7 @@
       },
       {
         "id": "2",
-        "content": "Book 2 The Fractured Court \u2014 full text/PDF/DTRPG ready, WAITING on image generation before final rebuild + upload.",
+        "content": "Book 2 The Fractured Court — full text/PDF/DTRPG ready, WAITING on image generation before final rebuild + upload.",
         "created": "2026-06-12"
       },
       {
@@ -446,10 +481,10 @@
   "skills": [
     {
       "name": "rpg-publication-pipeline",
-      "description": "End-to-end RPG content lifecycle for Tuco Enterprises \u2014 write dark fantasy TTRPG content, review and proofread manuscrip...",
+      "description": "End-to-end RPG content lifecycle for Tuco Enterprises — write dark fantasy TTRPG content, review and proofread manuscrip...",
       "category": "rpg-publication-pipeline",
       "category_display": "Rpg Publication Pipeline",
-      "icon": "\ud83d\udce6",
+      "icon": "📦",
       "version": "2.4.0",
       "path": "rpg-publication-pipeline"
     },
@@ -458,16 +493,16 @@
       "description": "Set up SSH key-based access from Windows machines to a Linux VPS. Covers key generation, safe transfer to Windows client...",
       "category": "windows-access-setup-ssh",
       "category_display": "Windows Access Setup Ssh",
-      "icon": "\ud83d\udce6",
+      "icon": "📦",
       "version": "1.1.0",
       "path": "windows-access-setup-ssh"
     },
     {
       "name": "yuanbao",
-      "description": "Yuanbao (\u5143\u5b9d) groups: @mention users, query info/members.",
+      "description": "Yuanbao (元宝) groups: @mention users, query info/members.",
       "category": "yuanbao",
       "category_display": "Yuanbao",
-      "icon": "\ud83e\ude99",
+      "icon": "🪙",
       "version": "1.0.0",
       "path": "yuanbao"
     }
