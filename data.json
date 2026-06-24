@@ -646,6 +646,33 @@
         "source": "2026-06-23 Business Strategy - Super Sport Accessory & Stock Packs",
         "status": "pending",
         "added": "2026-06-24"
+      },
+      {
+        "id": "ACC-012",
+        "action": "Review new MOQ and pricing adjustments for A401, 460s",
+        "owner": "Jordan Bingham",
+        "source": "2026-06-24 Midland Alloy - Weekly Update",
+        "status": "pending",
+        "added": "2026-06-24",
+        "board": "morgan"
+      },
+      {
+        "id": "ACC-013",
+        "action": "Review new MOQ and pricing adjustments for A401, 460s",
+        "owner": "Mark Evans",
+        "source": "2026-06-24 Midland Alloy - Weekly Update",
+        "status": "pending",
+        "added": "2026-06-24",
+        "board": "morgan"
+      },
+      {
+        "id": "ACC-014",
+        "action": "Follow up on chrome plating progress and update timeline",
+        "owner": "Mark Beirne",
+        "source": "2026-06-24 Midland Alloy - Weekly Update",
+        "status": "pending",
+        "added": "2026-06-24",
+        "board": "morgan"
       }
     ]
   },
