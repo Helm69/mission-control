@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T18:28:00.299035+00:00",
+  "generated_at": "2026-06-24T19:28:19.593902+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-06-24T19:27:52.635420+00:00",
-      "last_run": "2026-06-24T17:27:10.611133+00:00",
+      "next_run": "2026-06-24T20:28:13.701445+00:00",
+      "last_run": "2026-06-24T18:28:06.674877+00:00",
       "last_status": "ok"
     },
     {
@@ -680,6 +680,15 @@
   },
   "skills": [
     {
+      "name": "computer-use",
+      "description": "|",
+      "category": "computer-use",
+      "category_display": "Computer Use",
+      "icon": "\ud83d\udce6",
+      "version": "2.0.0",
+      "path": "computer-use"
+    },
+    {
       "name": "rpg-publication-pipeline",
       "description": "End-to-end RPG content lifecycle for Tuco Enterprises \u2014 write dark fantasy TTRPG content, review and proofread manuscrip...",
       "category": "rpg-publication-pipeline",
@@ -714,7 +723,7 @@
     "cron_db": true,
     "hermes_home": "/home/opc/.hermes",
     "vault_path": "/home/opc/Documents/Obsidian Vault",
-    "time": "2026-06-24 18:28:00 UTC"
+    "time": "2026-06-24 19:28:19 UTC"
   },
   "traffic": {
     "total": 2,
