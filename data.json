@@ -646,6 +646,46 @@
         "source": "2026-06-23 Business Strategy - Super Sport Accessory & Stock Packs",
         "status": "pending",
         "added": "2026-06-24"
+      },
+      {
+        "id": "OPS-012",
+        "action": "Send EWS workaround proposal to legal team for review",
+        "owner": "Mark Evans",
+        "source": "2026-06-25 Internal Operations Review",
+        "status": "pending",
+        "added": "2026-06-25"
+      },
+      {
+        "id": "OPS-013",
+        "action": "Prepare list of fast-moving parts for stock policy approval and escalate two-week stock policy issue",
+        "owner": "Mark Evans",
+        "source": "2026-06-25 Internal Operations Review",
+        "status": "pending",
+        "added": "2026-06-25"
+      },
+      {
+        "id": "OPS-014",
+        "action": "Proceed with online Super Sport training presentation (avoid face-to-face to avoid exposing unresolved issues)",
+        "owner": "Andy Blackwell",
+        "source": "2026-06-25 Internal Operations Review",
+        "status": "pending",
+        "added": "2026-06-25"
+      },
+      {
+        "id": "OPS-015",
+        "action": "Clarify launch vehicle situation (B58 vs B46) with relevant team — do not start engine at Quail show",
+        "owner": "Mark Evans",
+        "source": "2026-06-25 Internal Operations Review",
+        "status": "pending",
+        "added": "2026-06-25"
+      },
+      {
+        "id": "OPS-016",
+        "action": "Follow up on pay discrepancy resolution across departments",
+        "owner": "Mark Evans",
+        "source": "2026-06-25 Internal Operations Review",
+        "status": "pending",
+        "added": "2026-06-25"
       }
     ]
   },
