@@ -686,6 +686,54 @@
         "source": "2026-06-25 Internal Operations Review",
         "status": "pending",
         "added": "2026-06-25"
+      },
+      {
+        "id": "OPS-017",
+        "action": "Follow up on KPI dashboard for service sent to Colin",
+        "owner": "John Bower",
+        "source": "2026-06-25 Internal Operations Review",
+        "status": "pending",
+        "added": "2026-06-25"
+      },
+      {
+        "id": "OPS-018",
+        "action": "Publish next Employment Hero update (DSC training + website testing news)",
+        "owner": "John Bower",
+        "source": "2026-06-25 Internal Operations Review",
+        "status": "pending",
+        "added": "2026-06-25"
+      },
+      {
+        "id": "OPS-019",
+        "action": "Set up meeting with Paul Philpotts to discuss fast-moving parts list and two-week stock rule challenges",
+        "owner": "Mark Evans",
+        "source": "2026-06-25 Internal Operations Review",
+        "status": "pending",
+        "added": "2026-06-25"
+      },
+      {
+        "id": "OPS-020",
+        "action": "Continue raising workshop development funding issue in ops meetings",
+        "owner": "John Bower",
+        "source": "2026-06-25 Internal Operations Review",
+        "status": "pending",
+        "added": "2026-06-25"
+      },
+      {
+        "id": "OPS-021",
+        "action": "Complete all PDRs and prepare cases for salary reviews and adjustments to address pay inequity",
+        "owner": "John Bower",
+        "source": "2026-06-25 Internal Operations Review",
+        "status": "pending",
+        "added": "2026-06-25"
+      },
+      {
+        "id": "OPS-022",
+        "action": "Send completed reviews to support pay increase cases for Nathan and Ian",
+        "owner": "Mark Baldwin",
+        "source": "2026-06-25 Internal Operations Review",
+        "status": "pending",
+        "added": "2026-06-25"
       }
     ]
   },
