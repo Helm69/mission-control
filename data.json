@@ -646,6 +646,46 @@
         "source": "2026-06-23 Business Strategy - Super Sport Accessory & Stock Packs",
         "status": "pending",
         "added": "2026-06-24"
+      },
+      {
+        "id": "OPS-008",
+        "action": "Address Steve improper storage practices and attitude issue directly",
+        "owner": "Jordan Bingham",
+        "source": "2026-06-26 Operational Review",
+        "status": "pending",
+        "added": "2026-06-26"
+      },
+      {
+        "id": "OPS-009",
+        "action": "Ensure team uses VOR tracking system diligently to prevent future misses",
+        "owner": "Jordan Bingham",
+        "source": "2026-06-26 Operational Review",
+        "status": "pending",
+        "added": "2026-06-26"
+      },
+      {
+        "id": "OPS-010",
+        "action": "Review all web shop shipping costs and confirm 25% minimum margin",
+        "owner": "Luke",
+        "source": "2026-06-26 Operational Review",
+        "status": "pending",
+        "added": "2026-06-26"
+      },
+      {
+        "id": "OPS-011",
+        "action": "Begin learning product admin for the new website",
+        "owner": "Dale",
+        "source": "2026-06-26 Operational Review",
+        "status": "pending",
+        "added": "2026-06-26"
+      },
+      {
+        "id": "OPS-012",
+        "action": "Adhere to new shop-floor schedule (10:30 AM and 3:00 PM only)",
+        "owner": "Arthur",
+        "source": "2026-06-26 Operational Review",
+        "status": "pending",
+        "added": "2026-06-26"
       }
     ]
   },
