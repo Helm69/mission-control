@@ -646,6 +646,54 @@
         "source": "2026-06-23 Business Strategy - Super Sport Accessory & Stock Packs",
         "status": "pending",
         "added": "2026-06-24"
+      },
+      {
+        "action": "Speak to Arthur about the new twice-daily schedule for visiting the shop floor",
+        "owner": "Mark Evans",
+        "source": "2026-06-26 Operational Review (Part 2)",
+        "status": "pending",
+        "added": "2026-06-26",
+        "id": "OPS-012"
+      },
+      {
+        "action": "Finalize personal PDR documentation and submit to relevant department",
+        "owner": "Mark Evans",
+        "source": "2026-06-26 Operational Review (Part 2)",
+        "status": "pending",
+        "added": "2026-06-26",
+        "id": "OPS-013"
+      },
+      {
+        "action": "Ask Josh to remove the outdated luggage rack offer from the heritage website",
+        "owner": "Mark Evans",
+        "source": "2026-06-26 Operational Review (Part 2)",
+        "status": "pending",
+        "added": "2026-06-26",
+        "id": "OPS-014"
+      },
+      {
+        "action": "Establish and communicate a clear manual process for handling orders from the new parts website upon launch",
+        "owner": "Mark Evans",
+        "source": "2026-06-26 Operational Review (Part 2)",
+        "status": "pending",
+        "added": "2026-06-26",
+        "id": "OPS-015"
+      },
+      {
+        "action": "Investigate the risks and potential solutions for the non-DOT marked parts on the Super Sport model",
+        "owner": "Mark Evans",
+        "source": "2026-06-26 Operational Review (Part 2)",
+        "status": "pending",
+        "added": "2026-06-26",
+        "id": "OPS-016"
+      },
+      {
+        "action": "Reinforce the VOR order checking process and the importance of using the lobby screen with Dale",
+        "owner": "Jordan Bingham",
+        "source": "2026-06-26 Operational Review (Part 2)",
+        "status": "pending",
+        "added": "2026-06-26",
+        "id": "OPS-017"
       }
     ]
   },
