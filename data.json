@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T11:08:44.384475+00:00",
+  "generated_at": "2026-06-26T12:09:26.567999+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -81,8 +81,8 @@
         "display": "0 */4 * * *"
       },
       "enabled": true,
-      "next_run": "2026-06-26T12:00:00+00:00",
-      "last_run": "2026-06-26T08:00:26.677537+00:00",
+      "next_run": "2026-06-26T16:00:00+00:00",
+      "last_run": "2026-06-26T12:00:34.805357+00:00",
       "last_status": "ok"
     },
     {
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-06-26T12:08:19.459318+00:00",
-      "last_run": "2026-06-26T10:07:28.531011+00:00",
+      "next_run": "2026-06-26T13:09:19.852756+00:00",
+      "last_run": "2026-06-26T11:09:11.694913+00:00",
       "last_status": "ok"
     },
     {
@@ -232,14 +232,19 @@
     ],
     "recent_files": [
       {
-        "path": "03 Projects/Tuco Enterprises/2026-06-26 - Content Spark - Shadows of the Forgotten Shrine Spotlight.md",
-        "modified": "2026-06-26 09:02",
-        "size": "4.8 KB"
+        "path": "01 Meetings/Work/2026-06-26 - Meeting - Operational Review - PDRs, Warehouse & Super Sport.md",
+        "modified": "2026-06-26 12:09",
+        "size": "6.8 KB"
       },
       {
         "path": "04 Reference/Action Items - All Meetings.md",
-        "modified": "2026-06-25 11:54",
-        "size": "7.5 KB"
+        "modified": "2026-06-26 12:05",
+        "size": "9.1 KB"
+      },
+      {
+        "path": "03 Projects/Tuco Enterprises/2026-06-26 - Content Spark - Shadows of the Forgotten Shrine Spotlight.md",
+        "modified": "2026-06-26 09:02",
+        "size": "4.8 KB"
       },
       {
         "path": "01 Meetings/Work/2026-06-25 - Meeting - Internal Operations Review.md",
@@ -275,11 +280,6 @@
         "path": "03 Projects/Tuco Enterprises/Reports/sales-weekly-2026-06-22.md",
         "modified": "2026-06-22 09:09",
         "size": "2.4 KB"
-      },
-      {
-        "path": "03 Projects/Tuco Enterprises/Content Seeds/2026-06-21 - Type C - The Hollow Crown.md",
-        "modified": "2026-06-21 10:02",
-        "size": "6.0 KB"
       }
     ]
   },
@@ -646,46 +646,6 @@
         "source": "2026-06-23 Business Strategy - Super Sport Accessory & Stock Packs",
         "status": "pending",
         "added": "2026-06-24"
-      },
-      {
-        "id": "OPS-008",
-        "action": "Address Steve improper storage practices and attitude issue directly",
-        "owner": "Jordan Bingham",
-        "source": "2026-06-26 Operational Review",
-        "status": "pending",
-        "added": "2026-06-26"
-      },
-      {
-        "id": "OPS-009",
-        "action": "Ensure team uses VOR tracking system diligently to prevent future misses",
-        "owner": "Jordan Bingham",
-        "source": "2026-06-26 Operational Review",
-        "status": "pending",
-        "added": "2026-06-26"
-      },
-      {
-        "id": "OPS-010",
-        "action": "Review all web shop shipping costs and confirm 25% minimum margin",
-        "owner": "Luke",
-        "source": "2026-06-26 Operational Review",
-        "status": "pending",
-        "added": "2026-06-26"
-      },
-      {
-        "id": "OPS-011",
-        "action": "Begin learning product admin for the new website",
-        "owner": "Dale",
-        "source": "2026-06-26 Operational Review",
-        "status": "pending",
-        "added": "2026-06-26"
-      },
-      {
-        "id": "OPS-012",
-        "action": "Adhere to new shop-floor schedule (10:30 AM and 3:00 PM only)",
-        "owner": "Arthur",
-        "source": "2026-06-26 Operational Review",
-        "status": "pending",
-        "added": "2026-06-26"
       }
     ]
   },
@@ -772,7 +732,7 @@
     "cron_db": true,
     "hermes_home": "/home/opc/.hermes",
     "vault_path": "/home/opc/Documents/Obsidian Vault",
-    "time": "2026-06-26 11:08:44 UTC"
+    "time": "2026-06-26 12:09:26 UTC"
   },
   "traffic": {
     "total": 2,
