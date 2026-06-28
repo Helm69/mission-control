@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-28T08:55:39.533385+00:00",
+  "generated_at": "2026-06-28T09:56:40.236917+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -117,8 +117,8 @@
         "display": "every 240m"
       },
       "enabled": true,
-      "next_run": "2026-06-28T09:31:51.220787+00:00",
-      "last_run": "2026-06-28T05:31:51.220787+00:00",
+      "next_run": "2026-06-28T13:32:53.041015+00:00",
+      "last_run": "2026-06-28T09:32:53.041015+00:00",
       "last_status": "ok"
     },
     {
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-06-28T09:55:36.438895+00:00",
-      "last_run": "2026-06-28T07:54:44.591664+00:00",
+      "next_run": "2026-06-28T10:56:36.829222+00:00",
+      "last_run": "2026-06-28T08:55:45.359142+00:00",
       "last_status": "ok"
     },
     {
@@ -292,7 +292,7 @@
         "action": "Prepare dealer bulletin explaining new DSC system and online PDI sheet process, distributed before July launch",
         "owner": "Andy Blackwell",
         "source": "2026-06-11 Operations Review",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-13",
         "board": "morgan"
       },
@@ -301,7 +301,7 @@
         "action": "Discuss potential Will/Dale swap with Jordan and report back to team",
         "owner": "Mark Evans",
         "source": "2026-06-11 Operations Review",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-13",
         "board": "morgan"
       },
@@ -328,7 +328,7 @@
         "action": "Obtain full quote for clearing old storage area including asbestos removal",
         "owner": "Mark Evans",
         "source": "2026-05-29 Operational Review Meeting",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-13",
         "board": "morgan"
       },
@@ -337,7 +337,7 @@
         "action": "Develop unified KPI dashboard to track sales, workshop metrics, and cash flow",
         "owner": "TBD",
         "source": "2026-05-29 Operational Review Meeting",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-13",
         "board": "morgan"
       },
@@ -355,7 +355,7 @@
         "action": "Ensure robust performance management and probationary reviews before new 6-month unfair dismissal window",
         "owner": "Speaker 1 (HR/Legal)",
         "source": "2026-05-29 Legal & Policy Update Briefing",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-13",
         "board": "morgan"
       },
@@ -364,7 +364,7 @@
         "action": "Reinforce accurate timekeeping (clocking in/out) for 6-year record-keeping compliance",
         "owner": "Speaker 1 (HR/Legal)",
         "source": "2026-05-29 Legal & Policy Update Briefing",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-13",
         "board": "morgan"
       },
@@ -373,7 +373,7 @@
         "action": "Await final draft of updated employee handbook and new policies",
         "owner": "Speaker 1 (HR/Legal)",
         "source": "2026-05-29 Legal & Policy Update Briefing",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-13",
         "board": "morgan"
       },
@@ -391,7 +391,7 @@
         "action": "Arrange a meeting with Paul Philpott and Colin to review the parts spreadsheet and advocate for essential orders",
         "owner": "John Bower",
         "source": "2026-05-28 After Sales Team Sync",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-13",
         "board": "morgan"
       },
@@ -912,7 +912,7 @@
     "cron_db": true,
     "hermes_home": "/home/opc/.hermes",
     "vault_path": "/home/opc/Documents/Obsidian Vault",
-    "time": "2026-06-28 08:55:39 UTC"
+    "time": "2026-06-28 09:56:40 UTC"
   },
   "traffic": {
     "total": 2,
