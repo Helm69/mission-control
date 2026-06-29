@@ -144,6 +144,7 @@
   <div class="nav-links">
     <a href="#" onclick="document.getElementById('cron-section').scrollIntoView({behavior:'smooth'})">Cron</a>
     <a href="#" onclick="document.getElementById('kanban-section').scrollIntoView({behavior:'smooth'})">Kanban</a>
+    <a href="#" onclick="document.getElementById('weight-section').scrollIntoView({behavior:'smooth'})">Weight</a>
     <a href="#" onclick="document.getElementById('vault-section').scrollIntoView({behavior:'smooth'})">Vault</a>
     <a href="#" onclick="document.getElementById('sessions-section').scrollIntoView({behavior:'smooth'})">Sessions</a>
     <a href="#" onclick="document.getElementById('notes-section').scrollIntoView({behavior:'smooth'})">Notes</a>
@@ -188,6 +189,23 @@
         <div class="kanban-drop-zone" data-status="on-hold"></div>
         <div class="kanban-add"><input type="text" placeholder="New task..." id="add-on-hold" onkeydown="if(event.key==='Enter') addTask('on-hold')"><button onclick="addTask('on-hold')">+</button></div>
       </div>
+    </div>
+  </div>
+
+  <div class="card" id="weight-section">
+    <h2>⚖️ Weight Tracker <span class="badge green" id="weight-goal-badge">0 / 7 lbs</span></h2>
+    <div class="weight-goal-bar"><div class="weight-goal-fill" id="weight-goal-fill" style="width:0%"></div></div>
+    <div class="weight-stats">
+      <div class="weight-stat-box"><div class="stat-value" id="weight-start">—</div><div class="stat-label">Start</div></div>
+      <div class="weight-stat-box"><div class="stat-value" id="weight-current">—</div><div class="stat-label">Current</div></div>
+      <div class="weight-stat-box"><div class="stat-value" id="weight-lost">—</div><div class="stat-label">Lost</div></div>
+    </div>
+    <div class="weight-chart" id="weight-chart"></div>
+    <div class="weight-entries" id="weight-entries"></div>
+    <div class="weight-add-row">
+      <input type="number" id="weight-input" placeholder="lbs" step="0.1" onkeydown="if(event.key==='Enter') addWeight()">
+      <input type="date" id="weight-date" style="width:140px">
+      <button onclick="addWeight()">Log</button>
     </div>
   </div>
 
@@ -362,6 +380,35 @@
   @media (max-width: 860px) {
     .traffic-stats { grid-template-columns: 1fr; }
     .traffic-details { grid-template-columns: 1fr; }
+  }
+
+  /* Weight Tracker */
+  .weight-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .weight-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+  .weight-stat-box { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px; text-align: center; }
+  .weight-stat-box .stat-value { font-size: 22px; font-weight: 700; color: var(--green); }
+  .weight-stat-box .stat-label { font-size: 10px; color: var(--text-dim); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .weight-chart { display: flex; align-items: flex-end; gap: 4px; height: 100px; padding: 8px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 12px; }
+  .weight-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; height: 100%; justify-content: flex-end; min-width: 0; }
+  .weight-bar { width: 100%; background: linear-gradient(180deg, var(--green), var(--blue)); border-radius: 3px 3px 0 0; min-height: 4px; transition: height 0.3s; }
+  .weight-bar-label { font-size: 9px; color: var(--text-dim); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+  .weight-bar-value { font-size: 10px; font-weight: 600; color: var(--text); text-align: center; }
+  .weight-entries { max-height: 120px; overflow-y: auto; margin-bottom: 12px; }
+  .weight-entry { display: flex; justify-content: space-between; font-size: 12px; padding: 4px 0; border-bottom: 1px solid var(--border); }
+  .weight-entry:last-child { border-bottom: none; }
+  .weight-entry .entry-date { color: var(--text-dim); }
+  .weight-entry .entry-value { font-weight: 600; color: var(--green); }
+  .weight-entry .entry-diff { font-size: 10px; color: var(--text-dim); }
+  .weight-entry .entry-diff.positive { color: var(--red); }
+  .weight-entry .entry-diff.negative { color: var(--green); }
+  .weight-add-row { display: flex; gap: 8px; }
+  .weight-add-row input { width: 100px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 8px 10px; color: var(--text); font-size: 13px; outline: none; }
+  .weight-add-row input:focus { border-color: var(--accent); }
+  .weight-add-row button { background: var(--green); color: white; border: none; border-radius: 6px; padding: 8px 14px; cursor: pointer; font-weight: 600; font-size: 13px; }
+  .weight-goal-bar { height: 6px; background: var(--bg); border-radius: 3px; margin-bottom: 12px; overflow: hidden; }
+  .weight-goal-fill { height: 100%; background: linear-gradient(90deg, var(--green), var(--blue)); border-radius: 3px; transition: width 0.5s; }
+  @media (max-width: 860px) {
+    .weight-stats { grid-template-columns: 1fr; }
   }
 </style>
 
@@ -566,6 +613,101 @@ function deleteNote(id) {
   loadNotes();
 }
 
+// Weight Tracker
+function loadWeight() {
+  const w = getData().weight || {};
+  const entries = w.entries || [];
+  const goalLbs = w.goal_lbs || 7;
+
+  // Set default date to today
+  const dateInput = document.getElementById('weight-date');
+  if (dateInput && !dateInput.value) {
+    dateInput.value = new Date().toISOString().split('T')[0];
+  }
+
+  if (!entries.length) {
+    document.getElementById('weight-start').textContent = '—';
+    document.getElementById('weight-current').textContent = '—';
+    document.getElementById('weight-lost').textContent = '—';
+    document.getElementById('weight-goal-badge').textContent = '0 / ' + goalLbs + ' lbs';
+    document.getElementById('weight-goal-fill').style.width = '0%';
+    document.getElementById('weight-chart').innerHTML = '<div class="empty-state" style="width:100%">Log your first weight entry</div>';
+    document.getElementById('weight-entries').innerHTML = '';
+    return;
+  }
+
+  // Sort entries by date
+  entries.sort((a, b) => a.date.localeCompare(b.date));
+
+  const startWeight = entries[0].weight;
+  const currentWeight = entries[entries.length - 1].weight;
+  const lost = startWeight - currentWeight;
+  const pct = Math.min(Math.max((lost / goalLbs) * 100, 0), 100);
+
+  document.getElementById('weight-start').textContent = startWeight.toFixed(1) + ' lbs';
+  document.getElementById('weight-current').textContent = currentWeight.toFixed(1) + ' lbs';
+  const lostEl = document.getElementById('weight-lost');
+  lostEl.textContent = (lost >= 0 ? '−' : '+') + Math.abs(lost).toFixed(1) + ' lbs';
+  lostEl.style.color = lost >= 0 ? 'var(--green)' : 'var(--red)';
+  document.getElementById('weight-goal-badge').textContent = lost.toFixed(1) + ' / ' + goalLbs + ' lbs';
+  document.getElementById('weight-goal-fill').style.width = pct + '%';
+
+  // Chart — show last 14 entries max
+  const chartEntries = entries.slice(-14);
+  const maxW = Math.max(...chartEntries.map(e => e.weight));
+  const minW = Math.min(...chartEntries.map(e => e.weight));
+  const range = maxW - minW || 1;
+  const chartEl = document.getElementById('weight-chart');
+  chartEl.innerHTML = chartEntries.map(e => {
+    const height = Math.max(((e.weight - minW) / range) * 80 + 10, 5);
+    const dayLabel = e.date.slice(5);
+    return '<div class="weight-bar-wrap">' +
+      '<div class="weight-bar-value">' + e.weight.toFixed(1) + '</div>' +
+      '<div class="weight-bar" style="height:' + height + '%"></div>' +
+      '<div class="weight-bar-label">' + dayLabel + '</div>' +
+      '</div>';
+  }).join('');
+
+  // Entries list (last 7, reversed)
+  const recentEntries = entries.slice(-7).reverse();
+  document.getElementById('weight-entries').innerHTML = recentEntries.map((e, i) => {
+    const prev = entries[entries.indexOf(e) - 1];
+    let diffHtml = '';
+    if (prev) {
+      const diff = e.weight - prev.weight;
+      const cls = diff > 0 ? 'positive' : diff < 0 ? 'negative' : '';
+      const sign = diff > 0 ? '+' : '';
+      diffHtml = '<span class="entry-diff ' + cls + '">' + sign + diff.toFixed(1) + '</span>';
+    }
+    return '<div class="weight-entry">' +
+      '<span class="entry-date">' + e.date + '</span>' +
+      '<span>' + diffHtml + ' <span class="entry-value">' + e.weight.toFixed(1) + ' lbs</span></span>' +
+      '</div>';
+  }).join('');
+}
+
+function addWeight() {
+  const input = document.getElementById('weight-input');
+  const dateInput = document.getElementById('weight-date');
+  const weight = parseFloat(input.value);
+  const date = dateInput.value || new Date().toISOString().split('T')[0];
+
+  if (isNaN(weight) || weight <= 0) return;
+
+  const w = (DASHBOARD_DATA.weight = DASHBOARD_DATA.weight || { entries: [], goal_lbs: 7 });
+
+  // Check if entry exists for this date — update if so
+  const existing = w.entries.find(e => e.date === date);
+  if (existing) {
+    existing.weight = weight;
+  } else {
+    w.entries.push({ date: date, weight: weight });
+  }
+
+  input.value = '';
+  loadWeight();
+}
+
 // Skills
 let allSkills = [];
 function loadSkills() {
@@ -708,7 +850,7 @@ function loadTraffic() {
 // Initialize: load data then render all panels
 loadData().then(ok => {
   if (ok) {
-    loadCron(); loadTasks(); loadVault(); loadSessions(); loadNotes(); loadSkills(); loadSystem(); loadTraffic();
+    loadCron(); loadTasks(); loadVault(); loadSessions(); loadNotes(); loadSkills(); loadSystem(); loadTraffic(); loadWeight();
   } else {
     document.querySelectorAll('.empty-state').forEach(el => {
       el.textContent = '⚠️ Could not load dashboard data';
@@ -719,7 +861,7 @@ loadData().then(ok => {
 // Refresh data every 5 minutes
 setInterval(async () => {
   if (await loadData()) {
-    loadCron(); loadTasks(); loadVault(); loadSessions(); loadNotes(); loadSkills(); loadSystem(); loadTraffic();
+    loadCron(); loadTasks(); loadVault(); loadSessions(); loadNotes(); loadSkills(); loadSystem(); loadTraffic(); loadWeight();
   }
 }, 300000);
 </script>
