@@ -966,7 +966,10 @@
     ]
   },
   "weight": {
-    "goal_lbs": 7,
+    "goal_lbs": 147,
+    "goal_stone": 10,
+    "goal_lbs_only": 7,
+    "unit": "stone",
     "start_date": "2026-06-29",
     "target_date": "2026-07-20",
     "entries": []

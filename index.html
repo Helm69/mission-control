@@ -203,7 +203,8 @@
     <div class="weight-chart" id="weight-chart"></div>
     <div class="weight-entries" id="weight-entries"></div>
     <div class="weight-add-row">
-      <input type="number" id="weight-input" placeholder="lbs" step="0.1" onkeydown="if(event.key==='Enter') addWeight()">
+      <input type="number" id="weight-stone" placeholder="st" step="1" min="1" style="width:70px">
+      <input type="number" id="weight-lbs" placeholder="lbs" step="0.1" min="0" max="13" style="width:70px">
       <input type="date" id="weight-date" style="width:140px">
       <button onclick="addWeight()">Log</button>
     </div>
@@ -613,11 +614,23 @@ function deleteNote(id) {
   loadNotes();
 }
 
-// Weight Tracker
+// Weight Tracker (stone / lbs)
+function toLbs(stone, lbs) { return stone * 14 + lbs; }
+function toStoneLbs(totalLbs) {
+  const s = Math.floor(totalLbs / 14);
+  const l = (totalLbs - s * 14).toFixed(1);
+  return s + 'st ' + (parseFloat(l) < 10 ? l : parseFloat(l)) + 'lbs';
+}
+function formatDiff(lbsDiff) {
+  if (Math.abs(lbsDiff) < 0.15) return '—';
+  const sign = lbsDiff > 0 ? '+' : '−';
+  return sign + Math.abs(lbsDiff).toFixed(1) + ' lbs';
+}
+
 function loadWeight() {
   const w = getData().weight || {};
   const entries = w.entries || [];
-  const goalLbs = w.goal_lbs || 7;
+  const goalLbs = w.goal_lbs_only || w.goal_lbs || 7;
 
   // Set default date to today
   const dateInput = document.getElementById('weight-date');
@@ -639,30 +652,30 @@ function loadWeight() {
   // Sort entries by date
   entries.sort((a, b) => a.date.localeCompare(b.date));
 
-  const startWeight = entries[0].weight;
-  const currentWeight = entries[entries.length - 1].weight;
+  const startWeight = entries[0].weight_lbs;
+  const currentWeight = entries[entries.length - 1].weight_lbs;
   const lost = startWeight - currentWeight;
   const pct = Math.min(Math.max((lost / goalLbs) * 100, 0), 100);
 
-  document.getElementById('weight-start').textContent = startWeight.toFixed(1) + ' lbs';
-  document.getElementById('weight-current').textContent = currentWeight.toFixed(1) + ' lbs';
+  document.getElementById('weight-start').textContent = toStoneLbs(startWeight);
+  document.getElementById('weight-current').textContent = toStoneLbs(currentWeight);
   const lostEl = document.getElementById('weight-lost');
-  lostEl.textContent = (lost >= 0 ? '−' : '+') + Math.abs(lost).toFixed(1) + ' lbs';
+  lostEl.textContent = (lost >= 0 ? '−' : '+') + toStoneLbs(Math.abs(lost));
   lostEl.style.color = lost >= 0 ? 'var(--green)' : 'var(--red)';
-  document.getElementById('weight-goal-badge').textContent = lost.toFixed(1) + ' / ' + goalLbs + ' lbs';
+  document.getElementById('weight-goal-badge').textContent = formatDiff(lost) + ' / ' + goalLbs + ' lbs goal';
   document.getElementById('weight-goal-fill').style.width = pct + '%';
 
   // Chart — show last 14 entries max
   const chartEntries = entries.slice(-14);
-  const maxW = Math.max(...chartEntries.map(e => e.weight));
-  const minW = Math.min(...chartEntries.map(e => e.weight));
-  const range = maxW - minW || 1;
+  const maxW = Math.max(...chartEntries.map(e => e.weight_lbs));
+  const minW = Math.min(...chartEntries.map(e => e.weight_lbs));
+  const range = (maxW - minW) || 1;
   const chartEl = document.getElementById('weight-chart');
   chartEl.innerHTML = chartEntries.map(e => {
-    const height = Math.max(((e.weight - minW) / range) * 80 + 10, 5);
+    const height = Math.max(((e.weight_lbs - minW) / range) * 80 + 10, 5);
     const dayLabel = e.date.slice(5);
     return '<div class="weight-bar-wrap">' +
-      '<div class="weight-bar-value">' + e.weight.toFixed(1) + '</div>' +
+      '<div class="weight-bar-value" style="font-size:9px">' + toStoneLbs(e.weight_lbs) + '</div>' +
       '<div class="weight-bar" style="height:' + height + '%"></div>' +
       '<div class="weight-bar-label">' + dayLabel + '</div>' +
       '</div>';
@@ -671,40 +684,44 @@ function loadWeight() {
   // Entries list (last 7, reversed)
   const recentEntries = entries.slice(-7).reverse();
   document.getElementById('weight-entries').innerHTML = recentEntries.map((e, i) => {
-    const prev = entries[entries.indexOf(e) - 1];
+    const idx = entries.indexOf(e);
+    const prev = idx > 0 ? entries[idx - 1] : null;
     let diffHtml = '';
     if (prev) {
-      const diff = e.weight - prev.weight;
-      const cls = diff > 0 ? 'positive' : diff < 0 ? 'negative' : '';
-      const sign = diff > 0 ? '+' : '';
-      diffHtml = '<span class="entry-diff ' + cls + '">' + sign + diff.toFixed(1) + '</span>';
+      const diff = e.weight_lbs - prev.weight_lbs;
+      const cls = diff > 0.15 ? 'positive' : diff < -0.15 ? 'negative' : '';
+      diffHtml = '<span class="entry-diff ' + cls + '">' + formatDiff(diff) + '</span>';
     }
     return '<div class="weight-entry">' +
       '<span class="entry-date">' + e.date + '</span>' +
-      '<span>' + diffHtml + ' <span class="entry-value">' + e.weight.toFixed(1) + ' lbs</span></span>' +
+      '<span>' + diffHtml + ' <span class="entry-value">' + toStoneLbs(e.weight_lbs) + '</span></span>' +
       '</div>';
   }).join('');
 }
 
 function addWeight() {
-  const input = document.getElementById('weight-input');
+  const stoneInput = document.getElementById('weight-stone');
+  const lbsInput = document.getElementById('weight-lbs');
   const dateInput = document.getElementById('weight-date');
-  const weight = parseFloat(input.value);
+  const stone = parseFloat(stoneInput.value) || 0;
+  const lbs = parseFloat(lbsInput.value) || 0;
   const date = dateInput.value || new Date().toISOString().split('T')[0];
 
-  if (isNaN(weight) || weight <= 0) return;
+  if (stone <= 0 && lbs <= 0) return;
+  const totalLbs = toLbs(stone, lbs);
 
-  const w = (DASHBOARD_DATA.weight = DASHBOARD_DATA.weight || { entries: [], goal_lbs: 7 });
+  const w = (DASHBOARD_DATA.weight = DASHBOARD_DATA.weight || { entries: [], goal_lbs_only: 7 });
 
   // Check if entry exists for this date — update if so
   const existing = w.entries.find(e => e.date === date);
   if (existing) {
-    existing.weight = weight;
+    existing.weight_lbs = totalLbs;
   } else {
-    w.entries.push({ date: date, weight: weight });
+    w.entries.push({ date: date, weight_lbs: totalLbs });
   }
 
-  input.value = '';
+  stoneInput.value = '';
+  lbsInput.value = '';
   loadWeight();
 }
 
