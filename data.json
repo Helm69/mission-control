@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T19:29:54.906899+00:00",
+  "generated_at": "2026-06-29T20:30:55.275282+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -81,8 +81,8 @@
         "display": "0 */4 * * *"
       },
       "enabled": true,
-      "next_run": "2026-06-29T20:00:00+00:00",
-      "last_run": "2026-06-29T16:01:36.346690+00:00",
+      "next_run": "2026-06-30T00:00:00+00:00",
+      "last_run": "2026-06-29T20:01:34.656347+00:00",
       "last_status": "ok"
     },
     {
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-06-29T20:29:49.367484+00:00",
-      "last_run": "2026-06-29T18:29:01.892557+00:00",
+      "next_run": "2026-06-29T21:30:49.780329+00:00",
+      "last_run": "2026-06-29T19:30:01.784185+00:00",
       "last_status": "ok"
     },
     {
@@ -232,6 +232,16 @@
     ],
     "recent_files": [
       {
+        "path": "04 Reference/Shopping List - Weight Loss Week 1-3.md",
+        "modified": "2026-06-29 20:03",
+        "size": "1.8 KB"
+      },
+      {
+        "path": "04 Reference/Weight Loss & Insulin Control.md",
+        "modified": "2026-06-29 20:03",
+        "size": "3.5 KB"
+      },
+      {
         "path": "04 Reference/Action Items - All Meetings.md",
         "modified": "2026-06-29 11:39",
         "size": "10.3 KB"
@@ -270,16 +280,6 @@
         "path": "03 Projects/Tuco Enterprises/Social Media/Reddit Post Ready - 2026-06-25.md",
         "modified": "2026-06-25 10:21",
         "size": "2.4 KB"
-      },
-      {
-        "path": "01 Meetings/2026-06-24 - Meeting - Midland Alloy - Weekly Update.md",
-        "modified": "2026-06-24 13:03",
-        "size": "2.0 KB"
-      },
-      {
-        "path": "03 Projects/Tuco Enterprises/Blog Drafts/2026-06-24-pace-4-session-adventure.md",
-        "modified": "2026-06-24 08:06",
-        "size": "5.8 KB"
       }
     ]
   },
@@ -307,7 +307,7 @@
       },
       {
         "id": "OPS-003",
-        "action": "Escalate stock issue to Paul Hand — use air filters and insurance job parts as examples to advocate for after-sales safety stock policy",
+        "action": "Escalate stock issue to Paul Hand \u2014 use air filters and insurance job parts as examples to advocate for after-sales safety stock policy",
         "owner": "John Bower",
         "source": "2026-06-11 Operations Review",
         "status": "todo",
@@ -316,7 +316,7 @@
       },
       {
         "id": "OPS-004",
-        "action": "Challenge rejection of 100-unit ball joint order with Paul Philpotts — emphasise supplier loss risk and MOQ necessity",
+        "action": "Challenge rejection of 100-unit ball joint order with Paul Philpotts \u2014 emphasise supplier loss risk and MOQ necessity",
         "owner": "Mark Evans",
         "source": "2026-06-11 Operations Review",
         "status": "todo",
@@ -478,7 +478,7 @@
       },
       {
         "id": "STK-005",
-        "action": "Develop Superform contingency plan — monitor supplier situation and report developments",
+        "action": "Develop Superform contingency plan \u2014 monitor supplier situation and report developments",
         "owner": "Mark Evans",
         "source": "2026-06-10 After Sales Project Sync & Operational Review",
         "status": "todo",
@@ -523,7 +523,7 @@
       },
       {
         "id": "STK-010",
-        "action": "Ensure Super Sport launch readiness — confirm adequate parts stock for warranty fulfillment",
+        "action": "Ensure Super Sport launch readiness \u2014 confirm adequate parts stock for warranty fulfillment",
         "owner": "Mark Evans",
         "source": "2026-06-15 After Sales Strategy and Inventory Management",
         "status": "todo",
@@ -595,7 +595,7 @@
       },
       {
         "id": "NEW-001",
-        "action": "Review parts list with Paul Philpott — highlight key fast-moving parts for immediate action",
+        "action": "Review parts list with Paul Philpott \u2014 highlight key fast-moving parts for immediate action",
         "owner": "Mark Evans",
         "source": "2026-06-16 Parts Ordering Stock Catch Up",
         "status": "todo",
@@ -604,7 +604,7 @@
       },
       {
         "id": "NEW-002",
-        "action": "Communicate with dealers about stock availability — proactively notify on fast-moving items",
+        "action": "Communicate with dealers about stock availability \u2014 proactively notify on fast-moving items",
         "owner": "Mark Evans",
         "source": "2026-06-16 Parts Ordering Stock Catch Up",
         "status": "todo",
@@ -694,56 +694,56 @@
       },
       {
         "id": "t1",
-        "action": "Operation Mirrorfall — Chapter 6 rewrite (pending review of Ch 5)",
+        "action": "Operation Mirrorfall \u2014 Chapter 6 rewrite (pending review of Ch 5)",
         "status": "todo",
         "board": "tuco",
         "added": "2026-06-12"
       },
       {
         "id": "t2",
-        "action": "Operation Mirrorfall — Chapters 7-20 rewrites",
+        "action": "Operation Mirrorfall \u2014 Chapters 7-20 rewrites",
         "status": "todo",
         "board": "tuco",
         "added": "2026-06-12"
       },
       {
         "id": "t3",
-        "action": "Operation Mirrorfall — Full novel PDF rebuild with covers",
+        "action": "Operation Mirrorfall \u2014 Full novel PDF rebuild with covers",
         "status": "todo",
         "board": "tuco",
         "added": "2026-06-11"
       },
       {
         "id": "t4",
-        "action": "The Dreaming Gate Book 2 — Generate images (Artistly.ai)",
+        "action": "The Dreaming Gate Book 2 \u2014 Generate images (Artistly.ai)",
         "status": "todo",
         "board": "tuco",
         "added": "2026-06-09"
       },
       {
         "id": "t5",
-        "action": "The Dreaming Gate Book 2 — Rebuild PDF + DTRPG package",
+        "action": "The Dreaming Gate Book 2 \u2014 Rebuild PDF + DTRPG package",
         "status": "todo",
         "board": "tuco",
         "added": "2026-06-09"
       },
       {
         "id": "t6",
-        "action": "The Dreaming Gate Book 2 — Upload to WooCommerce + DTRPG",
+        "action": "The Dreaming Gate Book 2 \u2014 Upload to WooCommerce + DTRPG",
         "status": "todo",
         "board": "tuco",
         "added": "2026-06-09"
       },
       {
         "id": "t7",
-        "action": "Operation Mirrorfall — Chapter 1-5 rewrites (all approved)",
+        "action": "Operation Mirrorfall \u2014 Chapter 1-5 rewrites (all approved)",
         "status": "completed",
         "board": "tuco",
         "added": "2026-06-11"
       },
       {
         "id": "t8",
-        "action": "Blog post — The Flashback Technique published to website",
+        "action": "Blog post \u2014 The Flashback Technique published to website",
         "status": "completed",
         "board": "tuco",
         "added": "2026-06-12"
@@ -757,63 +757,63 @@
       },
       {
         "id": "m1",
-        "action": "Stock policy — Challenge rejection of 100-unit ball joint order with Paul Philpots",
+        "action": "Stock policy \u2014 Challenge rejection of 100-unit ball joint order with Paul Philpots",
         "status": "in-progress",
         "board": "morgan",
         "added": "2026-06-10"
       },
       {
         "id": "m2",
-        "action": "Stock issue — Escalate air filter shortage to Paul Hand (after-sales safety stock policy)",
+        "action": "Stock issue \u2014 Escalate air filter shortage to Paul Hand (after-sales safety stock policy)",
         "status": "in-progress",
         "board": "morgan",
         "added": "2026-06-10"
       },
       {
         "id": "m3",
-        "action": "Superform contingency plan — Monitor supplier situation and report developments",
+        "action": "Superform contingency plan \u2014 Monitor supplier situation and report developments",
         "status": "todo",
         "board": "morgan",
         "added": "2026-06-10"
       },
       {
         "id": "m4",
-        "action": "Stock approval process — Teams meeting with Jack Woodgate (Mon/Tue)",
+        "action": "Stock approval process \u2014 Teams meeting with Jack Woodgate (Mon/Tue)",
         "status": "todo",
         "board": "morgan",
         "added": "2026-06-10"
       },
       {
         "id": "m5",
-        "action": "Scrap stock sign-off — Unblock obsolete inventory sign-off process",
+        "action": "Scrap stock sign-off \u2014 Unblock obsolete inventory sign-off process",
         "status": "todo",
         "board": "morgan",
         "added": "2026-06-02"
       },
       {
         "id": "m6",
-        "action": "Nitron damper exchange — Create process flowchart, demand business case from Quality dept",
+        "action": "Nitron damper exchange \u2014 Create process flowchart, demand business case from Quality dept",
         "status": "todo",
         "board": "morgan",
         "added": "2026-06-10"
       },
       {
         "id": "m7",
-        "action": "Weekly Employment Hero update — Draft After Sales team update template",
+        "action": "Weekly Employment Hero update \u2014 Draft After Sales team update template",
         "status": "completed",
         "board": "morgan",
         "added": "2026-06-10"
       },
       {
         "id": "m9",
-        "action": "DSC system — Prepare dealer bulletin for new system + online PDI sheet before July launch",
+        "action": "DSC system \u2014 Prepare dealer bulletin for new system + online PDI sheet before July launch",
         "status": "completed",
         "board": "morgan",
         "added": "2026-06-11"
       },
       {
         "id": "m11",
-        "action": "KPI dashboard — Finalise IFS dashboard data sources",
+        "action": "KPI dashboard \u2014 Finalise IFS dashboard data sources",
         "status": "completed",
         "board": "morgan",
         "added": "2026-06-10"
@@ -829,7 +829,7 @@
       },
       {
         "id": "2",
-        "content": "Book 2 The Fractured Court — full text/PDF/DTRPG ready, WAITING on image generation before final rebuild + upload.",
+        "content": "Book 2 The Fractured Court \u2014 full text/PDF/DTRPG ready, WAITING on image generation before final rebuild + upload.",
         "created": "2026-06-12"
       },
       {
@@ -855,7 +855,7 @@
       "description": "|",
       "category": "computer-use",
       "category_display": "Computer Use",
-      "icon": "📦",
+      "icon": "\ud83d\udce6",
       "version": "2.0.0",
       "path": "computer-use"
     },
@@ -864,25 +864,25 @@
       "description": "How to update Hermes Agent on this VPS when `hermes update` hangs waiting for interactive input",
       "category": "hermes-update",
       "category_display": "Hermes Update",
-      "icon": "📦",
+      "icon": "\ud83d\udce6",
       "version": "",
       "path": "hermes-update"
     },
     {
       "name": "rpg-publication-pipeline",
-      "description": "End-to-end RPG content lifecycle for Tuco Enterprises — write dark fantasy TTRPG content, review and proofread manuscrip...",
+      "description": "End-to-end RPG content lifecycle for Tuco Enterprises \u2014 write dark fantasy TTRPG content, review and proofread manuscrip...",
       "category": "rpg-publication-pipeline",
       "category_display": "Rpg Publication Pipeline",
-      "icon": "📦",
+      "icon": "\ud83d\udce6",
       "version": "2.4.0",
       "path": "rpg-publication-pipeline"
     },
     {
       "name": "weasyprint-layout",
-      "description": "WeasyPrint CSS layout recipes for PDF generation — novels, book covers, and book interiors.",
+      "description": "WeasyPrint CSS layout recipes for PDF generation \u2014 novels, book covers, and book interiors.",
       "category": "weasyprint-layout",
       "category_display": "Weasyprint Layout",
-      "icon": "📦",
+      "icon": "\ud83d\udce6",
       "version": "",
       "path": "weasyprint-layout"
     },
@@ -891,16 +891,16 @@
       "description": "Set up SSH key-based access from Windows machines to a Linux VPS. Covers key generation, safe transfer to Windows client...",
       "category": "windows-access-setup-ssh",
       "category_display": "Windows Access Setup Ssh",
-      "icon": "📦",
+      "icon": "\ud83d\udce6",
       "version": "1.1.0",
       "path": "windows-access-setup-ssh"
     },
     {
       "name": "yuanbao",
-      "description": "Yuanbao (元宝) groups: @mention users, query info/members.",
+      "description": "Yuanbao (\u5143\u5b9d) groups: @mention users, query info/members.",
       "category": "yuanbao",
       "category_display": "Yuanbao",
-      "icon": "🪙",
+      "icon": "\ud83e\ude99",
       "version": "1.0.0",
       "path": "yuanbao"
     }
@@ -912,7 +912,7 @@
     "cron_db": true,
     "hermes_home": "/home/opc/.hermes",
     "vault_path": "/home/opc/Documents/Obsidian Vault",
-    "time": "2026-06-29 19:29:54 UTC"
+    "time": "2026-06-29 20:30:55 UTC"
   },
   "traffic": {
     "total": 2,
@@ -964,14 +964,5 @@
         "visits": 1
       }
     ]
-  },
-  "weight": {
-    "goal_lbs": 147,
-    "goal_stone": 10,
-    "goal_lbs_only": 7,
-    "unit": "stone",
-    "start_date": "2026-06-29",
-    "target_date": "2026-07-20",
-    "entries": []
   }
 }
