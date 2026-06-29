@@ -827,28 +827,28 @@
       },
       {
         "id": "m13",
-        "content": "**Speaker 2** — Correct the product description wording for the \"Plus Eight\" model",
+        "content": "**Johan** — Correct the product description wording for the \"Plus Eight\" model",
         "status": "todo",
         "created": "2026-06-29",
         "board": "morgan"
       },
       {
         "id": "m14",
-        "content": "**Speaker 2** — Hide or remove the unused product categorisation section from the live site",
+        "content": "**Johan** — Hide or remove the unused product categorisation section from the live site",
         "status": "todo",
         "created": "2026-06-29",
         "board": "morgan"
       },
       {
         "id": "m15",
-        "content": "**Speaker 1** — Discuss API development with Skye to potentially expedite the stock update functionality",
+        "content": "**Josh** — Discuss API development with Skye to potentially expedite the stock update functionality",
         "status": "todo",
         "created": "2026-06-29",
         "board": "morgan"
       },
       {
         "id": "m16",
-        "content": "**Speaker 2** — Coordinate the final go-live switch, including updating the URL",
+        "content": "**Johan** — Coordinate the final go-live switch, including updating the URL",
         "status": "todo",
         "created": "2026-06-29",
         "board": "morgan"
