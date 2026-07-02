@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T13:35:27.763799+00:00",
+  "generated_at": "2026-07-02T15:37:31.083631+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -117,8 +117,8 @@
         "display": "every 240m"
       },
       "enabled": true,
-      "next_run": "2026-07-02T13:56:36.875566+00:00",
-      "last_run": "2026-07-02T09:56:36.875566+00:00",
+      "next_run": "2026-07-02T17:57:41.487586+00:00",
+      "last_run": "2026-07-02T13:57:41.487586+00:00",
       "last_status": "ok"
     },
     {
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-07-02T14:35:15.504925+00:00",
-      "last_run": "2026-07-02T12:34:39.157182+00:00",
+      "next_run": "2026-07-02T16:37:16.483413+00:00",
+      "last_run": "2026-07-02T14:36:47.743843+00:00",
       "last_status": "ok"
     },
     {
@@ -918,6 +918,15 @@
       "path": "computer-use"
     },
     {
+      "name": "hermes-mission-control",
+      "description": "Procedures for maintaining, troubleshooting, and recovering the Hermes Mission Control dashboard",
+      "category": "hermes-mission-control",
+      "category_display": "Hermes Mission Control",
+      "icon": "\ud83d\udce6",
+      "version": "",
+      "path": "hermes-mission-control"
+    },
+    {
       "name": "hermes-update",
       "description": "How to update Hermes Agent on this VPS when `hermes update` hangs waiting for interactive input",
       "category": "hermes-update",
@@ -979,7 +988,7 @@
     "cron_db": true,
     "hermes_home": "/home/opc/.hermes",
     "vault_path": "/home/opc/Documents/Obsidian Vault",
-    "time": "2026-07-02 13:35:27 UTC"
+    "time": "2026-07-02 15:37:31 UTC"
   },
   "traffic": {
     "total": 2,
