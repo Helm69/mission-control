@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T00:25:23.261662+00:00",
+  "generated_at": "2026-07-03T01:26:58.522041+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -165,9 +165,9 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-07-03T01:25:19.337706+00:00",
-      "last_run": "2026-07-02T23:24:27.818057+00:00",
-      "last_status": "error"
+      "next_run": "2026-07-03T02:26:19.663448+00:00",
+      "last_run": "2026-07-03T00:25:44.215799+00:00",
+      "last_status": "ok"
     },
     {
       "name": "Daily Reddit Post",
@@ -988,7 +988,7 @@
     "cron_db": true,
     "hermes_home": "/home/opc/.hermes",
     "vault_path": "/home/opc/Documents/Obsidian Vault",
-    "time": "2026-07-03 00:25:23 UTC"
+    "time": "2026-07-03 01:26:58 UTC"
   },
   "traffic": {
     "total": 2,
