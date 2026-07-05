@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T14:42:18.942420+00:00",
+  "generated_at": "2026-07-05T14:43:46.952461+00:00",
   "cron_jobs": {
     "jobs": [
       {
@@ -951,13 +951,30 @@
       }
     ]
   },
-  "status": {},
-  "traffic": {
-    "total": 0,
-    "today": 0,
-    "yesterday": 0,
-    "daily": [],
-    "top_pages": [],
-    "top_referrers": []
+  "system": {
+    "uptime": "up 5 weeks, 4 days, 21 hours, 32 minutes",
+    "load_average": "0.00, 0.08, 0.08",
+    "memory": "2.0Gi / 11Gi",
+    "disk": "22G / 83G",
+    "timestamp": "2026-07-05T14:43:46.996218",
+    "hermes_home": "/home/opc/.hermes",
+    "vault_exists": true,
+    "vault_path": "/home/opc/Documents/Obsidian Vault",
+    "vault_git": true,
+    "state_db": true,
+    "cron_db": false
+  },
+  "weight": {
+    "entries": [
+      {
+        "date": "2026-07-04",
+        "weight_lbs": 178
+      },
+      {
+        "date": "2026-07-05",
+        "weight_lbs": 180
+      }
+    ],
+    "goal_lbs_only": 7
   }
 }
