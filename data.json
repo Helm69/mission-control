@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T10:06:52.142240+00:00",
+  "generated_at": "2026-07-06T11:08:00.739256+00:00",
   "cron_jobs": {
     "jobs": [
       {
@@ -135,6 +135,11 @@
   "vault": {
     "recent_files": [
       {
+        "path": "01 Meetings/Work/2026-07-06 - Process Definition Meeting - Nitron Warranty Exchange.md",
+        "modified": "2026-07-06T11:06:27.325033",
+        "size": "3.5 KB"
+      },
+      {
         "path": ".git/logs/refs/remotes/origin/main",
         "modified": "2026-07-06T09:15:52.165596",
         "size": "18.2 KB"
@@ -178,11 +183,6 @@
         "path": ".git/objects/63/458870791a84c01f6ff068d7c1cab551b17c41",
         "modified": "2026-07-06T09:15:50.834560",
         "size": "207.0 B"
-      },
-      {
-        "path": ".git/objects/4c/10f65800eff8d44feaf15c9ef238e3b29b8d46",
-        "modified": "2026-07-06T09:15:50.834560",
-        "size": "1.1 KB"
       }
     ]
   },
@@ -851,6 +851,41 @@
         "status": "todo",
         "board": "morgan",
         "added": "2026-07-05T13:03:47.156549"
+      },
+      {
+        "id": "1783335991798",
+        "action": "[speaker:1] Clarify which vehicle models the initial five sets of Nitrons from quality control are for",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-06T11:06:31.798030"
+      },
+      {
+        "id": "1783336029718",
+        "action": "[speaker:1] Contact \"Johnny Birbage\" to retrieve the initial five sets of Nitrons to establish a core stock for the program",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-06T11:07:09.718418"
+      },
+      {
+        "id": "1783336036060",
+        "action": "[speaker:1] Create the new part numbers with an \"e\" suffix in the parts system for the exchange units",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-06T11:07:16.060970"
+      },
+      {
+        "id": "1783336039321",
+        "action": "[speaker:0] Formally propose the pricing (\u00a3200 part + \u00a3200 surcharge) and justify the high surcharge to management",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-06T11:07:19.321205"
+      },
+      {
+        "id": "1783336079569",
+        "action": "[RISK] Verify reworking of Nitron units is free of charge",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-06T11:07:59.569109"
       }
     ]
   },
@@ -952,11 +987,11 @@
     ]
   },
   "system": {
-    "uptime": "up 5 weeks, 5 days, 16 hours, 55 minutes",
-    "load_average": "0.14, 0.16, 0.11",
+    "uptime": "up 5 weeks, 5 days, 17 hours, 56 minutes",
+    "load_average": "0.00, 0.07, 0.11",
     "memory": "1.9Gi / 11Gi",
     "disk": "22G / 83G",
-    "timestamp": "2026-07-06T10:06:52.187635",
+    "timestamp": "2026-07-06T11:08:00.784250",
     "hermes_home": "/home/opc/.hermes",
     "vault_exists": true,
     "vault_path": "/home/opc/Documents/Obsidian Vault",
