@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T11:08:00.739256+00:00",
+  "generated_at": "2026-07-06T12:08:47.941292+00:00",
   "cron_jobs": {
     "jobs": [
       {
@@ -135,54 +135,54 @@
   "vault": {
     "recent_files": [
       {
-        "path": "01 Meetings/Work/2026-07-06 - Process Definition Meeting - Nitron Warranty Exchange.md",
-        "modified": "2026-07-06T11:06:27.325033",
-        "size": "3.5 KB"
+        "path": ".git/refs/remotes/origin/main",
+        "modified": "2026-07-06T12:04:36.417306",
+        "size": "41.0 B"
       },
       {
         "path": ".git/logs/refs/remotes/origin/main",
-        "modified": "2026-07-06T09:15:52.165596",
-        "size": "18.2 KB"
-      },
-      {
-        "path": ".git/refs/remotes/origin/main",
-        "modified": "2026-07-06T09:15:52.164597",
-        "size": "41.0 B"
-      },
-      {
-        "path": ".git/COMMIT_EDITMSG",
-        "modified": "2026-07-06T09:15:50.835561",
-        "size": "44.0 B"
+        "modified": "2026-07-06T12:04:36.417306",
+        "size": "18.6 KB"
       },
       {
         "path": ".git/refs/heads/main",
-        "modified": "2026-07-06T09:15:50.835561",
+        "modified": "2026-07-06T12:04:35.131271",
         "size": "41.0 B"
       },
       {
-        "path": ".git/objects/e1/a3e6adabeadf806898a429883d25915137c7d3",
-        "modified": "2026-07-06T09:15:50.835561",
-        "size": "189.0 B"
+        "path": ".git/objects/2a/22849af1f67988142afc8bd4ed34770f8c89c8",
+        "modified": "2026-07-06T12:04:35.131271",
+        "size": "206.0 B"
       },
       {
         "path": ".git/logs/HEAD",
-        "modified": "2026-07-06T09:15:50.835561",
-        "size": "34.9 KB"
+        "modified": "2026-07-06T12:04:35.131271",
+        "size": "35.9 KB"
       },
       {
         "path": ".git/logs/refs/heads/main",
-        "modified": "2026-07-06T09:15:50.835561",
-        "size": "26.6 KB"
+        "modified": "2026-07-06T12:04:35.131271",
+        "size": "27.2 KB"
       },
       {
         "path": ".git/index",
-        "modified": "2026-07-06T09:15:50.834560",
-        "size": "21.8 KB"
+        "modified": "2026-07-06T12:04:35.130271",
+        "size": "23.0 KB"
       },
       {
-        "path": ".git/objects/63/458870791a84c01f6ff068d7c1cab551b17c41",
-        "modified": "2026-07-06T09:15:50.834560",
-        "size": "207.0 B"
+        "path": ".git/COMMIT_EDITMSG",
+        "modified": "2026-07-06T12:04:35.130271",
+        "size": "63.0 B"
+      },
+      {
+        "path": ".git/objects/ff/98638abcb50735198c2f5eacca6fa1d2cc7257",
+        "modified": "2026-07-06T12:04:35.130271",
+        "size": "311.0 B"
+      },
+      {
+        "path": ".git/objects/88/f75d1daabb85b72b81d12e9f9dac78d80a15bb",
+        "modified": "2026-07-06T12:04:35.130271",
+        "size": "280.0 B"
       }
     ]
   },
@@ -886,6 +886,48 @@
         "status": "todo",
         "board": "morgan",
         "added": "2026-07-06T11:07:59.569109"
+      },
+      {
+        "id": "1783336090099",
+        "action": "[RISK] Clarify who is responsible for shipping/carriage costs for Nitron exchanges",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-06T11:08:10.099773"
+      },
+      {
+        "id": "1783336128064",
+        "action": "[speaker:0] Establish a clear contact at Nitron to confirm FOC rework, carriage, turnaround times, and processes for rejected or faulty units",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-06T11:08:48.064122"
+      },
+      {
+        "id": "1783336152192",
+        "action": "[speaker:2] Draft and publish a service bulletin for dealers detailing the new exchange process, DSC requirements, technical checks, and the 4.5-hour labor time",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-06T11:09:12.192535"
+      },
+      {
+        "id": "1783336154957",
+        "action": "[speaker:1] Brief the parts team on handling the incoming returns and ensuring they are correctly identified and processed",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-06T11:09:14.957149"
+      },
+      {
+        "id": "1783336164239",
+        "action": "[speaker:0] Set up a new warranty claim code to measure the effectiveness and financial savings of the program",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-06T11:09:24.239266"
+      },
+      {
+        "id": "1783337574438",
+        "action": "[speaker:1] Clarify which vehicle models the initial five sets of Nitrons from quality control are for",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-06T11:32:54.438771"
       }
     ]
   },
@@ -987,11 +1029,11 @@
     ]
   },
   "system": {
-    "uptime": "up 5 weeks, 5 days, 17 hours, 56 minutes",
-    "load_average": "0.00, 0.07, 0.11",
+    "uptime": "up 5 weeks, 5 days, 18 hours, 57 minutes",
+    "load_average": "0.17, 0.17, 0.18",
     "memory": "1.9Gi / 11Gi",
     "disk": "22G / 83G",
-    "timestamp": "2026-07-06T11:08:00.784250",
+    "timestamp": "2026-07-06T12:08:47.989939",
     "hermes_home": "/home/opc/.hermes",
     "vault_exists": true,
     "vault_path": "/home/opc/Documents/Obsidian Vault",
