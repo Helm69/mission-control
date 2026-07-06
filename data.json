@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T08:04:41.339872+00:00",
+  "generated_at": "2026-07-06T09:05:49.103935+00:00",
   "cron_jobs": {
     "jobs": [
       {
@@ -135,6 +135,11 @@
   "vault": {
     "recent_files": [
       {
+        "path": "03 Projects/Tuco Enterprises/Reports/sales-weekly-2026-07-06.md",
+        "modified": "2026-07-06T09:04:14.590730",
+        "size": "2.8 KB"
+      },
+      {
         "path": ".git/refs/remotes/origin/main",
         "modified": "2026-07-06T08:00:13.283833",
         "size": "41.0 B"
@@ -178,11 +183,6 @@
         "path": ".git/objects/ef/e32e09438d6a60a3b267576cbaa086bfcfc9a8",
         "modified": "2026-07-06T08:00:11.973798",
         "size": "1.1 KB"
-      },
-      {
-        "path": ".git/objects/45/cfaea9c77f2ba5033fab957ef6bc60b23ea76e",
-        "modified": "2026-07-06T08:00:11.973798",
-        "size": "58.0 B"
       }
     ]
   },
@@ -952,11 +952,11 @@
     ]
   },
   "system": {
-    "uptime": "up 5 weeks, 5 days, 14 hours, 52 minutes",
-    "load_average": "0.08, 0.09, 0.12",
-    "memory": "1.8Gi / 11Gi",
+    "uptime": "up 5 weeks, 5 days, 15 hours, 54 minutes",
+    "load_average": "0.24, 0.19, 0.13",
+    "memory": "1.9Gi / 11Gi",
     "disk": "22G / 83G",
-    "timestamp": "2026-07-06T08:04:41.385136",
+    "timestamp": "2026-07-06T09:05:49.148560",
     "hermes_home": "/home/opc/.hermes",
     "vault_exists": true,
     "vault_path": "/home/opc/Documents/Obsidian Vault",
