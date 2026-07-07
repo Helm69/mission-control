@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T12:33:57.426999+00:00",
+  "generated_at": "2026-07-07T13:34:50.327433+00:00",
   "cron_jobs": {
     "jobs": [
       {
@@ -135,6 +135,16 @@
   "vault": {
     "recent_files": [
       {
+        "path": "01 Meetings/Work/Operations/2026-07-07 - Logistics and Planning Meeting - Storage Crisis.md",
+        "modified": "2026-07-07T13:31:06.016025",
+        "size": "4.3 KB"
+      },
+      {
+        "path": "01 Meetings/Work/Operations/2026-07-07 - Meeting - Logistics and Planning - Storage Space Crisis.md",
+        "modified": "2026-07-07T13:25:42.458252",
+        "size": "4.3 KB"
+      },
+      {
         "path": ".git/refs/remotes/origin/main",
         "modified": "2026-07-07T12:01:04.088885",
         "size": "41.0 B"
@@ -173,16 +183,6 @@
         "path": ".git/COMMIT_EDITMSG",
         "modified": "2026-07-07T12:01:02.682847",
         "size": "28.0 B"
-      },
-      {
-        "path": ".git/objects/81/3c4f51ce2dbee18c6ef285fd1e47e6bbc7b2de",
-        "modified": "2026-07-07T12:01:02.682847",
-        "size": "59.0 B"
-      },
-      {
-        "path": ".git/objects/d2/ec8a507abd5fdfb33ef396410d38bd59f21369",
-        "modified": "2026-07-07T12:01:02.682847",
-        "size": "532.0 B"
       }
     ]
   },
@@ -928,6 +928,55 @@
         "status": "todo",
         "board": "morgan",
         "added": "2026-07-06T11:32:54.438771"
+      },
+      {
+        "id": "1783430768060",
+        "action": "[speaker:2] Clear out and scrap unnecessary items from the area above the trim shop (e.g., old carpets)",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-07T13:26:08.060721"
+      },
+      {
+        "id": "1783430804923",
+        "action": "[speaker:2] Review seats and other items with Mark to determine what is needed",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-07T13:26:44.923905"
+      },
+      {
+        "id": "1783430835192",
+        "action": "[speaker:Mark Evans] Consolidate all remaining essential items into a temporary holding area",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-07T13:27:15.192095"
+      },
+      {
+        "id": "1783430870473",
+        "action": "[speaker:5] Assess the total volume of consolidated items to inform the final storage decision",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-07T13:27:50.473984"
+      },
+      {
+        "id": "1783430880238",
+        "action": "[speaker:Mark Evans] Investigate the feasibility and cost of acquiring a shipping container for long-term storage",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-07T13:28:00.238222"
+      },
+      {
+        "id": "1783430938919",
+        "action": "[speaker:Mark Evans] Check with Jamie for any empty stillages to assist with moving materials",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-07T13:28:58.919215"
+      },
+      {
+        "id": "1783430964662",
+        "action": "[speaker:Mark Evans] Ensure the area for the extraction unit installation is completely cleared within the next two weeks",
+        "status": "todo",
+        "board": "morgan",
+        "added": "2026-07-07T13:29:24.662129"
       }
     ]
   },
@@ -1029,11 +1078,11 @@
     ]
   },
   "system": {
-    "uptime": "up 5 weeks, 6 days, 19 hours, 22 minutes",
-    "load_average": "0.21, 0.18, 0.11",
+    "uptime": "up 5 weeks, 6 days, 20 hours, 23 minutes",
+    "load_average": "0.24, 0.19, 0.14",
     "memory": "1.8Gi / 11Gi",
     "disk": "22G / 83G",
-    "timestamp": "2026-07-07T12:33:57.474726",
+    "timestamp": "2026-07-07T13:34:50.373862",
     "hermes_home": "/home/opc/.hermes",
     "vault_exists": true,
     "vault_path": "/home/opc/Documents/Obsidian Vault",
