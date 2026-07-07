@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T11:31:54.117371+00:00",
+  "generated_at": "2026-07-07T12:33:57.426999+00:00",
   "cron_jobs": {
     "jobs": [
       {
@@ -135,54 +135,54 @@
   "vault": {
     "recent_files": [
       {
-        "path": "03 Projects/Tuco Enterprises/RPG Market Briefs/2026-07-07 - RPG Market Brief.md",
-        "modified": "2026-07-07T08:16:34.304341",
-        "size": "2.6 KB"
-      },
-      {
         "path": ".git/refs/remotes/origin/main",
-        "modified": "2026-07-07T05:00:53.724646",
+        "modified": "2026-07-07T12:01:04.088885",
         "size": "41.0 B"
       },
       {
         "path": ".git/logs/refs/remotes/origin/main",
-        "modified": "2026-07-07T05:00:53.724646",
-        "size": "18.9 KB"
-      },
-      {
-        "path": ".git/COMMIT_EDITMSG",
-        "modified": "2026-07-07T05:00:52.465612",
-        "size": "28.0 B"
+        "modified": "2026-07-07T12:01:04.088885",
+        "size": "19.1 KB"
       },
       {
         "path": ".git/refs/heads/main",
-        "modified": "2026-07-07T05:00:52.465612",
+        "modified": "2026-07-07T12:01:02.683847",
         "size": "41.0 B"
       },
       {
-        "path": ".git/objects/79/6361c585902e91d9b912dbc8d5ce7af0823a1e",
-        "modified": "2026-07-07T05:00:52.465612",
-        "size": "178.0 B"
+        "path": ".git/objects/dc/baad2a77f61a9f7f9193fee81a17b5367754ca",
+        "modified": "2026-07-07T12:01:02.683847",
+        "size": "179.0 B"
       },
       {
         "path": ".git/logs/HEAD",
-        "modified": "2026-07-07T05:00:52.465612",
-        "size": "36.2 KB"
+        "modified": "2026-07-07T12:01:02.683847",
+        "size": "36.4 KB"
       },
       {
         "path": ".git/logs/refs/heads/main",
-        "modified": "2026-07-07T05:00:52.465612",
-        "size": "27.6 KB"
+        "modified": "2026-07-07T12:01:02.683847",
+        "size": "27.7 KB"
       },
       {
         "path": ".git/index",
-        "modified": "2026-07-07T05:00:52.464612",
-        "size": "23.1 KB"
+        "modified": "2026-07-07T12:01:02.682847",
+        "size": "23.2 KB"
       },
       {
-        "path": ".git/objects/f9/382bf0715e6f643df47dcca0ee1d4bfa1eb6c5",
-        "modified": "2026-07-06T23:04:51.628631",
-        "size": "183.0 B"
+        "path": ".git/COMMIT_EDITMSG",
+        "modified": "2026-07-07T12:01:02.682847",
+        "size": "28.0 B"
+      },
+      {
+        "path": ".git/objects/81/3c4f51ce2dbee18c6ef285fd1e47e6bbc7b2de",
+        "modified": "2026-07-07T12:01:02.682847",
+        "size": "59.0 B"
+      },
+      {
+        "path": ".git/objects/d2/ec8a507abd5fdfb33ef396410d38bd59f21369",
+        "modified": "2026-07-07T12:01:02.682847",
+        "size": "532.0 B"
       }
     ]
   },
@@ -1029,11 +1029,11 @@
     ]
   },
   "system": {
-    "uptime": "up 5 weeks, 6 days, 18 hours, 20 minutes",
-    "load_average": "0.00, 0.04, 0.10",
-    "memory": "1.9Gi / 11Gi",
+    "uptime": "up 5 weeks, 6 days, 19 hours, 22 minutes",
+    "load_average": "0.21, 0.18, 0.11",
+    "memory": "1.8Gi / 11Gi",
     "disk": "22G / 83G",
-    "timestamp": "2026-07-07T11:31:54.180388",
+    "timestamp": "2026-07-07T12:33:57.474726",
     "hermes_home": "/home/opc/.hermes",
     "vault_exists": true,
     "vault_path": "/home/opc/Documents/Obsidian Vault",
