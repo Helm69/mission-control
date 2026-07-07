@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T22:44:54.882176+00:00",
+  "generated_at": "2026-07-07T23:45:54.699619+00:00",
   "cron_jobs": {
     "jobs": [
       {
@@ -135,54 +135,54 @@
   "vault": {
     "recent_files": [
       {
-        "path": "03 Projects/Tuco Enterprises/00 Projects/The Last Vigil/02 Art & Assets/ART ASSETS INVENTORY.md",
-        "modified": "2026-07-07T20:43:15.026275",
-        "size": "3.5 KB"
+        "path": ".git/refs/remotes/origin/main",
+        "modified": "2026-07-07T23:14:26.123946",
+        "size": "41.0 B"
       },
       {
-        "path": "03 Projects/Tuco Enterprises/00 Projects/The Last Vigil/02 Art & Assets/2026-07-07 - The Last Vigil - Blackwater Outpost Setting.jpg",
-        "modified": "2026-07-07T20:38:19.640269",
-        "size": "57.1 KB"
+        "path": ".git/logs/refs/remotes/origin/main",
+        "modified": "2026-07-07T23:14:26.123946",
+        "size": "19.4 KB"
       },
       {
-        "path": "03 Projects/Tuco Enterprises/00 Projects/The Last Vigil/02 Art & Assets/2026-07-07 - The Last Vigil - The Whispering Graves Visual.jpg",
-        "modified": "2026-07-07T20:37:33.581021",
-        "size": "83.8 KB"
+        "path": ".git/index",
+        "modified": "2026-07-07T23:14:24.480901",
+        "size": "27.0 KB"
       },
       {
-        "path": "03 Projects/Tuco Enterprises/00 Projects/The Last Vigil/02 Art & Assets/2026-07-07 - The Last Vigil - The Second Shadow Illustration.jpg",
-        "modified": "2026-07-07T20:36:48.926811",
-        "size": "49.3 KB"
+        "path": ".git/COMMIT_EDITMSG",
+        "modified": "2026-07-07T23:14:24.480901",
+        "size": "26.0 B"
       },
       {
-        "path": "03 Projects/Tuco Enterprises/00 Projects/The Last Vigil/02 Art & Assets/2026-07-07 - The Last Vigil - Cover Art Concept.jpg",
-        "modified": "2026-07-07T20:36:04.030594",
-        "size": "62.3 KB"
+        "path": ".git/refs/heads/main",
+        "modified": "2026-07-07T23:14:24.480901",
+        "size": "41.0 B"
       },
       {
-        "path": "01 Meetings/Work/Operations/2026-07-07 - Meeting - Logistics and Planning - Storage Space Crisis - ACTION ITEMS.md",
-        "modified": "2026-07-07T20:32:15.728425",
-        "size": "938.0 B"
+        "path": ".git/objects/cf/9296ef9f39cca7576d2e315bbdab9b6437caaf",
+        "modified": "2026-07-07T23:14:24.480901",
+        "size": "183.0 B"
       },
       {
-        "path": "01 Meetings/Work/Operations/2026-07-07 - Meeting - Logistics and Planning - Storage Space Crisis.md",
-        "modified": "2026-07-07T20:32:09.108246",
-        "size": "4.1 KB"
+        "path": ".git/objects/36/b2dd5a2df9ae06ad3d8f197a9d08661ee35b8b",
+        "modified": "2026-07-07T23:14:24.480901",
+        "size": "643.0 B"
       },
       {
-        "path": "03 Projects/Tuco Enterprises/00 Projects/The Last Vigil/03 Playtest Docs/2026-07-07 - The Last Vigil - Quick Reference Sheet.md",
-        "modified": "2026-07-07T20:32:01.535042",
-        "size": "4.3 KB"
+        "path": ".git/logs/HEAD",
+        "modified": "2026-07-07T23:14:24.480901",
+        "size": "36.7 KB"
       },
       {
-        "path": "03 Projects/Tuco Enterprises/00 Projects/The Last Vigil/03 Playtest Docs/2026-07-07 - The Last Vigil - Actual Play Transcript (Night 1).md",
-        "modified": "2026-07-07T20:31:48.383687",
-        "size": "6.8 KB"
+        "path": ".git/logs/refs/heads/main",
+        "modified": "2026-07-07T23:14:24.480901",
+        "size": "28.1 KB"
       },
       {
-        "path": "03 Projects/Tuco Enterprises/00 Projects/The Last Vigil/README.md",
-        "modified": "2026-07-07T20:27:18.537410",
-        "size": "1.9 KB"
+        "path": ".git/objects/23/f89a3d9ca414931970a9791361c573370dfffa",
+        "modified": "2026-07-07T23:14:24.479902",
+        "size": "293.0 B"
       }
     ]
   },
@@ -1078,11 +1078,11 @@
     ]
   },
   "system": {
-    "uptime": "up 6 weeks, 5 hours, 33 minutes",
-    "load_average": "0.20, 0.18, 0.17",
+    "uptime": "up 6 weeks, 6 hours, 34 minutes",
+    "load_average": "0.15, 0.07, 0.09",
     "memory": "1.9Gi / 11Gi",
     "disk": "22G / 83G",
-    "timestamp": "2026-07-07T22:44:54.954355",
+    "timestamp": "2026-07-07T23:45:54.747971",
     "hermes_home": "/home/opc/.hermes",
     "vault_exists": true,
     "vault_path": "/home/opc/Documents/Obsidian Vault",
