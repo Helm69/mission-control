@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T15:37:01.321875+00:00",
+  "generated_at": "2026-07-07T16:38:03.109367+00:00",
   "cron_jobs": {
     "jobs": [
       {
@@ -135,54 +135,54 @@
   "vault": {
     "recent_files": [
       {
-        "path": "01 Meetings/Work/Operations/2026-07-07 - Logistics and Planning Meeting - Storage Crisis.md",
-        "modified": "2026-07-07T13:31:06.016025",
-        "size": "4.3 KB"
-      },
-      {
-        "path": "01 Meetings/Work/Operations/2026-07-07 - Meeting - Logistics and Planning - Storage Space Crisis.md",
-        "modified": "2026-07-07T13:25:42.458252",
-        "size": "4.3 KB"
-      },
-      {
         "path": ".git/refs/remotes/origin/main",
-        "modified": "2026-07-07T12:01:04.088885",
+        "modified": "2026-07-07T16:01:46.954383",
         "size": "41.0 B"
       },
       {
         "path": ".git/logs/refs/remotes/origin/main",
-        "modified": "2026-07-07T12:01:04.088885",
-        "size": "19.1 KB"
+        "modified": "2026-07-07T16:01:46.954383",
+        "size": "19.2 KB"
       },
       {
         "path": ".git/refs/heads/main",
-        "modified": "2026-07-07T12:01:02.683847",
+        "modified": "2026-07-07T16:01:45.474343",
         "size": "41.0 B"
       },
       {
-        "path": ".git/objects/dc/baad2a77f61a9f7f9193fee81a17b5367754ca",
-        "modified": "2026-07-07T12:01:02.683847",
-        "size": "179.0 B"
+        "path": ".git/objects/9a/76bcb04dd227a0c31fc2ef2e1f8df6b163ab99",
+        "modified": "2026-07-07T16:01:45.474343",
+        "size": "182.0 B"
       },
       {
         "path": ".git/logs/HEAD",
-        "modified": "2026-07-07T12:01:02.683847",
-        "size": "36.4 KB"
+        "modified": "2026-07-07T16:01:45.474343",
+        "size": "36.6 KB"
       },
       {
         "path": ".git/logs/refs/heads/main",
-        "modified": "2026-07-07T12:01:02.683847",
-        "size": "27.7 KB"
+        "modified": "2026-07-07T16:01:45.474343",
+        "size": "27.9 KB"
       },
       {
         "path": ".git/index",
-        "modified": "2026-07-07T12:01:02.682847",
-        "size": "23.2 KB"
+        "modified": "2026-07-07T16:01:45.473343",
+        "size": "23.6 KB"
       },
       {
         "path": ".git/COMMIT_EDITMSG",
-        "modified": "2026-07-07T12:01:02.682847",
+        "modified": "2026-07-07T16:01:45.473343",
         "size": "28.0 B"
+      },
+      {
+        "path": ".git/objects/ef/3058ca661b7434039b433f3825c1de743724c1",
+        "modified": "2026-07-07T16:01:45.473343",
+        "size": "533.0 B"
+      },
+      {
+        "path": ".git/objects/07/c03d5f6b465131f3faaeaff6ccc31089768f81",
+        "modified": "2026-07-07T16:01:45.473343",
+        "size": "312.0 B"
       }
     ]
   },
@@ -1078,11 +1078,11 @@
     ]
   },
   "system": {
-    "uptime": "up 5 weeks, 6 days, 22 hours, 25 minutes",
-    "load_average": "0.25, 0.18, 0.17",
+    "uptime": "up 5 weeks, 6 days, 23 hours, 26 minutes",
+    "load_average": "0.13, 0.15, 0.16",
     "memory": "1.8Gi / 11Gi",
     "disk": "22G / 83G",
-    "timestamp": "2026-07-07T15:37:01.368459",
+    "timestamp": "2026-07-07T16:38:03.157502",
     "hermes_home": "/home/opc/.hermes",
     "vault_exists": true,
     "vault_path": "/home/opc/Documents/Obsidian Vault",
