@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T20:42:54.289883+00:00",
+  "generated_at": "2026-07-07T21:43:53.781957+00:00",
   "cron_jobs": {
     "jobs": [
       {
@@ -136,8 +136,8 @@
     "recent_files": [
       {
         "path": "03 Projects/Tuco Enterprises/00 Projects/The Last Vigil/02 Art & Assets/ART ASSETS INVENTORY.md",
-        "modified": "2026-07-07T20:42:11.611556",
-        "size": "1.2 KB"
+        "modified": "2026-07-07T20:43:15.026275",
+        "size": "3.5 KB"
       },
       {
         "path": "03 Projects/Tuco Enterprises/00 Projects/The Last Vigil/02 Art & Assets/2026-07-07 - The Last Vigil - Blackwater Outpost Setting.jpg",
@@ -1078,11 +1078,11 @@
     ]
   },
   "system": {
-    "uptime": "up 6 weeks, 3 hours, 31 minutes",
-    "load_average": "0.14, 0.16, 0.18",
+    "uptime": "up 6 weeks, 4 hours, 32 minutes",
+    "load_average": "0.18, 0.17, 0.18",
     "memory": "1.9Gi / 11Gi",
     "disk": "22G / 83G",
-    "timestamp": "2026-07-07T20:42:54.338371",
+    "timestamp": "2026-07-07T21:43:53.831094",
     "hermes_home": "/home/opc/.hermes",
     "vault_exists": true,
     "vault_path": "/home/opc/Documents/Obsidian Vault",
