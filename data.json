@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T07:54:04.946170+00:00",
+  "generated_at": "2026-07-08T08:55:04.299851+00:00",
   "cron_jobs": {
     "jobs": [
       {
@@ -136,53 +136,53 @@
     "recent_files": [
       {
         "path": ".git/refs/remotes/origin/main",
-        "modified": "2026-07-08T05:01:14.983916",
+        "modified": "2026-07-08T08:03:18.525259",
         "size": "41.0 B"
       },
       {
         "path": ".git/logs/refs/remotes/origin/main",
-        "modified": "2026-07-08T05:01:14.983916",
-        "size": "19.5 KB"
-      },
-      {
-        "path": ".git/COMMIT_EDITMSG",
-        "modified": "2026-07-08T05:01:13.380872",
-        "size": "28.0 B"
+        "modified": "2026-07-08T08:03:18.525259",
+        "size": "19.7 KB"
       },
       {
         "path": ".git/refs/heads/main",
-        "modified": "2026-07-08T05:01:13.380872",
+        "modified": "2026-07-08T08:03:14.192142",
         "size": "41.0 B"
       },
       {
-        "path": ".git/objects/3b/65c25c42bc7e5314719b73aba9e7684300a92a",
-        "modified": "2026-07-08T05:01:13.380872",
-        "size": "179.0 B"
-      },
-      {
         "path": ".git/logs/HEAD",
-        "modified": "2026-07-08T05:01:13.380872",
-        "size": "36.9 KB"
+        "modified": "2026-07-08T08:03:14.192142",
+        "size": "37.1 KB"
       },
       {
         "path": ".git/logs/refs/heads/main",
-        "modified": "2026-07-08T05:01:13.380872",
-        "size": "28.3 KB"
+        "modified": "2026-07-08T08:03:14.192142",
+        "size": "28.4 KB"
       },
       {
         "path": ".git/index",
-        "modified": "2026-07-08T05:01:13.379873",
-        "size": "27.0 KB"
+        "modified": "2026-07-08T08:03:14.191142",
+        "size": "27.2 KB"
       },
       {
-        "path": ".git/objects/cf/9296ef9f39cca7576d2e315bbdab9b6437caaf",
-        "modified": "2026-07-07T23:14:24.480901",
-        "size": "183.0 B"
+        "path": ".git/COMMIT_EDITMSG",
+        "modified": "2026-07-08T08:03:14.191142",
+        "size": "28.0 B"
       },
       {
-        "path": ".git/objects/36/b2dd5a2df9ae06ad3d8f197a9d08661ee35b8b",
-        "modified": "2026-07-07T23:14:24.480901",
+        "path": ".git/objects/00/d188b7b68e75aa38562f93fd141404cb6b35c1",
+        "modified": "2026-07-08T08:03:14.191142",
         "size": "643.0 B"
+      },
+      {
+        "path": ".git/objects/ed/8b7fe8cf1c9903117e68d9576e8245fc9c5b4e",
+        "modified": "2026-07-08T08:03:14.191142",
+        "size": "181.0 B"
+      },
+      {
+        "path": ".git/objects/78/368df800ee4e902ea9c01cadc258ac22ac0cdb",
+        "modified": "2026-07-08T08:03:14.190142",
+        "size": "446.0 B"
       }
     ]
   },
@@ -223,7 +223,7 @@
         "action": "Challenge rejection of 100-unit ball joint order with Paul Philpotts \u2014 emphasise supplier loss risk and MOQ necessity",
         "owner": "Mark Evans",
         "source": "2026-06-11 Operations Review",
-        "status": "todo",
+        "status": "in-progress",
         "added": "2026-06-13",
         "board": "morgan"
       },
@@ -250,7 +250,7 @@
         "action": "Schedule recurring 15-min bi-weekly face-to-face meeting (not Tuesday/Wednesday) for operational issues",
         "owner": "John Bower",
         "source": "2026-05-29 Operational Review Meeting",
-        "status": "todo",
+        "status": "in-progress",
         "added": "2026-06-13",
         "board": "morgan"
       },
@@ -286,7 +286,7 @@
         "action": "Continue completing the line-by-line parts justification spreadsheet for Paul Philpott's approval",
         "owner": "Mark Evans",
         "source": "2026-05-28 After Sales Team Sync",
-        "status": "todo",
+        "status": "in-progress",
         "added": "2026-06-13",
         "board": "morgan"
       },
@@ -1078,11 +1078,11 @@
     ]
   },
   "system": {
-    "uptime": "up 6 weeks, 14 hours, 42 minutes",
-    "load_average": "0.20, 0.16, 0.12",
+    "uptime": "up 6 weeks, 15 hours, 43 minutes",
+    "load_average": "0.19, 0.16, 0.18",
     "memory": "1.8Gi / 11Gi",
     "disk": "22G / 83G",
-    "timestamp": "2026-07-08T07:54:04.995442",
+    "timestamp": "2026-07-08T08:55:04.440442",
     "hermes_home": "/home/opc/.hermes",
     "vault_exists": true,
     "vault_path": "/home/opc/Documents/Obsidian Vault",
