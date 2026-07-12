@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T05:28:10.511316+00:00",
+  "generated_at": "2026-07-12T06:29:10.624175+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-07-12T06:28:06.274399+00:00",
-      "last_run": "2026-07-12T04:27:19.060082+00:00",
+      "next_run": "2026-07-12T07:29:06.626998+00:00",
+      "last_run": "2026-07-12T05:28:16.934874+00:00",
       "last_status": "ok"
     },
     {
@@ -213,8 +213,8 @@
         "display": "0 6 * * *"
       },
       "enabled": true,
-      "next_run": "2026-07-12T06:00:00+00:00",
-      "last_run": "2026-07-11T06:01:00.165374+00:00",
+      "next_run": "2026-07-13T06:00:00+00:00",
+      "last_run": "2026-07-12T06:00:06.717847+00:00",
       "last_status": "ok"
     },
     {
@@ -273,9 +273,9 @@
         "display": "0 6 * * *"
       },
       "enabled": true,
-      "next_run": "2026-07-12T06:00:00+00:00",
-      "last_run": null,
-      "last_status": null
+      "next_run": "2026-07-13T06:00:00+00:00",
+      "last_run": "2026-07-12T06:00:19.074083+00:00",
+      "last_status": "ok"
     }
   ],
   "vault": {
@@ -325,6 +325,11 @@
     ],
     "recent_files": [
       {
+        "path": "Action Items - Live.md",
+        "modified": "2026-07-12 06:00",
+        "size": "30.2 KB"
+      },
+      {
         "path": "08 OWL/Learnings/Technical Notes.md",
         "modified": "2026-07-11 23:02",
         "size": "9.8 KB"
@@ -353,11 +358,6 @@
         "path": "README.md",
         "modified": "2026-07-11 14:53",
         "size": "2.6 KB"
-      },
-      {
-        "path": "Action Items - Live.md",
-        "modified": "2026-07-11 14:53",
-        "size": "30.2 KB"
       },
       {
         "path": "08 OWL/Blog Posts/2026-07-01-shattered-veil-first-session.md",
@@ -2719,6 +2719,10 @@
   "system": {},
   "weight": {
     "entries": [
+      {
+        "date": "2026-07-12",
+        "weight_lbs": 243.0
+      },
       {
         "date": "2026-07-11",
         "weight_lbs": 241.0
