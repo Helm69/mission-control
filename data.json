@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T15:38:13.383621+00:00",
+  "generated_at": "2026-07-12T16:39:13.860808+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -81,8 +81,8 @@
         "display": "0 */4 * * *"
       },
       "enabled": true,
-      "next_run": "2026-07-12T16:00:00+00:00",
-      "last_run": "2026-07-12T12:00:31.093286+00:00",
+      "next_run": "2026-07-12T20:00:00+00:00",
+      "last_run": "2026-07-12T16:00:18.740530+00:00",
       "last_status": "ok"
     },
     {
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-07-12T16:38:09.979922+00:00",
-      "last_run": "2026-07-12T14:37:22.623197+00:00",
+      "next_run": "2026-07-12T17:39:10.321441+00:00",
+      "last_run": "2026-07-12T15:38:19.419826+00:00",
       "last_status": "ok"
     },
     {
@@ -392,7 +392,7 @@
         "action": "Use silicon to cover protruding frame parts if necessary",
         "owner": "Jordan Bingham",
         "source": "2026-03-04",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-03-04",
         "board": "morgan",
         "id": "MOR-002"
@@ -401,7 +401,7 @@
         "action": "Confirm chroming timeline with supplier ACF",
         "owner": "Mark Beirne",
         "source": "2026-03-04",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-03-04",
         "board": "morgan",
         "id": "MOR-003"
@@ -410,7 +410,7 @@
         "action": "Communicate production timeline to manage customer expectations",
         "owner": "Mark Evans",
         "source": "2026-03-04",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-03-04",
         "board": "morgan",
         "id": "MOR-004"
@@ -419,7 +419,7 @@
         "action": "Prepare stock of chromed frames for future orders",
         "owner": "Mark Evans",
         "source": "2026-03-04",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-03-04",
         "board": "morgan",
         "id": "MOR-005"
@@ -446,7 +446,7 @@
         "action": "Implement parts movement tracking spreadsheet (part numbers, quantities, location)",
         "owner": "",
         "source": "2026-03-04",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-03-04",
         "board": "morgan",
         "id": "MOR-008"
@@ -464,7 +464,7 @@
         "action": "Investigate tax allowance route for writing off obsolete stock",
         "owner": "",
         "source": "2026-03-04",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-03-04",
         "board": "morgan",
         "id": "MOR-010"
@@ -473,7 +473,7 @@
         "action": "Transfer obsolete stock to capital project where possible (rather than scrapping)",
         "owner": "",
         "source": "2026-03-04",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-03-04",
         "board": "morgan",
         "id": "MOR-011"
@@ -482,7 +482,7 @@
         "action": "Schedule regular cross",
         "owner": "team stock management updates",
         "source": "2026-03-04",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-03-04",
         "board": "morgan",
         "id": "MOR-012"
@@ -491,7 +491,7 @@
         "action": "Monitor completion of nickel tank installation by Friday",
         "owner": "Mark Beirne",
         "source": "2026-03-11",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-03-11",
         "board": "morgan",
         "id": "MOR-013"
@@ -500,7 +500,7 @@
         "action": "Update on parts collection and processing for 0050",
         "owner": "Greg",
         "source": "2026-03-11",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-03-11",
         "board": "morgan",
         "id": "MOR-014"
@@ -509,7 +509,7 @@
         "action": "Decide on material for protection pads (with designer input)",
         "owner": "Mark Beirne",
         "source": "2026-03-11",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-03-11",
         "board": "morgan",
         "id": "MOR-015"
@@ -518,7 +518,7 @@
         "action": "Keep updated on aluminum and brass stock levels",
         "owner": "Mark Beirne",
         "source": "2026-03-11",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-03-11",
         "board": "morgan",
         "id": "MOR-016"
@@ -527,7 +527,7 @@
         "action": "Prepare for special offers campaign launch March 23",
         "owner": "Mark Evans",
         "source": "2026-03-11",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-03-11",
         "board": "morgan",
         "id": "MOR-017"
@@ -545,7 +545,7 @@
         "action": "Forward Tyneside's written update on glass issues once received",
         "owner": "Jordan Bingham",
         "source": "2026-04-01",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-04-01",
         "board": "morgan",
         "id": "MOR-019"
@@ -554,7 +554,7 @@
         "action": "Check glass measurements against 8mm tolerance; report any discrepancies",
         "owner": "Mark Beirne",
         "source": "2026-04-01",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-04-01",
         "board": "morgan",
         "id": "MOR-020"
@@ -563,7 +563,7 @@
         "action": "Modify bracket post position by 2mm both sides",
         "owner": "Mark Beirne",
         "source": "2026-04-01",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-04-01",
         "board": "morgan",
         "id": "MOR-021"
@@ -572,7 +572,7 @@
         "action": "Send modified brackets to ACF house tomorrow",
         "owner": "Mark Beirne",
         "source": "2026-04-01",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-04-01",
         "board": "morgan",
         "id": "MOR-022"
@@ -581,7 +581,7 @@
         "action": "Investigate new supplier options for lift the dot fittings",
         "owner": "Mark Beirne",
         "source": "2026-04-01",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-04-01",
         "board": "morgan",
         "id": "MOR-023"
@@ -590,7 +590,7 @@
         "action": "Update on Euroglass delivery status",
         "owner": "Jordan Bingham",
         "source": "2026-04-01",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-04-01",
         "board": "morgan",
         "id": "MOR-024"
@@ -599,7 +599,7 @@
         "action": "Follow up with Euroglass on glass delivery status",
         "owner": "Jordan Bingham",
         "source": "2026-04-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-04-15",
         "board": "morgan",
         "id": "MOR-025"
@@ -608,7 +608,7 @@
         "action": "Complete shadow graph and CAD drawings for dot studs comparison",
         "owner": "Mark Beirne",
         "source": "2026-04-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-04-15",
         "board": "morgan",
         "id": "MOR-026"
@@ -617,7 +617,7 @@
         "action": "Send lifter dot popper to Mark Beirne for stud fitting test",
         "owner": "Mark Evans",
         "source": "2026-04-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-04-15",
         "board": "morgan",
         "id": "MOR-027"
@@ -626,7 +626,7 @@
         "action": "Prepare and send replacement windscreen glasses once Euroglass delivery arrives",
         "owner": "Jordan Bingham",
         "source": "2026-04-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-04-15",
         "board": "morgan",
         "id": "MOR-028"
@@ -635,7 +635,7 @@
         "action": "Sort out and send order for MWS50 heated windscreens",
         "owner": "Jordan Bingham",
         "source": "2026-04-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-04-15",
         "board": "morgan",
         "id": "MOR-029"
@@ -644,7 +644,7 @@
         "action": "Send screenshot of account suspension message to John Bower",
         "owner": "Robert Opitz",
         "source": "2026-05-06",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-06",
         "board": "morgan",
         "id": "MOR-035"
@@ -653,7 +653,7 @@
         "action": "Resolve dealer portal access issue with accounts department",
         "owner": "John Bower",
         "source": "2026-05-06",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-06",
         "board": "morgan",
         "id": "MOR-036"
@@ -662,7 +662,7 @@
         "action": "Provide email addresses for additional dealer portal accounts",
         "owner": "Robert Opitz",
         "source": "2026-05-06",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-05-06",
         "board": "morgan",
         "id": "MOR-037"
@@ -671,7 +671,7 @@
         "action": "Set up O Build accounts for requested users",
         "owner": "Andy Blackwell",
         "source": "2026-05-06",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-06",
         "board": "morgan",
         "id": "MOR-038"
@@ -680,7 +680,7 @@
         "action": "Provide training dates and accommodate dealer availability",
         "owner": "Andy Blackwell",
         "source": "2026-05-06",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-06",
         "board": "morgan",
         "id": "MOR-039"
@@ -689,7 +689,7 @@
         "action": "Complete and send drawings for lifted up studs to turning company",
         "owner": "**Mark Beirne**",
         "source": "2026-05-06",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-06",
         "board": "morgan",
         "id": "MOR-040"
@@ -698,7 +698,7 @@
         "action": "Continue chasing Tyneside for glass supply updates",
         "owner": "**Jordan Bingham**",
         "source": "2026-05-06",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-06",
         "board": "morgan",
         "id": "MOR-041"
@@ -707,7 +707,7 @@
         "action": "Work on quote for 401460 project (expected end of next week)",
         "owner": "**Mark Beirne**",
         "source": "2026-05-06",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-05-06",
         "board": "morgan",
         "id": "MOR-042"
@@ -716,7 +716,7 @@
         "action": "Email John Bower to set up portal access for Logan",
         "owner": "Tommy",
         "source": "2026-05-07",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-07",
         "board": "morgan",
         "id": "MOR-043"
@@ -725,7 +725,7 @@
         "action": "Convert portal pricing to US Dollars",
         "owner": "John Bower",
         "source": "2026-05-07",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-07",
         "board": "morgan",
         "id": "MOR-044"
@@ -734,7 +734,7 @@
         "action": "Send email addresses for O Build access",
         "owner": "Tommy",
         "source": "2026-05-07",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-07",
         "board": "morgan",
         "id": "MOR-045"
@@ -743,7 +743,7 @@
         "action": "Submit stock orders by Tuesday evening",
         "owner": "Tommy",
         "source": "2026-05-07",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-07",
         "board": "morgan",
         "id": "MOR-046"
@@ -752,7 +752,7 @@
         "action": "Consider factory training for technicians",
         "owner": "Tommy",
         "source": "2026-05-07",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-07",
         "board": "morgan",
         "id": "MOR-047"
@@ -761,7 +761,7 @@
         "action": "Define specific actions with target dates in the results spreadsheet to address development areas",
         "owner": "",
         "source": "2026-05-26",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-26",
         "board": "morgan",
         "id": "MOR-048"
@@ -770,7 +770,7 @@
         "action": "Complete the action plan before the upcoming PDR cycle to integrate as a key goal",
         "owner": "",
         "source": "2026-05-26",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-26",
         "board": "morgan",
         "id": "MOR-049"
@@ -788,7 +788,7 @@
         "action": "Transfer the completed action plan to the Employment Hero system for ongoing visibility and tracking",
         "owner": "",
         "source": "2026-05-26",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-26",
         "board": "morgan",
         "id": "MOR-051"
@@ -797,7 +797,7 @@
         "action": "Client to speak with colleague at Fractal Planning about joining the mastermind group",
         "owner": "",
         "source": "2026-05-26",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-26",
         "board": "morgan",
         "id": "MOR-052"
@@ -806,7 +806,7 @@
         "action": "Client to inform consultant of the outcome via LinkedIn or WhatsApp",
         "owner": "",
         "source": "2026-05-26",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-26",
         "board": "morgan",
         "id": "MOR-053"
@@ -815,7 +815,7 @@
         "action": "Consultant to prepare to launch the group once a core of 2",
         "owner": "4 members is confirmed",
         "source": "2026-05-26",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-26",
         "board": "morgan",
         "id": "MOR-054"
@@ -824,7 +824,7 @@
         "action": "Once formed, group to decide on regular meeting schedule (e.g., Wednesday evening or Saturday morning)",
         "owner": "",
         "source": "2026-05-26",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-26",
         "board": "morgan",
         "id": "MOR-055"
@@ -833,7 +833,7 @@
         "action": "Discuss proposed Will/Arthur role swap with John",
         "owner": "Mark Evans",
         "source": "2026-05-26",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-26",
         "board": "morgan",
         "id": "MOR-056"
@@ -842,7 +842,7 @@
         "action": "Complete and submit PDR to be eligible for pay rise recommendation",
         "owner": "Jordan Bingham",
         "source": "2026-05-26",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-26",
         "board": "morgan",
         "id": "MOR-057"
@@ -851,7 +851,7 @@
         "action": "Provide approved scrap list to Steve for processing",
         "owner": "Jordan Bingham",
         "source": "2026-05-26",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-26",
         "board": "morgan",
         "id": "MOR-058"
@@ -860,7 +860,7 @@
         "action": "Address Arthur's time management and Kanban failures",
         "owner": "Mark Evans",
         "source": "2026-05-26",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-26",
         "board": "morgan",
         "id": "MOR-059"
@@ -869,7 +869,7 @@
         "action": "Investigate why Kanban transport line items are not being returned from Worcester",
         "owner": "Jordan Bingham",
         "source": "2026-05-26",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-26",
         "board": "morgan",
         "id": "MOR-060"
@@ -878,7 +878,7 @@
         "action": "Clarify correct invoicing process for customer orders",
         "owner": "Mark Evans",
         "source": "2026-05-26",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-26",
         "board": "morgan",
         "id": "MOR-061"
@@ -887,7 +887,7 @@
         "action": "Follow up on B46 engine technical data",
         "owner": "get after-sales included in engineering comms",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-062"
@@ -896,7 +896,7 @@
         "action": "Monitor Plus Six dealer situation",
         "owner": "prepare for potential complaints/safety escalation",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-063"
@@ -905,7 +905,7 @@
         "action": "Communicate stock reduction impact to team and dealers",
         "owner": "",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-064"
@@ -914,7 +914,7 @@
         "action": "Resolve Colin approval for obsolete stock scrapping",
         "owner": "",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-065"
@@ -923,7 +923,7 @@
         "action": "Follow up on potential lease of new storage unit",
         "owner": "",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-066"
@@ -932,7 +932,7 @@
         "action": "Mark Baldwin: ensure team PDR forms completed in advance",
         "owner": "",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-067"
@@ -941,7 +941,7 @@
         "action": "Handle Ian's PDR carefully and informally",
         "owner": "",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-068"
@@ -950,7 +950,7 @@
         "action": "Schedule meeting with Steve and Arthur to directly address stock control failures",
         "owner": "Mark Evans",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-069"
@@ -959,7 +959,7 @@
         "action": "Create printed step",
         "owner": "by-step \"how-to guide\" for stock movement procedures \u2014 Jordan Bingham",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-070"
@@ -968,7 +968,7 @@
         "action": "Pull system report: identify all Trans",
         "owner": "it locations empty but still active \u2014 Jordan Bingham",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-071"
@@ -977,7 +977,7 @@
         "action": "Email Britannia requesting complete list of all storage locations they hold",
         "owner": "Mark Evans",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-072"
@@ -986,7 +986,7 @@
         "action": "Compare Britannia list with internal system report to resolve discrepancies",
         "owner": "Mark Evans & Jordan Bingham",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-073"
@@ -995,7 +995,7 @@
         "action": "Follow up on galley radiator leak investigation",
         "owner": "Mark Evans",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-074"
@@ -1004,7 +1004,7 @@
         "action": "Address unpaid invoices: Indonesian client and customer Kuri",
         "owner": "Jordan Bingham",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-075"
@@ -1013,7 +1013,7 @@
         "action": "Send two replacement brake bracket kits to Hammerschmidt + manage warranty claim",
         "owner": "Jordan Bingham",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-076"
@@ -1022,7 +1022,7 @@
         "action": "Manage stock orders per new restrictive policy",
         "owner": "prioritise approved essentials, delay other deliveries \u2014 Jordan Bingham",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-077"
@@ -1031,7 +1031,7 @@
         "action": "Email Jack Woodgate re: payment/requisition blockages (copy manager)",
         "owner": "Jordan Bingham",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-078"
@@ -1040,7 +1040,7 @@
         "action": "Follow up with Jack and Colin directly on escalated issues",
         "owner": "Jordan Bingham",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-079"
@@ -1049,7 +1049,7 @@
         "action": "Contact Galley re: radiator delivery schedule + investigate air freight option",
         "owner": "Mark Evans",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-080"
@@ -1058,7 +1058,7 @@
         "action": "Attend Transmec/Worcester at 6:00 AM",
         "owner": "inspect, log, photograph 13 disputed stillages \u2014 Mark Evans / TBC",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-081"
@@ -1067,7 +1067,7 @@
         "action": "Review partial payment status with Armstrong and DHL",
         "owner": "Mark Evans / John Bower",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-082"
@@ -1076,7 +1076,7 @@
         "action": "Track redesigned mirror spring delivery (weeks out)",
         "owner": "Mark Evans",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-083"
@@ -1085,7 +1085,7 @@
         "action": "Follow up on Nitron damper rework program logistics",
         "owner": "Mark Evans",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-084"
@@ -1094,7 +1094,7 @@
         "action": "Schedule introductory calls: Chile and Italy new dealers",
         "owner": "John Bower",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-085"
@@ -1103,7 +1103,7 @@
         "action": "Follow up Section 3 radiator order and air freight inquiry",
         "owner": "Mark Evans",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-086"
@@ -1112,7 +1112,7 @@
         "action": "Follow up on Galley radiator order status and air freight options",
         "owner": "Mark Evans",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-087"
@@ -1121,7 +1121,7 @@
         "action": "Report back on Transmec stillage inspection findings",
         "owner": "Mark Evans",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-088"
@@ -1130,7 +1130,7 @@
         "action": "Continue pursuing Colin/Paul Philpott resolution for obsolete Midsummer stock write",
         "owner": "off \u2014 Mark Evans / John Bower",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-089"
@@ -1139,7 +1139,7 @@
         "action": "Provide list of top 20 part numbers for initial shop launch",
         "owner": "Mark Evans",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-090"
@@ -1148,7 +1148,7 @@
         "action": "Begin product photography and descriptions for initial 20 items",
         "owner": "Mark Evans",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-091"
@@ -1157,7 +1157,7 @@
         "action": "Create wireframe and initial design for WooCommerce shop (corporate style)",
         "owner": "Speaker 2",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-092"
@@ -1166,7 +1166,7 @@
         "action": "Start development of API to connect IFS with online shop",
         "owner": "Speaker 3",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-093"
@@ -1175,7 +1175,7 @@
         "action": "Create Teams group/email thread for project updates",
         "owner": "Speaker 2",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-094"
@@ -1184,7 +1184,7 @@
         "action": "Organise introductory call with new dealer in Chile",
         "owner": "John Bower",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-095"
@@ -1193,7 +1193,7 @@
         "action": "Organise introductory call with new dealer in Italy",
         "owner": "John Bower",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-096"
@@ -1211,7 +1211,7 @@
         "action": "Send digital warranty job cards to John Burbage for real",
         "owner": "time feedback \u2014 Speaker 1",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-098"
@@ -1220,7 +1220,7 @@
         "action": "Begin sending weekly positive achievement stories",
         "owner": "Speaker 2",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-099"
@@ -1229,7 +1229,7 @@
         "action": "Set up meeting with John Burbage and CAT team re: roof mechanism fault",
         "owner": "Speaker 3",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-100"
@@ -1238,7 +1238,7 @@
         "action": "Complete development of consolidated DSC reporting system",
         "owner": "Speaker 4",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-101"
@@ -1247,7 +1247,7 @@
         "action": "Ask Groopy to inspect project engines for missing parts",
         "owner": "",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-102"
@@ -1256,7 +1256,7 @@
         "action": "John Bower to send updated performance review document to Mark for review",
         "owner": "",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-103"
@@ -1265,7 +1265,7 @@
         "action": "Schedule regular one",
         "owner": "on-one meetings (starting weekly) \u2014 Mark & John",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-104"
@@ -1274,7 +1274,7 @@
         "action": "Mark to collaborate with John on adding specific examples to company values section of review",
         "owner": "",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-105"
@@ -1283,7 +1283,7 @@
         "action": "Mark to request strategy briefing with Jack re: 2026 goals and expectations",
         "owner": "",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-106"
@@ -1292,7 +1292,7 @@
         "action": "Follow up on potential lease of new storage unit and stock reduction implications",
         "owner": "",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-107"
@@ -1301,7 +1301,7 @@
         "action": "Provide list of top 20",
         "owner": "50 fast-moving part numbers for initial launch \u2014 Mark Evans",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-108"
@@ -1319,7 +1319,7 @@
         "action": "Create wireframe and initial design (corporate style)",
         "owner": "Speaker 2",
         "source": "2026-05-27",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-110"
@@ -1337,7 +1337,7 @@
         "action": "Set up Teams group / email thread for project updates",
         "owner": "Speaker 2",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-112"
@@ -1346,7 +1346,7 @@
         "action": "Email Jack Woodgate re: payment blockages (Speaker 2 to copy and follow up directly)",
         "owner": "Speaker 3",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-113"
@@ -1355,7 +1355,7 @@
         "action": "Follow up with Jack and Colin directly on escalated payment issues",
         "owner": "Speaker 2",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-114"
@@ -1364,7 +1364,7 @@
         "action": "Address unpaid invoices: Indonesian client and Kuri",
         "owner": "Speaker 2",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-115"
@@ -1373,7 +1373,7 @@
         "action": "Send two replacement brake bracket kits to Hammerschmidt + manage warranty claim",
         "owner": "Speaker 2",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-116"
@@ -1382,7 +1382,7 @@
         "action": "Manage stock orders per new restrictive policy",
         "owner": "prioritise approved essentials \u2014 Speaker 3",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-117"
@@ -1391,7 +1391,7 @@
         "action": "Contact Galley re: radiator delivery schedule + air freight",
         "owner": "Mark Evans",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-118"
@@ -1400,7 +1400,7 @@
         "action": "Attend Transmec Worcester at 6:00 AM",
         "owner": "inspect, log, photograph 13 disputed stillages \u2014 Mark Evans",
         "source": "2026-05-27",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-27",
         "board": "morgan",
         "id": "MOR-119"
@@ -1409,7 +1409,7 @@
         "action": "Continue completing the line-by-line parts justification spreadsheet for Paul Philpott's approval",
         "owner": "Mark Evans",
         "source": "2026-05-28",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-28",
         "board": "morgan",
         "id": "MOR-120"
@@ -1418,7 +1418,7 @@
         "action": "Arrange a meeting with Paul Philpott and Colin to review the parts spreadsheet and advocate for essential orders",
         "owner": "John Bower",
         "source": "2026-05-28",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-28",
         "board": "morgan",
         "id": "MOR-121"
@@ -1427,7 +1427,7 @@
         "action": "Follow up with Steve to ensure the key fob failure is escalated to senior management and push the supplier for a concrete resolution plan",
         "owner": "Andy Blackwell",
         "source": "2026-05-28",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-05-28",
         "board": "morgan",
         "id": "MOR-122"
@@ -1436,7 +1436,7 @@
         "action": "Forward the query regarding the three-wheeler engine repair to Laurie at Mid Atlantic to get an update for the customer",
         "owner": "Mark Baldwin",
         "source": "2026-05-28",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-28",
         "board": "morgan",
         "id": "MOR-123"
@@ -1445,7 +1445,7 @@
         "action": "Analyze historical orders and upcoming bookings to create a projection of parts needs, particularly for common repair items like camshaft sensors, to build a stronger business case",
         "owner": "John Bower",
         "source": "2026-05-28",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-28",
         "board": "morgan",
         "id": "MOR-124"
@@ -1454,7 +1454,7 @@
         "action": "Put the required windscreens on the purchasing request list for approval",
         "owner": "Mark Evans",
         "source": "2026-05-28",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-28",
         "board": "morgan",
         "id": "MOR-125"
@@ -1463,7 +1463,7 @@
         "action": "Obtain full quote for clearing old storage area including asbestos removal",
         "owner": "**Mark Evans**",
         "source": "2026-05-29",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-05-29",
         "board": "morgan",
         "id": "MOR-126"
@@ -1472,7 +1472,7 @@
         "action": "Develop unified KPI dashboard to track sales, workshop metrics, and cash flow",
         "owner": "**TBD**",
         "source": "2026-05-29",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-29",
         "board": "morgan",
         "id": "MOR-127"
@@ -1481,7 +1481,7 @@
         "action": "Forward list of paid and upcoming supplier payments to Mark for review",
         "owner": "**Speaker 3**",
         "source": "2026-05-29",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-29",
         "board": "morgan",
         "id": "MOR-128"
@@ -1490,7 +1490,7 @@
         "action": "Schedule recurring 15",
         "owner": "min bi-weekly face-to-face meeting (not Tuesday/Wednesday) for operational issues \u2014 **John Bower**",
         "source": "2026-05-29",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-29",
         "board": "morgan",
         "id": "MOR-129"
@@ -1499,7 +1499,7 @@
         "action": "Reschedule follow",
         "owner": "up meeting next week to finalize SMART objectives \u2014 **John Bower**",
         "source": "2026-05-29",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-29",
         "board": "morgan",
         "id": "MOR-130"
@@ -1508,7 +1508,7 @@
         "action": "John Bower to explore sourcing a mentor for Mark, potentially from outside the company via HR",
         "owner": "",
         "source": "2026-05-29",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-05-29",
         "board": "morgan",
         "id": "MOR-131"
@@ -1517,7 +1517,7 @@
         "action": "Save current version of the PDR document with discussed changes",
         "owner": "**John Bower**",
         "source": "2026-05-29",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-29",
         "board": "morgan",
         "id": "MOR-132"
@@ -1526,7 +1526,7 @@
         "action": "Ensure robust performance management and probationary reviews before new 6",
         "owner": "month unfair dismissal window \u2014 **Speaker 1**",
         "source": "2026-05-29",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-05-29",
         "board": "morgan",
         "id": "MOR-133"
@@ -1535,7 +1535,7 @@
         "action": "Reinforce accurate timekeeping (clocking in/out) for 6",
         "owner": "year record-keeping compliance \u2014 **Speaker 1**",
         "source": "2026-05-29",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-29",
         "board": "morgan",
         "id": "MOR-134"
@@ -1544,7 +1544,7 @@
         "action": "Await final draft of updated employee handbook and new policies",
         "owner": "**Speaker 1**",
         "source": "2026-05-29",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-05-29",
         "board": "morgan",
         "id": "MOR-135"
@@ -1553,7 +1553,7 @@
         "action": "Develop the formal justification document template (covering cash and working capital aspects)",
         "owner": "Mark Evans & Jordan Bingham",
         "source": "2026-06-02",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-02",
         "board": "morgan",
         "id": "MOR-136"
@@ -1562,7 +1562,7 @@
         "action": "Formalize and communicate the new purchasing framework and escalation process to the team",
         "owner": "Paul Philpott & Jordan Bingham",
         "source": "2026-06-02",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-02",
         "board": "morgan",
         "id": "MOR-137"
@@ -1580,7 +1580,7 @@
         "action": "Investigate and resolve the blockage in the scrap stock sign-off process to resume clearing obsolete inventory",
         "owner": "Mark Evans",
         "source": "2026-06-02",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-02",
         "board": "morgan",
         "id": "MOR-139"
@@ -1598,7 +1598,7 @@
         "action": "Remove the \"Associated Value\" column (Column K) from the purchasing spreadsheet to simplify the initial review process",
         "owner": "Jordan Bingham",
         "source": "2026-06-02",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-02",
         "board": "morgan",
         "id": "MOR-141"
@@ -1607,7 +1607,7 @@
         "action": "Develop a standard template for the one-page business case to be used for rejected or complex purchase requests",
         "owner": "Mark Evans",
         "source": "2026-06-02",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-02",
         "board": "morgan",
         "id": "MOR-142"
@@ -1616,7 +1616,7 @@
         "action": "Sort the purchasing spreadsheet by highest sales value to prioritize the review of the most significant items",
         "owner": "Paul Philpott",
         "source": "2026-06-02",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-02",
         "board": "morgan",
         "id": "MOR-143"
@@ -1625,7 +1625,7 @@
         "action": "Seek clear guidance from Colin on acceptable stock holding parameters (e.g., target months of stock) to provide the team with a clear goal",
         "owner": "Paul Philpott",
         "source": "2026-06-02",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-02",
         "board": "morgan",
         "id": "MOR-144"
@@ -1634,7 +1634,7 @@
         "action": "Investigate the feasibility of using a \"debonding additive\" to prevent windscreen breakages during interior mirror replacements",
         "owner": "Mark Evans",
         "source": "2026-06-02",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-02",
         "board": "morgan",
         "id": "MOR-145"
@@ -1643,7 +1643,7 @@
         "action": "Discuss the stock depth issue directly with the leadership team (Paul Hand / Colin) to find a workable solution",
         "owner": "Mark Evans",
         "source": "2026-06-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-15",
         "board": "morgan",
         "id": "MOR-165"
@@ -1652,7 +1652,7 @@
         "action": "Compile a list of fast-moving After Sales parts using Pareto analysis (20% of lines = 80% of sales) to present a data-driven case for increased stock depth",
         "owner": "Mark Evans / John Bower",
         "source": "2026-06-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-15",
         "board": "morgan",
         "id": "MOR-166"
@@ -1661,7 +1661,7 @@
         "action": "Ensure Super Sport launch readiness by confirming adequate parts stock for new model warranty fulfillment",
         "owner": "Mark Evans",
         "source": "2026-06-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-15",
         "board": "morgan",
         "id": "MOR-167"
@@ -1670,7 +1670,7 @@
         "action": "Document recent lost sales figures (air filters: 15 in June, 21 in May, 16 in April) as evidence for the business case",
         "owner": "John Bower",
         "source": "2026-06-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-15",
         "board": "morgan",
         "id": "MOR-168"
@@ -1679,7 +1679,7 @@
         "action": "John Bower to send the draft email bulletin for the accessories pack to Mark Evans for final review",
         "owner": "",
         "source": "2026-06-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-15",
         "board": "morgan",
         "id": "MOR-169"
@@ -1688,7 +1688,7 @@
         "action": "John Bower to contact James Waller and Chris Harper to clarify specifications for US",
         "owner": "bound cars",
         "source": "2026-06-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-15",
         "board": "morgan",
         "id": "MOR-170"
@@ -1697,7 +1697,7 @@
         "action": "Clarify whether headlamps on new US models match Super Sport specifications",
         "owner": "",
         "source": "2026-06-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-15",
         "board": "morgan",
         "id": "MOR-171"
@@ -1715,7 +1715,7 @@
         "action": "**Add bonnet stays** to the official accessories list for future promotions",
         "owner": "",
         "source": "2026-06-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-15",
         "board": "morgan",
         "id": "MOR-173"
@@ -1724,7 +1724,7 @@
         "action": "**Initiate individual conversations** with dealers to introduce the new collaborative stocking model",
         "owner": "",
         "source": "2026-06-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-15",
         "board": "morgan",
         "id": "MOR-174"
@@ -1751,7 +1751,7 @@
         "action": "**Secure commitment and engagement** from sales leadership for the accessories pack initiative",
         "owner": "",
         "source": "2026-06-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-15",
         "board": "morgan",
         "id": "MOR-177"
@@ -1760,7 +1760,7 @@
         "action": "Prepare current stock availability report showing items viewed as unavailable by dealers",
         "owner": "Mark Evans",
         "source": "2026-06-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-15",
         "board": "morgan",
         "id": "MOR-178"
@@ -1769,7 +1769,7 @@
         "action": "Analyze lost sales data due to stockouts (dealer sourcing from competitors)",
         "owner": "Mark Evans",
         "source": "2026-06-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-15",
         "board": "morgan",
         "id": "MOR-179"
@@ -1778,7 +1778,7 @@
         "action": "Review purchasing approval bottlenecks causing stock restrictions",
         "owner": "Paul Philpots",
         "source": "2026-06-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-15",
         "board": "morgan",
         "id": "MOR-180"
@@ -1787,7 +1787,7 @@
         "action": "Provide guidance on acceptable stock holding parameters/target months of stock",
         "owner": "Colin",
         "source": "2026-06-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-15",
         "board": "morgan",
         "id": "MOR-181"
@@ -1796,7 +1796,7 @@
         "action": "Develop joint strategy to improve stock availability while managing financial constraints",
         "owner": "All",
         "source": "2026-06-15",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-15",
         "board": "morgan",
         "id": "MOR-182"
@@ -1805,7 +1805,7 @@
         "action": "Meet with Paul and Colin to discuss stock rule flexibility.",
         "owner": "Jack Woodgate",
         "source": "2026-06-16",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-16",
         "board": "morgan",
         "id": "MOR-183"
@@ -1814,7 +1814,7 @@
         "action": "Review parts list with Paul Philpott.",
         "owner": "Mark Evans",
         "source": "2026-06-16",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-16",
         "board": "morgan",
         "id": "MOR-184"
@@ -1823,7 +1823,7 @@
         "action": "Highlight key parts on the list for immediate action.",
         "owner": "Mark Evans",
         "source": "2026-06-16",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-16",
         "board": "morgan",
         "id": "MOR-185"
@@ -1832,7 +1832,7 @@
         "action": "Communicate with dealers about stock availability.",
         "owner": "Mark Evans",
         "source": "2026-06-16",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-16",
         "board": "morgan",
         "id": "MOR-186"
@@ -1841,7 +1841,7 @@
         "action": "Escalate unresolved issues to Jack Woodgate.",
         "owner": "Mark Evans",
         "source": "2026-06-16",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-16",
         "board": "morgan",
         "id": "MOR-187"
@@ -1850,7 +1850,7 @@
         "action": "Update the business case to include ~50 US and Latin American dealers and the 30% discount",
         "owner": "Jordan Bingham",
         "source": "2026-06-23",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-23",
         "board": "morgan",
         "id": "MOR-188"
@@ -1859,7 +1859,7 @@
         "action": "Follow up with Karl Dinsdale regarding the US-spec Super Sport part differences",
         "owner": "John Bower",
         "source": "2026-06-23",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-23",
         "board": "morgan",
         "id": "MOR-189"
@@ -1868,7 +1868,7 @@
         "action": "Present the expanded plan to Jack and discuss it with Paul next Tuesday",
         "owner": "John Bower",
         "source": "2026-06-23",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-23",
         "board": "morgan",
         "id": "MOR-190"
@@ -1877,7 +1877,7 @@
         "action": "Follow up with Michael at Galley regarding the air freight of radiator batches",
         "owner": "Jordan Bingham",
         "source": "2026-06-23",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-23",
         "board": "morgan",
         "id": "MOR-191"
@@ -1886,7 +1886,7 @@
         "action": "Use William's spreadsheet to analyze dealer purchase history and tailor minimum stock recommendations",
         "owner": "Mark Evans",
         "source": "2026-06-23",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-23",
         "board": "morgan",
         "id": "MOR-192"
@@ -1895,7 +1895,7 @@
         "action": "Review new MOQ and pricing adjustments for A401, 460s",
         "owner": "Jordan Bingham",
         "source": "2026-06-24",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-24",
         "board": "morgan",
         "id": "MOR-193"
@@ -1904,7 +1904,7 @@
         "action": "Review new MOQ and pricing adjustments for A401, 460s",
         "owner": "Mark Evans",
         "source": "2026-06-24",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-24",
         "board": "morgan",
         "id": "MOR-194"
@@ -1913,7 +1913,7 @@
         "action": "Follow up on chrome plating progress and update timeline",
         "owner": "Mark Beirne",
         "source": "2026-06-24",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-24",
         "board": "morgan",
         "id": "MOR-195"
@@ -1922,7 +1922,7 @@
         "action": "Send EWS workaround proposal to legal team for review",
         "owner": "Mark Evans",
         "source": "2026-06-25",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-25",
         "board": "morgan",
         "id": "MOR-196"
@@ -1931,7 +1931,7 @@
         "action": "Prepare list of fast-moving parts for stock policy approval",
         "owner": "Mark Evans",
         "source": "2026-06-25",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-25",
         "board": "morgan",
         "id": "MOR-197"
@@ -1940,7 +1940,7 @@
         "action": "Escalate two-week stock policy issue",
         "owner": "Mark Evans",
         "source": "2026-06-25",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-25",
         "board": "morgan",
         "id": "MOR-198"
@@ -1949,7 +1949,7 @@
         "action": "Proceed with online Super Sport training presentation",
         "owner": "Andy Blackwell",
         "source": "2026-06-25",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-25",
         "board": "morgan",
         "id": "MOR-199"
@@ -1958,7 +1958,7 @@
         "action": "Clarify launch vehicle situation (B58 vs B46) with relevant team",
         "owner": "Mark Evans",
         "source": "2026-06-25",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-25",
         "board": "morgan",
         "id": "MOR-200"
@@ -1967,7 +1967,7 @@
         "action": "Follow up on pay discrepancy resolution",
         "owner": "Mark Evans",
         "source": "2026-06-25",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-25",
         "board": "morgan",
         "id": "MOR-201"
@@ -1976,7 +1976,7 @@
         "action": "Follow up on KPI dashboard for service sent to Colin",
         "owner": "John Bower",
         "source": "2026-06-25",
-        "status": "in-progress",
+        "status": "completed",
         "added": "2026-06-25",
         "board": "morgan",
         "id": "MOR-202"
@@ -1985,7 +1985,7 @@
         "action": "Publish next Employment Hero update (DSC training + website testing news)",
         "owner": "John Bower",
         "source": "2026-06-25",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-25",
         "board": "morgan",
         "id": "MOR-203"
@@ -1994,7 +1994,7 @@
         "action": "Set up meeting with Paul Philpotts to discuss fast-moving parts list and two-week stock rule challenges",
         "owner": "Mark Evans",
         "source": "2026-06-25",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-25",
         "board": "morgan",
         "id": "MOR-204"
@@ -2003,7 +2003,7 @@
         "action": "Continue raising workshop development funding issue in ops meetings",
         "owner": "John Bower",
         "source": "2026-06-25",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-25",
         "board": "morgan",
         "id": "MOR-205"
@@ -2012,7 +2012,7 @@
         "action": "Complete all PDRs and prepare cases for salary reviews and adjustments to address pay inequity",
         "owner": "John Bower",
         "source": "2026-06-25",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-25",
         "board": "morgan",
         "id": "MOR-206"
@@ -2021,7 +2021,7 @@
         "action": "Send completed reviews to support pay increase cases for Nathan and Ian",
         "owner": "Mark Baldwin",
         "source": "2026-06-25",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-25",
         "board": "morgan",
         "id": "MOR-207"
@@ -2039,7 +2039,7 @@
         "action": "Prepare list of fast-moving parts for stock policy approval",
         "owner": "Mark Evans",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-209"
@@ -2048,7 +2048,7 @@
         "action": "Escalate two-week stock policy issue",
         "owner": "Mark Evans",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-210"
@@ -2057,7 +2057,7 @@
         "action": "Clarify launch vehicle situation (B58 vs B46) with relevant team",
         "owner": "Mark Evans",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-211"
@@ -2066,7 +2066,7 @@
         "action": "Follow up on pay discrepancy resolution across departments",
         "owner": "Mark Evans",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-212"
@@ -2075,7 +2075,7 @@
         "action": "Set up meeting with Paul Philpotts to discuss fast-moving parts list and two-week stock rule challenges",
         "owner": "Mark Evans",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-213"
@@ -2084,7 +2084,7 @@
         "action": "Speak to Arthur about the new twice-daily schedule for visiting the shop floor",
         "owner": "Mark Evans",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-214"
@@ -2093,7 +2093,7 @@
         "action": "Finalize personal PDR documentation and submit to relevant department",
         "owner": "Mark Evans",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-215"
@@ -2120,7 +2120,7 @@
         "action": "Investigate the risks and potential solutions for the non-DOT marked parts on the Super Sport model",
         "owner": "Mark Evans",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-218"
@@ -2129,7 +2129,7 @@
         "action": "Address Steve's improper storage practices and attitude issue directly",
         "owner": "Jordan Bingham",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-219"
@@ -2138,7 +2138,7 @@
         "action": "Reinforce the VOR order checking process and the importance of using the lobby screen with Dale",
         "owner": "Jordan Bingham",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-220"
@@ -2165,7 +2165,7 @@
         "action": "Adhere to new shop-floor schedule (10:30 AM and 3:00 PM only)",
         "owner": "Arthur",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-223"
@@ -2174,7 +2174,7 @@
         "action": "Follow up on KPI dashboard for service sent to Colin",
         "owner": "John Bower",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-224"
@@ -2183,7 +2183,7 @@
         "action": "Publish next Employment Hero update (DSC training + website testing news)",
         "owner": "John Bower",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-225"
@@ -2192,7 +2192,7 @@
         "action": "Complete all PDRs and prepare cases for salary reviews and adjustments",
         "owner": "John Bower",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-226"
@@ -2201,7 +2201,7 @@
         "action": "Continue raising workshop development funding issue in ops meetings",
         "owner": "John Bower",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-227"
@@ -2210,7 +2210,7 @@
         "action": "Send completed reviews to support pay increase cases for Nathan and Ian",
         "owner": "Mark Baldwin",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-228"
@@ -2219,7 +2219,7 @@
         "action": "Proceed with online Super Sport training presentation",
         "owner": "Andy Blackwell",
         "source": "2026-06-26",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-26",
         "board": "morgan",
         "id": "MOR-229"
@@ -2228,7 +2228,7 @@
         "action": "Finalize and set initial stock quantities on the website",
         "owner": "Mark Evans",
         "source": "2026-06-29",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-29",
         "board": "morgan",
         "id": "MOR-230"
@@ -2237,7 +2237,7 @@
         "action": "Correct the product description wording for the \"Plus Eight\" model",
         "owner": "Johan",
         "source": "2026-06-29",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-29",
         "board": "morgan",
         "id": "MOR-231"
@@ -2246,7 +2246,7 @@
         "action": "Hide or remove the unused product categorisation section from the live site",
         "owner": "Johan",
         "source": "2026-06-29",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-06-29",
         "board": "morgan",
         "id": "MOR-232"
@@ -2273,7 +2273,7 @@
         "action": "[speaker:1] to provide a detailed contact list for their team, including roles and positions.",
         "owner": "",
         "source": "2026-07-03",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-03",
         "board": "morgan",
         "id": "MOR-235"
@@ -2282,7 +2282,7 @@
         "action": "[speaker:2] to ensure the IT department whitelists the Qatar team's email addresses.",
         "owner": "",
         "source": "2026-07-03",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-03",
         "board": "morgan",
         "id": "MOR-236"
@@ -2291,7 +2291,7 @@
         "action": "[speaker:3] to share a corresponding contact list for the Morgan after",
         "owner": "sales and sales support teams.",
         "source": "2026-07-03",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-03",
         "board": "morgan",
         "id": "MOR-237"
@@ -2345,7 +2345,7 @@
         "action": "Clarify which vehicle models the initial five sets of Nitrons from quality control are for. [speaker:1]",
         "owner": "",
         "source": "2026-07-06",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-06",
         "board": "morgan",
         "id": "MOR-243"
@@ -2354,7 +2354,7 @@
         "action": "Contact \"Johnny Birbage\" to retrieve the initial five sets of Nitrons to establish a core stock for the program. [speaker:1]",
         "owner": "",
         "source": "2026-07-06",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-06",
         "board": "morgan",
         "id": "MOR-244"
@@ -2363,7 +2363,7 @@
         "action": "Create the new part numbers with an \"e\" suffix in the parts system for the exchange units. [speaker:1]",
         "owner": "",
         "source": "2026-07-06",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-06",
         "board": "morgan",
         "id": "MOR-245"
