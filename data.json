@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T09:32:11.610485+00:00",
+  "generated_at": "2026-07-12T10:33:10.851708+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -57,8 +57,8 @@
         "display": "0 10 * * 0"
       },
       "enabled": true,
-      "next_run": "2026-07-12T10:00:00+00:00",
-      "last_run": "2026-07-05T10:07:15.682538+00:00",
+      "next_run": "2026-07-19T10:00:00+00:00",
+      "last_run": "2026-07-12T10:01:47.110134+00:00",
       "last_status": "ok"
     },
     {
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-07-12T10:32:07.676187+00:00",
-      "last_run": "2026-07-12T08:31:19.164681+00:00",
+      "next_run": "2026-07-12T11:33:08.019960+00:00",
+      "last_run": "2026-07-12T09:32:18.206202+00:00",
       "last_status": "ok"
     },
     {
@@ -325,6 +325,16 @@
     ],
     "recent_files": [
       {
+        "path": "Mission Control Dashboard.md",
+        "modified": "2026-07-12 10:30",
+        "size": "2.0 KB"
+      },
+      {
+        "path": "03 Projects/Tuco Enterprises/Content Seeds/2026-07-12 - Type E - The Tithe of Names.md",
+        "modified": "2026-07-12 10:01",
+        "size": "2.8 KB"
+      },
+      {
         "path": "Action Items - Live.md",
         "modified": "2026-07-12 06:00",
         "size": "30.2 KB"
@@ -363,16 +373,6 @@
         "path": "08 OWL/Blog Posts/2026-07-01-shattered-veil-first-session.md",
         "modified": "2026-07-11 14:53",
         "size": "5.3 KB"
-      },
-      {
-        "path": "08 OWL/Learnings/VPS Migration Plan.md",
-        "modified": "2026-07-11 14:53",
-        "size": "8.7 KB"
-      },
-      {
-        "path": "08 OWL/Daily Log/2026-07-10.md",
-        "modified": "2026-07-11 14:53",
-        "size": "0.3 KB"
       }
     ]
   },
