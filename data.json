@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T16:39:13.860808+00:00",
+  "generated_at": "2026-07-12T17:40:13.667596+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -117,8 +117,8 @@
         "display": "every 360m"
       },
       "enabled": true,
-      "next_run": "2026-07-12T17:09:20.117433+00:00",
-      "last_run": "2026-07-12T11:09:20.117433+00:00",
+      "next_run": "2026-07-12T23:10:21.273845+00:00",
+      "last_run": "2026-07-12T17:10:21.273845+00:00",
       "last_status": "ok"
     },
     {
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-07-12T17:39:10.321441+00:00",
-      "last_run": "2026-07-12T15:38:19.419826+00:00",
+      "next_run": "2026-07-12T18:40:10.664172+00:00",
+      "last_run": "2026-07-12T16:39:21.209662+00:00",
       "last_status": "ok"
     },
     {
@@ -261,8 +261,8 @@
         "display": "every 360m"
       },
       "enabled": true,
-      "next_run": "2026-07-12T17:11:09.687227+00:00",
-      "last_run": "2026-07-12T11:11:09.687227+00:00",
+      "next_run": "2026-07-12T23:11:11.721010+00:00",
+      "last_run": "2026-07-12T17:11:11.721010+00:00",
       "last_status": "ok"
     },
     {
@@ -326,8 +326,13 @@
     "recent_files": [
       {
         "path": "08 OWL/Learnings/Technical Notes.md",
-        "modified": "2026-07-12 11:00",
-        "size": "12.9 KB"
+        "modified": "2026-07-12 17:30",
+        "size": "13.1 KB"
+      },
+      {
+        "path": "08 OWL/Work Calendar Integration Plan.md",
+        "modified": "2026-07-12 17:19",
+        "size": "2.9 KB"
       },
       {
         "path": "Mission Control Dashboard.md",
@@ -368,11 +373,6 @@
         "path": "README.md",
         "modified": "2026-07-11 14:53",
         "size": "2.6 KB"
-      },
-      {
-        "path": "08 OWL/Blog Posts/2026-07-01-shattered-veil-first-session.md",
-        "modified": "2026-07-11 14:53",
-        "size": "5.3 KB"
       }
     ]
   },
