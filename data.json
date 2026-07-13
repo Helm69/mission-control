@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T05:03:14.049255+00:00",
+  "generated_at": "2026-07-13T05:51:50.444277+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -117,8 +117,8 @@
         "display": "every 360m"
       },
       "enabled": true,
-      "next_run": "2026-07-13T05:11:24.552263+00:00",
-      "last_run": "2026-07-12T23:11:24.552263+00:00",
+      "next_run": "2026-07-13T11:11:59.484204+00:00",
+      "last_run": "2026-07-13T05:11:59.484204+00:00",
       "last_status": "ok"
     },
     {
@@ -165,7 +165,7 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-07-13T05:50:57.684691+00:00",
+      "next_run": "2026-07-13T06:51:48.026952+00:00",
       "last_run": "2026-07-13T04:50:57.684691+00:00",
       "last_status": "ok"
     },
@@ -202,7 +202,7 @@
       },
       "enabled": true,
       "next_run": "2026-07-14T05:00:00+00:00",
-      "last_run": "2026-07-12T05:03:06.266050+00:00",
+      "last_run": "2026-07-13T05:04:23.670013+00:00",
       "last_status": "ok"
     },
     {
@@ -261,8 +261,8 @@
         "display": "every 360m"
       },
       "enabled": true,
-      "next_run": "2026-07-13T05:11:13.752605+00:00",
-      "last_run": "2026-07-12T23:11:13.752605+00:00",
+      "next_run": "2026-07-13T11:11:49.089476+00:00",
+      "last_run": "2026-07-13T05:11:49.089476+00:00",
       "last_status": "ok"
     },
     {
@@ -275,6 +275,18 @@
       "enabled": true,
       "next_run": "2026-07-13T06:00:00+00:00",
       "last_run": "2026-07-12T06:00:19.074083+00:00",
+      "last_status": "ok"
+    },
+    {
+      "name": "OWL Morning Pack",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 7 * * *",
+        "display": "0 7 * * *"
+      },
+      "enabled": true,
+      "next_run": "2026-07-13T07:00:00+00:00",
+      "last_run": "2026-07-13T05:51:24.873732+00:00",
       "last_status": "ok"
     }
   ],
@@ -321,9 +333,35 @@
       "08 OWL/Blog Posts",
       "08 OWL/Daily Log",
       "08 OWL/Learnings",
+      "08 OWL/Memories",
       "99 Templates"
     ],
     "recent_files": [
+      {
+        "path": "08 OWL/Memories/Environment & Access.md",
+        "modified": "2026-07-13 05:50",
+        "size": "2.1 KB"
+      },
+      {
+        "path": "08 OWL/Memories/Conventions & User Preferences.md",
+        "modified": "2026-07-13 05:50",
+        "size": "1.5 KB"
+      },
+      {
+        "path": "08 OWL/Memories/Memory Index.md",
+        "modified": "2026-07-13 05:50",
+        "size": "1.1 KB"
+      },
+      {
+        "path": "08 OWL/Memories/Mission Control.md",
+        "modified": "2026-07-13 05:50",
+        "size": "1.6 KB"
+      },
+      {
+        "path": "08 OWL/Memories/Active Projects.md",
+        "modified": "2026-07-13 05:50",
+        "size": "1.4 KB"
+      },
       {
         "path": "08 OWL/Learnings/Technical Notes.md",
         "modified": "2026-07-12 23:02",
@@ -348,31 +386,6 @@
         "path": "03 Projects/Tuco Enterprises/Content Seeds/2026-07-12 - Type E - The Tithe of Names.md",
         "modified": "2026-07-12 10:01",
         "size": "2.8 KB"
-      },
-      {
-        "path": "Action Items - Live.md",
-        "modified": "2026-07-12 06:00",
-        "size": "30.2 KB"
-      },
-      {
-        "path": "08 OWL/Daily Log/2026-07-11.md",
-        "modified": "2026-07-11 23:02",
-        "size": "2.3 KB"
-      },
-      {
-        "path": "04 Reference/Man Utd Fixtures 2026-27.md",
-        "modified": "2026-07-11 22:43",
-        "size": "4.5 KB"
-      },
-      {
-        "path": "Home.md",
-        "modified": "2026-07-11 22:34",
-        "size": "2.2 KB"
-      },
-      {
-        "path": "04 Reference/Salads - Low Insulin.md",
-        "modified": "2026-07-11 20:59",
-        "size": "1.6 KB"
       }
     ]
   },
@@ -2327,7 +2340,7 @@
         "action": "[speaker:1] to inform the owner about the account suspension to resolve the payment issue and release held shipments.",
         "owner": "",
         "source": "2026-07-03",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-03",
         "board": "morgan",
         "id": "MOR-241"
@@ -2336,7 +2349,7 @@
         "action": "[speaker:3] to send the \"complete guide to Morgan after sales\" document.",
         "owner": "",
         "source": "2026-07-03",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-03",
         "board": "morgan",
         "id": "MOR-242"
@@ -2372,7 +2385,7 @@
         "action": "Formally propose the pricing (\u00a3200 part + \u00a3200 surcharge) and justify the high surcharge to management. [speaker:0]",
         "owner": "",
         "source": "2026-07-06",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-06",
         "board": "morgan",
         "id": "MOR-246"
@@ -2390,7 +2403,7 @@
         "action": "**[speaker:2]** Review seats and other items with Mark to determine what is needed.",
         "owner": "",
         "source": "2026-07-07",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-07",
         "board": "morgan",
         "id": "MOR-248"
@@ -2417,7 +2430,7 @@
         "action": "**[speaker:Mark Evans]** Investigate the feasibility and cost of acquiring a shipping container for long",
         "owner": "term storage.",
         "source": "2026-07-07",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-07",
         "board": "morgan",
         "id": "MOR-251"
@@ -2426,7 +2439,7 @@
         "action": "**[speaker:Mark Evans]** Check with Jamie for any empty stillages to assist with moving materials.",
         "owner": "",
         "source": "2026-07-07",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-07",
         "board": "morgan",
         "id": "MOR-252"
@@ -2435,7 +2448,7 @@
         "action": "**[speaker:Mark Evans]** Ensure the area for the extraction unit installation is completely cleared within the next two weeks.",
         "owner": "",
         "source": "2026-07-07",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-07",
         "board": "morgan",
         "id": "MOR-253"
@@ -2480,7 +2493,7 @@
         "action": "Investigate the feasibility and cost of acquiring a shipping container for long",
         "owner": "term storage. Mark Evans",
         "source": "2026-07-07",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-07",
         "board": "morgan",
         "id": "MOR-258"
@@ -2719,6 +2732,10 @@
   "system": {},
   "weight": {
     "entries": [
+      {
+        "date": "2026-07-13",
+        "weight_lbs": 240.0
+      },
       {
         "date": "2026-07-12",
         "weight_lbs": 239.0
