@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T22:31:30.522280+00:00",
+  "generated_at": "2026-07-14T23:32:30.622519+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -117,8 +117,8 @@
         "display": "every 360m"
       },
       "enabled": true,
-      "next_run": "2026-07-14T23:17:37.768720+00:00",
-      "last_run": "2026-07-14T17:17:37.768720+00:00",
+      "next_run": "2026-07-15T05:18:41.794667+00:00",
+      "last_run": "2026-07-14T23:18:41.794667+00:00",
       "last_status": "ok"
     },
     {
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-07-14T23:31:27.091312+00:00",
-      "last_run": "2026-07-14T21:30:38.146760+00:00",
+      "next_run": "2026-07-15T00:32:27.443045+00:00",
+      "last_run": "2026-07-14T22:31:37.233570+00:00",
       "last_status": "ok"
     },
     {
@@ -189,8 +189,8 @@
         "display": "0 23 * * *"
       },
       "enabled": true,
-      "next_run": "2026-07-14T23:00:00+00:00",
-      "last_run": "2026-07-13T23:03:38.159182+00:00",
+      "next_run": "2026-07-15T23:00:00+00:00",
+      "last_run": "2026-07-14T23:05:14.266295+00:00",
       "last_status": "ok"
     },
     {
@@ -261,8 +261,8 @@
         "display": "every 360m"
       },
       "enabled": true,
-      "next_run": "2026-07-14T23:12:26.481276+00:00",
-      "last_run": "2026-07-14T17:12:26.481276+00:00",
+      "next_run": "2026-07-15T05:12:28.507824+00:00",
+      "last_run": "2026-07-14T23:12:28.507824+00:00",
       "last_status": "ok"
     },
     {
@@ -364,6 +364,16 @@
     ],
     "recent_files": [
       {
+        "path": "08 OWL/Learnings/Technical Notes.md",
+        "modified": "2026-07-14 23:04",
+        "size": "17.1 KB"
+      },
+      {
+        "path": "08 OWL/Daily Log/2026-07-14.md",
+        "modified": "2026-07-14 23:04",
+        "size": "3.7 KB"
+      },
+      {
         "path": "08 OWL/Memories/Environment & Access.md",
         "modified": "2026-07-14 11:03",
         "size": "2.9 KB"
@@ -384,11 +394,6 @@
         "size": "30.2 KB"
       },
       {
-        "path": "08 OWL/Learnings/Technical Notes.md",
-        "modified": "2026-07-13 23:03",
-        "size": "15.3 KB"
-      },
-      {
         "path": "08 OWL/Daily Log/2026-07-13.md",
         "modified": "2026-07-13 23:03",
         "size": "3.6 KB"
@@ -407,11 +412,6 @@
         "path": "00 Inbox/YouTube Transcript Scraper - pending cookies.md",
         "modified": "2026-07-13 17:43",
         "size": "2.3 KB"
-      },
-      {
-        "path": "08 OWL/Decisions/2026-07-13 - Obsidian iframe embed unreliable at work.md",
-        "modified": "2026-07-13 13:43",
-        "size": "1.8 KB"
       }
     ]
   },
