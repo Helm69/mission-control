@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T14:47:41.214543+00:00",
+  "generated_at": "2026-07-15T15:48:40.656624+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-07-15T15:47:36.098861+00:00",
-      "last_run": "2026-07-15T13:46:48.347209+00:00",
+      "next_run": "2026-07-15T16:48:36.445630+00:00",
+      "last_run": "2026-07-15T14:47:46.985753+00:00",
       "last_status": "ok"
     },
     {
@@ -321,6 +321,7 @@
       "00 Inbox/Assets",
       "00 Inbox/Assets/Colors",
       "01 Meetings/Work/After Sales",
+      "01 Meetings/Work/Department Meetings",
       "01 Meetings/Work/Midland Alloy",
       "01 Meetings/Work/Operations",
       "01 Meetings/Work/People",
@@ -365,6 +366,11 @@
     ],
     "recent_files": [
       {
+        "path": "01 Meetings/Work/Midland Alloy/2026-07-15 - Meeting - Midland Alloy - Weekly Update.md",
+        "modified": "2026-07-15 14:57",
+        "size": "2.7 KB"
+      },
+      {
         "path": "08 OWL/Memories/Environment & Access.md",
         "modified": "2026-07-15 12:33",
         "size": "3.7 KB"
@@ -408,11 +414,6 @@
         "path": "08 OWL/Learnings/Technical Notes.md",
         "modified": "2026-07-14 23:04",
         "size": "17.1 KB"
-      },
-      {
-        "path": "08 OWL/Daily Log/2026-07-14.md",
-        "modified": "2026-07-14 23:04",
-        "size": "3.7 KB"
       }
     ]
   },
@@ -2709,37 +2710,122 @@
         "id": "1784101873.168304",
         "content": "[David Ribnick] Verify customer's vehicle issue and contact Mr. Eggenberger for alignment check",
         "status": "todo",
-        "created": "2026-07-15 07:51"
+        "created": "2026-07-15 07:51",
+        "board": "morgan",
+        "action": "Verify customer's vehicle issue and contact Mr. Eggenberger for alignment check",
+        "owner": "David Ribnick",
+        "added": "2026-07-15",
+        "source": "2026-07-15"
       },
       {
         "id": "1784101873.201476",
         "content": "[David Ribnick] Complete and submit account setup forms to Morgan team",
         "status": "todo",
-        "created": "2026-07-15 07:51"
+        "created": "2026-07-15 07:51",
+        "board": "morgan",
+        "action": "Complete and submit account setup forms to Morgan team",
+        "owner": "David Ribnick",
+        "added": "2026-07-15",
+        "source": "2026-07-15"
       },
       {
         "id": "1784101873.233546",
         "content": "[David Ribnick] Send VIN numbers and list of missing cup holders to Morgan team",
         "status": "todo",
-        "created": "2026-07-15 07:51"
+        "created": "2026-07-15 07:51",
+        "board": "morgan",
+        "action": "Send VIN numbers and list of missing cup holders to Morgan team",
+        "owner": "David Ribnick",
+        "added": "2026-07-15",
+        "source": "2026-07-15"
       },
       {
         "id": "1784101873.267502",
         "content": "[Andy Blackwell] Set up access to O Build system for dealership staff",
         "status": "todo",
-        "created": "2026-07-15 07:51"
+        "created": "2026-07-15 07:51",
+        "board": "morgan",
+        "action": "Set up access to O Build system for dealership staff",
+        "owner": "Andy Blackwell",
+        "added": "2026-07-15",
+        "source": "2026-07-15"
       },
       {
         "id": "1784101873.302251",
         "content": "[Mark Evans] Provide recommended stock list and parts pricing information to David Ribnick",
         "status": "todo",
-        "created": "2026-07-15 07:51"
+        "created": "2026-07-15 07:51",
+        "board": "morgan",
+        "action": "Provide recommended stock list and parts pricing information to David Ribnick",
+        "owner": "Mark Evans",
+        "added": "2026-07-15",
+        "source": "2026-07-15"
       },
       {
         "id": "1784101873.336173",
         "content": "[John Bower] Update customer on alignment issue resolution and contact details",
         "status": "todo",
-        "created": "2026-07-15 07:51"
+        "created": "2026-07-15 07:51",
+        "board": "morgan",
+        "action": "Update customer on alignment issue resolution and contact details",
+        "owner": "John Bower",
+        "added": "2026-07-15",
+        "source": "2026-07-15"
+      },
+      {
+        "id": "1784127464.955176",
+        "content": "[Greg Bijas] Send samples to a lab to identify the cause of pinholes",
+        "status": "todo",
+        "created": "2026-07-15 14:57",
+        "board": "morgan",
+        "action": "Send samples to a lab to identify the cause of pinholes",
+        "owner": "Greg Bijas",
+        "added": "2026-07-15",
+        "source": "2026-07-15"
+      },
+      {
+        "id": "1784127464.975906",
+        "content": "[Greg Bijas] Prepare three bars for testing with drilled and soldered pinholes",
+        "status": "todo",
+        "created": "2026-07-15 14:57",
+        "board": "morgan",
+        "action": "Prepare three bars for testing with drilled and soldered pinholes",
+        "owner": "Greg Bijas",
+        "added": "2026-07-15",
+        "source": "2026-07-15"
+      },
+      {
+        "id": "1784127464.999007",
+        "content": "[Greg Bijas] Provide updates on progress by Friday or Monday",
+        "status": "todo",
+        "created": "2026-07-15 14:57",
+        "board": "morgan",
+        "action": "Provide updates on progress by Friday or Monday",
+        "owner": "Greg Bijas",
+        "added": "2026-07-15",
+        "source": "2026-07-15"
+      },
+      {
+        "id": "1784127465.020564",
+        "content": "[Greg Bijas] Build one MW50 and two MW52 windscreens by the end of the week",
+        "status": "todo",
+        "created": "2026-07-15 14:57",
+        "board": "morgan",
+        "action": "Build one MW50 and two MW52 windscreens by the end of the week",
+        "owner": "Greg Bijas",
+        "added": "2026-07-15",
+        "source": "2026-07-15"
+      },
+      {
+        "id": "1784127465.041316",
+        "content": "[Greg Bijas] Prepare five sets of rubbers for a customer",
+        "status": "todo",
+        "created": "2026-07-15 14:57",
+        "board": "morgan",
+        "action": "Prepare five sets of rubbers for a customer",
+        "owner": "Greg Bijas",
+        "added": "2026-07-15",
+        "source": "2026-07-15"
       }
     ]
   },
