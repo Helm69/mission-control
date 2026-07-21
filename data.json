@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T05:01:01.400067+00:00",
+  "generated_at": "2026-07-21T05:35:02.051251+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -165,7 +165,7 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-07-21T05:33:57.361706+00:00",
+      "next_run": "2026-07-21T06:34:53.552128+00:00",
       "last_run": "2026-07-21T04:33:57.361706+00:00",
       "last_status": "ok"
     },
@@ -202,7 +202,7 @@
       },
       "enabled": true,
       "next_run": "2026-07-22T05:00:00+00:00",
-      "last_run": "2026-07-20T05:06:22.562000+00:00",
+      "last_run": "2026-07-21T05:03:26.271928+00:00",
       "last_status": "ok"
     },
     {
@@ -249,8 +249,8 @@
         "display": "every 360m"
       },
       "enabled": true,
-      "next_run": "2026-07-21T05:15:35.387101+00:00",
-      "last_run": "2026-07-20T23:15:35.387101+00:00",
+      "next_run": "2026-07-21T11:15:54.671139+00:00",
+      "last_run": "2026-07-21T05:15:54.671139+00:00",
       "last_status": "ok"
     },
     {
@@ -2662,7 +2662,7 @@
         "action": "Source a job-share partner to cover Danielle's remaining 3 days/week (she returns 2 days/week)",
         "owner": "Mark Evans",
         "source": "2026-07-09",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-14",
         "board": "morgan",
         "id": "MOR-265"
@@ -2671,7 +2671,7 @@
         "action": "Address Barcelona dealer poor customer service escalation",
         "owner": "John Bower",
         "source": "2026-07-09",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-14",
         "board": "morgan",
         "id": "MOR-266"
@@ -2680,7 +2680,7 @@
         "action": "Resolve recurring water ingress issues on vehicles",
         "owner": "Mark Evans",
         "source": "2026-07-09",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-14",
         "board": "morgan",
         "id": "MOR-267"
@@ -2710,7 +2710,7 @@
       {
         "id": "1784101873.233546",
         "content": "[David Ribnick] Send VIN numbers and list of missing cup holders to Morgan team",
-        "status": "todo",
+        "status": "completed",
         "created": "2026-07-15 07:51",
         "board": "morgan",
         "action": "Send VIN numbers and list of missing cup holders to Morgan team",
@@ -2721,7 +2721,7 @@
       {
         "id": "1784101873.267502",
         "content": "[Andy Blackwell] Set up access to O Build system for dealership staff",
-        "status": "todo",
+        "status": "completed",
         "created": "2026-07-15 07:51",
         "board": "morgan",
         "action": "Set up access to O Build system for dealership staff",
@@ -2732,7 +2732,7 @@
       {
         "id": "1784101873.302251",
         "content": "[Mark Evans] Provide recommended stock list and parts pricing information to David Ribnick",
-        "status": "todo",
+        "status": "completed",
         "created": "2026-07-15 07:51",
         "board": "morgan",
         "action": "Provide recommended stock list and parts pricing information to David Ribnick",
@@ -2743,7 +2743,7 @@
       {
         "id": "1784101873.336173",
         "content": "[John Bower] Update customer on alignment issue resolution and contact details",
-        "status": "todo",
+        "status": "completed",
         "created": "2026-07-15 07:51",
         "board": "morgan",
         "action": "Update customer on alignment issue resolution and contact details",
@@ -2810,7 +2810,7 @@
         "action": "Send samples to a lab to identify the cause of pinholes in frames.",
         "owner": "Greg Bijas",
         "source": "2026-07-15 Midland Alloy - Weekly Update",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-268"
@@ -2819,7 +2819,7 @@
         "action": "Prepare three bars for testing with drilled and soldered pinholes.",
         "owner": "Greg Bijas",
         "source": "2026-07-15 Midland Alloy - Weekly Update",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-269"
@@ -2828,7 +2828,7 @@
         "action": "Provide updates on frame-issue progress by Friday or Monday at the latest.",
         "owner": "Greg Bijas",
         "source": "2026-07-15 Midland Alloy - Weekly Update",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-270"
@@ -2837,7 +2837,7 @@
         "action": "Build one MW50 and two MW52 windscreens by the end of the week.",
         "owner": "Greg Bijas",
         "source": "2026-07-15 Midland Alloy - Weekly Update",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-271"
@@ -2846,7 +2846,7 @@
         "action": "Prepare five sets of rubbers for a customer.",
         "owner": "Greg Bijas",
         "source": "2026-07-15 Midland Alloy - Weekly Update",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-272"
@@ -2855,7 +2855,7 @@
         "action": "Verify customer's vehicle issue and contact Mr. Eggenberger for alignment check.",
         "owner": "David Ribnick",
         "source": "2026-07-15 David Ribnick Dealership Onboarding",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-273"
@@ -2864,7 +2864,7 @@
         "action": "Complete and submit account setup forms to Morgan team.",
         "owner": "David Ribnick",
         "source": "2026-07-15 David Ribnick Dealership Onboarding",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-274"
@@ -2873,7 +2873,7 @@
         "action": "Send VIN numbers and list of missing cup holders to Morgan team.",
         "owner": "David Ribnick",
         "source": "2026-07-15 David Ribnick Dealership Onboarding",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-275"
@@ -2882,7 +2882,7 @@
         "action": "Set up access to O Build system for dealership staff.",
         "owner": "Andy Blackwell",
         "source": "2026-07-15 David Ribnick Dealership Onboarding",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-276"
@@ -2891,7 +2891,7 @@
         "action": "Provide recommended stock list and parts pricing information to David Ribnick.",
         "owner": "Mark Evans",
         "source": "2026-07-15 David Ribnick Dealership Onboarding",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-277"
@@ -2900,7 +2900,7 @@
         "action": "Update customer on alignment issue resolution and contact details.",
         "owner": "John Bower",
         "source": "2026-07-15 David Ribnick Dealership Onboarding",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-278"
@@ -2909,7 +2909,7 @@
         "action": "Clear out and scrap unnecessary items from the area above the trim shop (e.g., old carpets).",
         "owner": "S2",
         "source": "2026-07-07 Storage Space Crisis",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-279"
@@ -2918,7 +2918,7 @@
         "action": "Review seats and other items with Mark to determine what is needed.",
         "owner": "S2",
         "source": "2026-07-07 Storage Space Crisis",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-280"
@@ -2927,7 +2927,7 @@
         "action": "Consolidate all remaining essential items into a temporary holding area.",
         "owner": "ME",
         "source": "2026-07-07 Storage Space Crisis",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-281"
@@ -2936,7 +2936,7 @@
         "action": "Assess the total volume of consolidated items to inform the final storage decision.",
         "owner": "S5",
         "source": "2026-07-07 Storage Space Crisis",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-282"
@@ -2945,7 +2945,7 @@
         "action": "Investigate the feasibility and cost of acquiring a shipping container for long-term storage.",
         "owner": "ME",
         "source": "2026-07-07 Storage Space Crisis",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-283"
@@ -2954,7 +2954,7 @@
         "action": "Check with Jamie for any empty stillages to assist with moving materials.",
         "owner": "ME",
         "source": "2026-07-07 Storage Space Crisis",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-284"
@@ -2963,7 +2963,7 @@
         "action": "Ensure the area for the extraction unit installation is completely cleared within the next two weeks.",
         "owner": "ME",
         "source": "2026-07-07 Storage Space Crisis",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-285"
@@ -3112,6 +3112,10 @@
   "system": {},
   "weight": {
     "entries": [
+      {
+        "date": "2026-07-21",
+        "weight_lbs": 236.0
+      },
       {
         "date": "2026-07-20",
         "weight_lbs": 236.0
