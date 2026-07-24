@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T17:18:26.028076+00:00",
+  "generated_at": "2026-07-24T18:19:24.892331+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-07-24T18:18:22.288085+00:00",
-      "last_run": "2026-07-24T16:17:45.859053+00:00",
+      "next_run": "2026-07-24T19:19:22.638905+00:00",
+      "last_run": "2026-07-24T17:18:29.176797+00:00",
       "last_status": "ok"
     },
     {
@@ -288,18 +288,6 @@
       "next_run": "2026-07-25T06:10:00+00:00",
       "last_run": "2026-07-24T06:10:10.210174+00:00",
       "last_status": "ok"
-    },
-    {
-      "name": "Sitara food recommendations reminder",
-      "schedule": {
-        "kind": "once",
-        "run_at": "2026-07-24T18:00:00+00:00",
-        "display": "once at 2026-07-24 18:00"
-      },
-      "enabled": true,
-      "next_run": "2026-07-24T18:00:00+00:00",
-      "last_run": null,
-      "last_status": null
     },
     {
       "name": "Memory Vault Sync",
