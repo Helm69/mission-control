@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T21:22:25.404081+00:00",
+  "generated_at": "2026-07-24T22:23:30.861162+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-07-24T22:22:23.667639+00:00",
-      "last_run": "2026-07-24T20:21:28.841200+00:00",
+      "next_run": "2026-07-24T23:23:23.998439+00:00",
+      "last_run": "2026-07-24T21:22:29.080704+00:00",
       "last_status": "ok"
     },
     {
@@ -2414,7 +2414,7 @@
         "action": "**[speaker:2]** Clear out and scrap unnecessary items from the area above the trim shop (e.g., old carpets).",
         "owner": "",
         "source": "2026-07-07",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-07",
         "board": "morgan",
         "id": "MOR-247"
@@ -2477,7 +2477,7 @@
         "action": "Clear out and scrap unnecessary items from the area above the trim shop (e.g., old carpets). Speaker 2",
         "owner": "",
         "source": "2026-07-07",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-07",
         "board": "morgan",
         "id": "MOR-254"
@@ -2486,7 +2486,7 @@
         "action": "Review seats and other items with Mark to determine what is needed. Speaker 2",
         "owner": "",
         "source": "2026-07-07",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-07",
         "board": "morgan",
         "id": "MOR-255"
@@ -2495,7 +2495,7 @@
         "action": "Consolidate all remaining essential items into a temporary holding area. Mark Evans",
         "owner": "",
         "source": "2026-07-07",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-07",
         "board": "morgan",
         "id": "MOR-256"
@@ -2504,7 +2504,7 @@
         "action": "Assess the total volume of consolidated items to inform the final storage decision. Speaker 5",
         "owner": "",
         "source": "2026-07-07",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-07",
         "board": "morgan",
         "id": "MOR-257"
@@ -2522,7 +2522,7 @@
         "action": "Check with Jamie for any empty stillages to assist with moving materials. Mark Evans",
         "owner": "",
         "source": "2026-07-07",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-07",
         "board": "morgan",
         "id": "MOR-259"
@@ -2531,7 +2531,7 @@
         "action": "Ensure the area for the extraction unit installation is completely cleared within the next two weeks. Mark Evans",
         "owner": "",
         "source": "2026-07-07",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-07",
         "board": "morgan",
         "id": "MOR-260"
@@ -2639,7 +2639,7 @@
         "action": "Clear area above trim & paint shop and move all chassis from behind woodshed before the upcoming shutdown (2-week deadline)",
         "owner": "Mark Evans",
         "source": "2026-07-09",
-        "status": "todo",
+        "status": "completed",
         "added": "2026-07-14",
         "board": "morgan",
         "id": "MOR-261"
@@ -2701,7 +2701,7 @@
       {
         "id": "1784101873.168304",
         "content": "[David Ribnick] Verify customer's vehicle issue and contact Mr. Eggenberger for alignment check",
-        "status": "todo",
+        "status": "completed",
         "created": "2026-07-15 07:51",
         "board": "morgan",
         "action": "Verify customer's vehicle issue and contact Mr. Eggenberger for alignment check",
@@ -2712,7 +2712,7 @@
       {
         "id": "1784101873.201476",
         "content": "[David Ribnick] Complete and submit account setup forms to Morgan team",
-        "status": "todo",
+        "status": "completed",
         "created": "2026-07-15 07:51",
         "board": "morgan",
         "action": "Complete and submit account setup forms to Morgan team",
@@ -2767,7 +2767,7 @@
       {
         "id": "1784127464.955176",
         "content": "[Greg Bijas] Send samples to a lab to identify the cause of pinholes",
-        "status": "todo",
+        "status": "completed",
         "created": "2026-07-15 14:57",
         "board": "morgan",
         "action": "Send samples to a lab to identify the cause of pinholes",
@@ -2778,7 +2778,7 @@
       {
         "id": "1784127464.975906",
         "content": "[Greg Bijas] Prepare three bars for testing with drilled and soldered pinholes",
-        "status": "todo",
+        "status": "completed",
         "created": "2026-07-15 14:57",
         "board": "morgan",
         "action": "Prepare three bars for testing with drilled and soldered pinholes",
@@ -2789,7 +2789,7 @@
       {
         "id": "1784127464.999007",
         "content": "[Greg Bijas] Provide updates on progress by Friday or Monday",
-        "status": "todo",
+        "status": "completed",
         "created": "2026-07-15 14:57",
         "board": "morgan",
         "action": "Provide updates on progress by Friday or Monday",
@@ -2800,7 +2800,7 @@
       {
         "id": "1784127465.020564",
         "content": "[Greg Bijas] Build one MW50 and two MW52 windscreens by the end of the week",
-        "status": "todo",
+        "status": "completed",
         "created": "2026-07-15 14:57",
         "board": "morgan",
         "action": "Build one MW50 and two MW52 windscreens by the end of the week",
