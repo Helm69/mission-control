@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T05:01:13.211174+00:00",
+  "generated_at": "2026-07-25T05:30:01.112626+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -165,7 +165,7 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-07-25T05:29:14.373528+00:00",
+      "next_run": "2026-07-25T06:29:58.847041+00:00",
       "last_run": "2026-07-25T04:29:14.373528+00:00",
       "last_status": "ok"
     },
@@ -202,7 +202,7 @@
       },
       "enabled": true,
       "next_run": "2026-07-26T05:00:00+00:00",
-      "last_run": "2026-07-24T05:01:44.654168+00:00",
+      "last_run": "2026-07-25T05:02:14.729023+00:00",
       "last_status": "ok"
     },
     {
@@ -2980,6 +2980,105 @@
         "added": "2026-07-19",
         "board": "morgan",
         "id": "MOR-285"
+      },
+      {
+        "action": "Communicate Andy Blackwell's move to wider team after summer shutdown",
+        "owner": "Mark Evans",
+        "source": "2026-07-21",
+        "status": "todo",
+        "added": "2026-07-25",
+        "board": "morgan",
+        "id": "MOR-286"
+      },
+      {
+        "action": "Mark Baldwin compile list of required shop tools and equipment",
+        "owner": "Mark Baldwin",
+        "source": "2026-07-21",
+        "status": "todo",
+        "added": "2026-07-25",
+        "board": "morgan",
+        "id": "MOR-287"
+      },
+      {
+        "action": "John Bower discuss departmental productivity and investment with Matt",
+        "owner": "John Bower",
+        "source": "2026-07-21",
+        "status": "todo",
+        "added": "2026-07-25",
+        "board": "morgan",
+        "id": "MOR-288"
+      },
+      {
+        "action": "John Bower invite Jack to spend a week in the department",
+        "owner": "John Bower",
+        "source": "2026-07-21",
+        "status": "todo",
+        "added": "2026-07-25",
+        "board": "morgan",
+        "id": "MOR-289"
+      },
+      {
+        "action": "Resolve pending parts order for customer in Belgium",
+        "owner": "",
+        "source": "2026-07-21",
+        "status": "todo",
+        "added": "2026-07-25",
+        "board": "morgan",
+        "id": "MOR-290"
+      },
+      {
+        "action": "Establish new tooling procurement process",
+        "owner": "",
+        "source": "2026-07-21",
+        "status": "todo",
+        "added": "2026-07-25",
+        "board": "morgan",
+        "id": "MOR-291"
+      },
+      {
+        "action": "Speaker 2 ensure all parts are clearly labelled when put away",
+        "owner": "Speaker 2",
+        "source": "2026-07-21",
+        "status": "todo",
+        "added": "2026-07-25",
+        "board": "morgan",
+        "id": "MOR-292"
+      },
+      {
+        "action": "Speaker 2 maintain separate bins for left-hand and right-hand parts",
+        "owner": "Speaker 2",
+        "source": "2026-07-21",
+        "status": "todo",
+        "added": "2026-07-25",
+        "board": "morgan",
+        "id": "MOR-293"
+      },
+      {
+        "action": "Speaker 2 avoid overcrowding bins and log overspill stock correctly on system",
+        "owner": "Speaker 2",
+        "source": "2026-07-21",
+        "status": "todo",
+        "added": "2026-07-25",
+        "board": "morgan",
+        "id": "MOR-294"
+      },
+      {
+        "action": "Speaker 2 make regular use of online parts book for current models",
+        "owner": "Speaker 2",
+        "source": "2026-07-21",
+        "status": "todo",
+        "added": "2026-07-25",
+        "board": "morgan",
+        "id": "MOR-295"
+      },
+      {
+        "action": "Speaker 2 work on Kanban system optimisation",
+        "owner": "Speaker 2",
+        "source": "2026-07-21",
+        "status": "todo",
+        "added": "2026-07-25",
+        "board": "morgan",
+        "id": "MOR-296"
       }
     ]
   },
