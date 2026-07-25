@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T09:34:06.569000+00:00",
+  "generated_at": "2026-07-25T10:35:02.903638+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-07-25T10:34:00.269818+00:00",
-      "last_run": "2026-07-25T08:33:05.818054+00:00",
+      "next_run": "2026-07-25T11:35:00.614968+00:00",
+      "last_run": "2026-07-25T09:34:26.471079+00:00",
       "last_status": "ok"
     },
     {
@@ -237,8 +237,8 @@
         "display": "55 9 */2 * *"
       },
       "enabled": true,
-      "next_run": "2026-07-25T09:55:00+00:00",
-      "last_run": "2026-07-23T09:55:54.454386+00:00",
+      "next_run": "2026-07-27T09:55:00+00:00",
+      "last_run": "2026-07-25T09:55:38.652068+00:00",
       "last_status": "ok"
     },
     {
@@ -358,6 +358,11 @@
     ],
     "recent_files": [
       {
+        "path": "03 Projects/Tuco Enterprises/Social Media/LinkedIn Draft.md",
+        "modified": "2026-07-25 09:55",
+        "size": "1.0 KB"
+      },
+      {
         "path": "08 OWL/Memories/Conventions & User Preferences.md",
         "modified": "2026-07-25 09:20",
         "size": "1.3 KB"
@@ -401,11 +406,6 @@
         "path": "03 Projects/Tuco Enterprises/Reports/Tuco-Enterprises-Growth-Audit-2026-07-23.md",
         "modified": "2026-07-23 20:45",
         "size": "13.6 KB"
-      },
-      {
-        "path": "Action Items - Live.md",
-        "modified": "2026-07-23 06:00",
-        "size": "32.5 KB"
       }
     ]
   },
