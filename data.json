@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T06:32:14.477460+00:00",
+  "generated_at": "2026-08-04T07:35:30.697174+00:00",
   "cron_jobs": [
     {
       "name": "RPG Weekly Brief",
@@ -165,8 +165,8 @@
         "display": "every 60m"
       },
       "enabled": true,
-      "next_run": "2026-08-04T07:30:16.880105+00:00",
-      "last_run": "2026-08-04T05:29:45.231786+00:00",
+      "next_run": "2026-08-04T08:35:17.276681+00:00",
+      "last_run": "2026-08-04T06:35:07.610011+00:00",
       "last_status": "ok"
     },
     {
@@ -273,8 +273,8 @@
         "display": "0 7 * * *"
       },
       "enabled": true,
-      "next_run": "2026-08-04T07:00:00+00:00",
-      "last_run": "2026-08-03T07:00:07.719165+00:00",
+      "next_run": "2026-08-05T07:00:00+00:00",
+      "last_run": "2026-08-04T07:00:17.250187+00:00",
       "last_status": "ok"
     },
     {
@@ -362,6 +362,11 @@
     ],
     "recent_files": [
       {
+        "path": "06 Infrastructure/VPS Migration Progress Log.md",
+        "modified": "2026-08-04 07:23",
+        "size": "1.6 KB"
+      },
+      {
         "path": "Mission Control Dashboard.md",
         "modified": "2026-08-04 06:10",
         "size": "1.5 KB"
@@ -385,11 +390,6 @@
         "path": "08 OWL/Daily Log/2026-08-03.md",
         "modified": "2026-08-03 23:02",
         "size": "3.6 KB"
-      },
-      {
-        "path": "06 Infrastructure/VPS Migration Progress Log.md",
-        "modified": "2026-08-03 22:27",
-        "size": "2.2 KB"
       },
       {
         "path": "06 Infrastructure/VPS Migration - Current Status.md",
